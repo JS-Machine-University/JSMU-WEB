@@ -16,12 +16,15 @@
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,
+    "paths": {
+      "shared": ["dist/shared"],
+      "@jsmu/shared": ["projects/shared/src/public-api"],
+      "core": ["dist/core"],
+      "@jsmu/core": ["projects/core/src/public-api"]
+    },
     "target": "es2020",
     "module": "es2020",
-    "lib": [
-      "es2020",
-      "dom"
-    ]
+    "lib": ["es2020", "dom"]
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
