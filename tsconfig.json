@@ -18,7 +18,13 @@
     "importHelpers": true,
     "paths": {
       "shared": ["dist/shared"],
-      "@jsmu/shared": ["projects/shared/src/public-api"],
+      "@jsmu/shared": [
+        "projects/shared/src/public-api"
+      ],
+      "common-components": ["dist/common-components"],
+      "@jsmu/common-components": [
+        "projects/common-components/src/public-api"
+      ],
       "core": ["dist/core"],
       "@jsmu/core": ["projects/core/src/public-api"]
     },
