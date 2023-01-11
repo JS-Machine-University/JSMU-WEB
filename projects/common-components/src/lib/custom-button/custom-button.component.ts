@@ -9,6 +9,6 @@ import { UnsubscriptionError } from 'rxjs';
 export class CustomButtonComponent{
   @Input()
   buttonContext: Object = {
-    name: "Login"
+    name: "Button"
   }
 }

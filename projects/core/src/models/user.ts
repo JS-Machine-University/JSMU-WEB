@@ -1,7 +1,10 @@
-import { Roles } from "./roles"
+import { Roles } from "projects/core/src/models/roles";
 
-export interface User{
-    login: String
-    password: String
-    role: Roles
-}
+export interface User {
+    uid: string;
+    email: string;
+    displayName: string;
+    photoURL: string;
+    emailVerified: boolean;
+    role?: Roles
+ }
