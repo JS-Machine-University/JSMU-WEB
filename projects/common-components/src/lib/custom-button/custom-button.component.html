@@ -1,5 +1,3 @@
-<ng-container *ngTemplateOutlet="defaultTemplate; context: buttonContext"></ng-container>
-
-<ng-template #defaultTemplate let-name="name">
-    <button class="common-components__custom-button">{{name}}</button>
-</ng-template>
+<button class="common-components__custom-button">
+  <ng-content></ng-content>
+</button>

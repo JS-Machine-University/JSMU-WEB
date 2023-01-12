@@ -1,4 +1,4 @@
-import { Injectable, NgZone } from '@angular/core';
+import { Injectable} from '@angular/core';
 import { User } from '../../models/user';
 import * as auth from 'firebase/auth';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
@@ -7,7 +7,6 @@ import {
   AngularFirestoreDocument,
 } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
-import {user} from "@angular/fire/auth";
 @Injectable({
   providedIn: 'root',
 })
@@ -16,8 +15,7 @@ export class AuthService {
   constructor(
     public afs: AngularFirestore, // Inject Firestore service
     public afAuth: AngularFireAuth, // Inject Firebase auth service
-    public router: Router,
-    public ngZone: NgZone // NgZone service to remove outside scope warning
+    public router: Router
   ) {
     /* Saving user data in localstorage when
     logged in and setting up null when logged out */
@@ -35,12 +33,11 @@ export class AuthService {
   // Returns true when user is looged in and email is verified
   get isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user')!);
-    return user !== null ? true : false;
+    return user !== null;
   }
   // Sign in with Google
   GoogleAuth() {
-    return this.AuthLogin(new auth.GithubAuthProvider()).then((res: any) => {
-      this.router.navigate(['dashboard']);
+    return this.AuthLogin(new auth.GithubAuthProvider()).then(() => {
     });
   }
   // Auth logic to run auth providers
@@ -49,13 +46,14 @@ export class AuthService {
       .signInWithPopup(provider)
       .then((result) => {
         this.SetUserData(result.user);
-        setTimeout(() => {
-          this.router.navigate(['dashboard']);
-        },1000);
       })
       .catch((error) => {
         window.alert(error);
       });
+  }
+
+  RoutNavigate(rout : String){
+    this.router.navigate([rout])
   }
   /* Setting up user data when sign in with username/password,
   sign up with username/password and sign in with social auth
