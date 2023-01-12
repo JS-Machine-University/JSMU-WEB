@@ -19,6 +19,8 @@ import { environment } from '../environments/environment';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AuthService } from '../../projects/core/src/services/auth/auth.service';
+import {CommonComponentsModule} from "@jsmu/common-components";
+import { RoleSelectComponent } from './components/role-select/role-select.component';
 
 @NgModule({
 	declarations: [AppComponent],

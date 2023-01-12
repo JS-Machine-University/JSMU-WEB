@@ -7,8 +7,4 @@ import { UnsubscriptionError } from 'rxjs';
   styleUrls: ['./custom-button.component.scss']
 })
 export class CustomButtonComponent{
-  @Input()
-  buttonContext: Object = {
-    name: "Button"
-  }
 }

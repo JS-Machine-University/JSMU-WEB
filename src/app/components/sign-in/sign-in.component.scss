@@ -1,0 +1,12 @@
+.jsmu-main{
+  width: 100vw;
+  height: 100vh;
+  background-color: #111122;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__button{
+    font-family: "Roboto Light";
+  }
+}
