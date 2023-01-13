@@ -1,9 +1,9 @@
 import {Component} from '@angular/core';
-import {AuthService} from 'projects/core/src/services/auth/auth.service';
-import {MockDBService} from "../../services/mock-db.service";
+import {AuthService} from 'projects/core/src/lib/authorization/services/auth/auth.service';
+import {MockDBService} from "../../services/mockDB/mock-db.service";
 
 @Component({
-  selector: 'app-sign-in',
+  selector: 'jsmu-sign-in',
   templateUrl: './sign-in.component.html',
   styleUrls: ['./sign-in.component.scss']
 })

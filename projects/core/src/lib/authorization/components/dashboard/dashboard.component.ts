@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../../../projects/core/src/services/auth/auth.service';
-import {MockDBService} from "../../services/mock-db.service";
-import {User} from '../../../../projects/core/src/models/user'
-import {Roles} from "../../../../projects/core/src/models/roles";
+import { AuthService } from '../../services/auth/auth.service';
+import {MockDBService} from "../../services/mockDB/mock-db.service";
+import {User} from '../../models/user'
+import {Roles} from "../../models/roles";
 @Component({
-  selector: 'app-dashboard',
+  selector: 'jsmu-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
 })
