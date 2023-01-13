@@ -1,4 +1,4 @@
-import { Roles } from "projects/core/src/models/roles";
+import { Roles } from "projects/core/src/lib/authorization/models/roles";
 
 export interface User {
     uid: string;

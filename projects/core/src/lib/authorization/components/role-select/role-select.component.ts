@@ -1,11 +1,11 @@
 import {Component} from '@angular/core';
-import {AuthService} from "../../../../projects/core/src/services/auth/auth.service";
-import {Roles} from "../../../../projects/core/src/models/roles";
-import {User} from "../../../../projects/core/src/models/user"
-import {MockDBService} from "../../services/mock-db.service";
+import {AuthService} from "../../services/auth/auth.service";
+import {Roles} from "../../models/roles";
+import {User} from "../../models/user"
+import {MockDBService} from "../../services/mockDB/mock-db.service";
 
 @Component({
-  selector: 'app-role-select',
+  selector: 'jsmu-role-select',
   templateUrl: './role-select.component.html',
   styleUrls: ['./role-select.component.scss']
 })
