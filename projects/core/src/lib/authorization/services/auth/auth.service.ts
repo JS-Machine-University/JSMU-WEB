@@ -1,4 +1,4 @@
-import { Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 import { User } from '../../models/user';
 import * as auth from 'firebase/auth';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
@@ -7,6 +7,7 @@ import {
   AngularFirestoreDocument,
 } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
+
 @Injectable({
   providedIn: 'root',
 })
@@ -23,42 +24,41 @@ export class AuthService {
       if (user) {
         this.userData = user;
         localStorage.setItem('user', JSON.stringify(this.userData));
-        JSON.parse(localStorage.getItem('user')!);
+        //JSON.parse(localStorage.getItem('user')!);
       } else {
         localStorage.setItem('user', 'null');
-        JSON.parse(localStorage.getItem('user')!);
+        //JSON.parse(localStorage.getItem('user')!);
       }
     });
   }
   // Returns true when user is looged in and email is verified
-  get isLoggedIn(): boolean {
+  public get isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user')!);
     return user !== null;
   }
   // Sign in with Google
-  GoogleAuth() {
-    return this.AuthLogin(new auth.GithubAuthProvider()).then(() => {
-    });
+  public gitHubAuth(): Promise<void> {
+    return this.authLogin(new auth.GithubAuthProvider()).then(() => {});
   }
   // Auth logic to run auth providers
-  AuthLogin(provider: any) {
+  public authLogin(provider: any): Promise<void> {
     return this.afAuth
       .signInWithPopup(provider)
       .then((result) => {
-        this.SetUserData(result.user);
+        this.setUserData(result.user);
       })
       .catch((error) => {
         window.alert(error);
       });
   }
 
-  RoutNavigate(rout : String){
-    this.router.navigate([rout])
+  public routNavigate(rout: String): void {
+    this.router.navigate([rout]);
   }
   /* Setting up user data when sign in with username/password,
   sign up with username/password and sign in with social auth
   provider in Firestore database using AngularFirestore + AngularFirestoreDocument service */
-  SetUserData(user: any) {
+  public setUserData(user: any): Promise<void> {
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(
       `users/${user.uid}`
     );
@@ -74,7 +74,7 @@ export class AuthService {
     });
   }
   // Sign out
-  SignOut() {
+  public signOut(): Promise<void> {
     return this.afAuth.signOut().then(() => {
       localStorage.removeItem('user');
       this.router.navigate(['sign-in']);

@@ -1,53 +1,51 @@
-<div class="jsmu__role-select">
-
-  <div class="jsmu__role-select__main-div">
-    <span class="jsmu__role-select__main-div__text">Please select your role below</span>
-    <div class="jsmu__role-select__main-div__roles">
-      <div class="jsmu__role-select__main-div__roles__role">
-        <span class="jsmu__role-select__main-div__roles__role__role-name">Mentee</span>
-        <div class="jsmu__role-select__main-div__roles__role__features">
+<div class="jsmu-role-select">
+  <div class="main-div">
+    <span class="main-div__text">Please select your role below</span>
+    <div class="roles">
+      <div class="role">
+        <span class="role__role-name">Mentee</span>
+        <div class="features">
           <ul>
-            <li class="jsmu__role-select__main-div__roles__role__features__feature">Learn new features</li>
-            <li class="jsmu__role-select__main-div__roles__role__features__feature">Have a talks with best Experts</li>
-            <li class="jsmu__role-select__main-div__roles__role__features__feature">Verify your skills</li>
-            <li class="jsmu__role-select__main-div__roles__role__features__feature">Upgrade your level</li>
+            <li class="features__feature">Learn new features</li>
+            <li class="features__feature">Have a talks with best Experts</li>
+            <li class="features__feature">Verify your skills</li>
+            <li class="features__feature">Upgrade your level</li>
           </ul>
         </div>
-        <lib-custom-button
-          class="jsmu__role-select__main-div__roles__role__button"
-          (click)="roleMentee()"
-        >Select</lib-custom-button>
+        <lib-custom-button class="button" (click)="roleMentee()"
+          >Select</lib-custom-button
+        >
       </div>
-      <div class="jsmu__role-select__main-div__roles__role">
-        <span class="jsmu__role-select__main-div__roles__role__role-name">Expert</span>
-        <div class="jsmu__role-select__main-div__roles__role__features">
+      <div class="role">
+        <span class="role__role-name">Expert</span>
+        <div class="features">
           <ul>
-            <li class="jsmu__role-select__main-div__roles__role__features__feature">Select your mentees</li>
-            <li class="jsmu__role-select__main-div__roles__role__features__feature">Approve their talks</li>
-            <li class="jsmu__role-select__main-div__roles__role__features__feature">Participate in their success</li>
-            <li class="jsmu__role-select__main-div__roles__role__features__feature">Upgrade your mentor skills</li>
+            <li class="features__feature">Select your mentees</li>
+            <li class="features__feature">Approve their talks</li>
+            <li class="features__feature">Participate in their success</li>
+            <li class="features__feature">Upgrade your mentor skills</li>
           </ul>
         </div>
-        <lib-custom-button
-          class="jsmu__role-select__main-div__roles__role__button"
-          (click)="roleExpert()"
-        >Select</lib-custom-button>
+        <lib-custom-button class="button" (click)="roleExpert()"
+          >Select</lib-custom-button
+        >
       </div>
-      <div class="jsmu__role-select__main-div__roles__role">
-        <span class="jsmu__role-select__main-div__roles__role__role-name">RM</span>
-        <div class="jsmu__role-select__main-div__roles__role__features">
+      <div class="role">
+        <span class="role__role-name">RM</span>
+        <div class="features">
           <ul>
-            <li class="jsmu__role-select__main-div__roles__role__features__feature">Control all mentors</li>
-            <li class="jsmu__role-select__main-div__roles__role__features__feature">Watch all mentees improvement</li>
-            <li class="jsmu__role-select__main-div__roles__role__features__feature">Decide which talks are more important</li>
-            <li class="jsmu__role-select__main-div__roles__role__features__feature">Grant new level to mentees</li>
-            <li class="jsmu__role-select__main-div__roles__role__features__feature">Upgrade your leadership skills</li>
+            <li class="features__feature">Control all mentors</li>
+            <li class="features__feature">Watch all mentees improvement</li>
+            <li class="features__feature">
+              Decide which talks are more important
+            </li>
+            <li class="features__feature">Grant new level to mentees</li>
+            <li class="features__feature">Upgrade your leadership skills</li>
           </ul>
         </div>
-        <lib-custom-button
-          class="jsmu__role-select__main-div__roles__role__button"
-          (click)="roleRM()"
-        >Select</lib-custom-button>
+        <lib-custom-button class="button" (click)="roleRM()"
+          >Select</lib-custom-button
+        >
       </div>
     </div>
   </div>

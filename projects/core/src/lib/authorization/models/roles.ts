@@ -1,7 +1,6 @@
-export enum Roles{
-    Mentee = 'Mentee',
-    Expert = 'Expert',
-    RM = 'RM',
-    Coordinator = 'Coordinator',
-    WhithoutRole = 'None'
+export enum Roles {
+  MENTEE = 'MENTEE',
+  EXPERT = 'EXPERT',
+  RM = 'RM',
+  Coordinator = 'Coordinator',
 }

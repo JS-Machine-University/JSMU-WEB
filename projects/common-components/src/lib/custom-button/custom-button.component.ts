@@ -4,7 +4,6 @@ import { UnsubscriptionError } from 'rxjs';
 @Component({
   selector: 'lib-custom-button',
   templateUrl: './custom-button.component.html',
-  styleUrls: ['./custom-button.component.scss']
+  styleUrls: ['./custom-button.component.scss'],
 })
-export class CustomButtonComponent{
-}
+export class CustomButtonComponent {}
