@@ -1,12 +1,15 @@
 {
-	"tabWidth": 2,
-	"useTabs": true,
+	"tabWidth": 4,
 	"printWidth": 100,
+	"useTabs": true,
+	"semi": true,
 	"singleQuote": false,
-	"bracketSpacing": true,
-	"semi": false,
-	"arrowParens": "always",
+	"quoteProps": "as-needed",
 	"trailingComma": "none",
+	"bracketSpacing": true,
+	"arrowParens": "always",
+	"endOfLine": "auto",
+	"htmlWhitespaceSensitivity": "ignore",
 	"overrides": [
 		{
 			"files": "*.component.html",
