@@ -100,6 +100,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "JSMU-WEB:build:production",
+            "firebaseProject": "jsmachine-university",
+            "firebaseHostingSite": "jsmachine-university"
+          }
         }
       }
     },
@@ -196,5 +206,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "09794538-78a4-4f79-94cc-9c218b0d9eb6"
   }
 }

@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "jsmachine-university"
+  },
+  "targets": {
+    "jsmachine-university": {
+      "hosting": {
+        "JSMU-WEB": [
+          "jsmachine-university"
+        ]
+      }
+    }
+  }
+}

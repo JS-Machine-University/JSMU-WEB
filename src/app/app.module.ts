@@ -4,11 +4,21 @@ import { SharedModule } from '@jsmu/shared';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {CommonComponentsModule} from "common-components";
+import { CommonComponentsModule } from '@jsmu/common-components';
+import { environment } from 'src/environments/environment';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, SharedModule, CommonComponentsModule ],
+  imports: [
+    BrowserModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule,
+    AppRoutingModule,
+    SharedModule,
+    CommonComponentsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

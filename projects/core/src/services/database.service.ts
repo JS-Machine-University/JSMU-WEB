@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 
 export interface User {
@@ -8,12 +8,9 @@ export interface User {
   photoURL: string;
   emailVerified: boolean;
 }
-@Component({
-  selector: 'jsmu-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
-})
-export class AppComponent implements OnInit {
+
+@Injectable()
+export class DataBaseService {
   user1: User = {
     uid: '2',
     email: 'ii',
@@ -21,27 +18,22 @@ export class AppComponent implements OnInit {
     photoURL: 'img.jpg',
     emailVerified: true,
   };
-  constructor(private db: AngularFireDatabase) {}
-  ngOnInit(): void {
 
-  }
+  constructor(private db: AngularFireDatabase) {}
+
   getData(): void {
     const ref = this.db.list('users');
     ref.valueChanges().subscribe((data) => {
       data.forEach((user) => {
-        console.log((user as User).uid)
-      })
+        console.log((user as User).uid);
+      });
     });
-  }
-
-  userParse(user: User): string {
-    return JSON.stringify(user)
   }
 
   saveData() {
     const ref = this.db.list('users');
     ref
-      .push(JSON.parse(this.userParse(this.user1)))
+      .push(this.user1)
       .then((resp) => {
         console.log(resp);
       })
