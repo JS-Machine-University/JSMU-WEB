@@ -1,9 +1,14 @@
 <div class="custom">
-  <input type="text" class="formats" placeholder="Enter" #input />
-  <button class="btn" type="button" (click)="saveData()">
-    Save Data
+  <button class="btn" type="button" (click)="saveData('users', user1)">
+    Save User
   </button>
-  <button class="btn" type="button" (click)="getData()">
-    Get Data
+  <button class="btn" type="button" (click)="getData('users', 'uid')">
+    Get User
+  </button>
+  <button class="btn" type="button" (click)="saveData('modules', module1)">
+    Save module
+  </button>
+  <button class="btn" type="button" (click)="getData('modules', 'name')">
+    Get module
   </button>
 </div>

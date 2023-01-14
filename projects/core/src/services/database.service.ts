@@ -1,3 +1,4 @@
+import { Type } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 
@@ -9,31 +10,29 @@ export interface User {
   emailVerified: boolean;
 }
 
+export interface JSModule {
+  name: string;
+  description: string
+}
+
 @Injectable()
 export class DataBaseService {
-  user1: User = {
-    uid: '2',
-    email: 'ii',
-    displayName: 'irada',
-    photoURL: 'img.jpg',
-    emailVerified: true,
-  };
 
   constructor(private db: AngularFireDatabase) {}
 
-  getData(): void {
-    const ref = this.db.list('users');
+  getData(listType: string, field: string): void {
+    const ref = this.db.list(`${listType}`);
     ref.valueChanges().subscribe((data) => {
-      data.forEach((user) => {
-        console.log((user as User).uid);
+      data.forEach((inst: any) => {
+        console.log(inst[field]);
       });
     });
   }
 
-  saveData() {
-    const ref = this.db.list('users');
+  saveData(listType: string, data: any) {
+    const ref = this.db.list(`${listType}`);
     ref
-      .push(this.user1)
+      .push(data)
       .then((resp) => {
         console.log(resp);
       })

@@ -8,6 +8,7 @@ import { CommonComponentsModule } from '@jsmu/common-components';
 import { environment } from 'src/environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { DataBaseService } from 'projects/core/src/services/database.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,7 +20,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
     SharedModule,
     CommonComponentsModule,
   ],
-  providers: [],
+  providers: [DataBaseService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

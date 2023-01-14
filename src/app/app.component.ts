@@ -1,19 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import { AngularFireDatabase } from '@angular/fire/compat/database';
+import { Component } from '@angular/core';
+import {
+  DataBaseService,
+  JSModule,
+  User,
+} from 'projects/core/src/services/database.service';
 
-export interface User {
-  uid: string;
-  email: string;
-  displayName: string;
-  photoURL: string;
-  emailVerified: boolean;
-}
 @Component({
   selector: 'jsmu-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   user1: User = {
     uid: '2',
     email: 'ii',
@@ -21,32 +18,16 @@ export class AppComponent implements OnInit {
     photoURL: 'img.jpg',
     emailVerified: true,
   };
-  constructor(private db: AngularFireDatabase) {}
-  ngOnInit(): void {
+  module1: JSModule = {
+    name: 'module1',
+    description: 'blabla',
+  };
+  constructor(private db: DataBaseService) {}
 
+  saveData(listType: string, data: object) {
+    this.db.saveData(listType, data);
   }
-  getData(): void {
-    const ref = this.db.list('users');
-    ref.valueChanges().subscribe((data) => {
-      data.forEach((user) => {
-        console.log((user as User).uid)
-      })
-    });
-  }
-
-  userParse(user: User): string {
-    return JSON.stringify(user)
-  }
-
-  saveData() {
-    const ref = this.db.list('users');
-    ref
-      .push(JSON.parse(this.userParse(this.user1)))
-      .then((resp) => {
-        console.log(resp);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+  getData(listType: string, field: string) {
+    this.db.getData(listType, field);
   }
 }
