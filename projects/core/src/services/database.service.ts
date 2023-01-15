@@ -1,6 +1,8 @@
-import { Type } from '@angular/compiler';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
+import { catchError, map, Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 export interface User {
   uid: string;
@@ -12,32 +14,35 @@ export interface User {
 
 export interface JSModule {
   name: string;
-  description: string
+  description: string;
 }
 
 @Injectable()
 export class DataBaseService {
+  constructor(private db: AngularFireDatabase, private http: HttpClient) {}
 
-  constructor(private db: AngularFireDatabase) {}
-
-  getData(listType: string, field: string): void {
-    const ref = this.db.list(`${listType}`);
-    ref.valueChanges().subscribe((data) => {
-      data.forEach((inst: any) => {
-        console.log(inst[field]);
-      });
-    });
+  public getData(listType: string, field: string): Observable<any> {
+    return this.http
+      .get<User | JSModule>(
+        `${environment.firebaseConfig.databaseURL}/${listType}.json`
+      )
+      .pipe(
+        map((data) => {
+          return Object.values(data)[0][field];
+        })
+      );
   }
 
-  saveData(listType: string, data: any) {
-    const ref = this.db.list(`${listType}`);
-    ref
-      .push(data)
-      .then((resp) => {
-        console.log(resp);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+  public saveData(listType: string, newData: any): Observable<any> {
+    return this.http
+      .post<User | JSModule>(
+        `${environment.firebaseConfig.databaseURL}/${listType}.json`,
+        newData
+      )
+      .pipe(
+        catchError((err) => {
+          return err;
+        })
+      );
   }
 }
