@@ -4,6 +4,7 @@ import {
   JSModule,
   User,
 } from 'projects/core/src/services/database.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'jsmu-root',
@@ -22,12 +23,15 @@ export class AppComponent {
     name: 'module1',
     description: 'blabla',
   };
+
   constructor(private db: DataBaseService) {}
 
-  saveData(listType: string, data: object) {
-    this.db.saveData(listType, data);
+  saveData(listType: string, data: object): void {
+    this.db
+      .saveData(listType, data)
+      .subscribe();
   }
-  getData(listType: string, field: string) {
-    this.db.getData(listType, field);
+  getData(listType: string, field: string): void {
+    this.db.getData(listType, field).subscribe();
   }
 }

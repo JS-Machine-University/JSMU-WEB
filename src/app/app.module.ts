@@ -9,6 +9,7 @@ import { environment } from 'src/environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { DataBaseService } from 'projects/core/src/services/database.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,6 +20,7 @@ import { DataBaseService } from 'projects/core/src/services/database.service';
     AppRoutingModule,
     SharedModule,
     CommonComponentsModule,
+    HttpClientModule
   ],
   providers: [DataBaseService],
   bootstrap: [AppComponent],
