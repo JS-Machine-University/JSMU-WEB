@@ -2,12 +2,13 @@ export interface Lesson {
 	id: string;
 	title: string;
 	description: string;
-	files: Resource;
+	files: Resources[];
 	optional: boolean;
-	duration: Date;
+	duration: string;
 }
 
-export interface Resource {
-	fileName: string;
+export interface Resources {
+	name: string;
 	description: string;
+	url: string;
 }
