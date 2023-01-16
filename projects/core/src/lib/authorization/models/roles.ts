@@ -1,6 +1,6 @@
 export enum Roles {
-  MENTEE = 'MENTEE',
-  EXPERT = 'EXPERT',
-  RM = 'RM',
-  Coordinator = 'Coordinator',
+	MENTEE = "MENTEE",
+	EXPERT = "EXPERT",
+	RM = "RM",
+	COORDINATOR = "COORDINATOR"
 }
