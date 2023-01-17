@@ -1,10 +1,10 @@
-import { Resources } from "./resources";
+import { Resource } from "./resource";
 
 export interface Lesson {
 	id: string;
 	title: string;
 	description: string;
-	resources: Resources[];
+	resource: Resource[];
 	optional: boolean;
 	duration: string;
 }
