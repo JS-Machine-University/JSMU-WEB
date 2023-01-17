@@ -4,7 +4,7 @@ export interface Lesson {
 	id: string;
 	title: string;
 	description: string;
-	resource: Resource[];
+	resources: Resource[];
 	optional: boolean;
 	duration: string;
 }
