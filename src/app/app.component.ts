@@ -1,10 +1,6 @@
 import { Component } from '@angular/core';
-import {
-  DataBaseService,
-  JSModule,
-  User,
-} from 'projects/core/src/services/database.service';
-import { Observable } from 'rxjs';
+import { User } from 'projects/core/src/services/database.service';
+import { UsersDataService } from 'projects/core/src/services/users.data.service';
 
 @Component({
   selector: 'jsmu-root',
@@ -13,25 +9,24 @@ import { Observable } from 'rxjs';
 })
 export class AppComponent {
   user1: User = {
+    uid: '1',
+    email: '2',
+    displayName: 'ira',
+    photoURL: 'ira.jpg',
+    emailVerified: false,
+  };
+  user2: User = {
     uid: '2',
-    email: 'ii',
+    email: '3',
     displayName: 'irada',
-    photoURL: 'img.jpg',
+    photoURL: 'irada.jpg',
     emailVerified: true,
   };
-  module1: JSModule = {
-    name: 'module1',
-    description: 'blabla',
-  };
-
-  constructor(private db: DataBaseService) {}
-
-  saveData(listType: string, data: object): void {
-    this.db
-      .saveData(listType, data)
-      .subscribe();
+  constructor(private udb: UsersDataService) {}
+  public saveUser(user: User) {
+    this.udb.saveUser(user).subscribe();
   }
-  getData(listType: string, field: string): void {
-    this.db.getData(listType, field).subscribe();
+  public getUser(field: string) {
+    this.udb.getUser(field).subscribe();
   }
 }
