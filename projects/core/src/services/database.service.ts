@@ -26,13 +26,13 @@ export enum ListType {
 export abstract class DataBaseService<T> {
   constructor(private db: AngularFireDatabase, private http: HttpClient) {}
 
-  public getData<T>(listType: ListType): Observable<T> {
+  protected getData<T>(listType: ListType): Observable<T> {
     return this.http.get<T>(
       `${environment.firebaseConfig.databaseURL}/${listType}.json`
     );
   }
 
-  public saveData<T>(listType: ListType, newData: T): Observable<T> {
+  protected saveData<T>(listType: ListType, newData: T): Observable<T> {
     console.log(newData, listType);
     return this.http.post<T>(
       `${environment.firebaseConfig.databaseURL}/${listType}.json`,
