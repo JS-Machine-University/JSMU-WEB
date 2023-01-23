@@ -1,8 +1,8 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { AngularFireDatabase } from '@angular/fire/compat/database';
-import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
+import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { AngularFireDatabase } from "@angular/fire/compat/database";
+import { Observable } from "rxjs";
+import { environment } from "src/environments/environment";
 
 export interface User {
   uid: string;
@@ -18,8 +18,8 @@ export interface Lesson {
 }
 
 export enum ListType {
-  users = 'users',
-  lessons = 'lessons',
+  users = "users",
+  lessons = "lessons",
 }
 
 @Injectable()
