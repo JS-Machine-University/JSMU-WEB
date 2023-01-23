@@ -4,39 +4,23 @@ import { AngularFireDatabase } from "@angular/fire/compat/database";
 import { Observable } from "rxjs";
 import { environment } from "src/environments/environment";
 
-export interface User {
-  uid: string;
-  email: string;
-  displayName: string;
-  photoURL: string;
-  emailVerified: boolean;
-}
-
-export interface Lesson {
-  name: string;
-  description: string;
-}
-
 export enum ListType {
-  users = "users",
-  lessons = "lessons",
+	USERS = "users",
+	LESSONS = "lessons"
 }
 
 @Injectable()
 export abstract class DataBaseService<T> {
-  constructor(private db: AngularFireDatabase, private http: HttpClient) {}
+	constructor(private db: AngularFireDatabase, private http: HttpClient) {}
 
-  protected getData<T>(listType: ListType): Observable<T> {
-    return this.http.get<T>(
-      `${environment.firebaseConfig.databaseURL}/${listType}.json`
-    );
-  }
+	protected getData<T>(listType: ListType): Observable<T> {
+		return this.http.get<T>(`${environment.firebaseConfig.databaseURL}/${listType}.json`);
+	}
 
-  protected saveData<T>(listType: ListType, newData: T): Observable<T> {
-    console.log(newData, listType);
-    return this.http.post<T>(
-      `${environment.firebaseConfig.databaseURL}/${listType}.json`,
-      newData
-    );
-  }
+	protected saveData<T>(listType: ListType, newData: T): Observable<T> {
+		return this.http.post<T>(
+			`${environment.firebaseConfig.databaseURL}/${listType}.json`,
+			newData
+		);
+	}
 }

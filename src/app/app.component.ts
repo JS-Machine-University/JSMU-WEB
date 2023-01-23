@@ -1,6 +1,5 @@
 import { Component } from "@angular/core";
-import { User } from "projects/core/src/services/database.service";
-import { UsersDataService } from "projects/core/src/services/users.data.service";
+import { User, UsersDataService } from "projects/core/src/services/users.data.service";
 
 @Component({
 	selector: "jsmu-root",
@@ -9,10 +8,10 @@ import { UsersDataService } from "projects/core/src/services/users.data.service"
 })
 export class AppComponent {
 	constructor(private udb: UsersDataService) {}
-	public saveUser(user: User) {
+	public saveUser(user: User): void {
 		this.udb.saveUser(user).subscribe();
 	}
-	public getUser() {
+	public getUser(): void {
 		this.udb.getUser().subscribe();
 	}
 }
