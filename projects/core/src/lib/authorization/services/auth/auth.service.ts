@@ -4,7 +4,8 @@ import * as auth from "firebase/auth";
 import { AngularFireAuth } from "@angular/fire/compat/auth";
 import { AngularFirestore, AngularFirestoreDocument } from "@angular/fire/compat/firestore";
 import { Router } from "@angular/router";
-import { filter, map, Observable, reduce } from "rxjs";
+import { map, Observable } from "rxjs";
+import { Routes } from "../../models/routes";
 
 @Injectable({
 	providedIn: "root"
@@ -15,23 +16,20 @@ export class AuthService {
 		public afAuth: AngularFireAuth,
 		public router: Router
 	) {
+		this.checkAuthState();
+	}
+	public checkAuthState(): void {
 		this.afAuth.authState.subscribe((user) => {
-			if (user) {
-				localStorage.setItem("user", JSON.stringify(user));
-			} else {
-				localStorage.setItem("user", "null");
-			}
+			localStorage.setItem("user", JSON.stringify(user));
 		});
 	}
-
 	public get isLoggedIn(): Observable<boolean> {
 		return this.afAuth.user.pipe(
 			map((user) => {
-				return user?.uid != null && user.uid != undefined;
+				return Boolean(user?.uid);
 			})
 		);
 	}
-
 	public gitHubAuth(): Promise<void> {
 		return this.authLogin(new auth.GithubAuthProvider()).then(() => {});
 	}
@@ -41,9 +39,9 @@ export class AuthService {
 				return {
 					uid: user?.uid,
 					email: user?.email,
-					displayName: user?.displayName,
+					name: user?.displayName,
 					photoURL: user?.photoURL,
-					emailVerified: user?.emailVerified
+					isVerified: user?.emailVerified
 				};
 			})
 		);
@@ -52,30 +50,31 @@ export class AuthService {
 		return this.afAuth
 			.signInWithPopup(provider)
 			.then((result) => {
-				this.setUserData(result.user);
+				if (result.user !== null) {
+					this.setUserData(result.user);
+				}
 			})
 			.catch((error) => {
 				window.alert(error);
 			});
 	}
-	public setUserData(user: any): Promise<void> {
+	public setUserData(user: firebase.default.User): Promise<void> {
 		const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
 		const userData: User = {
 			uid: user.uid,
 			email: user.email,
-			displayName: user.displayName,
+			name: user.displayName,
 			photoURL: user.photoURL,
-			emailVerified: user.emailVerified
+			isVerified: user.emailVerified
 		};
 		return userRef.set(userData, {
 			merge: true
 		});
 	}
-
 	public signOut(): Promise<void> {
 		return this.afAuth.signOut().then(() => {
 			localStorage.removeItem("user");
-			this.router.navigate(["sign-in"]);
+			this.router.navigate([Routes.SIGN_IN]);
 		});
 	}
 }

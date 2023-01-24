@@ -3,6 +3,7 @@ import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from
 import { AuthService } from "../../services/auth/auth.service";
 import { Observable } from "rxjs";
 import { stat } from "ng-packagr/lib/utils/fs";
+import { Routes } from "../../models/routes";
 @Injectable({
 	providedIn: "root"
 })
@@ -14,7 +15,7 @@ export class AuthGuard implements CanActivate {
 	): Observable<boolean> | Promise<boolean> | boolean {
 		this.authService.isLoggedIn.subscribe((state) => {
 			if (!state) {
-				this.router.navigate(["sign-in"]);
+				this.router.navigate([Routes.SIGN_IN]);
 			}
 		});
 		return true;

@@ -1,57 +1,53 @@
-import { Component, OnDestroy } from "@angular/core";
+import { ChangeDetectionStrategy, Component, OnDestroy } from "@angular/core";
 import { AuthService } from "projects/core/src/lib/authorization/services/auth/auth.service";
-import { MockDBService } from "../../services/mockDB/mock-db.service";
 import { Router } from "@angular/router";
 import { User } from "../../models/user";
-import { Subscription } from "rxjs";
+import { Subject, takeUntil } from "rxjs";
+import { Routes } from "../../models/routes";
 
 @Component({
 	selector: "jsmu-sign-in",
 	templateUrl: "./sign-in.component.html",
-	styleUrls: ["./sign-in.component.scss"]
+	styleUrls: ["./sign-in.component.scss"],
+	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SignInComponent implements OnDestroy {
 	public isLogged: boolean = false;
 	public user: User = {
-		displayName: undefined,
+		name: undefined,
 		email: undefined,
-		emailVerified: false,
+		isVerified: false,
 		photoURL: undefined,
 		role: undefined,
 		uid: undefined
 	};
-
-	public isLoggedSub: Subscription = new Subscription();
-	public userSub: Subscription = new Subscription();
-	constructor(
-		public authService: AuthService,
-		public dataService: MockDBService,
-		public router: Router
-	) {}
+	private destroy$: Subject<boolean> = new Subject<boolean>();
+	constructor(public authService: AuthService, public router: Router) {}
 	public login(): void {
 		this.authService.gitHubAuth();
-		this.isLoggedSub = this.authService.isLoggedIn.subscribe((state) => {
+		this.authService.isLoggedIn.pipe(takeUntil(this.destroy$)).subscribe((state) => {
 			this.isLogged = state;
 		});
-		this.userSub = this.authService.getUser().subscribe((sUser) => {
-			this.user = sUser;
-			complete: this.navigateUser(this.isLogged, this.user);
-		});
+		this.authService
+			.getUser()
+			.pipe(takeUntil(this.destroy$))
+			.subscribe((sUser) => {
+				this.user = sUser;
+				complete: this.navigateUser(this.isLogged, this.user);
+			});
 	}
-
-	public navigateUser(login: boolean, user: User) {
+	public navigateUser(login: boolean, user: User): void {
 		if (login) {
-			if (this.dataService.isUserPresent(user.uid)) {
-				//this.router.navigate(["dashboard"]);
+			if (!true) {
+				//toDo DB service user check
+				// toDo: Integrate DB Service
 			} else {
-				console.log("routed");
-				this.router.navigate(["role-select"]);
+				this.router.navigate([Routes.ROLE_SELECT]);
 			}
 		}
 	}
-
 	ngOnDestroy() {
-		this.isLoggedSub.unsubscribe();
-		this.userSub.unsubscribe();
+		this.destroy$.next(true);
+		this.destroy$.unsubscribe();
 	}
 }

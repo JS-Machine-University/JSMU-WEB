@@ -1,12 +1,14 @@
-.jsmu-sign-in {
-  width: 100vw;
-  height: 100vh;
-  background-color: #111122;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+@import "../../../../../../../src/assets/styles/utils";
+@import "../../../../../../../src/assets/styles/mixins";
 
-  &__button {
-    font-family: "Roboto Light";
-  }
+.jsmu-sign-in {
+	@include wide-screen;
+	background-color: $darkBlueColor;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	&__button {
+		font-family: $fontRobotoLight;
+	}
 }
