@@ -1,0 +1,33 @@
+.btn {
+	background-image: linear-gradient(to right, #006175 0%, #00a950 100%);
+	border-radius: 40px;
+	box-sizing: border-box;
+	color: #00a84f;
+	display: block;
+	height: 3rem;
+	font-size: 1.4em;
+	padding: 4px;
+	position: relative;
+	text-decoration: none;
+	width: 8rem;
+	z-index: 2;
+
+	&:hover {
+		color: #fff;
+
+		.btnSpan {
+			background: transparent;
+		}
+	}
+
+	.btnSpan {
+		align-items: center;
+		background: #0e0e10;
+		border-radius: 40px;
+		display: flex;
+		justify-content: center;
+		height: 100%;
+		transition: background 0.5s ease;
+		width: 100%;
+	}
+}
