@@ -14,9 +14,13 @@ import { LessonsDataService } from "projects/core/src/services/lessons.data.serv
 import { EffectsModule } from "@ngrx/effects";
 import { StoreModule } from "@ngrx/store";
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
+import { MenteePageComponent } from "projects/core/src/lib/mentee-page/mentee-page.component";
+import { ModuleComponent } from "projects/core/src/lib/module/module.component";
+import { ModulesDataService } from "projects/core/src/lib/services/modules-data.service";
+import { ModulesService } from "projects/core/src/lib/services/modules.service";
 
 @NgModule({
-	declarations: [AppComponent],
+	declarations: [AppComponent, MenteePageComponent, ModuleComponent],
 	imports: [
 		BrowserModule,
 		AngularFireModule.initializeApp(environment.firebaseConfig),
@@ -30,7 +34,7 @@ import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 		StoreModule.forRoot({}, {}),
 		CoreModule
 	],
-	providers: [UsersDataService, LessonsDataService],
+	providers: [UsersDataService, LessonsDataService, ModulesDataService, ModulesService],
 	bootstrap: [AppComponent]
 })
 export class AppModule {}

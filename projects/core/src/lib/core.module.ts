@@ -6,10 +6,9 @@ import { ModulesService } from './services/modules.service';
 import { AuthorizationModule } from "./authorization/authorization.module";
 
 @NgModule({
-  declarations: [CoreComponent],
-  imports: [HttpClientModule],
-  exports: [CoreComponent],
+  imports: [HttpClientModule, AuthorizationModule],
   providers: [ModulesDataService, ModulesService],
-	imports: [AuthorizationModule],
+	declarations: [CoreComponent],
+	exports: [CoreComponent]
 })
 export class CoreModule {}
