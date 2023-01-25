@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "name": "JavaScript"
+  },
+  {
+    "id": 2 ,
+    "name": "HTML/CSS"
+  },
+  {
+    "id": 3,
+    "name": "Software Engineering"
+  },
+  {
+    "id": 4,
+    "name": "Framework"
+  },
+  {
+    "id": 5,
+    "name": "Testing"
+  },
+  {
+    "id": 6,
+    "name": "Processes & Methodologies"
+  },
+  {
+    "id": 7,
+    "name": "Soft Skills"
+  },
+  {
+    "id": 8,
+    "name": "Clean Code"
+  }
+]
