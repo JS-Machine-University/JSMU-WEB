@@ -18,7 +18,7 @@ describe('RoleComponent', () => {
 
     fixture = TestBed.createComponent(RoleComponent);
     component = fixture.componentInstance;
-    //component.role = { type: {} as Roles } as RoleInfo;
+    component.role = { type: {} as Roles } as RoleInfo;
     fixture.detectChanges();
   });
 

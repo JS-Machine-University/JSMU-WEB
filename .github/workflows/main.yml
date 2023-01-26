@@ -43,4 +43,4 @@ jobs:
           npm run build
       - name: Test
         run: |
-          npm run test-all
+          npm run test-ci
