@@ -27,7 +27,8 @@ import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 		HttpClientModule,
 		StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
 		EffectsModule.forRoot([]),
-		StoreModule.forRoot({}, {})
+		StoreModule.forRoot({}, {}),
+		CoreModule
 	],
 	providers: [UsersDataService, LessonsDataService],
 	bootstrap: [AppComponent]
