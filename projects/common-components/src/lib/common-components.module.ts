@@ -1,16 +1,11 @@
-import { NgModule } from '@angular/core';
-import { CommonComponentsComponent } from './common-components.component';
-
-
+import { NgModule } from "@angular/core";
+import { BrowserModule } from "@angular/platform-browser";
+import { CommonComponentsComponent } from "./common-components.component";
+import { ButtonComponent } from "./button/button.component";
 
 @NgModule({
-  declarations: [
-    CommonComponentsComponent
-  ],
-  imports: [
-  ],
-  exports: [
-    CommonComponentsComponent
-  ]
+	declarations: [CommonComponentsComponent, ButtonComponent],
+	imports: [BrowserModule],
+	exports: [CommonComponentsComponent, ButtonComponent]
 })
-export class CommonComponentsModule { }
+export class CommonComponentsModule {}

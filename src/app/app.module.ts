@@ -1,6 +1,7 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { SharedModule } from "@jsmu/shared";
+import { CoreModule } from "@jsmu/core";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { CommonComponentsModule } from "@jsmu/common-components";
@@ -26,7 +27,8 @@ import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 		HttpClientModule,
 		StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
 		EffectsModule.forRoot([]),
-		StoreModule.forRoot({}, {})
+		StoreModule.forRoot({}, {}),
+		CoreModule
 	],
 	providers: [UsersDataService, LessonsDataService],
 	bootstrap: [AppComponent]

@@ -1,8 +1,15 @@
 import { NgModule } from "@angular/core";
-import { RouterModule, Routes } from "@angular/router";
+import { Routes, RouterModule } from "@angular/router";
+import { SignInComponent } from "../../projects/core/src/lib/authorization/components/sign-in/sign-in.component";
+import { AuthGuard } from "projects/core/src/lib/authorization/guards/auth/auth.guard";
+import { RoleSelectComponent } from "../../projects/core/src/lib/authorization/components/role-select/role-select.component";
+// route guards
 
-const routes: Routes = [];
-
+const routes: Routes = [
+	{ path: "", redirectTo: "/sign-in", pathMatch: "full" },
+	{ path: "sign-in", component: SignInComponent },
+	{ path: "role-select", component: RoleSelectComponent, canActivate: [AuthGuard] }
+];
 @NgModule({
 	imports: [RouterModule.forRoot(routes)],
 	exports: [RouterModule]
