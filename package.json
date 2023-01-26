@@ -7,6 +7,7 @@
 		"build": "ng build",
 		"watch": "ng build --watch --configuration development",
 		"test": "ng test",
+		"test-all": "ng test | ng test core | ng test shared | ng test common-components",
 		"lint": "ng lint",
 		"prepare": "husky install",
 		"test-ci": "ng test --karma-config=karma-ci.conf.js --no-progress"

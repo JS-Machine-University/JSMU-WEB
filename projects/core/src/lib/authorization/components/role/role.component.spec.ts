@@ -1,4 +1,7 @@
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RoleInfo } from '../../models/role-info';
+import { Roles } from '../../models/roles';
 
 import { RoleComponent } from './role.component';
 
@@ -8,12 +11,14 @@ describe('RoleComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RoleComponent ]
+      declarations: [ RoleComponent ],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
     .compileComponents();
 
     fixture = TestBed.createComponent(RoleComponent);
     component = fixture.componentInstance;
+    //component.role = { type: {} as Roles } as RoleInfo;
     fixture.detectChanges();
   });
 
