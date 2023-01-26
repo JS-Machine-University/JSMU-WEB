@@ -2,11 +2,11 @@
 	<div class="role-select__main">
 		<span class="role-select__text">Please select your role below</span>
 		<div class="role-select__roles">
-			<jsmu-role
+			<lib-role
 				*ngFor="let roleInfo of rolesInfo"
 				[role]="roleInfo"
 				(roleEvent)="switchRole($event)"
-			></jsmu-role>
+			></lib-role>
 		</div>
 	</div>
 </div>

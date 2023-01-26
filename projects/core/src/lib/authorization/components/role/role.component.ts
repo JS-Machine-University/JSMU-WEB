@@ -3,7 +3,7 @@ import { RoleInfo } from "../../models/role-info";
 import { Roles } from "../../models/roles";
 
 @Component({
-	selector: "jsmu-role",
+	selector: "lib-role",
 	templateUrl: "./role.component.html",
 	styleUrls: ["./role.component.scss"],
 	changeDetection: ChangeDetectionStrategy.OnPush

@@ -1,3 +1,3 @@
 export interface coreState {}
 
-const initialState: coreState = {}
+const initialState: coreState = {};

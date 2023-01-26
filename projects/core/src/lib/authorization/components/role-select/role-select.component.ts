@@ -5,7 +5,7 @@ import { User } from "../../models/user";
 import { RoleInfo } from "../../models/role-info";
 
 @Component({
-	selector: "jsmu-role-select",
+	selector: "lib-role-select",
 	templateUrl: "./role-select.component.html",
 	styleUrls: ["./role-select.component.scss"],
 	changeDetection: ChangeDetectionStrategy.OnPush
