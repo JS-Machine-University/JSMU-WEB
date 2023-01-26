@@ -1,7 +1,7 @@
 @import "../../../../../../../src/assets/styles/utils";
 @import "../../../../../../../src/assets/styles/mixins";
 
-.jsmu-sign-in {
+.sign-in {
 	@include wide-screen;
 	background-color: $darkBlueColor;
 	display: flex;

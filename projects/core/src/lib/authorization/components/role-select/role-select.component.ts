@@ -13,7 +13,7 @@ import { RoleInfo } from "../../models/role-info";
 export class RoleSelectComponent {
 	public rolesInfo: RoleInfo[] = [
 		{
-			name: Roles.MENTEE,
+			type: Roles.MENTEE,
 			features: [
 				"Learn new features",
 				"Have a talks with best Experts",
@@ -22,7 +22,7 @@ export class RoleSelectComponent {
 			]
 		},
 		{
-			name: Roles.EXPERT,
+			type: Roles.EXPERT,
 			features: [
 				"Select your mentees",
 				"Approve their talks",
@@ -31,7 +31,7 @@ export class RoleSelectComponent {
 			]
 		},
 		{
-			name: Roles.RM,
+			type: Roles.RM,
 			features: [
 				"Control all mentors",
 				"Watch all mentees improvement",
@@ -41,8 +41,10 @@ export class RoleSelectComponent {
 			]
 		}
 	];
-	constructor(public authService: AuthService) {}
-	public switchRole(role: Roles) {
+
+	constructor(private authService: AuthService) {}
+
+	public switchRole(role: Roles): void {
 		switch (role) {
 			case Roles.MENTEE:
 				this.roleMentee();
@@ -55,19 +57,23 @@ export class RoleSelectComponent {
 				break;
 		}
 	}
-	public roleMentee(): void {
+
+	private roleMentee(): void {
 		this.getUser(Roles.MENTEE);
 		// toDo : Need page to add route in future
 	}
-	public roleExpert(): void {
+
+	private roleExpert(): void {
 		this.getUser(Roles.EXPERT);
 		//toDo : Need page to add route in future
 	}
-	public roleRM(): void {
+
+	private roleRM(): void {
 		this.getUser(Roles.RM);
 		// toDo : Need page to add route in future
 	}
-	public getUser(userRole: Roles): User {
+
+	private getUser(userRole: Roles): User {
 		return {
 			uid: JSON.parse(localStorage.getItem("user")!).uid,
 			name: JSON.parse(localStorage.getItem("user")!).providerData[0].displayName,

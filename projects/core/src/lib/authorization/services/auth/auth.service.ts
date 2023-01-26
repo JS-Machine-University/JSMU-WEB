@@ -12,17 +12,19 @@ import { Routes } from "../../models/routes";
 })
 export class AuthService {
 	constructor(
-		public afs: AngularFirestore,
-		public afAuth: AngularFireAuth,
-		public router: Router
+		private afs: AngularFirestore,
+		private afAuth: AngularFireAuth,
+		private router: Router
 	) {
 		this.checkAuthState();
 	}
-	public checkAuthState(): void {
+
+	private checkAuthState(): void {
 		this.afAuth.authState.subscribe((user) => {
 			localStorage.setItem("user", JSON.stringify(user));
 		});
 	}
+
 	public get isLoggedIn(): Observable<boolean> {
 		return this.afAuth.user.pipe(
 			map((user) => {
@@ -30,9 +32,11 @@ export class AuthService {
 			})
 		);
 	}
+
 	public gitHubAuth(): Promise<void> {
 		return this.authLogin(new auth.GithubAuthProvider()).then(() => {});
 	}
+
 	public getUser(): Observable<User> {
 		return this.afAuth.user.pipe(
 			map((user) => {
@@ -46,7 +50,8 @@ export class AuthService {
 			})
 		);
 	}
-	public authLogin(provider: any): Promise<void> {
+
+	private authLogin(provider: any): Promise<void> {
 		return this.afAuth
 			.signInWithPopup(provider)
 			.then((result) => {
@@ -58,7 +63,8 @@ export class AuthService {
 				window.alert(error);
 			});
 	}
-	public setUserData(user: firebase.default.User): Promise<void> {
+
+	private setUserData(user: firebase.default.User): Promise<void> {
 		const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
 		const userData: User = {
 			uid: user.uid,
@@ -71,6 +77,7 @@ export class AuthService {
 			merge: true
 		});
 	}
+
 	public signOut(): Promise<void> {
 		return this.afAuth.signOut().then(() => {
 			localStorage.removeItem("user");

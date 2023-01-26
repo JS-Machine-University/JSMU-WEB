@@ -1,6 +1,6 @@
 import { Roles } from "./roles";
 
 export interface RoleInfo {
-	name: Roles;
+	type: Roles;
 	features: String[];
 }

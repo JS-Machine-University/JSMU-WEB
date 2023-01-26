@@ -1,9 +1,9 @@
 <div class="role">
-  <span class="role__role-name">{{role.name}}</span>
-  <div class="features">
-    <ul>
-      <li class="features__feature" *ngFor="let feature of role.features">{{feature}}</li>
-    </ul>
-  </div>
-  <jsmu-button class="button" (click)="clickEmit()">Select</jsmu-button>
+	<span class="role__name">{{role.type}}</span>
+	<div class="features">
+		<ul class="features__list">
+			<li class="features__item" *ngFor="let feature of role.features">{{feature}}</li>
+		</ul>
+	</div>
+	<jsmu-button class="role__button" (click)="clickEmit()">Select</jsmu-button>
 </div>

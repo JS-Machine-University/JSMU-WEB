@@ -1,20 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'lib-common-components',
-  template: `
-    <p>
-      common-components works!
-    </p>
-  `,
-  styles: [
-  ]
+	selector: "lib-common-components",
+	template: `
+		<p>common-components works!</p>
+	`,
+	styles: []
 })
-export class CommonComponentsComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-}
+export class CommonComponentsComponent {}

@@ -1,8 +1,7 @@
-import { Injectable, OnDestroy } from "@angular/core";
+import { Injectable } from "@angular/core";
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from "@angular/router";
 import { AuthService } from "../../services/auth/auth.service";
 import { Observable } from "rxjs";
-import { stat } from "ng-packagr/lib/utils/fs";
 import { Routes } from "../../models/routes";
 @Injectable({
 	providedIn: "root"

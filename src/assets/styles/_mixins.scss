@@ -2,3 +2,25 @@
 	height: 100vh;
 	width: 100vw;
 }
+
+@mixin width-height($w, $h) {
+	width: $w;
+	height: $h;
+}
+
+@mixin top-left($t, $l) {
+	top: $t;
+	left: $l;
+}
+
+@mixin bottom-right($b, $r) {
+	bottom: $b;
+	right: $r;
+}
+
+@mixin custom-but-opt{
+  position: absolute;
+  content: "";
+  transition: 0.3s;
+  z-index: -1;
+}

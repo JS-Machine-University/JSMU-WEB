@@ -1,21 +1,19 @@
-import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from "@angular/core";
 import { RoleInfo } from "../../models/role-info";
 import { Roles } from "../../models/roles";
 
 @Component({
 	selector: "jsmu-role",
 	templateUrl: "./role.component.html",
-	styleUrls: ["./role.component.scss"]
+	styleUrls: ["./role.component.scss"],
+	changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class RoleComponent implements OnInit {
-	@Input() role: RoleInfo = {
-		name: Roles.MENTEE,
-		features: [""]
-	};
+export class RoleComponent {
+	@Input() role!: RoleInfo;
+
 	@Output() roleEvent: EventEmitter<Roles> = new EventEmitter<Roles>();
-	constructor() {}
-	ngOnInit(): void {}
-	clickEmit() {
-		this.roleEvent.emit(this.role.name);
+
+	public clickEmit(): void {
+		this.roleEvent.emit(this.role.type);
 	}
 }
