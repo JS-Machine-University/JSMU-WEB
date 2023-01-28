@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 
 @Component({
-	selector: "lib-common-components",
+	selector: "jsmu-common-components",
 	template: `
 		<p>common-components works!</p>
 	`,

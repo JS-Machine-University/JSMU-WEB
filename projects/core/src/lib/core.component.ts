@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 
 @Component({
-	selector: "lib-core",
+	selector: "jsmu-core",
 	template: `
 		<p>core works!</p>
 	`,

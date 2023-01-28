@@ -12,7 +12,7 @@
       },
       "root": "",
       "sourceRoot": "src",
-      "prefix": "app",
+      "prefix": "jsmu",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -117,7 +117,7 @@
       "projectType": "library",
       "root": "projects/shared",
       "sourceRoot": "projects/shared/src",
-      "prefix": "lib",
+      "prefix": "jsmu",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
@@ -157,7 +157,7 @@
       "projectType": "library",
       "root": "projects/core",
       "sourceRoot": "projects/core/src",
-      "prefix": "lib",
+      "prefix": "jsmu",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
@@ -197,7 +197,7 @@
       "projectType": "library",
       "root": "projects/common-components",
       "sourceRoot": "projects/common-components/src",
-      "prefix": "lib",
+      "prefix": "jsmu",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
