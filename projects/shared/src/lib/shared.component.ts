@@ -1,20 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'lib-shared',
-  template: `
-    <p>
-      shared works!
-    </p>
-  `,
-  styles: [
-  ]
+	selector: "jsmu-shared",
+	template: `
+		<p>shared works!</p>
+	`,
+	styles: []
 })
-export class SharedComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-}
+export class SharedComponent {}

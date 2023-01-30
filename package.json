@@ -5,11 +5,13 @@
 		"ng": "ng",
 		"start": "ng serve",
 		"build": "ng build",
+		"build-prod": "ng build --configuration=production",
 		"watch": "ng build --watch --configuration development",
 		"test": "ng test",
 		"lint": "ng lint",
 		"prepare": "husky install",
-		"test-ci": "ng test --karma-config=karma-ci.conf.js --no-progress"
+		"test-ci": "ng test --karma-config=karma-ci.conf.js --no-progress --code-coverage",
+		"quality-check": "npm run build-prod && npm run lint && npm run test-ci"
 	},
 	"private": true,
 	"dependencies": {

@@ -17,7 +17,7 @@ import { RoleComponent } from "./components/role/role.component";
 	imports: [
 		CommonModule,
 		CommonComponentsModule,
-		AngularFireModule.initializeApp(environment.firebase),
+		AngularFireModule.initializeApp(environment.firebaseConfig),
 		AngularFireAuthModule,
 		AngularFirestoreModule,
 		AngularFireStorageModule,
