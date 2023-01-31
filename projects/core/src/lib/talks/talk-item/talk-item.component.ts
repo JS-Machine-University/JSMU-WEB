@@ -1,4 +1,4 @@
-import { Talk } from "./../models/talk";
+import { Talk } from "../models/talk";
 import { Component, OnInit, Input } from "@angular/core";
 
 @Component({

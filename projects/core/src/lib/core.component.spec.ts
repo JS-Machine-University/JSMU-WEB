@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { CoreComponent } from "./core.component";
+import { CoreComponent } from "@jsmu/core";
 
 describe("CoreComponent", () => {
 	let component: CoreComponent;

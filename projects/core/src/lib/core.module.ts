@@ -16,6 +16,6 @@ import { CommonComponentsModule } from "@jsmu/common-components";
 		AuthorizationModule
 		// StoreModule.forFeature()
 	],
-	exports: [CoreComponent, TalksPageComponent, TalkItemComponent]
+	exports: [CoreComponent, TalksPageComponent, TalkItemComponent, TalkItemsLineComponent]
 })
 export class CoreModule {}

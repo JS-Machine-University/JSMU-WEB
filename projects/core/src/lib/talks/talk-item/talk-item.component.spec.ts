@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
-
-import { TalkItemComponent } from "./talk-item.component";
+import { TalkItemComponent } from "@jsmu/core";
 
 describe("TalkItemComponent", () => {
 	let component: TalkItemComponent;
@@ -18,5 +17,10 @@ describe("TalkItemComponent", () => {
 
 	it("should create", () => {
 		expect(component).toBeTruthy();
+	});
+
+	it("should compare length of talks array with null", function () {
+		component.ngOnInit();
+		expect(component.talks).not.toBeNull();
 	});
 });

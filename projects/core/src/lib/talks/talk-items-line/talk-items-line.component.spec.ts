@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
-
-import { TalkItemsLineComponent } from "./talk-items-line.component";
+import { TalkItemsLineComponent } from "@jsmu/core";
 
 describe("TalkItemsLineComponent", () => {
 	let component: TalkItemsLineComponent;
@@ -18,5 +17,9 @@ describe("TalkItemsLineComponent", () => {
 
 	it("should create", () => {
 		expect(component).toBeTruthy();
+	});
+
+	it("should check the validation of talk array after @Input", () => {
+		expect(component.talk).not.toBeNull();
 	});
 });

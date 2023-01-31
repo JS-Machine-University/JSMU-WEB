@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
-
-import { TalksPageComponent } from "./talks-page.component";
+import { TalksPageComponent } from "@jsmu/core";
+import { NO_ERRORS_SCHEMA } from "@angular/core";
 
 describe("TalksPageComponent", () => {
 	let component: TalksPageComponent;
@@ -8,7 +8,8 @@ describe("TalksPageComponent", () => {
 
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
-			declarations: [TalksPageComponent]
+			declarations: [TalksPageComponent],
+			schemas: [NO_ERRORS_SCHEMA]
 		}).compileComponents();
 
 		fixture = TestBed.createComponent(TalksPageComponent);
@@ -18,5 +19,10 @@ describe("TalksPageComponent", () => {
 
 	it("should create", () => {
 		expect(component).toBeTruthy();
+	});
+
+	it("Should compare the length of talks array and sorted talks array", () => {
+		component.ngOnInit();
+		expect(component.sortedTalks.length).toEqual(component.talks.length);
 	});
 });

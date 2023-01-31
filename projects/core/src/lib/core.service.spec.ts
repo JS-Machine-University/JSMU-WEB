@@ -1,6 +1,6 @@
 import { TestBed } from "@angular/core/testing";
 
-import { CoreService } from "./core.service";
+import { CoreService } from "@jsmu/core";
 
 describe("CoreService", () => {
 	let service: CoreService;
