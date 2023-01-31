@@ -9,7 +9,6 @@ import { Component, OnInit, Input } from "@angular/core";
 export class TalkItemComponent implements OnInit {
 	@Input() allTalks: Talk[];
 	talks: Talk[];
-	constructor() {}
 
 	ngOnInit(): void {
 		this.talks = this.allTalks;

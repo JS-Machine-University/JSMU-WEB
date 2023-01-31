@@ -9,7 +9,6 @@ import { Component, Input, OnInit } from "@angular/core";
 export class TalkItemsLineComponent implements OnInit {
 	@Input() talkItem: Talk;
 	talk: Talk;
-	constructor() {}
 
 	ngOnInit(): void {
 		this.talk = this.talkItem;

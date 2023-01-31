@@ -100,7 +100,6 @@ export class TalksPageComponent implements OnInit {
 			submitDate: new Date()
 		}
 	];
-	constructor() {}
 
 	ngOnInit(): void {
 		this.sortedTalks = this.talks.sort((a, b) => (a.resultDate > b.resultDate ? 1 : -1));
