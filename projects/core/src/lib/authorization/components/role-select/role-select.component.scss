@@ -2,31 +2,35 @@
 @import "../../../../../../../src/assets/styles/mixins";
 
 .role-select {
-	@include wide-screen;
-	background-color: $darkBlueColor;
-	font-family: $fontRobotoLight;
-	color: $lightBlueColor;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+  @include wide-screen;
+  background-color: $darkBlueColor;
+  font-family: $fontRobotoLight;
+  color: $lightBlueColor;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-	&__main {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-	}
+  &__main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 
-	&__text {
-		font-size: 50px;
-		margin: 0 0 25px 0;
-		color: $whiteColor;
-	}
+  &__text {
+    font-size: 50px;
+    margin: 0 0 25px 0;
+    color: $whiteColor;
+  }
 
-	&__roles {
-		width: 1000px;
-		display: flex;
-		flex-direction: row;
-		justify-content: space-around;
-	}
+  &__roles {
+    width: 1000px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  &__talks {
+    width: 100px;
+  }
 }
