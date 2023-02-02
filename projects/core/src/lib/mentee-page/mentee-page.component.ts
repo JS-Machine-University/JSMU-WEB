@@ -20,8 +20,4 @@ export class MenteePageComponent implements OnInit {
   ngOnInit(): void {
     this.getModules();
   }
-
-  public select(i: number): void {
-    console.log(i);
-  }
 }
