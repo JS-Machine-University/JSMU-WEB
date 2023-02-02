@@ -1,5 +1,5 @@
-<h2>Modules</h2>
+<h2 class="modules__title">Modules</h2>
 <ng-container *ngFor="let module of modules; let i = index">
-  <lib-module (click)="select(i+1)" [module]="module"></lib-module>
+  <lib-module [module]="module"></lib-module>
   <hr />
 </ng-container>

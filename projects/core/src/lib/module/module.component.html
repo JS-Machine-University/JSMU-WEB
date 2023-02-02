@@ -1,2 +1,41 @@
-<h4><i class="fa-solid fa-chevron-down"></i>Module #{{ module.id }}: {{ module.name }}</h4>
-<p><i class="fa-regular fa-clock"></i>7 days</p>
+<div
+  class="module"
+  [class.module__selected]="selected"
+  (click)="select(module)"
+>
+  <div class="module__description">
+    <h4 class="module__title">
+      <i class="fa-solid fa-chevron-down" *ngIf="!selected"></i>
+      <i class="fa-solid fa-chevron-up" *ngIf="selected"></i>
+      Module #{{ module.id }}:
+      {{ module.title }}
+    </h4>
+    <div class="module__details" *ngIf="selected">
+      <hr />
+      <div class="module__materials">
+        <h4 class="module__title">Self-study Materials</h4>
+        <p class="module__materials__description">
+          Please, get prepared in accordance with the materials provided in the
+          attached file.
+        </p>
+        <p class="module__materials__link">
+          <i class="fa-solid fa-paperclip"></i>
+          <a href="{{ module.materialsLink }}" target="_blank">{{
+            module.materials
+          }}</a>
+        </p>
+      </div>
+      <hr />
+      <div class="module__meeting">
+        <h4 class="module__title">Meeting</h4>
+        <p class="module__meeting__description">
+          Please, discuss a theme with an expert.
+        </p>
+      </div>
+    </div>
+  </div>
+  <p class="module__duration">
+    <i class="fa-regular fa-clock"></i>
+    <span class="module__duration__value">{{ module.duration }}</span>
+  </p>
+</div>
