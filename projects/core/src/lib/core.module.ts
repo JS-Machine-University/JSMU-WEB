@@ -1,7 +1,7 @@
 import { AuthorizationModule } from "./authorization/authorization.module";
-import { TalkItemsLineComponent } from "./talks/talk-items-line/talk-items-line.component";
-import { TalkItemComponent } from "./talks/talk-item/talk-item.component";
-import { TalksPageComponent } from "./talks/talks-page/talks-page.component";
+import { TalkItemsLineComponent } from "./components/talks/talk-items-line/talk-items-line.component";
+import { TalkItemComponent } from "./components/talks/talk-item/talk-item.component";
+import { TalksPageComponent } from "./components/talks/talks-page/talks-page.component";
 import { NgModule } from "@angular/core";
 import { StoreModule } from "@ngrx/store";
 import { CoreComponent } from "./core.component";
@@ -16,6 +16,6 @@ import { CommonComponentsModule } from "@jsmu/common-components";
 		AuthorizationModule
 		// StoreModule.forFeature()
 	],
-	exports: [CoreComponent, TalksPageComponent, TalkItemComponent, TalkItemsLineComponent]
+	exports: [TalksPageComponent, TalkItemComponent, TalkItemsLineComponent]
 })
 export class CoreModule {}

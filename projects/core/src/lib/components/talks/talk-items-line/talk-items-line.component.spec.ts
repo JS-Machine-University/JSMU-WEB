@@ -1,17 +1,16 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { TalkItemsLineComponent } from "@jsmu/core";
 
-import { SubmitComponent } from "./submit.component";
-
-describe("SubmitComponent", () => {
-	let component: SubmitComponent;
-	let fixture: ComponentFixture<SubmitComponent>;
+describe("TalkItemsLineComponent", () => {
+	let component: TalkItemsLineComponent;
+	let fixture: ComponentFixture<TalkItemsLineComponent>;
 
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
-			declarations: [SubmitComponent]
+			declarations: [TalkItemsLineComponent]
 		}).compileComponents();
 
-		fixture = TestBed.createComponent(SubmitComponent);
+		fixture = TestBed.createComponent(TalkItemsLineComponent);
 		component = fixture.componentInstance;
 		fixture.detectChanges();
 	});

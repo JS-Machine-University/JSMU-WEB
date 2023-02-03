@@ -13,7 +13,6 @@ import { LessonsDataService } from "projects/core/src/services/lessons.data.serv
 import { EffectsModule } from "@ngrx/effects";
 import { StoreModule } from "@ngrx/store";
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
-import { CoreModule } from "@jsmu/core";
 
 @NgModule({
 	declarations: [AppComponent],
@@ -27,8 +26,7 @@ import { CoreModule } from "@jsmu/core";
 		HttpClientModule,
 		StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
 		EffectsModule.forRoot([]),
-		StoreModule.forRoot({}, {}),
-		CoreModule
+		StoreModule.forRoot({}, {})
 	],
 	providers: [UsersDataService, LessonsDataService],
 	bootstrap: [AppComponent]

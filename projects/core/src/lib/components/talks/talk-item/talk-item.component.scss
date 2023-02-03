@@ -1,23 +1,23 @@
-.talks-item {
+.jsmu-talk-item {
 	display: flex;
 	flex-direction: column;
 	max-width: 65rem;
 	margin: 0 auto;
 
-	&-wrapper {
+	&__wrapper {
 		display: flex;
 		justify-content: center;
 	}
 
-	&-btn {
+	&__btn {
 		align-self: flex-end;
-		margin: 5px 45px 30px 0;
+		margin: 10px 45px 40px 0;
 	}
 
-	&-photo {
+	&__photo {
 		margin-top: 12px;
 
-		&-image {
+		&-img {
 			height: 50px;
 			width: 50px;
 			object-fit: cover;
@@ -25,7 +25,7 @@
 		}
 	}
 
-	&-content {
+	&__content {
 		position: relative;
 		width: 60vw;
 		display: block;
@@ -45,29 +45,29 @@
 		}
 	}
 
-	&-header {
+	&__header {
 		display: flex;
 	}
 
-	&-expertName {
+	&__expert {
 		margin-right: 20px;
 		font-weight: bold;
 	}
 
-	&-menteeName {
+	&__mentee {
 		&-link {
 			color: #78a1ec;
 		}
 	}
 
-	&-date {
+	&__date {
 		margin-left: 20px;
 		font-size: 12px;
 		display: flex;
 		align-items: center;
 	}
 
-	&-expertsName {
+	&__experts {
 		margin-bottom: 20px;
 	}
 }

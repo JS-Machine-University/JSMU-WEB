@@ -18,9 +18,4 @@ describe("TalkItemComponent", () => {
 	it("should create", () => {
 		expect(component).toBeTruthy();
 	});
-
-	it("should compare length of talks array with null", function () {
-		component.ngOnInit();
-		expect(component.talks).not.toBeNull();
-	});
 });

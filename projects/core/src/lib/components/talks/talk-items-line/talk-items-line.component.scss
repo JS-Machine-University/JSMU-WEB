@@ -1,4 +1,4 @@
-.talks-item-titleDate {
+.jsmu-talk-items-line {
 	position: relative;
 	top: 5px;
 	margin-bottom: 50px;
@@ -6,7 +6,7 @@
 	z-index: 1;
 }
 
-.talks-item-dayAndMonth {
+.jsmu-talk-items-line__date {
 	position: relative;
 	background-color: #111122;
 	border-radius: 5px;

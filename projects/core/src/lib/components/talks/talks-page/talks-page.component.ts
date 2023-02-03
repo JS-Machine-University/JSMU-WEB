@@ -1,17 +1,19 @@
-import { Component, OnInit } from "@angular/core";
-import { Talk } from "../models/talk";
+import { ChangeDetectionStrategy, Component, OnInit } from "@angular/core";
+import { Result } from "../../../models/result";
+import { Talk } from "../../../models/talk";
 
 @Component({
 	selector: "jsmu-talks-page",
 	templateUrl: "./talks-page.component.html",
-	styleUrls: ["./talks-page.component.scss"]
+	styleUrls: ["./talks-page.component.scss"],
+	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TalksPageComponent implements OnInit {
-	sortedTalks: Talk[];
-	talks: Talk[] = [
+	public sortedTalks!: Talk[];
+	public talks: Talk[] = [
 		{
 			lessonId: "2332",
-			result: "Discussion of features",
+			result: Result.comment,
 			inProgress: true,
 			expertId: "Maksim",
 			menteeId: "Irada",
@@ -20,7 +22,7 @@ export class TalksPageComponent implements OnInit {
 		},
 		{
 			lessonId: "3443",
-			result: "Discussion of features",
+			result: Result.comment,
 			inProgress: true,
 			expertId: "Maksim",
 			menteeId: "Anar",
@@ -29,7 +31,7 @@ export class TalksPageComponent implements OnInit {
 		},
 		{
 			lessonId: "3443",
-			result: "Discussion of features",
+			result: Result.comment,
 			inProgress: true,
 			expertId: "Maksim",
 			menteeId: "Kanan",
@@ -38,7 +40,7 @@ export class TalksPageComponent implements OnInit {
 		},
 		{
 			lessonId: "3443",
-			result: "Discussion of features",
+			result: Result.comment,
 			inProgress: true,
 			expertId: "Maksim",
 			menteeId: "Najaf",
@@ -47,7 +49,7 @@ export class TalksPageComponent implements OnInit {
 		},
 		{
 			lessonId: "3443",
-			result: "Discussion of features",
+			result: Result.comment,
 			inProgress: true,
 			expertId: "Maksim",
 			menteeId: "Yelizaveta",
@@ -56,7 +58,7 @@ export class TalksPageComponent implements OnInit {
 		},
 		{
 			lessonId: "3443",
-			result: "Discussion of features",
+			result: Result.comment,
 			inProgress: true,
 			expertId: "Maksim",
 			menteeId: "Leyla",
@@ -65,7 +67,7 @@ export class TalksPageComponent implements OnInit {
 		},
 		{
 			lessonId: "3443",
-			result: "Discussion of features",
+			result: Result.comment,
 			inProgress: true,
 			expertId: "Maksim",
 			menteeId: "Vaxtanq",
@@ -74,7 +76,7 @@ export class TalksPageComponent implements OnInit {
 		},
 		{
 			lessonId: "3443",
-			result: "Discussion of features",
+			result: Result.comment,
 			inProgress: true,
 			expertId: "Maksim",
 			menteeId: "anybody",
@@ -83,7 +85,7 @@ export class TalksPageComponent implements OnInit {
 		},
 		{
 			lessonId: "3443",
-			result: "Discussion of features",
+			result: Result.comment,
 			inProgress: true,
 			expertId: "Maksim",
 			menteeId: "somebody",
@@ -92,7 +94,7 @@ export class TalksPageComponent implements OnInit {
 		},
 		{
 			lessonId: "3443",
-			result: "Discussion of features",
+			result: Result.comment,
 			inProgress: true,
 			expertId: "Maksim",
 			menteeId: "those guy",
@@ -102,6 +104,10 @@ export class TalksPageComponent implements OnInit {
 	];
 
 	ngOnInit(): void {
+		this.talksSorting();
+	}
+
+	talksSorting() {
 		this.sortedTalks = this.talks.sort((a, b) => (a.resultDate > b.resultDate ? 1 : -1));
 	}
 }

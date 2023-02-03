@@ -1,44 +1,38 @@
 {
-  "extends": "../../.eslintrc.json",
-  "ignorePatterns": [
-    "!**/*"
-  ],
-  "overrides": [
-    {
-      "files": [
-        "*.ts"
-      ],
-      "parserOptions": {
-        "project": [
-          "projects/common-components/tsconfig.lib.json",
-          "projects/common-components/tsconfig.spec.json"
-        ],
-        "createDefaultProgram": true
-      },
-      "rules": {
-        "@angular-eslint/directive-selector": [
-          "error",
-          {
-            "type": "attribute",
-            "prefix": "jsmu",
-            "style": "camelCase"
-          }
-        ],
-        "@angular-eslint/component-selector": [
-          "error",
-          {
-            "type": "element",
-            "prefix": "jsmu",
-            "style": "kebab-case"
-          }
-        ]
-      }
-    },
-    {
-      "files": [
-        "*.html"
-      ],
-      "rules": {}
-    }
-  ]
+	"extends": "../../.eslintrc.json",
+	"ignorePatterns": ["!**/*"],
+	"overrides": [
+		{
+			"files": ["*.ts"],
+			"parserOptions": {
+				"project": [
+					"projects/common-components/tsconfig.lib.json",
+					"projects/common-components/tsconfig.spec.json"
+				],
+				"createDefaultProgram": true
+			},
+			"rules": {
+				"@angular-eslint/directive-selector": [
+					"error",
+					{
+						"type": "attribute",
+						"prefix": "jsmu",
+						"style": "camelCase"
+					}
+				],
+				"@angular-eslint/component-selector": [
+					"error",
+					{
+						"type": "element",
+						"prefix": "jsmu",
+						"style": "kebab-case"
+					}
+				]
+			}
+		},
+		{
+			"files": ["*.html"],
+			"rules": {}
+		}
+	]
 }

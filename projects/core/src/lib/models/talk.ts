@@ -1,6 +1,8 @@
+import { Result } from "./result";
+
 export interface Talk {
 	lessonId: string;
-	result: string;
+	result: Result;
 	inProgress: boolean;
 	expertId: string;
 	menteeId: string;
