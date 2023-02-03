@@ -1,6 +1,5 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { AngularFireDatabase } from "@angular/fire/compat/database";
 import { Observable } from "rxjs";
 import { environment } from "src/environments/environment";
 
@@ -11,7 +10,7 @@ export enum ListType {
 
 @Injectable()
 export abstract class DataBaseService<T> {
-	constructor(private db: AngularFireDatabase, private http: HttpClient) {}
+	constructor(private http: HttpClient) {}
 
 	protected getData<T>(listType: ListType): Observable<T> {
 		return this.http.get<T>(`${environment.firebaseConfig.databaseURL}/${listType}.json`);

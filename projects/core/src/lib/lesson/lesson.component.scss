@@ -1,0 +1,57 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400&&display=swap");
+
+.lesson {
+	padding: 20px;
+	display: flex;
+	justify-content: space-between;
+	color: #555;
+	font-family: "Source Sans Pro", sans-serif;
+	letter-spacing: 0.03em;
+	cursor: pointer;
+	&:hover {
+		background-color: #fafafa;
+	}
+	&__selected {
+		border: 1px solid #db9d0b;
+	}
+	&__duration {
+		margin: 0;
+		&__value {
+			display: inline-block;
+			width: 50px;
+		}
+	}
+	&__title {
+		margin: 0;
+		i {
+			font-size: 0.7em;
+			color: #bbb;
+		}
+	}
+	&__details {
+		margin: 20px;
+	}
+	&__materials {
+		&__title,
+		&__description,
+		&__link {
+			margin: 10px 0;
+		}
+		a {
+			text-decoration: none;
+			color: #009ecc;
+			&:hover {
+				color: #008abd;
+			}
+		}
+	}
+	i {
+		margin: 0 5px;
+		vertical-align: middle;
+	}
+	hr {
+		border: none;
+		border-top: 1px solid #fafafa;
+		margin: 0;
+	}
+}

@@ -1,23 +1,32 @@
-import { Component, OnInit } from '@angular/core';
-import { Module } from '../models/module';
-import { ModulesService } from '../services/modules.service';
+import { Component, OnInit } from "@angular/core";
+import { Observable } from "rxjs";
+import { Lesson } from "../models/lesson";
+import { LessonsDataService } from "../../services/lessons.data.service";
 
 @Component({
-  selector: 'lib-mentee-page',
-  templateUrl: './mentee-page.component.html',
-  styleUrls: ['./mentee-page.component.scss'],
+	selector: "jsmu-mentee-page",
+	templateUrl: "./mentee-page.component.html",
+	styleUrls: ["./mentee-page.component.scss"]
 })
 export class MenteePageComponent implements OnInit {
-  public modules: Module[] = [];
+	public lessons: Lesson[] = [];
 
-  constructor(private modulesService: ModulesService) {}
-  public getModules(): void {
-    this.modulesService.modules$.subscribe((modules: Module[]) => {
-      this.modules = modules;
-    });
-  }
+	constructor(private ldb: LessonsDataService) {}
 
-  ngOnInit(): void {
-    this.getModules();
-  }
+	public saveLesson(lesson: Lesson): Observable<Lesson> {
+		return this.ldb.saveLesson(lesson);
+	}
+	public getLessons(): void {
+		this.ldb.getLesson().subscribe((lessons: any) => {
+			lessons.map((lesson: Lesson) => {
+				if (lesson !== null) {
+					this.lessons.push(lesson);
+				}
+			});
+		});
+	}
+
+	ngOnInit(): void {
+		this.getLessons();
+	}
 }

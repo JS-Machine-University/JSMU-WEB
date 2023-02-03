@@ -10,17 +10,15 @@ import { AngularFireModule } from "@angular/fire/compat";
 import { AngularFireDatabaseModule } from "@angular/fire/compat/database";
 import { HttpClientModule } from "@angular/common/http";
 import { UsersDataService } from "projects/core/src/services/users.data.service";
-import { LessonsDataService } from "projects/core/src/services/lessons.data.service";
 import { EffectsModule } from "@ngrx/effects";
 import { StoreModule } from "@ngrx/store";
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 import { MenteePageComponent } from "projects/core/src/lib/mentee-page/mentee-page.component";
-import { ModuleComponent } from "projects/core/src/lib/module/module.component";
-import { ModulesDataService } from "projects/core/src/lib/services/modules-data.service";
-import { ModulesService } from "projects/core/src/lib/services/modules.service";
+import { LessonComponent } from "projects/core/src/lib/lesson/lesson.component";
+import { LessonsDataService } from "projects/core/src/services/lessons.data.service";
 
 @NgModule({
-	declarations: [AppComponent, MenteePageComponent, ModuleComponent],
+	declarations: [AppComponent, MenteePageComponent, LessonComponent],
 	imports: [
 		BrowserModule,
 		AngularFireModule.initializeApp(environment.firebaseConfig),
@@ -34,7 +32,7 @@ import { ModulesService } from "projects/core/src/lib/services/modules.service";
 		StoreModule.forRoot({}, {}),
 		CoreModule
 	],
-	providers: [UsersDataService, LessonsDataService, ModulesDataService, ModulesService],
+	providers: [UsersDataService, LessonsDataService],
 	bootstrap: [AppComponent]
 })
 export class AppModule {}

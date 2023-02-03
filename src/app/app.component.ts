@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
-import { User, UsersDataService } from "projects/core/src/services/users.data.service";
+import { User } from "projects/core/src/lib/authorization/models/user";
+import { UsersDataService } from "projects/core/src/services/users.data.service";
 
 @Component({
 	selector: "jsmu-root",
