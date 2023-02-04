@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Observable } from "rxjs";
 import { Lesson } from "../models/lesson";
-import { LessonsDataService } from "../../services/lessons.data.service";
+import { LessonsDataService } from "../services/lessons.data.service";
 
 @Component({
 	selector: "jsmu-mentee-page",
@@ -13,10 +13,10 @@ export class MenteePageComponent implements OnInit {
 
 	constructor(private ldb: LessonsDataService) {}
 
-	public saveLesson(lesson: Lesson): Observable<Lesson> {
+	private saveLesson(lesson: Lesson): Observable<Lesson> {
 		return this.ldb.saveLesson(lesson);
 	}
-	public getLessons(): void {
+	private getLessons(): void {
 		this.ldb.getLesson().subscribe((lessons: any) => {
 			lessons.map((lesson: Lesson) => {
 				if (lesson !== null) {

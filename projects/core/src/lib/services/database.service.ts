@@ -2,14 +2,10 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { environment } from "src/environments/environment";
-
-export enum ListType {
-	USERS = "users",
-	LESSONS = "lessons"
-}
+import { ListType } from "../models/list-type";
 
 @Injectable()
-export abstract class DataBaseService<T> {
+export class DataBaseService<T> {
 	constructor(private http: HttpClient) {}
 
 	protected getData<T>(listType: ListType): Observable<T> {
