@@ -10,11 +10,9 @@ export class LessonComponent {
 	public selected: boolean = false;
 
 	@Input()
-	public lesson: Lesson | any;
+	public lesson: Lesson | undefined;
 
 	public select(lesson: Lesson): void {
-		if (lesson.id) {
-			this.selected = !this.selected;
-		}
+		this.selected = !this.selected;
 	}
 }

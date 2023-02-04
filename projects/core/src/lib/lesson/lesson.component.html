@@ -1,4 +1,4 @@
-<div class="lesson" [class.lesson__selected]="selected" (click)="select(lesson)">
+<div class="lesson" *ngIf="lesson" [class.lesson__selected]="selected" (click)="select(lesson)">
 	<div class="lesson__description">
 		<h4 class="lesson__title">
 			<i class="fa-solid fa-chevron-down" *ngIf="!selected"></i>
