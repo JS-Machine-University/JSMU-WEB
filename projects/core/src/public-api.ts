@@ -8,3 +8,4 @@ export * from "./lib/models/result";
 export * from "./lib/components/talks/talks-page/talks-page.component";
 export * from "./lib/components/talks/talk-item/talk-item.component";
 export * from "./lib/components/talks/talk-items-line/talk-items-line.component";
+// export * from "./lib/pipes/sort/sort.pipe";

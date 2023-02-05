@@ -20,9 +20,4 @@ describe("TalksPageComponent", () => {
 	it("should create", () => {
 		expect(component).toBeTruthy();
 	});
-
-	it("Should compare the length of talks array and sorted talks array", () => {
-		component.ngOnInit();
-		expect(component.sortedTalks.length).toEqual(component.talks.length);
-	});
 });

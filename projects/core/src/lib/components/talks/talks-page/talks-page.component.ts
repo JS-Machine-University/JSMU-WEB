@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from "@angular/core";
+import { ChangeDetectionStrategy, Component } from "@angular/core";
 import { Result } from "../../../models/result";
 import { Talk } from "../../../models/talk";
 
@@ -8,8 +8,7 @@ import { Talk } from "../../../models/talk";
 	styleUrls: ["./talks-page.component.scss"],
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class TalksPageComponent implements OnInit {
-	public sortedTalks!: Talk[];
+export class TalksPageComponent {
 	public talks: Talk[] = [
 		{
 			lessonId: "2332",
@@ -102,12 +101,4 @@ export class TalksPageComponent implements OnInit {
 			submitDate: new Date()
 		}
 	];
-
-	ngOnInit(): void {
-		this.talksSorting();
-	}
-
-	talksSorting() {
-		this.sortedTalks = this.talks.sort((a, b) => (a.resultDate > b.resultDate ? 1 : -1));
-	}
 }

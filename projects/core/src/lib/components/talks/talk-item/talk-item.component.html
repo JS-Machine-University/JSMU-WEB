@@ -1,9 +1,9 @@
-<div class="jsmu-talk-item" *ngFor="let talk of talks; let i = index">
+<div class="jsmu-talk-item" *ngFor="let talk of talks! | sort; let i = index">
 	<jsmu-talk-items-line [talkItem]="talk" *ngIf="writeLine(i)"></jsmu-talk-items-line>
 	<div class="jsmu-talk-item__wrapper">
 		<div class="jsmu-talk-item__photo">
 			<a href="#">
-				<img class="jsmu-talk-item__photo-img" [src]="profilePath" alt="profile" />
+				<img class="jsmu-talk-item__photo-img" src="assets/images/cat.jpg" alt="profile" />
 			</a>
 		</div>
 		<div class="jsmu-talk-item__content">

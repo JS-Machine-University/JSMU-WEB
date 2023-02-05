@@ -7,11 +7,6 @@ import { ChangeDetectionStrategy, Component, Input, OnInit } from "@angular/core
 	styleUrls: ["./talk-items-line.component.scss"],
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class TalkItemsLineComponent implements OnInit {
-	@Input() public talkItem!: Talk;
-	public talk!: Talk;
-
-	ngOnInit(): void {
-		this.talk = this.talkItem;
-	}
+export class TalkItemsLineComponent {
+	@Input() public talkItem: Talk | null = null;
 }

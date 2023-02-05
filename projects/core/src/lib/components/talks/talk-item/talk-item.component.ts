@@ -8,14 +8,12 @@ import { Component, Input, ChangeDetectionStrategy } from "@angular/core";
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TalkItemComponent {
-	@Input() public talks!: Talk[];
-	public profilePath: string =
-		"https://www.purina.co.uk/sites/default/files/2020-12/Why-Do-Cats-Have-WhiskersHERO.jpg";
+	@Input() public talks: Talk[] | null = [];
 
 	public writeLine(i: number): boolean {
 		return (
-			this.talks[i]?.resultDate?.toLocaleDateString() !==
-			this.talks[i - 1]?.resultDate?.toLocaleDateString()
+			this.talks![i].resultDate.toLocaleDateString() !==
+			this.talks![i - 1].resultDate.toLocaleDateString()
 		);
 	}
 }

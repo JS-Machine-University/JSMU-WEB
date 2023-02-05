@@ -7,9 +7,16 @@ import { StoreModule } from "@ngrx/store";
 import { CoreComponent } from "./core.component";
 import { CommonModule } from "@angular/common";
 import { CommonComponentsModule } from "@jsmu/common-components";
+import { SortPipe } from "./pipes/sort/sort.pipe";
 
 @NgModule({
-	declarations: [CoreComponent, TalksPageComponent, TalkItemComponent, TalkItemsLineComponent],
+	declarations: [
+		CoreComponent,
+		TalksPageComponent,
+		TalkItemComponent,
+		TalkItemsLineComponent,
+		SortPipe
+	],
 	imports: [
 		CommonModule,
 		CommonComponentsModule,
