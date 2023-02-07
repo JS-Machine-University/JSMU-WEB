@@ -8,12 +8,12 @@ import { Component, Input, ChangeDetectionStrategy } from "@angular/core";
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TalkItemComponent {
-	@Input() public talks: Talk[] | null = [];
+	@Input() public talks: Talk[] = [];
 
 	public writeLine(i: number): boolean {
 		return (
-			this.talks![i].resultDate.toLocaleDateString() !==
-			this.talks![i - 1].resultDate.toLocaleDateString()
+			this.talks[i]?.resultDate.toLocaleDateString() !==
+			this.talks[i - 1]?.resultDate.toLocaleDateString()
 		);
 	}
 }

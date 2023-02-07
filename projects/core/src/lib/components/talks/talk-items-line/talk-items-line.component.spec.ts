@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
-import { TalkItemsLineComponent } from "@jsmu/core";
+import { Result, TalkItemsLineComponent } from "@jsmu/core";
 
 describe("TalkItemsLineComponent", () => {
 	let component: TalkItemsLineComponent;
@@ -12,6 +12,16 @@ describe("TalkItemsLineComponent", () => {
 
 		fixture = TestBed.createComponent(TalkItemsLineComponent);
 		component = fixture.componentInstance;
+		component.talkItem = {
+			lessonId: "",
+			menteeId: "",
+			expertId: "",
+			inProgress: true,
+			result: Result.comment,
+			resultDate: new Date(),
+			submitDate: new Date()
+		};
+
 		fixture.detectChanges();
 	});
 

@@ -8,5 +8,5 @@ import { ChangeDetectionStrategy, Component, Input, OnInit } from "@angular/core
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TalkItemsLineComponent {
-	@Input() public talkItem: Talk | null = null;
+	@Input() public talkItem!: Talk;
 }
