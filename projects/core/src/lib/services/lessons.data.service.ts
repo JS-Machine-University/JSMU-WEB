@@ -3,7 +3,6 @@ import { Observable } from "rxjs";
 import { DataBaseService } from "./database.service";
 import { Lesson } from "../models/lesson";
 import { ListType } from "../models/list-type";
-import { HttpClient } from "@angular/common/http";
 
 @Injectable()
 export class LessonsDataService extends DataBaseService<Lesson> {

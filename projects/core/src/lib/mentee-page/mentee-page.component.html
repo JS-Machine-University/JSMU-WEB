@@ -1,7 +1,7 @@
 <div class="lessons">
 	<h2 class="lessons__title">Modules</h2>
-	<ng-container *ngFor="let lesson of lessons">
-		<jsmu-lesson [lesson]="lesson"></jsmu-lesson>
-		<hr />
+	<ng-container class="lessons__lesson-block" *ngFor="let lesson of lessons">
+		<jsmu-lesson class="lessons__lesson" [lesson]="lesson"></jsmu-lesson>
+		<hr class="lessons__separator" />
 	</ng-container>
 </div>

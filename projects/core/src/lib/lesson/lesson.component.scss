@@ -1,5 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400&&display=swap");
 
+%vertical-margin {
+	margin: 10px 0;
+}
+%icon-margin {
+	margin: 0 5px;
+}
+
 .lesson {
 	padding: 20px;
 	display: flex;
@@ -11,47 +18,49 @@
 	&:hover {
 		background-color: #fafafa;
 	}
+	&__chevron-down,
+	&__chevron-up {
+		@extend %icon-margin;
+		vertical-align: middle;
+		font-size: 0.7em;
+		color: #bbb;
+	}
 	&__selected {
 		border: 1px solid #db9d0b;
-	}
-	&__duration {
-		margin: 0;
-		&__value {
-			display: inline-block;
-			width: 50px;
-		}
-	}
-	&__title {
-		margin: 0;
-		i {
-			font-size: 0.7em;
-			color: #bbb;
-		}
 	}
 	&__details {
 		margin: 20px;
 	}
-	&__materials {
-		&__title,
-		&__description,
-		&__link {
-			margin: 10px 0;
-		}
-		a {
-			text-decoration: none;
-			color: #009ecc;
-			&:hover {
-				color: #008abd;
-			}
-		}
-	}
-	i {
-		margin: 0 5px;
-		vertical-align: middle;
-	}
-	hr {
+	&__separator {
 		border: none;
 		border-top: 1px solid #fafafa;
 		margin: 0;
+	}
+	&__title {
+		@extend %vertical-margin;
+	}
+	.resources {
+		&__description {
+			@extend %vertical-margin;
+		}
+		.resource {
+			&__link {
+				text-decoration: none;
+				color: #009ecc;
+				&:hover {
+					color: #008abd;
+				}
+			}
+		}
+	}
+	.duration {
+		&__value {
+			display: inline-block;
+			width: 50px;
+		}
+		&__icon {
+			@extend %icon-margin;
+			vertical-align: middle;
+		}
 	}
 }
