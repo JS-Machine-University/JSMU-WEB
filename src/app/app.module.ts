@@ -9,17 +9,12 @@ import { environment } from "src/environments/environment";
 import { AngularFireModule } from "@angular/fire/compat";
 import { AngularFireDatabaseModule } from "@angular/fire/compat/database";
 import { HttpClientModule } from "@angular/common/http";
-import { UsersDataService } from "projects/core/src/lib/services/users.data.service";
 import { EffectsModule } from "@ngrx/effects";
 import { StoreModule } from "@ngrx/store";
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
-import { MenteePageComponent } from "projects/core/src/lib/mentee-page/mentee-page.component";
-import { LessonComponent } from "projects/core/src/lib/lesson/lesson.component";
-import { LessonsDataService } from "projects/core/src/lib/services/lessons.data.service";
-import { DataBaseService } from "projects/core/src/lib/services/database.service";
 
 @NgModule({
-	declarations: [AppComponent, MenteePageComponent, LessonComponent],
+	declarations: [AppComponent],
 	imports: [
 		BrowserModule,
 		AngularFireModule.initializeApp(environment.firebaseConfig),
@@ -33,7 +28,7 @@ import { DataBaseService } from "projects/core/src/lib/services/database.service
 		StoreModule.forRoot({}, {}),
 		CoreModule
 	],
-	providers: [DataBaseService, UsersDataService, LessonsDataService],
+	providers: [],
 	bootstrap: [AppComponent]
 })
 export class AppModule {}

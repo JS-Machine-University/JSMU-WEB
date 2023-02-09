@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { ChangeDetectionStrategy, Component, OnInit } from "@angular/core";
 import { Observable } from "rxjs";
 import { Lesson } from "../models/lesson";
 import { LessonsDataService } from "../services/lessons.data.service";
@@ -13,16 +13,12 @@ export class MenteePageComponent implements OnInit {
 
 	constructor(private ldb: LessonsDataService) {}
 
-	private saveLesson(lesson: Lesson): Observable<Lesson> {
+	public saveLesson<Lesson>(lesson: Lesson): Observable<Lesson> {
 		return this.ldb.saveLesson(lesson);
 	}
-	private getLessons(): void {
-		this.ldb.getLesson().subscribe((lessons: any) => {
-			lessons.map((lesson: Lesson) => {
-				if (lesson !== null) {
-					this.lessons.push(lesson);
-				}
-			});
+	public getLessons(): void {
+		this.ldb.getLesson<Lesson[]>().subscribe((lessons: Lesson[]) => {
+			this.lessons = lessons;
 		});
 	}
 

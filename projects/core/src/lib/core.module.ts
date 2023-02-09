@@ -5,11 +5,14 @@ import { LessonsDataService } from "./services/lessons.data.service";
 import { AuthorizationModule } from "./authorization/authorization.module";
 import { DataBaseService } from "./services/database.service";
 import { UsersDataService } from "./services/users.data.service";
+import { MenteePageComponent } from "./mentee-page/mentee-page.component";
+import { LessonComponent } from "./lesson/lesson.component";
+import { BrowserModule } from "@angular/platform-browser";
 
 @NgModule({
-	imports: [HttpClientModule, AuthorizationModule],
+	imports: [HttpClientModule, AuthorizationModule, BrowserModule],
 	providers: [DataBaseService, UsersDataService, LessonsDataService],
-	declarations: [CoreComponent],
+	declarations: [CoreComponent, MenteePageComponent, LessonComponent],
 	exports: [CoreComponent]
 })
 export class CoreModule {}

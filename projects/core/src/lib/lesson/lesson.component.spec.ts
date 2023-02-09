@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { Lesson } from "../models/lesson";
 
 import { LessonComponent } from "./lesson.component";
 
@@ -21,16 +22,10 @@ describe("LessonComponent", () => {
 	});
 
 	it("select func should toggle selected var", () => {
-		const lesson = {
-			id: "1",
-			title: "2",
-			resources: [{ url: "3", name: "4" }],
-			duration: "5"
-		};
 		expect(component.selected).withContext("false at first").toBe(false);
-		component.select(lesson);
+		component.select();
 		expect(component.selected).withContext("true after click").toBe(true);
-		component.select(lesson);
+		component.select();
 		expect(component.selected).withContext("false after second click").toBe(false);
 	});
 });
