@@ -27,7 +27,7 @@
               "src/favicon.ico",
               "src/assets",
               {
-                "input": "projects/core/src/assets",
+                "input": "projects/common-components/src/assets",
                 "glob": "**/*",
                 "output": "assets"
               }

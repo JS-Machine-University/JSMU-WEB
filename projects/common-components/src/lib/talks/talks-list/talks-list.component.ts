@@ -1,14 +1,14 @@
 import { ChangeDetectionStrategy, Component } from "@angular/core";
-import { Result } from "../../../models/result";
-import { Talk } from "../../../models/talk";
+import { Result } from "../../../../../core/src/lib/models/result";
+import { Talk } from "../../../../../core/src/lib/models/talk";
 
 @Component({
-	selector: "jsmu-talks-page",
-	templateUrl: "./talks-page.component.html",
-	styleUrls: ["./talks-page.component.scss"],
+	selector: "jsmu-talks-list",
+	templateUrl: "./talks-list.component.html",
+	styleUrls: ["./talks-list.component.scss"],
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class TalksPageComponent {
+export class TalksListComponent {
 	public talks: Talk[] = [
 		{
 			lessonId: "2332",
@@ -101,4 +101,11 @@ export class TalksPageComponent {
 			submitDate: new Date()
 		}
 	];
+
+	public isShowDateAndLine(i: number): boolean {
+		return (
+			this.talks[i]?.resultDate.toLocaleDateString() !==
+			this.talks[i - 1]?.resultDate.toLocaleDateString()
+		);
+	}
 }

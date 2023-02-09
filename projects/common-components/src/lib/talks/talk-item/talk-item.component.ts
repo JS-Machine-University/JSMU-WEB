@@ -1,5 +1,5 @@
-import { Talk } from "../../../models/talk";
 import { Component, Input, ChangeDetectionStrategy } from "@angular/core";
+import { Talk } from "@jsmu/core";
 
 @Component({
 	selector: "jsmu-talk-item",
@@ -8,12 +8,6 @@ import { Component, Input, ChangeDetectionStrategy } from "@angular/core";
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TalkItemComponent {
-	@Input() public talks: Talk[] = [];
-
-	public writeLine(i: number): boolean {
-		return (
-			this.talks[i]?.resultDate.toLocaleDateString() !==
-			this.talks[i - 1]?.resultDate.toLocaleDateString()
-		);
-	}
+	@Input() public talk!: Talk;
+	@Input() public isShowLine!: Boolean;
 }

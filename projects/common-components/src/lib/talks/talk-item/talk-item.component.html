@@ -1,16 +1,20 @@
-<div class="jsmu-talk-item" *ngFor="let talk of talks | sort; let i = index">
-	<jsmu-talk-items-line [talkItem]="talk" *ngIf="writeLine(i)"></jsmu-talk-items-line>
+<div class="jsmu-talk-item">
+	<jsmu-talk-items-line *ngIf="isShowLine" [talkItem]="talk"></jsmu-talk-items-line>
 	<div class="jsmu-talk-item__wrapper">
 		<div class="jsmu-talk-item__photo">
 			<a href="#">
-				<img class="jsmu-talk-item__photo-img" src="assets/images/cat.jpg" alt="profile" />
+				<img
+					class="jsmu-talk-item__photo-img"
+					src="../../../assets/images/cat.jpg"
+					alt="profile"
+				/>
 			</a>
 		</div>
 		<div class="jsmu-talk-item__content">
 			<div class="jsmu-talk-item__header">
 				<div class="jsmu-talk-item__expert">Maksim Samuilionak</div>
 				<div class="jsmu-talk-item__date">
-					{{talk.submitDate| date: 'MM/dd/yy, h:mm a'}}
+					{{talk.resultDate | date: 'MM/dd/yy, h:mm a'}}
 				</div>
 			</div>
 			<div class="jsmu-talk-item__body">

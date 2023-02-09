@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
-import { Result, TalkItemsLineComponent } from "@jsmu/core";
+import { TalkItemsLineComponent } from "@jsmu/common-components";
+import { Result } from "@jsmu/core";
 
 describe("TalkItemsLineComponent", () => {
 	let component: TalkItemsLineComponent;

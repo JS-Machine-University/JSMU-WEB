@@ -1,46 +1,46 @@
 @import "../../../../../src/assets/styles/utils";
 @import "../../../../../src/assets/styles/mixins";
 
-.button{
-  text-transform: uppercase;
-  color: $whiteColor;
-  font-size: 50px;
-  background-color: $darkBlueColor;
-  border: 4px solid $lightBlueColor;
-  transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-  transition: 0.3s;
-  min-height: 90px;
-  min-width: 200px;
-  outline: none;
+.button {
+	text-transform: uppercase;
+	color: $whiteColor;
+	font-size: 50px;
+	background-color: $darkBlueColor;
+	border: 4px solid $lightBlueColor;
+	transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+	transition: 0.3s;
+	min-height: 90px;
+	min-width: 200px;
+	outline: none;
 
-  &:active {
-    background-color: $lightBlueColor;
-  }
+	&:active {
+		background-color: $lightBlueColor;
+	}
 
-  &:before {
-    @include width-height(25%, 55%);
-    @include top-left(60%, -6%);
-    @include custom-but-opt;
-    border-bottom: 4px solid $lightBlueColor;
-    border-left: 4px solid $lightBlueColor;
-  }
+	&:before {
+		@include width-height(25%, 55%);
+		@include top-left(60%, -6%);
+		@include custom-but-opt;
+		border-bottom: 4px solid $lightBlueColor;
+		border-left: 4px solid $lightBlueColor;
+	}
 
-  &:after {
-    @include width-height(25%, 55%);
-    @include bottom-right(59%, -6%);
-    @include custom-but-opt;
-    border-top: 4px solid $lightBlueColor;
-    border-right: 4px solid $lightBlueColor;
-  }
+	&:after {
+		@include width-height(25%, 55%);
+		@include bottom-right(59%, -6%);
+		@include custom-but-opt;
+		border-top: 4px solid $lightBlueColor;
+		border-right: 4px solid $lightBlueColor;
+	}
 
-  &:hover:before {
-    @include width-height(35%, 65%);
-    @include top-left(57%, -10%);
-  }
-  &:hover:after {
-    @include width-height(35%, 65%);
-    @include bottom-right(57%, -10%);
-  }
+	&:hover:before {
+		@include width-height(35%, 65%);
+		@include top-left(57%, -10%);
+	}
+	&:hover:after {
+		@include width-height(35%, 65%);
+		@include bottom-right(57%, -10%);
+	}
 }
 
 :host.submit .button{

@@ -1,18 +1,19 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
-import { Result, TalkItemComponent } from "@jsmu/core";
-import { SortPipe } from "../../../pipes/sort/sort.pipe";
-import { CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
+import { Result } from "@jsmu/core";
+import { NO_ERRORS_SCHEMA } from "@angular/core";
+import { SortPipe, TalksListComponent } from "@jsmu/common-components";
 
-describe("TalkItemComponent", () => {
-	let component: TalkItemComponent;
-	let fixture: ComponentFixture<TalkItemComponent>;
+describe("TalksPageComponent", () => {
+	let component: TalksListComponent;
+	let fixture: ComponentFixture<TalksListComponent>;
+
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
-			declarations: [TalkItemComponent, SortPipe],
-			schemas: [CUSTOM_ELEMENTS_SCHEMA]
+			declarations: [TalksListComponent, SortPipe],
+			schemas: [NO_ERRORS_SCHEMA]
 		}).compileComponents();
 
-		fixture = TestBed.createComponent(TalkItemComponent);
+		fixture = TestBed.createComponent(TalksListComponent);
 		component = fixture.componentInstance;
 		fixture.detectChanges();
 
@@ -43,6 +44,6 @@ describe("TalkItemComponent", () => {
 	});
 
 	it("should return true if resultDates are different", () => {
-		expect(component.writeLine(1)).toBeTruthy();
+		expect(component.isShowDateAndLine(1)).toBeTruthy();
 	});
 });
