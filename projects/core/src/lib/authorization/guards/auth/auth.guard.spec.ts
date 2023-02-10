@@ -2,7 +2,6 @@ import { TestBed } from "@angular/core/testing";
 import { AngularFireModule } from "@angular/fire/compat";
 import { AngularFireDatabaseModule } from "@angular/fire/compat/database";
 import { environment } from "src/environments/environment";
-
 import { AuthGuard } from "./auth.guard";
 
 describe("AuthGuard", () => {

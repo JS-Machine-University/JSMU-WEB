@@ -9,7 +9,7 @@ import { environment } from "src/environments/environment";
 import { AngularFireModule } from "@angular/fire/compat";
 import { AngularFireDatabaseModule } from "@angular/fire/compat/database";
 import { HttpClientModule } from "@angular/common/http";
-import { UsersDataService } from "projects/core/src/services/users.data.service";
+import { UsersDataService } from "projects/core/src/lib/authorization/services/data/users.data.service";
 import { LessonsDataService } from "projects/core/src/services/lessons.data.service";
 import { EffectsModule } from "@ngrx/effects";
 import { StoreModule } from "@ngrx/store";
