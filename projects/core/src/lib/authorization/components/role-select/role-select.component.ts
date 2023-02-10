@@ -78,17 +78,26 @@ export class RoleSelectComponent implements OnInit, OnDestroy {
 	}
 
 	private roleMentee(): void {
-		this.userService.saveUser(this.getUser(Roles.MENTEE)).subscribe();
+		this.userService
+			.saveUser(this.getUser(Roles.MENTEE))
+			.pipe(takeUntil(this.destroy$))
+			.subscribe();
 		//toDo redirect to Mentee page.
 	}
 
 	private roleExpert(): void {
-		this.userService.saveUser(this.getUser(Roles.EXPERT)).subscribe();
+		this.userService
+			.saveUser(this.getUser(Roles.EXPERT))
+			.pipe(takeUntil(this.destroy$))
+			.subscribe();
 		//toDO redirect to Expert page
 	}
 
 	private roleRM(): void {
-		this.userService.saveUser(this.getUser(Roles.RM)).subscribe();
+		this.userService
+			.saveUser(this.getUser(Roles.RM))
+			.pipe(takeUntil(this.destroy$))
+			.subscribe();
 		//toDo redirect to RM page
 	}
 

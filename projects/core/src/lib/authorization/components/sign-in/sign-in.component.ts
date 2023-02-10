@@ -46,33 +46,27 @@ export class SignInComponent implements OnDestroy {
 		}
 	}
 
-	private userCheck(uid: String): void {
+	private userCheck(uid: string): void {
 		this.userServise
-			.getUser()
+			.getUserById(uid)
 			.pipe(takeUntil(this.destroy$))
-			.subscribe((data) => {
-				let isUser = false;
-				let userData!: User;
-				if (data) {
-					for (let user of Object.entries(data)) {
-						if (user[1].uid === uid) {
-							isUser = true;
-							userData = user[1];
-						}
-					}
-				}
-				if (isUser) {
-					if (userData.role === Roles.MENTEE) {
-						//toDo Redirect to Mentee page
-					} else if (userData.role === Roles.EXPERT) {
-						//toDO Redirect to Expert page
-					} else if (userData.role === Roles.RM) {
-						//toDO Redirect to RM page
-					}
+			.subscribe((userInfo) => {
+				if (userInfo.isPresent) {
+					this.routerRedirect(userInfo.user!);
 				} else {
 					this.router.navigate([Routes.ROLE_SELECT]);
 				}
 			});
+	}
+
+	private routerRedirect(user: User): void {
+		if (user.role === Roles.MENTEE) {
+			//toDo Redirect to Mentee page
+		} else if (user.role === Roles.EXPERT) {
+			//toDO Redirect to Expert page
+		} else if (user.role === Roles.RM) {
+			//toDO Redirect to RM page
+		}
 	}
 
 	ngOnDestroy() {
