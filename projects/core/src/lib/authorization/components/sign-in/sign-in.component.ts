@@ -47,16 +47,13 @@ export class SignInComponent implements OnDestroy {
 	}
 
 	private userCheck(uid: string): void {
-		this.userServise
-			.getUserById(uid)
-			.pipe(takeUntil(this.destroy$))
-			.subscribe((userInfo) => {
-				if (userInfo.isPresent) {
-					this.routerRedirect(userInfo.user!);
-				} else {
-					this.router.navigate([Routes.ROLE_SELECT]);
-				}
-			});
+		this.userServise.getUserById(uid).subscribe((user) => {
+			if (!user) {
+				this.router.navigate([Routes.ROLE_SELECT]);
+			} else {
+				this.routerRedirect(user);
+			}
+		});
 	}
 
 	private routerRedirect(user: User): void {

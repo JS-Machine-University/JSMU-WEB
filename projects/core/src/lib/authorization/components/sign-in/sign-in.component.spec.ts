@@ -79,18 +79,9 @@ describe("SignInComponent", () => {
 		});
 
 		it("should navigate to role-select", inject([Router], (mockRouter: Router) => {
-			spyOn(dataService, "getUser").and.returnValue(
-				new Observable<User[]>((subscriber) => {
-					subscriber.next([
-						{
-							uid: "234",
-							name: undefined,
-							email: undefined,
-							isVerified: undefined,
-							photoURL: undefined,
-							role: undefined
-						}
-					]);
+			spyOn(dataService, "getUserById").and.returnValue(
+				new Observable<User | null>((subscriber) => {
+					subscriber.next(null);
 				})
 			);
 			const spy = spyOn(mockRouter, "navigate").and.stub();
