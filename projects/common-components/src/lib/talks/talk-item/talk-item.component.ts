@@ -9,5 +9,5 @@ import { Talk } from "@jsmu/core";
 })
 export class TalkItemComponent {
 	@Input() public talk!: Talk;
-	@Input() public isShowLine!: Boolean;
+	@Input() public isShowLine!: boolean;
 }

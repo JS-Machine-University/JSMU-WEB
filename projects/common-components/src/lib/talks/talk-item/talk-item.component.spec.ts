@@ -1,26 +1,20 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
 import { TalkItemComponent } from "@jsmu/common-components";
-import { Result } from "@jsmu/core";
+import { talkMock } from "../../../assets/test/talkMocks";
+import { CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 
 describe("TalkItemComponent", () => {
 	let component: TalkItemComponent;
 	let fixture: ComponentFixture<TalkItemComponent>;
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
-			declarations: [TalkItemComponent]
+			declarations: [TalkItemComponent],
+			schemas: [CUSTOM_ELEMENTS_SCHEMA]
 		}).compileComponents();
 
 		fixture = TestBed.createComponent(TalkItemComponent);
 		component = fixture.componentInstance;
-		component.talk = {
-			lessonId: "",
-			menteeId: "",
-			expertId: "",
-			inProgress: true,
-			result: Result.comment,
-			resultDate: new Date(new Date().getTime()),
-			submitDate: new Date()
-		};
+		component.talk = talkMock;
 		fixture.detectChanges();
 	});
 

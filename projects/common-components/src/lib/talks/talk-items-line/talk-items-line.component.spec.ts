@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
 import { TalkItemsLineComponent } from "@jsmu/common-components";
-import { Result } from "@jsmu/core";
+import { talkMock } from "../../../assets/test/talkMocks";
 
 describe("TalkItemsLineComponent", () => {
 	let component: TalkItemsLineComponent;
@@ -13,16 +13,7 @@ describe("TalkItemsLineComponent", () => {
 
 		fixture = TestBed.createComponent(TalkItemsLineComponent);
 		component = fixture.componentInstance;
-		component.talkItem = {
-			lessonId: "",
-			menteeId: "",
-			expertId: "",
-			inProgress: true,
-			result: Result.comment,
-			resultDate: new Date(),
-			submitDate: new Date()
-		};
-
+		component.talkItem = talkMock;
 		fixture.detectChanges();
 	});
 

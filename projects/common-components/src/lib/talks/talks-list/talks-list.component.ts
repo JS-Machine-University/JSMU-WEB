@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component } from "@angular/core";
-import { Result } from "../../../../../core/src/lib/models/result";
-import { Talk } from "../../../../../core/src/lib/models/talk";
+import { Result, Talk } from "@jsmu/core";
 
 @Component({
 	selector: "jsmu-talks-list",
@@ -12,7 +11,7 @@ export class TalksListComponent {
 	public talks: Talk[] = [
 		{
 			lessonId: "2332",
-			result: Result.comment,
+			result: Result.success,
 			inProgress: true,
 			expertId: "Maksim",
 			menteeId: "Irada",
@@ -75,7 +74,7 @@ export class TalksListComponent {
 		},
 		{
 			lessonId: "3443",
-			result: Result.comment,
+			result: Result.success,
 			inProgress: true,
 			expertId: "Maksim",
 			menteeId: "anybody",
@@ -102,10 +101,10 @@ export class TalksListComponent {
 		}
 	];
 
-	public isShowDateAndLine(i: number): boolean {
+	public isShowLine(index: number): boolean {
 		return (
-			this.talks[i]?.resultDate.toLocaleDateString() !==
-			this.talks[i - 1]?.resultDate.toLocaleDateString()
+			this.talks[index]?.resultDate.toLocaleDateString() !==
+			this.talks[index - 1]?.resultDate.toLocaleDateString()
 		);
 	}
 }

@@ -1,6 +1,6 @@
-export enum Result {
-	success = "success",
-	gaps = "with some gaps",
-	failed = "failed",
-	comment = "some comment"
+export const enum Result {
+	success,
+	gaps,
+	failed,
+	comment
 }

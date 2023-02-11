@@ -1,42 +1,23 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
-import { Result } from "@jsmu/core";
-import { NO_ERRORS_SCHEMA } from "@angular/core";
 import { SortPipe, TalksListComponent } from "@jsmu/common-components";
+import { talksMock } from "../../../assets/test/talkMocks";
+import { CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 
 describe("TalksPageComponent", () => {
 	let component: TalksListComponent;
 	let fixture: ComponentFixture<TalksListComponent>;
+	let index: number = 1;
 
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
 			declarations: [TalksListComponent, SortPipe],
-			schemas: [NO_ERRORS_SCHEMA]
+			schemas: [CUSTOM_ELEMENTS_SCHEMA]
 		}).compileComponents();
 
 		fixture = TestBed.createComponent(TalksListComponent);
 		component = fixture.componentInstance;
 		fixture.detectChanges();
-
-		component.talks = [
-			{
-				lessonId: "",
-				menteeId: "",
-				expertId: "",
-				inProgress: true,
-				result: Result.comment,
-				resultDate: new Date(new Date().getTime()),
-				submitDate: new Date()
-			},
-			{
-				lessonId: "",
-				menteeId: "",
-				expertId: "",
-				inProgress: true,
-				result: Result.comment,
-				resultDate: new Date(new Date().getTime() - 100000000),
-				submitDate: new Date()
-			}
-		];
+		component.talks = talksMock;
 	});
 
 	it("should create", () => {
@@ -44,6 +25,6 @@ describe("TalksPageComponent", () => {
 	});
 
 	it("should return true if resultDates are different", () => {
-		expect(component.isShowDateAndLine(1)).toBeTruthy();
+		expect(component.isShowLine(index)).toBeTruthy();
 	});
 });

@@ -2,8 +2,7 @@ import { Pipe, PipeTransform } from "@angular/core";
 import { Talk } from "@jsmu/core";
 
 @Pipe({
-	name: "sort",
-	pure: false
+	name: "sort"
 })
 export class SortPipe implements PipeTransform {
 	transform(talks: Talk[]): Talk[] {

@@ -1,36 +1,20 @@
 import { SortPipe } from "./sort.pipe";
-import { Result, Talk } from "@jsmu/core";
+import { Talk } from "@jsmu/core";
 import { TestBed } from "@angular/core/testing";
+import { expectedTalksMock, talksMock } from "../../../assets/test/talkMocks";
 
 describe("SortPipe", () => {
 	let pipe: SortPipe;
 	let talks: Talk[];
+	let expectedTalks: Talk[];
 	beforeEach(() => {
 		TestBed.configureTestingModule({
 			providers: [SortPipe]
 		});
 
 		pipe = TestBed.inject(SortPipe);
-		talks = [
-			{
-				lessonId: "",
-				menteeId: "",
-				expertId: "",
-				inProgress: true,
-				result: Result.comment,
-				resultDate: new Date(new Date().getTime()),
-				submitDate: new Date()
-			},
-			{
-				lessonId: "",
-				menteeId: "",
-				expertId: "",
-				inProgress: true,
-				result: Result.comment,
-				resultDate: new Date(new Date().getTime() - 100000000),
-				submitDate: new Date()
-			}
-		];
+		talks = talksMock;
+		expectedTalks = expectedTalksMock;
 	});
 
 	it("create an instance", () => {
@@ -41,6 +25,6 @@ describe("SortPipe", () => {
 		let res = spyOn(pipe, "transform").and.callThrough();
 		pipe.transform(talks);
 		expect(res).toHaveBeenCalledWith(talks);
-		expect(res).toHaveBeenCalledTimes(1);
+		expect(talks[0]).toEqual(expectedTalks[0]);
 	});
 });
