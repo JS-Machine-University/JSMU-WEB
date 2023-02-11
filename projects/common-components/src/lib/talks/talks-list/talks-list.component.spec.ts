@@ -25,6 +25,8 @@ describe("TalksPageComponent", () => {
 	});
 
 	it("should return true if resultDates are different", () => {
-		expect(component.isShowLine(index)).toBeTruthy();
+		const res = spyOn(component, "isShowLine").and.callThrough();
+		component.isShowLine(index);
+		expect(res).toBeTruthy();
 	});
 });
