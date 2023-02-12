@@ -1,5 +1,4 @@
 import { HttpClientModule } from "@angular/common/http";
-import { CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 import { TestBed } from "@angular/core/testing";
 import { AngularFireModule } from "@angular/fire/compat";
 import { AngularFireDatabase, AngularFireDatabaseModule } from "@angular/fire/compat/database";
@@ -20,8 +19,7 @@ describe("AppComponent", () => {
 				HttpClientModule
 			],
 			declarations: [AppComponent],
-			providers: [AngularFireDatabase],
-			schemas: [CUSTOM_ELEMENTS_SCHEMA]
+			providers: [AngularFireDatabase]
 		}).compileComponents();
 	});
 
