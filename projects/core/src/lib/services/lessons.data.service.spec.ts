@@ -14,6 +14,8 @@ describe("LessonsDataService", () => {
 		{ id: "0", title: "", resources: [], duration: "" },
 		{ id: "1", title: "", resources: [], duration: "" }
 	] as Lesson[];
+	const newLesson: Lesson = { id: "0", title: "", resources: [], duration: "" };
+
 	beforeEach(() => {
 		TestBed.configureTestingModule({
 			providers: [LessonsDataService, DataBaseService],
@@ -40,8 +42,6 @@ describe("LessonsDataService", () => {
 		req.flush(expectedLes);
 	});
 	it("should save a lesson and return it", () => {
-		const newLesson: Lesson = { id: "0", title: "", resources: [], duration: "" };
-
 		ldb.saveLesson(newLesson).subscribe({
 			next: (lesson) => expect(lesson).toEqual(newLesson)
 		});
