@@ -37,26 +37,22 @@
 	&__title {
 		@extend %vertical-margin;
 	}
-	&__resources {
-		&-description {
-			@extend %vertical-margin;
-		}
-		&-link {
-			text-decoration: none;
-			color: #009ecc;
-			&:hover {
-				color: #008abd;
-			}
+	&__resources-description {
+		@extend %vertical-margin;
+	}
+	&__resources-link {
+		text-decoration: none;
+		color: #009ecc;
+		&:hover {
+			color: #008abd;
 		}
 	}
-	&__duration {
-		&-icon {
-			@extend %icon-margin;
-			vertical-align: middle;
-		}
-		&-value {
-			display: inline-block;
-			width: 50px;
-		}
+	&__duration-icon {
+		@extend %icon-margin;
+		vertical-align: middle;
+	}
+	&__duration-value {
+		display: inline-block;
+		width: 50px;
 	}
 }
