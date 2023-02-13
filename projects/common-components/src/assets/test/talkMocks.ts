@@ -5,7 +5,7 @@ export const talkMock = {
 	menteeId: "",
 	expertId: "",
 	inProgress: true,
-	result: Result.comment,
+	result: Result.Comment,
 	resultDate: new Date(new Date().getTime()),
 	submitDate: new Date()
 };
@@ -16,7 +16,7 @@ export const talksMock = [
 		menteeId: "",
 		expertId: "",
 		inProgress: true,
-		result: Result.comment,
+		result: Result.Comment,
 		resultDate: new Date(new Date().getTime()),
 		submitDate: new Date()
 	},
@@ -25,7 +25,7 @@ export const talksMock = [
 		menteeId: "",
 		expertId: "",
 		inProgress: true,
-		result: Result.comment,
+		result: Result.Comment,
 		resultDate: new Date(new Date().getTime() - 100000000),
 		submitDate: new Date()
 	}
@@ -37,7 +37,7 @@ export const expectedTalksMock = [
 		menteeId: "",
 		expertId: "",
 		inProgress: true,
-		result: Result.comment,
+		result: Result.Comment,
 		resultDate: new Date(new Date().getTime() - 100000000),
 		submitDate: new Date()
 	},
@@ -46,7 +46,7 @@ export const expectedTalksMock = [
 		menteeId: "",
 		expertId: "",
 		inProgress: true,
-		result: Result.comment,
+		result: Result.Comment,
 		resultDate: new Date(new Date().getTime()),
 		submitDate: new Date()
 	}
