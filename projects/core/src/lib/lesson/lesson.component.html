@@ -1,5 +1,5 @@
 <div class="lesson" *ngIf="lesson" [class.lesson__selected]="selected" (click)="select()">
-	<div class="lesson__description">
+	<div class="lesson__content">
 		<h4 class="lesson__title">
 			<i class="lesson__chevron-down fa-solid fa-chevron-down" *ngIf="!selected"></i>
 			<i class="lesson__chevron-up fa-solid fa-chevron-up" *ngIf="selected"></i>
@@ -7,15 +7,15 @@
 		</h4>
 		<div class="lesson__details" *ngIf="selected">
 			<hr class="lesson__separator" />
-			<div class="lesson__resources resources">
+			<div class="lesson__resources">
 				<h4 class="lesson__title">Self-study Materials</h4>
-				<p class="resources__description">
+				<p class="lesson__resources-description">
 					Please, get prepared in accordance with the materials provided in the attached
 					file.
 				</p>
-				<p class="resources__resource resource" *ngFor="let resource of lesson.resources">
-					<i class="resource__paperclip fa-solid fa-paperclip" *ngIf="resource"></i>
-					<a class="resource__link" href="{{ resource.url }}" target="_blank">
+				<p class="lesson__resources-resource" *ngFor="let resource of lesson.resources">
+					<i class="lesson__paperclip fa-solid fa-paperclip" *ngIf="resource"></i>
+					<a class="lesson__resources-link" href="{{ resource.url }}" target="_blank">
 						{{ resource.name }}
 					</a>
 				</p>
@@ -27,8 +27,8 @@
 			</div>
 		</div>
 	</div>
-	<p class="lesson__duration duration">
-		<i class="duration__icon fa-regular fa-clock"></i>
-		<span class="duration__value">{{ lesson.duration }}</span>
+	<p class="lesson__duration">
+		<i class="lesson__duration-icon fa-regular fa-clock"></i>
+		<span class="lesson__duration-value">{{ lesson.duration }}</span>
 	</p>
 </div>

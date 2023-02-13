@@ -37,28 +37,26 @@
 	&__title {
 		@extend %vertical-margin;
 	}
-}
-.resources {
-	&__description {
-		@extend %vertical-margin;
-	}
-}
-.resource {
-	&__link {
-		text-decoration: none;
-		color: #009ecc;
-		&:hover {
-			color: #008abd;
+	&__resources {
+		&-description {
+			@extend %vertical-margin;
+		}
+		&-link {
+			text-decoration: none;
+			color: #009ecc;
+			&:hover {
+				color: #008abd;
+			}
 		}
 	}
-}
-.duration {
-	&__value {
-		display: inline-block;
-		width: 50px;
-	}
-	&__icon {
-		@extend %icon-margin;
-		vertical-align: middle;
+	&__duration {
+		&-icon {
+			@extend %icon-margin;
+			vertical-align: middle;
+		}
+		&-value {
+			display: inline-block;
+			width: 50px;
+		}
 	}
 }
