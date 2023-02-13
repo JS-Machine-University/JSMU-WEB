@@ -1,6 +1,6 @@
 export const enum Result {
-	success,
-	gaps,
-	failed,
-	comment
+	Success,
+	Gaps,
+	Failed,
+	Comment
 }

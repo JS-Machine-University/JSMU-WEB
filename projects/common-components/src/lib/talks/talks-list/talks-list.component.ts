@@ -11,7 +11,7 @@ export class TalksListComponent {
 	public talks: Talk[] = [
 		{
 			lessonId: "2332",
-			result: Result.success,
+			result: Result.Success,
 			inProgress: true,
 			expertId: "Maksim",
 			menteeId: "Irada",
@@ -20,7 +20,7 @@ export class TalksListComponent {
 		},
 		{
 			lessonId: "3443",
-			result: Result.comment,
+			result: Result.Comment,
 			inProgress: true,
 			expertId: "Maksim",
 			menteeId: "Anar",
@@ -29,7 +29,7 @@ export class TalksListComponent {
 		},
 		{
 			lessonId: "3443",
-			result: Result.comment,
+			result: Result.Comment,
 			inProgress: true,
 			expertId: "Maksim",
 			menteeId: "Kanan",
@@ -38,7 +38,7 @@ export class TalksListComponent {
 		},
 		{
 			lessonId: "3443",
-			result: Result.comment,
+			result: Result.Comment,
 			inProgress: true,
 			expertId: "Maksim",
 			menteeId: "Najaf",
@@ -47,7 +47,7 @@ export class TalksListComponent {
 		},
 		{
 			lessonId: "3443",
-			result: Result.comment,
+			result: Result.Comment,
 			inProgress: true,
 			expertId: "Maksim",
 			menteeId: "Yelizaveta",
@@ -56,7 +56,7 @@ export class TalksListComponent {
 		},
 		{
 			lessonId: "3443",
-			result: Result.comment,
+			result: Result.Comment,
 			inProgress: true,
 			expertId: "Maksim",
 			menteeId: "Leyla",
@@ -65,7 +65,7 @@ export class TalksListComponent {
 		},
 		{
 			lessonId: "3443",
-			result: Result.comment,
+			result: Result.Comment,
 			inProgress: true,
 			expertId: "Maksim",
 			menteeId: "Vaxtanq",
@@ -74,7 +74,7 @@ export class TalksListComponent {
 		},
 		{
 			lessonId: "3443",
-			result: Result.success,
+			result: Result.Success,
 			inProgress: true,
 			expertId: "Maksim",
 			menteeId: "anybody",
@@ -83,7 +83,7 @@ export class TalksListComponent {
 		},
 		{
 			lessonId: "3443",
-			result: Result.comment,
+			result: Result.Comment,
 			inProgress: true,
 			expertId: "Maksim",
 			menteeId: "somebody",
@@ -92,7 +92,7 @@ export class TalksListComponent {
 		},
 		{
 			lessonId: "3443",
-			result: Result.comment,
+			result: Result.Comment,
 			inProgress: true,
 			expertId: "Maksim",
 			menteeId: "those guy",
