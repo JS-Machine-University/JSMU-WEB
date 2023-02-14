@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
-import { Lesson } from "../models/lesson";
+import { Lesson } from "../../../../core/src/lib/models/lesson";
 
 import { LessonComponent } from "./lesson.component";
 

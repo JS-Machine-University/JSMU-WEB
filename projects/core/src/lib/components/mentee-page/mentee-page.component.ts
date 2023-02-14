@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
 import { Observable, Subject, takeUntil } from "rxjs";
-import { Lesson } from "../models/lesson";
-import { LessonsDataService } from "../services/lessons.data.service";
+import { Lesson } from "../../models/lesson";
+import { LessonsDataService } from "../../services/lessons.data.service";
 
 @Component({
 	selector: "jsmu-mentee-page",

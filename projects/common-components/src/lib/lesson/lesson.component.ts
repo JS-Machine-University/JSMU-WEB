@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from "@angular/core";
-import { Lesson } from "../models/lesson";
+import { Lesson } from "../../../../core/src/lib/models/lesson";
 
 @Component({
 	selector: "jsmu-lesson",

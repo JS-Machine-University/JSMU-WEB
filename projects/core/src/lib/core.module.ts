@@ -5,8 +5,8 @@ import { LessonsDataService } from "./services/lessons.data.service";
 import { AuthorizationModule } from "./authorization/authorization.module";
 import { DataBaseService } from "./services/database.service";
 import { UsersDataService } from "./services/users.data.service";
-import { MenteePageComponent } from "./mentee-page/mentee-page.component";
-import { LessonComponent } from "./lesson/lesson.component";
+import { MenteePageComponent } from "./components/mentee-page/mentee-page.component";
+import { LessonComponent } from "../../../common-components/src/lib/lesson/lesson.component";
 import { BrowserModule } from "@angular/platform-browser";
 
 @NgModule({
