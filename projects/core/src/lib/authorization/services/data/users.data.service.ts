@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { map, Observable } from "rxjs";
-import { DataBaseService, ListType } from "../../../../services/database.service";
+import { ListType } from "../../../models/list-type";
+import { DataBaseService } from "../../../services/database.service";
 import { User } from "../../models/user";
 
 @Injectable()

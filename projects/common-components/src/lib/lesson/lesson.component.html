@@ -1,0 +1,34 @@
+<div class="lesson" *ngIf="lesson" [class.lesson__selected]="selected" (click)="select()">
+	<div class="lesson__content">
+		<h4 class="lesson__title">
+			<i class="lesson__chevron-down fa-solid fa-chevron-down" *ngIf="!selected"></i>
+			<i class="lesson__chevron-up fa-solid fa-chevron-up" *ngIf="selected"></i>
+			Module #{{ lesson.id }}: {{ lesson.title }}
+		</h4>
+		<div class="lesson__details" *ngIf="selected">
+			<hr class="lesson__separator" />
+			<div class="lesson__resources">
+				<h4 class="lesson__title">Self-study Materials</h4>
+				<p class="lesson__resources-description">
+					Please, get prepared in accordance with the materials provided in the attached
+					file.
+				</p>
+				<p class="lesson__resources-resource" *ngFor="let resource of lesson.resources">
+					<i class="lesson__paperclip fa-solid fa-paperclip" *ngIf="resource"></i>
+					<a class="lesson__resources-link" href="{{ resource.url }}" target="_blank">
+						{{ resource.name }}
+					</a>
+				</p>
+			</div>
+			<hr class="lesson__separator" />
+			<div class="lesson__meeting">
+				<h4 class="lesson__title">Meeting</h4>
+				<p class="lesson__meeting-description">Please, discuss a theme with an expert.</p>
+			</div>
+		</div>
+	</div>
+	<p class="lesson__duration">
+		<i class="lesson__duration-icon fa-regular fa-clock"></i>
+		<span class="lesson__duration-value">{{ lesson.duration }}</span>
+	</p>
+</div>

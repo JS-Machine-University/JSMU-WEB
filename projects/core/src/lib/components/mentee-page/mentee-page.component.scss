@@ -1,0 +1,21 @@
+.mentee-page {
+	padding: 20px 40px;
+	display: block;
+	font-family: "Source Sans Pro", sans-serif;
+	background: #fff;
+}
+.lessons {
+	&__title {
+		color: #444;
+		letter-spacing: 0.03em;
+		margin: 20px 0;
+	}
+	&__separator {
+		border: none;
+		border-top: 1px solid #f6f6f6;
+		margin: 0;
+		&:last-child {
+			display: none;
+		}
+	}
+}

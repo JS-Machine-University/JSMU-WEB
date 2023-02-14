@@ -1,0 +1,58 @@
+%vertical-margin {
+	margin: 10px 0;
+}
+%icon-margin {
+	margin: 0 5px;
+}
+
+.lesson {
+	padding: 20px;
+	display: flex;
+	justify-content: space-between;
+	color: #555;
+	font-family: "Source Sans Pro", sans-serif;
+	letter-spacing: 0.03em;
+	cursor: pointer;
+	&:hover {
+		background-color: #fafafa;
+	}
+	&__chevron-down,
+	&__chevron-up {
+		@extend %icon-margin;
+		vertical-align: middle;
+		font-size: 0.7em;
+		color: #bbb;
+	}
+	&__selected {
+		border: 1px solid #db9d0b;
+	}
+	&__details {
+		margin: 20px;
+	}
+	&__separator {
+		border: none;
+		border-top: 1px solid #fafafa;
+		margin: 0;
+	}
+	&__title {
+		@extend %vertical-margin;
+	}
+	&__resources-description {
+		@extend %vertical-margin;
+	}
+	&__resources-link {
+		text-decoration: none;
+		color: #009ecc;
+		&:hover {
+			color: #008abd;
+		}
+	}
+	&__duration-icon {
+		@extend %icon-margin;
+		vertical-align: middle;
+	}
+	&__duration-value {
+		display: inline-block;
+		width: 50px;
+	}
+}
