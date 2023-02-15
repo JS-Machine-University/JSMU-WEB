@@ -8,8 +8,9 @@ import { AuthService } from "../../services/auth/auth.service";
 import { Observable } from "rxjs";
 import { User } from "../../models/user";
 import { Roles } from "../../models/roles";
-import { UsersDataService } from "../../services/data/users.data.service";
 import { HttpClientTestingModule } from "@angular/common/http/testing";
+import { UsersDataService } from "../../../services/users.data.service";
+import { DataBaseService } from "../../../services/database.service";
 
 describe("RoleSelectComponent", () => {
 	let component: RoleSelectComponent;
@@ -28,7 +29,7 @@ describe("RoleSelectComponent", () => {
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
 			declarations: [RoleSelectComponent],
-			providers: [UsersDataService],
+			providers: [UsersDataService, DataBaseService],
 			imports: [
 				AngularFireModule.initializeApp(environment.firebaseConfig),
 				AngularFireDatabaseModule,

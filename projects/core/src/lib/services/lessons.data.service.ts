@@ -5,12 +5,14 @@ import { Lesson } from "../models/lesson";
 import { ListType } from "../models/list-type";
 
 @Injectable()
-export class LessonsDataService extends DataBaseService<Lesson> {
+export class LessonsDataService {
+	constructor(private db: DataBaseService<Lesson>) {}
+
 	public getLesson<Lesson>(): Observable<Lesson> {
-		return this.getData<Lesson>(ListType.LESSONS);
+		return this.db.getData<Lesson>(ListType.LESSONS);
 	}
 
 	public saveLesson<Lesson>(newData: Lesson): Observable<Lesson> {
-		return this.saveData<Lesson>(ListType.LESSONS, newData);
+		return this.db.saveData<Lesson>(ListType.LESSONS, newData);
 	}
 }

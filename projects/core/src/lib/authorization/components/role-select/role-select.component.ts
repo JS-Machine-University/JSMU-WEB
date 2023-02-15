@@ -3,9 +3,9 @@ import { AuthService } from "../../services/auth/auth.service";
 import { Roles } from "../../models/roles";
 import { User } from "../../models/user";
 import { RoleInfo } from "../../models/role-info";
-import { UsersDataService } from "../../services/data/users.data.service";
 import { Router } from "@angular/router";
 import { Subject, takeUntil } from "rxjs";
+import { UsersDataService } from "../../../services/users.data.service";
 
 @Component({
 	selector: "jsmu-role-select",
