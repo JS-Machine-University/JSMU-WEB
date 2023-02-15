@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
 import { TalkItemsLineComponent } from "@jsmu/common-components";
-import { talkMock } from "../../../assets/test/talkMocks";
+import { talkMock } from "../../../../../../src/assets/tests/talkMocks";
 
 describe("TalkItemsLineComponent", () => {
 	let component: TalkItemsLineComponent;

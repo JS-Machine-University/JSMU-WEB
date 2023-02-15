@@ -5,4 +5,3 @@ export * from "./lib/button/button.component";
 export * from "./lib/talks/talks-list/talks-list.component";
 export * from "./lib/talks/talk-item/talk-item.component";
 export * from "./lib/talks/talk-items-line/talk-items-line.component";
-export * from "./lib/pipes/sort/sort.pipe";

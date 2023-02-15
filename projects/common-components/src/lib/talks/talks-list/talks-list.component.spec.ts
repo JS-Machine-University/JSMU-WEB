@@ -1,7 +1,8 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
-import { SortPipe, TalksListComponent } from "@jsmu/common-components";
-import { talksMock } from "../../../assets/test/talkMocks";
+import { TalksListComponent } from "@jsmu/common-components";
+import { talksMock } from "../../../../../../src/assets/tests/talkMocks";
 import { CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
+import { SortPipe } from "@jsmu/shared";
 
 describe("TalksPageComponent", () => {
 	let component: TalksListComponent;

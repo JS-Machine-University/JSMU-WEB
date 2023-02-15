@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
 import { TalkItemComponent } from "@jsmu/common-components";
-import { talkMock } from "../../../assets/test/talkMocks";
+import { talkMock } from "../../../../../../src/assets/tests/talkMocks";
 import { CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 
 describe("TalkItemComponent", () => {

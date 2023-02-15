@@ -1,7 +1,7 @@
 import { SortPipe } from "./sort.pipe";
 import { Talk } from "@jsmu/core";
 import { TestBed } from "@angular/core/testing";
-import { expectedTalksMock, talksMock } from "../../../assets/test/talkMocks";
+import { expectedTalksMock, talksMock } from "../../../../../../src/assets/tests/talkMocks";
 
 describe("SortPipe", () => {
 	let pipe: SortPipe;
