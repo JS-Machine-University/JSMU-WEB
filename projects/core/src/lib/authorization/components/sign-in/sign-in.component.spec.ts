@@ -4,12 +4,13 @@ import { AngularFireModule } from "@angular/fire/compat";
 import { AngularFireDatabaseModule } from "@angular/fire/compat/database";
 import { environment } from "src/environments/environment";
 import { SignInComponent } from "./sign-in.component";
-import { UsersDataService } from "../../services/data/users.data.service";
 import { AuthService } from "../../services/auth/auth.service";
 import { HttpClientTestingModule } from "@angular/common/http/testing";
 import { Observable } from "rxjs";
 import { User } from "../../models/user";
 import { Router } from "@angular/router";
+import { UsersDataService } from "../../../services/users.data.service";
+import { DataBaseService } from "../../../services/database.service";
 
 describe("SignInComponent", () => {
 	let component: SignInComponent;
@@ -28,7 +29,7 @@ describe("SignInComponent", () => {
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
 			declarations: [SignInComponent],
-			providers: [UsersDataService],
+			providers: [UsersDataService, DataBaseService],
 			imports: [
 				AngularFireModule.initializeApp(environment.firebaseConfig),
 				AngularFireDatabaseModule,
