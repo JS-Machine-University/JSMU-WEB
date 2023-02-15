@@ -1,8 +1,11 @@
-import { ChangeDetectionStrategy, Component } from "@angular/core";
+import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from "@angular/core";
 import { AuthService } from "../../services/auth/auth.service";
 import { Roles } from "../../models/roles";
 import { User } from "../../models/user";
 import { RoleInfo } from "../../models/role-info";
+import { UsersDataService } from "../../services/data/users.data.service";
+import { Router } from "@angular/router";
+import { Subject, takeUntil } from "rxjs";
 
 @Component({
 	selector: "jsmu-role-select",
@@ -10,7 +13,10 @@ import { RoleInfo } from "../../models/role-info";
 	styleUrls: ["./role-select.component.scss"],
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class RoleSelectComponent {
+export class RoleSelectComponent implements OnInit, OnDestroy {
+	private user!: User;
+	private destroy$: Subject<void> = new Subject<void>();
+
 	public rolesInfo: RoleInfo[] = [
 		{
 			type: Roles.MENTEE,
@@ -42,7 +48,20 @@ export class RoleSelectComponent {
 		}
 	];
 
-	constructor(private authService: AuthService) {}
+	constructor(
+		private authService: AuthService,
+		private userService: UsersDataService,
+		private router: Router
+	) {}
+
+	ngOnInit() {
+		this.authService
+			.getUser()
+			.pipe(takeUntil(this.destroy$))
+			.subscribe((sUser) => {
+				this.user = sUser;
+			});
+	}
 
 	public switchRole(role: Roles): void {
 		switch (role) {
@@ -59,28 +78,42 @@ export class RoleSelectComponent {
 	}
 
 	private roleMentee(): void {
-		this.getUser(Roles.MENTEE);
-		// toDo : Need page to add route in future
+		this.userService
+			.saveUser(this.getUser(Roles.MENTEE))
+			.pipe(takeUntil(this.destroy$))
+			.subscribe();
+		//toDo redirect to Mentee page.
 	}
 
 	private roleExpert(): void {
-		this.getUser(Roles.EXPERT);
-		//toDo : Need page to add route in future
+		this.userService
+			.saveUser(this.getUser(Roles.EXPERT))
+			.pipe(takeUntil(this.destroy$))
+			.subscribe();
+		//toDO redirect to Expert page
 	}
 
 	private roleRM(): void {
-		this.getUser(Roles.RM);
-		// toDo : Need page to add route in future
+		this.userService
+			.saveUser(this.getUser(Roles.RM))
+			.pipe(takeUntil(this.destroy$))
+			.subscribe();
+		//toDo redirect to RM page
 	}
 
 	private getUser(userRole: Roles): User {
 		return {
-			uid: JSON.parse(localStorage.getItem("user")!).uid,
-			name: JSON.parse(localStorage.getItem("user")!).providerData[0].displayName,
-			email: JSON.parse(localStorage.getItem("user")!).providerData[0].email,
-			isVerified: true,
-			photoURL: JSON.parse(localStorage.getItem("user")!).providerData[0].photoURL,
+			uid: this.user?.uid,
+			name: this.user?.name,
+			email: this.user?.email,
+			isVerified: this.user?.isVerified,
+			photoURL: this.user?.photoURL,
 			role: userRole
 		};
+	}
+
+	ngOnDestroy(): void {
+		this.destroy$.next();
+		this.destroy$.unsubscribe();
 	}
 }

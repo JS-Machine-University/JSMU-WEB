@@ -1,13 +1,8 @@
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-import { DataBaseService, ListType } from "./database.service";
-export interface User {
-	uid: string;
-	email: string;
-	displayName: string;
-	photoURL: string;
-	emailVerified: boolean;
-}
+import { User } from "../authorization/models/user";
+import { ListType } from "../models/list-type";
+import { DataBaseService } from "./database.service";
 
 @Injectable()
 export class UsersDataService extends DataBaseService<User> {

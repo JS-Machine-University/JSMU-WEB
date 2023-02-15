@@ -12,6 +12,7 @@ import { AngularFireDatabaseModule } from "@angular/fire/compat/database";
 import { AuthService } from "./services/auth/auth.service";
 import { RoleComponent } from "./components/role/role.component";
 import { RouterModule } from "@angular/router";
+import { UsersDataService } from "./services/data/users.data.service";
 
 @NgModule({
 	declarations: [SignInComponent, RoleSelectComponent, RoleComponent],
@@ -26,6 +27,6 @@ import { RouterModule } from "@angular/router";
 		RouterModule
 	],
 	exports: [SignInComponent, RoleSelectComponent, RoleComponent],
-	providers: [AuthService]
+	providers: [AuthService, UsersDataService]
 })
 export class AuthorizationModule {}

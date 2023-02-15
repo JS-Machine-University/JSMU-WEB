@@ -3,7 +3,6 @@ import { TestBed } from "@angular/core/testing";
 import { AngularFireModule } from "@angular/fire/compat";
 import { AngularFireDatabase, AngularFireDatabaseModule } from "@angular/fire/compat/database";
 import { BrowserModule } from "@angular/platform-browser";
-import { UsersDataService } from "projects/core/src/services/users.data.service";
 import { environment } from "src/environments/environment";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -19,7 +18,7 @@ describe("AppComponent", () => {
 				HttpClientModule
 			],
 			declarations: [AppComponent],
-			providers: [AngularFireDatabase, UsersDataService]
+			providers: [AngularFireDatabase]
 		}).compileComponents();
 	});
 

@@ -1,17 +1,29 @@
-import { AuthorizationModule } from "./authorization/authorization.module";
-import { NgModule } from "@angular/core";
 import { StoreModule } from "@ngrx/store";
-import { CoreComponent } from "./core.component";
 import { CommonModule } from "@angular/common";
 import { CommonComponentsModule } from "@jsmu/common-components";
+import { NgModule } from "@angular/core";
+import { CoreComponent } from "./core.component";
+import { HttpClientModule } from "@angular/common/http";
+import { LessonsDataService } from "./services/lessons.data.service";
+import { AuthorizationModule } from "./authorization/authorization.module";
+import { DataBaseService } from "./services/database.service";
+import { UsersDataService } from "./services/users.data.service";
+import { MenteePageComponent } from "./components/mentee-page/mentee-page.component";
+import { LessonComponent } from "../../../common-components/src/lib/lesson/lesson.component";
+import { BrowserModule } from "@angular/platform-browser";
 
 @NgModule({
-	declarations: [CoreComponent],
 	imports: [
 		CommonModule,
 		CommonComponentsModule,
-		AuthorizationModule
+		AuthorizationModule,
+		HttpClientModule,
+		AuthorizationModule,
+		BrowserModule
 		// StoreModule.forFeature()
-	]
+	],
+	providers: [DataBaseService, UsersDataService, LessonsDataService],
+	declarations: [CoreComponent, MenteePageComponent, LessonComponent],
+	exports: [CoreComponent]
 })
 export class CoreModule {}
