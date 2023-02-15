@@ -1,0 +1,27 @@
+.jsmu-talk-items-line {
+	position: relative;
+	top: 5px;
+	text-align: center;
+	z-index: 1;
+
+  &__date {
+    position: relative;
+    background-color: #111122;
+    border-radius: 5px;
+    padding: 0 10px;
+    display: inline;
+
+    &::after {
+      position: absolute;
+      display: block;
+      content: "";
+      width: 65vw;
+      height: 2px;
+      background-color: rgba(105, 105, 105, 0.73);
+      top: 10px;
+      left: 50%;
+      transform: translateX(-47%);
+      z-index: -1;
+    }
+  }
+}

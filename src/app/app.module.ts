@@ -21,12 +21,12 @@ import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 		AngularFireDatabaseModule,
 		AppRoutingModule,
 		SharedModule,
+		CoreModule,
 		CommonComponentsModule,
 		HttpClientModule,
 		StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
 		EffectsModule.forRoot([]),
-		StoreModule.forRoot({}, {}),
-		CoreModule
+		StoreModule.forRoot({}, {})
 	],
 	providers: [],
 	bootstrap: [AppComponent]

@@ -1,0 +1,34 @@
+<div class="jsmu-talk-item">
+	<jsmu-talk-items-line
+		class="jsmu-talk-item__line"
+		*ngIf="isShowLine"
+		[talkItem]="talk"
+	></jsmu-talk-items-line>
+	<div class="jsmu-talk-item__wrapper">
+		<div class="jsmu-talk-item__photo">
+			<a href="#">
+				<img class="jsmu-talk-item__photo-img" src="/assets/images/cat.jpg" alt="profile" />
+			</a>
+		</div>
+		<div class="jsmu-talk-item__content">
+			<div class="jsmu-talk-item__header">
+				<div class="jsmu-talk-item__expert">Maksim Samuilionak</div>
+				<div class="jsmu-talk-item__date">
+					{{talk.resultDate | date: 'MM/dd/yy, h:mm a'}}
+				</div>
+			</div>
+			<div class="jsmu-talk-item__body">
+				<p>Dear Middle Developer Growth Expert</p>
+				<div class="jsmu-talk-item__experts">Experts names...</div>
+				<div class="jsmu-talk-item__mentee">
+					Please handle new talk request for
+					<a class="jsmu-talk-item__mentee-link" href="#">{{talk.menteeId}}</a>
+				</div>
+				<div>Selected topic is: ...</div>
+			</div>
+		</div>
+	</div>
+	<div class="jsmu-talk-item__btn">
+		<jsmu-button class="submit">Submit</jsmu-button>
+	</div>
+</div>

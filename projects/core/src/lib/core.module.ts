@@ -1,3 +1,6 @@
+import { StoreModule } from "@ngrx/store";
+import { CommonModule } from "@angular/common";
+import { CommonComponentsModule } from "@jsmu/common-components";
 import { NgModule } from "@angular/core";
 import { CoreComponent } from "./core.component";
 import { HttpClientModule } from "@angular/common/http";
@@ -10,7 +13,15 @@ import { LessonComponent } from "../../../common-components/src/lib/lesson/lesso
 import { BrowserModule } from "@angular/platform-browser";
 
 @NgModule({
-	imports: [HttpClientModule, AuthorizationModule, BrowserModule],
+	imports: [
+		CommonModule,
+		CommonComponentsModule,
+		AuthorizationModule,
+		HttpClientModule,
+		AuthorizationModule,
+		BrowserModule
+		// StoreModule.forFeature()
+	],
 	providers: [DataBaseService, UsersDataService, LessonsDataService],
 	declarations: [CoreComponent, MenteePageComponent, LessonComponent],
 	exports: [CoreComponent]

@@ -1,0 +1,80 @@
+.jsmu-talk-item {
+	display: flex;
+	flex-direction: column;
+	max-width: 65rem;
+	margin: 0 auto;
+  position: relative;
+
+  &__line {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -60px;
+  }
+
+	&__wrapper {
+		display: flex;
+		justify-content: center;
+	}
+
+	&__btn {
+		align-self: flex-end;
+		margin: 10px 45px 80px 0;
+	}
+
+	&__photo {
+		margin-top: 12px;
+	}
+
+  &__photo-img {
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+    border-radius: 100%;
+  }
+
+	&__content {
+		position: relative;
+		width: 60vw;
+		display: block;
+		margin: 0 10px 10px 20px;
+		padding: 5px 10px;
+		background-color: rgb(196 194 194 / 12%);
+		border-radius: 5px;
+
+		&::before {
+			content: "";
+			position: absolute;
+			width: 3px;
+			height: 100%;
+			background-color: #1e88e5;
+			left: 0;
+			top: 0;
+		}
+	}
+
+	&__header {
+		display: flex;
+	}
+
+	&__expert {
+		margin-right: 20px;
+		font-weight: bold;
+	}
+
+  &__mentee-link {
+    color: #78a1ec;
+    text-decoration: none;
+  }
+
+	&__date {
+		margin-left: 20px;
+		font-size: 12px;
+		display: flex;
+		align-items: center;
+	}
+
+	&__experts {
+		margin-bottom: 20px;
+	}
+}

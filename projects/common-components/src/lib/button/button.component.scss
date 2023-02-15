@@ -12,6 +12,7 @@
 	min-height: 90px;
 	min-width: 200px;
 	outline: none;
+  cursor: pointer;
 
 	&:active {
 		background-color: $lightBlueColor;
@@ -41,4 +42,38 @@
 		@include width-height(35%, 65%);
 		@include bottom-right(57%, -10%);
 	}
+}
+
+:host.submit{
+  .button {
+    font-size: 20px;
+    border: 3px solid $lightBlueColor;
+    min-height: 50px;
+    min-width: 100px;
+    padding: 3px;
+
+    &:before {
+      @include width-height(20%, 45%);
+      @include top-left(70%, -10%);
+      border-bottom: 3px solid $lightBlueColor;
+      border-left: 3px solid $lightBlueColor;
+    }
+
+    &:after {
+      @include width-height(20%, 45%);
+      @include bottom-right(70%, -10%);
+      border-top: 3px solid $lightBlueColor;
+      border-right: 3px solid $lightBlueColor;
+    }
+
+    &:hover:before {
+      @include width-height(35%, 65%);
+      @include top-left(57%, -14%);
+    }
+
+    &:hover:after {
+      @include width-height(35%, 65%);
+      @include bottom-right(57%, -14%);
+    }
+  }
 }
