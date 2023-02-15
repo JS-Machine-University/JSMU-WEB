@@ -8,11 +8,11 @@ import { ListType } from "../models/list-type";
 export class DataBaseService<T> {
 	constructor(private http: HttpClient) {}
 
-	protected getData<T>(listType: ListType): Observable<T> {
+	public getData<T>(listType: ListType): Observable<T> {
 		return this.http.get<T>(`${environment.firebaseConfig.databaseURL}/${listType}.json`);
 	}
 
-	protected saveData<T>(listType: ListType, newData: T): Observable<T> {
+	public saveData<T>(listType: ListType, newData: T): Observable<T> {
 		return this.http.post<T>(
 			`${environment.firebaseConfig.databaseURL}/${listType}.json`,
 			newData
