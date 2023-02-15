@@ -11,6 +11,7 @@ import { AngularFireStorageModule } from "@angular/fire/compat/storage";
 import { AngularFireDatabaseModule } from "@angular/fire/compat/database";
 import { AuthService } from "./services/auth/auth.service";
 import { RoleComponent } from "./components/role/role.component";
+import { UsersDataService } from "./services/data/users.data.service";
 
 @NgModule({
 	declarations: [SignInComponent, RoleSelectComponent, RoleComponent],
@@ -24,6 +25,6 @@ import { RoleComponent } from "./components/role/role.component";
 		AngularFireDatabaseModule
 	],
 	exports: [SignInComponent, RoleSelectComponent, RoleComponent],
-	providers: [AuthService]
+	providers: [AuthService, UsersDataService]
 })
 export class AuthorizationModule {}
