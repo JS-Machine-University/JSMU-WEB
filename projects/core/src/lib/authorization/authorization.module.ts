@@ -11,7 +11,7 @@ import { AngularFireStorageModule } from "@angular/fire/compat/storage";
 import { AngularFireDatabaseModule } from "@angular/fire/compat/database";
 import { AuthService } from "./services/auth/auth.service";
 import { RoleComponent } from "./components/role/role.component";
-import { UsersDataService } from "./services/data/users.data.service";
+import { UsersDataService } from "../services/users.data.service";
 
 @NgModule({
 	declarations: [SignInComponent, RoleSelectComponent, RoleComponent],
