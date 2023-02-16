@@ -1,0 +1,64 @@
+.jsmu-header {
+  background-color: rgb(38 39 52);
+  height: 10vh;
+  width: 100vw;
+  padding: 3px 15px;
+  font-size: 3.3vh;
+  position: fixed;
+  z-index: 1;
+  border-bottom: 1px rgba(54,55,51,0.8) solid;
+
+  .list-item {
+    list-style: none;
+
+    :hover{
+      color: #fff;
+    }
+  }
+
+  .link {
+    color: rgba(203,203,197,0.85);
+    text-decoration: none;
+  }
+
+  &__navigation{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__menu-wrapper {
+    width: 46vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__avatar-item {
+    height: 60px;
+    width: 60px;
+    margin-top: 3px;
+  }
+
+  &__avatar-img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 100%;
+    border: 2px lawngreen solid;
+    display: block;
+    margin: 0 auto;
+  }
+
+  &__menu {
+    width: 30vw;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__authorization {
+      display: flex;
+      justify-content: space-around;
+      width: 12vw;
+  }
+}
