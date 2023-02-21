@@ -1,4 +1,56 @@
-p {
-    color: white;
-    font-size: 4em;
+%text-center {
+	text-align: center;
+}
+.home {
+	padding: 20px 50px;
+    &__title {
+@extend %text-center;
+	margin: 30px 0 10px 0;
+    }
+    &__hr {
+        border: none;
+        border-top: 1px solid #bac4ff14;
+        margin: 20px 0;
+    }
+}
+.link {
+	text-decoration: none;
+	color: #bac4ff;
+}
+.about {
+	&__content {
+		@extend %text-center;
+	}
+}
+.benefits {
+	&__list {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+	&__benefit {
+		@extend %text-center;
+		display: flex;
+		align-items: center;
+		width: 250px;
+		height: 200px;
+		margin: 15px;
+		list-style: none;
+		padding: 20px;
+		background-color: #777ef841;
+	}
+}
+.how-it-works {
+	@extend %text-center;
+	&__description {
+		width: 400px;
+		margin: 10px auto 20px auto;
+		padding: 20px;
+		background-color: #777ef841;
+	}
+}
+.feedback {
+	&__content {
+		@extend %text-center;
+	}
 }
