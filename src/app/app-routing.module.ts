@@ -9,7 +9,7 @@ import { MenteePageComponent } from "projects/core/src/lib/components/mentee-pag
 
 const routes: Routes = [
 	{ path: "", redirectTo: "/sign-in", pathMatch: "full" },
-	{ path: "sign-in", component: SignInComponent },
+	// { path: "sign-in", component: SignInComponent },
 	{ path: "role-select", component: RoleSelectComponent, canActivate: [AuthGuard] },
 	{ path: "talks", component: TalksListComponent },
 	{ path: "mentee-page", component: MenteePageComponent, canActivate: [AuthGuard] }

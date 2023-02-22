@@ -1,19 +1,25 @@
 .jsmu-header {
   background-color: rgb(38 39 52);
-  height: 10vh;
-  width: 100vw;
-  padding: 3px 15px;
-  font-size: 3.3vh;
-  position: fixed;
+  height: 70px;
+  padding: .3vh 1vw;
+  font-size: 1.4vw;
   z-index: 1;
   border-bottom: 1px rgba(54,55,51,0.8) solid;
 
   .list-item {
     list-style: none;
+    position: relative;
+    border-right: 3px rgba(6,6,18,0.89) dotted;
+    padding-right: 1vw;
 
     :hover{
-      color: #fff;
+      color: #d7d7d1;
     }
+  }
+
+  .list-item:last-child{
+    border-right: none;
+    padding-right: 0;
   }
 
   .link {
@@ -28,7 +34,7 @@
   }
 
   &__menu-wrapper {
-    width: 46vw;
+    width: 62vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -38,20 +44,21 @@
     height: 60px;
     width: 60px;
     margin-top: 3px;
+    list-style: none;
   }
 
   &__avatar-img{
     height: 100%;
     width: 100%;
     object-fit: cover;
-    border-radius: 100%;
+    border-radius: 50%;
     border: 2px lawngreen solid;
     display: block;
     margin: 0 auto;
   }
 
   &__menu {
-    width: 30vw;
+    width: 45vw;
     display: flex;
     justify-content: space-between;
   }
@@ -61,4 +68,14 @@
       justify-content: space-around;
       width: 12vw;
   }
+
+  &__login-item, &__logout-item {
+    list-style: none;
+  }
+
+  .active-link {
+    color: #fff;
+  }
 }
+
+

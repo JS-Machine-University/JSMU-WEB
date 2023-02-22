@@ -1,7 +1,7 @@
-<div class="jsmu-header">
+<header class="jsmu-header">
 	<nav class="jsmu-header__navigation">
 		<ul class="jsmu-header__avatar">
-			<li class="jsmu-header__avatar-item list-item">
+			<li class="jsmu-header__avatar-item">
 				<a href="#" class="jsmu-header__avatar-link link">
 					<img
 						src="/assets/images/cat.jpg"
@@ -14,28 +14,39 @@
 
 		<div class="jsmu-header__menu-wrapper">
 			<menu class="jsmu-header__menu">
-				<li class="jsmu-header__menu-item list-item">
-					<a href="#" class="jsmu-header__menu-link link">Home</a>
-				</li>
-				<li class="jsmu-header__menu-item list-item">
-					<a href="#" class="jsmu-header__menu-link link">Themes</a>
-				</li>
-				<li class="jsmu-header__menu-item list-item">
-					<a href="#" class="jsmu-header__menu-link link">Info</a>
-				</li>
-				<li class="jsmu-header__menu-item list-item">
-					<a href="#" class="jsmu-header__menu-link link">Connect us</a>
+				<li class="jsmu-header__menu-item list-item" *ngFor="let menuItem of menuItems">
+					<a
+						*ngIf="menuItem.activeOptions; else noOptions"
+						class="jsmu-header__menu-link link"
+						[routerLink]="menuItem.routerLink"
+						[routerLinkActiveOptions]="menuItem.activeOptions"
+						routerLinkActive="active-link"
+					>
+						{{menuItem.itemName}}
+					</a>
+
+					<ng-template #noOptions>
+						<a
+							class="jsmu-header__menu-link link"
+							[routerLink]="menuItem.routerLink"
+							routerLinkActive="active-link"
+						>
+							{{menuItem.itemName}}
+						</a>
+					</ng-template>
 				</li>
 			</menu>
 
 			<ul class="jsmu-header__authorization">
-				<li class="jsmu-header__login-item list-item">
-					<a href="" class="jsmu-header__login-link link">Login</a>
+				<li class="jsmu-header__login-item" *ngIf="!isLoggedIn; else loggedOut">
+					<jsmu-sign-in></jsmu-sign-in>
 				</li>
-				<li class="jsmu-header__logout-item list-item">
-					<a href="" class="jsmu-header__logout-link link">Logout</a>
-				</li>
+				<ng-template #loggedOut>
+					<li class="jsmu-header__logout-item">
+						<jsmu-sign-out></jsmu-sign-out>
+					</li>
+				</ng-template>
 			</ul>
 		</div>
 	</nav>
-</div>
+</header>

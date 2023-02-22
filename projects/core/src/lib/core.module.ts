@@ -12,6 +12,8 @@ import { MenteePageComponent } from "./components/mentee-page/mentee-page.compon
 import { LessonComponent } from "../../../common-components/src/lib/lesson/lesson.component";
 import { BrowserModule } from "@angular/platform-browser";
 import { HeaderComponent } from "./components/header/header.component";
+import { RouterModule } from "@angular/router";
+import { FooterComponent } from "./components/footer/footer.component";
 
 @NgModule({
 	imports: [
@@ -20,11 +22,18 @@ import { HeaderComponent } from "./components/header/header.component";
 		AuthorizationModule,
 		HttpClientModule,
 		AuthorizationModule,
-		BrowserModule
+		BrowserModule,
+		RouterModule
 		// StoreModule.forFeature()
 	],
 	providers: [DataBaseService, UsersDataService, LessonsDataService],
-	declarations: [CoreComponent, MenteePageComponent, LessonComponent, HeaderComponent],
-	exports: [CoreComponent, HeaderComponent]
+	declarations: [
+		CoreComponent,
+		MenteePageComponent,
+		LessonComponent,
+		HeaderComponent,
+		FooterComponent
+	],
+	exports: [CoreComponent, HeaderComponent, FooterComponent]
 })
 export class CoreModule {}

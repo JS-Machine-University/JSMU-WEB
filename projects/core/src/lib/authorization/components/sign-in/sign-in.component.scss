@@ -2,11 +2,12 @@
 @import "../../../../../../../src/assets/styles/mixins";
 
 .sign-in {
-	@include wide-screen;
+	//@include wide-screen;
 	background-color: $darkBlueColor;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+  z-index: 2;
 
 	&__button {
 		font-family: $fontRobotoLight;

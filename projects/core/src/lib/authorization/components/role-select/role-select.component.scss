@@ -2,7 +2,7 @@
 @import "../../../../../../../src/assets/styles/mixins";
 
 .role-select {
-	@include wide-screen;
+	//@include wide-screen;
 	background-color: $darkBlueColor;
 	font-family: $fontRobotoLight;
 	color: $lightBlueColor;
