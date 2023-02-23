@@ -1,51 +1,24 @@
 <div class="home">
-	<section class="about">
-		<h2 class="about__title">What is JS Middle Developer Growth ?</h2>
-		<p class="about__content">
-			It's educational initiative which hepls candidate to become D2 quickly and with better
-			quality
-		</p>
-	</section>
-	<hr class="home__separator" />
-	<section class="benefits">
-		<h2 class="benefits__title">What benefits you can receive?</h2>
-		<ul class="benefits__list">
-			<li class="benefits__benefit">Helping hand for prepare mentee to ASMT</li>
-			<li class="benefits__benefit">
-				L2 ASMT request can be submitted in 4 hours after passing all talks (no failed
-				required)
-			</li>
-			<li class="benefits__benefit">JSMU result can be used on ASMT as artifact</li>
-			<li class="benefits__benefit">
-				Help RM to save time on MENTEE preparation (But final decision about ASMT request
-				submit make by RM)
-			</li>
-			<li class="benefits__benefit">Share knowledge between mentee and expert/networking</li>
+	<section *ngFor="let section of sections" [class]="section.name">
+		<h2 [class]="section.name+'__title'">{{section.title}}</h2>
+		<ul [class]="section.name+'__list'" *ngIf="section.benefits">
+			<li class="benefits__benefit" *ngFor="let benefit of section.benefits">{{benefit}}</li>
 		</ul>
-	</section>
-	<hr class="home__separator" />
-	<section class="how-it-works">
-		<h2 class="how-it-works__title">How it works?</h2>
-		<p class="how-it-works__description">
-			For Candidate - please
-			<a class="link" href="" target="_blank">check here</a>
-		</p>
-		<p class="how-it-works__description">
-			For RM - please
-			<a class="link" href="" target="_blank">check here</a>
-		</p>
-		<p class="how-it-works__description">
-			For Expert - please
-			<a class="link" href="" target="_blank">check here</a>
-		</p>
-		<p class="how-it-works__description"><a class="link" href="" target="_blank">FAQ</a></p>
-	</section>
-	<hr class="home__separator" />
-	<section class="feedback">
-		<h2 class="feedback__title">Do you have any feedback for us ?</h2>
-		<p class="feedback__content">
-			Please, just start a discussion
+		<p [class]="section.name+'__content'" *ngIf="section.content">{{section.content}}</p>
+		<div class="how-it-works__instructions" *ngIf="section.instructions">
+			<p class="how-it-works__instruction" *ngFor="let instruction of section.instructions">
+				For {{instruction}} - please
+				<a class="link" href="" target="_blank">check here</a>
+			</p>
+			<p class="how-it-works__instruction"><a class="link" href="" target="_blank">FAQ</a></p>
+		</div>
+		<p class="feedback__content" *ngIf="section.feedback">
+			{{section.feedback}}
 			<a class="link" href="" target="_blank">here</a>
 		</p>
+		<hr
+			[class]="section.name+'__separator'"
+			[ngClass]="section===sections[sections.length-1] ? 'last-separator' : ''"
+		/>
 	</section>
 </div>
