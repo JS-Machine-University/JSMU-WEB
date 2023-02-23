@@ -1,24 +1,21 @@
 <div class="home">
-	<section *ngFor="let section of sections" [class]="section.name">
+	<section *ngFor="let section of sections; last as isLast" [class]="section.name">
 		<h2 [class]="section.name+'__title'">{{section.title}}</h2>
 		<ul [class]="section.name+'__list'" *ngIf="section.benefits">
 			<li class="benefits__benefit" *ngFor="let benefit of section.benefits">{{benefit}}</li>
 		</ul>
 		<p [class]="section.name+'__content'" *ngIf="section.content">{{section.content}}</p>
-		<div class="how-it-works__instructions" *ngIf="section.instructions">
-			<p class="how-it-works__instruction" *ngFor="let instruction of section.instructions">
+		<div class="instructions__instructions" *ngIf="section.instructions">
+			<p class="instructions__instruction" *ngFor="let instruction of section.instructions">
 				For {{instruction}} - please
 				<a class="link" href="" target="_blank">check here</a>
 			</p>
-			<p class="how-it-works__instruction"><a class="link" href="" target="_blank">FAQ</a></p>
+			<p class="instructions__instruction"><a class="link" href="" target="_blank">FAQ</a></p>
 		</div>
 		<p class="feedback__content" *ngIf="section.feedback">
 			{{section.feedback}}
 			<a class="link" href="" target="_blank">here</a>
 		</p>
-		<hr
-			[class]="section.name+'__separator'"
-			[ngClass]="section===sections[sections.length-1] ? 'last-separator' : ''"
-		/>
+		<hr [class]="section.name+'__separator'" *ngIf="!isLast" />
 	</section>
 </div>

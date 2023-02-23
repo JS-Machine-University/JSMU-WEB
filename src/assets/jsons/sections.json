@@ -2,9 +2,7 @@
 	{
 		"name": "about",
 		"title": "What is JS Middle Developer Growth ?",
-		"content": [
-			"It's educational initiative which hepls candidate to become D2 quickly and with better quality"
-		]
+		"content": "It's educational initiative which hepls candidate to become D2 quickly and with better quality"
 	},
 	{
 		"name": "benefits",
@@ -18,7 +16,7 @@
 		]
 	},
 	{
-		"name": "how-it-works",
+		"name": "instructions",
 		"title": "How it works?",
 		"instructions": ["Candidate", "RM", "Expert"]
 	},
