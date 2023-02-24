@@ -1,14 +1,5 @@
 .home {
 	padding: 20px 50px;
-}
-.link {
-	text-decoration: none;
-	color: #bac4ff;
-}
-.about,
-.benefits,
-.instructions,
-.feedback {
 	&__separator {
 		display: block;
 		border: none;
@@ -22,8 +13,6 @@
 	&__content {
 		text-align: center;
 	}
-}
-.benefits {
 	&__list {
 		display: flex;
 		flex-wrap: wrap;
@@ -40,13 +29,15 @@
 		padding: 20px;
 		background-color: #777ef841;
 	}
-}
-.instructions {
-	text-align: center;
 	&__instruction {
+		text-align: center;
 		width: 400px;
 		margin: 10px auto 20px auto;
 		padding: 20px;
 		background-color: #777ef841;
+	}
+	&__link {
+		text-decoration: none;
+		color: #bac4ff;
 	}
 }
