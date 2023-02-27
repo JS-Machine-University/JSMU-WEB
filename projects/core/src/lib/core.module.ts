@@ -11,6 +11,11 @@ import { UsersDataService } from "./services/users.data.service";
 import { MenteePageComponent } from "./components/mentee-page/mentee-page.component";
 import { LessonComponent } from "../../../common-components/src/lib/lesson/lesson.component";
 import { BrowserModule } from "@angular/platform-browser";
+import { metaReducers, reducers } from "./Store/reducers";
+import { StoreDevtoolsModule } from "@ngrx/store-devtools";
+import { environment } from "../../../../src/environments/environment";
+import { EffectsModule } from "@ngrx/effects";
+import { StoreRouterConnectingModule } from "@ngrx/router-store";
 
 @NgModule({
 	imports: [
@@ -19,8 +24,17 @@ import { BrowserModule } from "@angular/platform-browser";
 		AuthorizationModule,
 		HttpClientModule,
 		AuthorizationModule,
-		BrowserModule
-		// StoreModule.forFeature()
+		BrowserModule,
+		StoreModule.forRoot(reducers, {
+			metaReducers,
+			runtimeChecks: {
+				strictStateImmutability: true,
+				strictActionImmutability: true
+			}
+		}),
+		StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+		EffectsModule.forRoot([]),
+		StoreRouterConnectingModule.forRoot()
 	],
 	providers: [DataBaseService, UsersDataService, LessonsDataService],
 	declarations: [CoreComponent, MenteePageComponent, LessonComponent],
