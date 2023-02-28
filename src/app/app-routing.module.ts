@@ -5,6 +5,7 @@ import { AuthGuard } from "projects/core/src/lib/authorization/guards/auth/auth.
 import { RoleSelectComponent } from "../../projects/core/src/lib/authorization/components/role-select/role-select.component";
 import { TalksListComponent } from "@jsmu/common-components";
 import { MenteePageComponent } from "projects/core/src/lib/components/mentee-page/mentee-page.component";
+import { DialogComponent } from "projects/common-components/src/lib/dialog/dialog.component";
 // route guards
 
 const routes: Routes = [
@@ -12,6 +13,7 @@ const routes: Routes = [
 	{ path: "sign-in", component: SignInComponent },
 	{ path: "role-select", component: RoleSelectComponent, canActivate: [AuthGuard] },
 	{ path: "talks", component: TalksListComponent },
+	{ path: "dialog", component: DialogComponent },
 	{ path: "mentee-page", component: MenteePageComponent, canActivate: [AuthGuard] }
 ];
 @NgModule({
