@@ -14,6 +14,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { HeaderComponent } from "./components/header/header.component";
 import { RouterModule } from "@angular/router";
 import { FooterComponent } from "./components/footer/footer.component";
+import { HomePageComponent } from "./components/home-page/home-page.component";
 
 @NgModule({
 	imports: [
@@ -32,7 +33,8 @@ import { FooterComponent } from "./components/footer/footer.component";
 		MenteePageComponent,
 		LessonComponent,
 		HeaderComponent,
-		FooterComponent
+		FooterComponent,
+		HomePageComponent
 	],
 	exports: [CoreComponent, HeaderComponent, FooterComponent]
 })

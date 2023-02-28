@@ -4,9 +4,7 @@ import * as auth from "firebase/auth";
 import { AngularFireAuth } from "@angular/fire/compat/auth";
 import { AngularFirestore, AngularFirestoreDocument } from "@angular/fire/compat/firestore";
 import { Router } from "@angular/router";
-import { map, Observable, Subject } from "rxjs";
-import { Routes } from "../../models/routes";
-import { UsersDataService } from "../../../services/users.data.service";
+import { map, Observable } from "rxjs";
 
 @Injectable({
 	providedIn: "root"
@@ -82,7 +80,7 @@ export class AuthService {
 	public signOut(): Promise<void> {
 		return this.afAuth.signOut().then(() => {
 			localStorage.removeItem("user");
-			this.router.navigate([Routes.SIGN_IN]);
+			this.router.navigate(["home-page"]);
 		});
 	}
 }

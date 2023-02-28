@@ -1,0 +1,43 @@
+.home {
+	padding: 20px 50px;
+	&__separator {
+		display: block;
+		border: none;
+		border-top: 1px solid #bac4ff14;
+		margin: 20px 0;
+	}
+	&__title {
+		text-align: center;
+		margin: 30px 0 10px 0;
+	}
+	&__content {
+		text-align: center;
+	}
+	&__list {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+	&__benefit {
+		text-align: center;
+		display: flex;
+		align-items: center;
+		width: 250px;
+		height: 200px;
+		margin: 15px;
+		list-style: none;
+		padding: 20px;
+		background-color: #777ef841;
+	}
+	&__instruction {
+		text-align: center;
+		width: 400px;
+		margin: 10px auto 20px auto;
+		padding: 20px;
+		background-color: #777ef841;
+	}
+	&__link {
+		text-decoration: none;
+		color: #bac4ff;
+	}
+}

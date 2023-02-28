@@ -3,7 +3,7 @@ import { MenuItem } from "@jsmu/core";
 export const menuItems: MenuItem[] = [
 	{
 		itemName: "Home",
-		routerLink: "/ "
+		routerLink: "/home-page"
 	},
 	{
 		itemName: "Themes",
