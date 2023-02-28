@@ -1,0 +1,15 @@
+<div class="dialog" *ngIf="state">
+	<div class="dialog__header">
+		<p class="dialog__title">{{this.title}}</p>
+		<i class="dialog__close fa-solid fa-xmark" (click)="state=false"></i>
+	</div>
+	<hr class="dialog__separator" />
+	<p class="dialog__message">{{this.message}}</p>
+	<div class="dialog__buttons">
+		<button class="dialog__yes-button" *ngIf="btnYes">{{this.btnYes}}</button>
+		<button class="dialog__no-button" *ngIf="btnNo">{{this.btnNo}}</button>
+	</div>
+</div>
+<button (click)="openDialog('confirmation')">confirmation</button>
+<button (click)="openDialog('warning')">warning</button>
+<button (click)="openDialog('error')">error</button>

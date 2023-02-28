@@ -11,6 +11,7 @@ import { NavigationItemListComponent } from "./navigation/navigation-item-list/n
 import { NavigationItemComponent } from "./navigation/navigation-item/navigation-item.component";
 import { AvatarComponent } from "./avatar/avatar.component";
 import { RouterModule } from "@angular/router";
+import { DialogComponent } from "./dialog/dialog.component";
 
 @NgModule({
 	declarations: [
@@ -24,6 +25,7 @@ import { RouterModule } from "@angular/router";
 		NavigationItemListComponent,
 		NavigationItemComponent,
 		AvatarComponent
+		DialogComponent,
 	],
 	imports: [BrowserModule, RouterModule],
 	exports: [
@@ -36,6 +38,7 @@ import { RouterModule } from "@angular/router";
 		NavigationItemListComponent,
 		NavigationComponent,
 		AvatarComponent
+		DialogComponent
 	]
 })
 export class CommonComponentsModule {}
