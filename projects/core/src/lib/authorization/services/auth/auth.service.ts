@@ -4,8 +4,9 @@ import * as auth from "firebase/auth";
 import { AngularFireAuth } from "@angular/fire/compat/auth";
 import { AngularFirestore, AngularFirestoreDocument } from "@angular/fire/compat/firestore";
 import { Router } from "@angular/router";
-import { map, Observable } from "rxjs";
+import { map, Observable, Subject } from "rxjs";
 import { Routes } from "../../models/routes";
+import { UsersDataService } from "../../../services/users.data.service";
 
 @Injectable({
 	providedIn: "root"

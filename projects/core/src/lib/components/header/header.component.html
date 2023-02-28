@@ -1,52 +1,45 @@
-<header class="jsmu-header">
+<header class="jsmu-header" [ngClass]="{mobile: sideBar}">
 	<nav class="jsmu-header__navigation">
-		<ul class="jsmu-header__avatar">
-			<li class="jsmu-header__avatar-item">
-				<a href="#" class="jsmu-header__avatar-link link">
-					<img
-						src="/assets/images/cat.jpg"
-						alt="profile"
-						class="jsmu-header__avatar-img"
-					/>
-				</a>
-			</li>
-		</ul>
+		<jsmu-avatar></jsmu-avatar>
 
 		<div class="jsmu-header__menu-wrapper">
 			<menu class="jsmu-header__menu">
-				<li class="jsmu-header__menu-item list-item" *ngFor="let menuItem of menuItems">
+				<li
+					class="jsmu-header__menu-item jsmu-header__list-item"
+					*ngFor="let menuItem of menuItems"
+				>
 					<a
-						*ngIf="menuItem.activeOptions; else noOptions"
-						class="jsmu-header__menu-link link"
+						class="jsmu-header__menu-link jsmu-header__link"
 						[routerLink]="menuItem.routerLink"
-						[routerLinkActiveOptions]="menuItem.activeOptions"
-						routerLinkActive="active-link"
+						[routerLinkActiveOptions]="{exact:true}"
+						routerLinkActive="jsmu-header__active-link"
 					>
 						{{menuItem.itemName}}
 					</a>
-
-					<ng-template #noOptions>
-						<a
-							class="jsmu-header__menu-link link"
-							[routerLink]="menuItem.routerLink"
-							routerLinkActive="active-link"
-						>
-							{{menuItem.itemName}}
-						</a>
-					</ng-template>
 				</li>
 			</menu>
 
 			<ul class="jsmu-header__authorization">
-				<li class="jsmu-header__login-item" *ngIf="!isLoggedIn; else loggedOut">
-					<jsmu-sign-in></jsmu-sign-in>
+				<li class="jsmu-header__logout-item" *ngIf="isLoggedIn; else loggedOut">
+					<jsmu-sign-out></jsmu-sign-out>
 				</li>
+
 				<ng-template #loggedOut>
-					<li class="jsmu-header__logout-item">
-						<jsmu-sign-out></jsmu-sign-out>
+					<li class="jsmu-header__login-item">
+						<jsmu-sign-in></jsmu-sign-in>
 					</li>
 				</ng-template>
 			</ul>
+		</div>
+
+		<div
+			class="jsmu-header__burger-menu"
+			[ngClass]="{active: sideBar}"
+			(click)="sideBar=!sideBar"
+		>
+			<span class="jsmu-header__span"></span>
+			<span class="jsmu-header__span"></span>
+			<span class="jsmu-header__span"></span>
 		</div>
 	</nav>
 </header>

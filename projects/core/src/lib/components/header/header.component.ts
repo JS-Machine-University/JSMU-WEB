@@ -11,22 +11,22 @@ import { menuItems } from "../../../../../../src/assets/objects/header.objects";
 	styleUrls: ["./header.component.scss"]
 })
 export class HeaderComponent implements OnInit {
-	isLoggedIn!: boolean;
-	menuItems = menuItems;
+	public isLoggedIn!: boolean;
+	public menuItems = menuItems;
+	public sideBar = false;
 	private destroy$: Subject<void> = new Subject<void>();
 	constructor(private authService: AuthService, private usersDataServ: UsersDataService) {}
 	ngOnInit(): void {
-		this.log();
+		this.isUserLogin();
 	}
 
-	public log() {
+	public isUserLogin() {
 		this.authService
 			.getUser()
 			.pipe(takeUntil(this.destroy$))
 			.subscribe((sUser) => {
 				this.usersDataServ.getUserById(sUser.uid!).subscribe((user: User | null) => {
-					this.isLoggedIn = !!user;
-					return !!user;
+					return (this.isLoggedIn = !!user);
 				});
 			});
 	}

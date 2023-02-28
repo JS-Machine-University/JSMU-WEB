@@ -36,8 +36,8 @@ describe("HeaderComponent", () => {
 	});
 
 	it("should call method log 1 time", () => {
-		spyOn(component, "log").and.callThrough();
-		component.log();
-		expect(component.log).toHaveBeenCalledTimes(1);
+		spyOn(component, "isUserLogin").and.callThrough();
+		component.isUserLogin();
+		expect(component.isUserLogin).toHaveBeenCalledTimes(1);
 	});
 });

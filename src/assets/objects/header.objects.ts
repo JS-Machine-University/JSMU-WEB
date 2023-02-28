@@ -1,18 +1,9 @@
-export interface menuItemsInterface {
-	itemName: string;
-	routerLink: string;
-	activeOptions?: Object;
-}
+import { MenuItem } from "@jsmu/core";
 
-export interface Object {
-	exact: boolean;
-}
-
-export const menuItems: menuItemsInterface[] = [
+export const menuItems: MenuItem[] = [
 	{
 		itemName: "Home",
-		routerLink: "/ ",
-		activeOptions: { exact: true }
+		routerLink: "/ "
 	},
 	{
 		itemName: "Themes",

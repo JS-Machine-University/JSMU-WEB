@@ -1,0 +1,18 @@
+@import "../../../../../../src/assets/styles/mixins";
+
+.jsmu-nav-icon-item {
+  display: inline-block;
+  margin: 0 1vh;
+  @include width-height(40px, 40px);
+  background-color: rgba(76, 76, 76, 0.87);
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50%;
+  transition: all 0.3s;
+  cursor: pointer;
+
+  &:hover {
+    color: rgba(0, 0, 0, 0.87);
+    background-color: rgba(255, 255, 249, 0.91);
+  }
+}
