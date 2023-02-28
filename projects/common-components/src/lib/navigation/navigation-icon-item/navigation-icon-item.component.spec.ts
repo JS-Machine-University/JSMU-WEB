@@ -13,6 +13,9 @@ describe("NavigationIconItemComponent", () => {
 
 		fixture = TestBed.createComponent(NavigationIconItemComponent);
 		component = fixture.componentInstance;
+		component.socialClassname = {
+			className: "someClass"
+		};
 		fixture.detectChanges();
 	});
 
