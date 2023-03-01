@@ -5,6 +5,7 @@ import { AuthGuard } from "projects/core/src/lib/authorization/guards/auth/auth.
 import { RoleSelectComponent } from "../../projects/core/src/lib/authorization/components/role-select/role-select.component";
 import { TalksListComponent } from "@jsmu/common-components";
 import { MenteePageComponent } from "projects/core/src/lib/components/mentee-page/mentee-page.component";
+import { DialogComponent } from "projects/common-components/src/lib/dialog/dialog.component";
 import { HomePageComponent } from "projects/core/src/lib/components/home-page/home-page.component";
 import { DialogComponent } from "projects/common-components/src/lib/dialog/dialog.component";
 // route guards
