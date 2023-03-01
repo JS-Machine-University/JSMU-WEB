@@ -11,7 +11,6 @@ import { UsersDataService } from "./services/users.data.service";
 import { MenteePageComponent } from "./components/mentee-page/mentee-page.component";
 import { LessonComponent } from "../../../common-components/src/lib/lesson/lesson.component";
 import { BrowserModule } from "@angular/platform-browser";
-import { DialogService } from "./services/dialog.service";
 import { HomePageComponent } from "./components/home-page/home-page.component";
 import { DialogService } from "./services/dialog.service";
 
