@@ -6,10 +6,12 @@ import { RoleSelectComponent } from "../../projects/core/src/lib/authorization/c
 import { TalksListComponent } from "@jsmu/common-components";
 import { MenteePageComponent } from "projects/core/src/lib/components/mentee-page/mentee-page.component";
 import { DialogComponent } from "projects/common-components/src/lib/dialog/dialog.component";
+import { HomePageComponent } from "projects/core/src/lib/components/home-page/home-page.component";
 // route guards
 
 const routes: Routes = [
-	{ path: "", redirectTo: "/sign-in", pathMatch: "full" },
+	{ path: "", redirectTo: "/home-page", pathMatch: "full" },
+	{ path: "home-page", component: HomePageComponent },
 	{ path: "sign-in", component: SignInComponent },
 	{ path: "role-select", component: RoleSelectComponent, canActivate: [AuthGuard] },
 	{ path: "talks", component: TalksListComponent },

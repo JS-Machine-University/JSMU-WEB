@@ -1,0 +1,28 @@
+[
+	{
+		"name": "about",
+		"title": "What is JS Middle Developer Growth ?",
+		"content": "It's educational initiative which hepls candidate to become D2 quickly and with better quality"
+	},
+	{
+		"name": "benefits",
+		"title": "What benefits you can receive ?",
+		"benefits": [
+			"Helping hand for prepare mentee to ASMT",
+			"L2 ASMT request can be submitted in 4 hours after passing all talks (no failed required)",
+			"JSMU result can be used on ASMT as artifact",
+			"Help RM to save time on MENTEE preparation (But final decision about ASMT request submit make by RM)",
+			"Share knowledge between mentee and expert/networking"
+		]
+	},
+	{
+		"name": "instructions",
+		"title": "How it works?",
+		"instructions": ["Candidate", "RM", "Expert"]
+	},
+	{
+		"name": "feedback",
+		"title": "Do you have any feedback for us ?",
+		"feedback": "Please, just start a discussion"
+	}
+]
