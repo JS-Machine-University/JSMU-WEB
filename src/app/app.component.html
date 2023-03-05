@@ -1,1 +1,6 @@
+<button (click)="openDialog()">Open</button>
+<jsmu-dialog
+	[dialogType]="dialogService.$dialogType | async"
+	*ngIf="dialogService.$isOpen | async"
+></jsmu-dialog>
 <router-outlet></router-outlet>

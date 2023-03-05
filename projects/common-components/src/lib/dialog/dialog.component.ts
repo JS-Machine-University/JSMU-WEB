@@ -1,4 +1,5 @@
-import { Component } from "@angular/core";
+import { Component, Input } from "@angular/core";
+import { DialogType } from "projects/core/src/lib/models/dialogType";
 import { DialogService } from "projects/core/src/lib/services/dialog.service";
 
 @Component({
@@ -7,20 +8,14 @@ import { DialogService } from "projects/core/src/lib/services/dialog.service";
 	styleUrls: ["./dialog.component.scss"]
 })
 export class DialogComponent {
-	public title!: string;
-	public message!: string;
-	public state: boolean = false;
-	public btnYes!: string;
-	public btnNo!: string;
+	public DialogType = DialogType;
 
-	constructor(private dialogService: DialogService) {}
+	@Input()
+	dialogType!: DialogType | null;
 
-	public openDialog(type: string) {
-		this.dialogService.openDialog(type);
-		this.state = this.dialogService.state;
-		this.title = this.dialogService.title;
-		this.message = this.dialogService.message;
-		this.btnYes = this.dialogService.btnYes;
-		this.btnNo = this.dialogService.btnNo;
+	constructor(public dialogService: DialogService) {}
+
+	public closeDialog(): void {
+		this.dialogService.closeDialog();
 	}
 }

@@ -1,28 +1,20 @@
 import { Injectable } from "@angular/core";
+import { BehaviorSubject } from "rxjs";
+import { DialogType } from "../models/dialogType";
 
 @Injectable()
 export class DialogService {
-	public title!: string;
-	public message!: string;
-	public state: boolean = false;
-	public btnYes!: string;
-	public btnNo!: string;
+	public $isOpen: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+	public $dialogType: BehaviorSubject<DialogType> = new BehaviorSubject<DialogType>(
+		DialogType.NONE
+	);
 
-	public openDialog(type: string) {
-		this.state = true;
-		if (type === "confirmation") {
-			this.title = "Confirmation";
-			this.message = "Confirmation Message...";
-			this.btnYes = "Ok";
-			this.btnNo = "Cancel";
-		} else if (type === "warning") {
-			this.title = "Warning";
-			this.message = "Warning Message...";
-			this.btnYes = "Accept";
-			this.btnNo = "Cancel";
-		} else {
-			this.title = "Error";
-			this.message = "Error Message...";
-		}
+	public openDialog(dialogType: DialogType): void {
+		this.$isOpen.next(true);
+		this.$dialogType.next(dialogType);
+	}
+	public closeDialog(): void {
+		this.$isOpen.next(false);
+		this.$dialogType.next(DialogType.NONE);
 	}
 }
