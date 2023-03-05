@@ -14,7 +14,6 @@ const routes: Routes = [
 	{ path: "sign-in", component: SignInComponent },
 	{ path: "role-select", component: RoleSelectComponent, canActivate: [AuthGuard] },
 	{ path: "talks", component: TalksListComponent },
-	{ path: "dialog", component: DialogComponent },
 	{ path: "mentee-page", component: MenteePageComponent, canActivate: [AuthGuard] }
 ];
 @NgModule({
