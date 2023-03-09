@@ -30,7 +30,8 @@ describe("SignOutComponent", () => {
 	});
 
 	it("should be called", () => {
-		const res = spyOn(component, "logout").and.callThrough();
-		expect(res).toBeTruthy();
+		const res = spyOn(component, "logout");
+		component.logout();
+		expect(res).toHaveBeenCalled();
 	});
 });

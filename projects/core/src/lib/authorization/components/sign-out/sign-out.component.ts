@@ -10,7 +10,7 @@ import { AuthService } from "../../services/auth/auth.service";
 export class SignOutComponent {
 	constructor(private authService: AuthService) {}
 
-	public logout() {
+	public logout(): Promise<void> {
 		return this.authService.signOut();
 	}
 }

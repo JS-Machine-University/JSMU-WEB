@@ -9,8 +9,6 @@ import { SortPipe } from "@jsmu/shared";
 import { NavigationComponent } from "./navigation/navigation/navigation.component";
 import { NavigationItemListComponent } from "./navigation/navigation-item-list/navigation-item-list.component";
 import { NavigationItemComponent } from "./navigation/navigation-item/navigation-item.component";
-import { NavigationIconItemComponent } from "./navigation/navigation-icon-item/navigation-icon-item.component";
-import { NavigationIconItemListComponent } from "./navigation/navigation-icon-item-list/navigation-icon-item-list.component";
 import { AvatarComponent } from "./avatar/avatar.component";
 
 @NgModule({
@@ -24,8 +22,6 @@ import { AvatarComponent } from "./avatar/avatar.component";
 		NavigationComponent,
 		NavigationItemListComponent,
 		NavigationItemComponent,
-		NavigationIconItemComponent,
-		NavigationIconItemListComponent,
 		AvatarComponent
 	],
 	imports: [BrowserModule],
@@ -37,8 +33,6 @@ import { AvatarComponent } from "./avatar/avatar.component";
 		TalkItemsLineComponent,
 		NavigationItemComponent,
 		NavigationItemListComponent,
-		NavigationIconItemComponent,
-		NavigationIconItemListComponent,
 		NavigationComponent,
 		AvatarComponent
 	]

@@ -8,10 +8,15 @@ import { AngularFireModule } from "@angular/fire/compat";
 import { AngularFireDatabaseModule } from "@angular/fire/compat/database";
 import { environment } from "../../../../../../src/environments/environment";
 import { HttpClientTestingModule } from "@angular/common/http/testing";
+import { of } from "rxjs";
+import { User } from "../../authorization/models/user";
+import { user } from "../../../../../../src/assets/tests/userMock";
 
 describe("HeaderComponent", () => {
 	let component: HeaderComponent;
 	let fixture: ComponentFixture<HeaderComponent>;
+	let usersDataServ: UsersDataService;
+	let fakeUser: User = user;
 
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
@@ -28,6 +33,7 @@ describe("HeaderComponent", () => {
 
 		fixture = TestBed.createComponent(HeaderComponent);
 		component = fixture.componentInstance;
+		usersDataServ = TestBed.get(UsersDataService);
 		fixture.detectChanges();
 	});
 
@@ -35,9 +41,15 @@ describe("HeaderComponent", () => {
 		expect(component).toBeTruthy();
 	});
 
-	it("should call method log 1 time", () => {
+	it("should call method isUserLogIn 1 time", () => {
 		spyOn(component, "isUserLogin").and.callThrough();
 		component.isUserLogin();
 		expect(component.isUserLogin).toHaveBeenCalledTimes(1);
+	});
+
+	it("should define to isLoggedIn true", function () {
+		spyOn(usersDataServ, "isUserLogin").and.returnValue(of(fakeUser));
+		component.isUserLogin();
+		expect(component.isLoggedIn).toEqual(true);
 	});
 });

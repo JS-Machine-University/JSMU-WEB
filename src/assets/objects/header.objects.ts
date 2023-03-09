@@ -10,11 +10,11 @@ export const menuItems: MenuItem[] = [
 		routerLink: "/ "
 	},
 	{
-		itemName: "Info",
+		itemName: "Contact us",
 		routerLink: "/ "
 	},
 	{
-		itemName: "Contact us",
+		itemName: "Info",
 		routerLink: "/ "
 	},
 	{

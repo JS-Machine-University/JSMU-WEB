@@ -7,29 +7,29 @@
   padding: .3vh 1vw;
   font-size: 1.4vw;
   z-index: 1;
-  border-bottom: 1px rgba(54,55,51,0.8) solid;
+  border-bottom: 1px rgba(54, 55, 51, 0.8) solid;
 
   &__list-item {
     list-style: none;
-    border-right: 3px rgba(6,6,18,0.89) dotted;
+    border-right: 3px rgba(6, 6, 18, 0.89) dotted;
     padding-right: 1vw;
 
-    :hover{
-      color: #d7d7d1;
+    :hover {
+      color: $lightBlueColor;
     }
   }
 
-  &__list-item:last-child{
+  &__list-item:last-child {
     border-right: none;
     padding-right: 0;
   }
 
   &__link {
-    color: rgba(203,203,197,0.85);
+    color: rgba(203, 203, 197, 0.85);
     text-decoration: none;
   }
 
-  &__navigation{
+  &__navigation {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -50,9 +50,9 @@
   }
 
   &__authorization {
-      display: flex;
-      justify-content: space-around;
-      width: 12vw;
+    display: flex;
+    justify-content: space-around;
+    width: 12vw;
   }
 
   &__login-item, &__logout-item {
@@ -66,14 +66,18 @@
   &__burger-menu {
     display: none;
   }
-}
 
-@media (max-width: 768px) {
-  .jsmu-header{
+  @media screen and (max-width: $widthSm) {
     height: 50px;
     position: fixed;
     left: 0;
     right: 0;
+
+    &__list-item {
+      border-right: none;
+      padding-right: 0;
+
+    }
 
     &__burger-menu {
       display: flex;
@@ -93,16 +97,18 @@
       @include width-height(28px, 2px);
       background-color: $lightBlueColor;
       margin-bottom: 2px;
-    }:last-child{
-       margin-bottom: 0;
-     }
+      transition: all .3s;
+    }
+    :last-child {
+      margin-bottom: 0;
+    }
 
     &__menu-wrapper {
       display: flex;
       flex-direction: column;
-      @include width-height(50%, 100vh);
+      @include width-height(60%, 100vh);
       position: absolute;
-      right: -375px;
+      right: -448px;
       top: 47px;
       background-color: rgb(38 39 52);
       transition: all .5s;
@@ -128,7 +134,7 @@
     }
 
     .active {
-      .jsmu-header__span{
+      .jsmu-header__span {
         transition: all .4s;
 
         &:first-child {
@@ -141,7 +147,7 @@
           display: none;
         }
 
-        &:last-child{
+        &:last-child {
           margin-bottom: 2px;
           transform: rotate(45deg);
           background-color: #c1001f;
@@ -149,11 +155,11 @@
       }
     }
   }
+}
 
-  .mobile {
-    .jsmu-header__menu-wrapper {
-      transition: all .7s;
-      right: -7px;
-    }
+.mobile {
+  .jsmu-header__menu-wrapper {
+    transition: all .7s;
+    right: -7px;
   }
 }
