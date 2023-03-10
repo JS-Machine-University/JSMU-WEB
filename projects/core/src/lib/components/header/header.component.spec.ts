@@ -10,13 +10,13 @@ import { environment } from "../../../../../../src/environments/environment";
 import { HttpClientTestingModule } from "@angular/common/http/testing";
 import { of } from "rxjs";
 import { User } from "../../authorization/models/user";
-import { user } from "../../../../../../src/assets/tests/userMock";
+import { fakeUser } from "../../../../../../src/assets/tests/userMock";
 
 describe("HeaderComponent", () => {
 	let component: HeaderComponent;
 	let fixture: ComponentFixture<HeaderComponent>;
 	let usersDataServ: UsersDataService;
-	let fakeUser: User = user;
+	let expectedUser: User = fakeUser;
 
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
@@ -48,7 +48,7 @@ describe("HeaderComponent", () => {
 	});
 
 	it("should define to isLoggedIn true", function () {
-		spyOn(usersDataServ, "isUserLogin").and.returnValue(of(fakeUser));
+		spyOn(usersDataServ, "isUserLogin").and.returnValue(of(expectedUser));
 		component.isUserLogin();
 		expect(component.isLoggedIn).toEqual(true);
 	});
