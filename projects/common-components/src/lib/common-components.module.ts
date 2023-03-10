@@ -6,6 +6,10 @@ import { TalksListComponent } from "./talks/talks-list/talks-list.component";
 import { TalkItemComponent } from "./talks/talk-item/talk-item.component";
 import { TalkItemsLineComponent } from "./talks/talk-items-line/talk-items-line.component";
 import { SortPipe } from "@jsmu/shared";
+import { NavigationComponent } from "./navigation/navigation/navigation.component";
+import { NavigationItemListComponent } from "./navigation/navigation-item-list/navigation-item-list.component";
+import { NavigationItemComponent } from "./navigation/navigation-item/navigation-item.component";
+import { AvatarComponent } from "./avatar/avatar.component";
 
 @NgModule({
 	declarations: [
@@ -14,7 +18,11 @@ import { SortPipe } from "@jsmu/shared";
 		TalksListComponent,
 		TalkItemComponent,
 		TalkItemsLineComponent,
-		SortPipe
+		SortPipe,
+		NavigationComponent,
+		NavigationItemListComponent,
+		NavigationItemComponent,
+		AvatarComponent
 	],
 	imports: [BrowserModule],
 	exports: [
@@ -22,7 +30,11 @@ import { SortPipe } from "@jsmu/shared";
 		ButtonComponent,
 		TalksListComponent,
 		TalkItemComponent,
-		TalkItemsLineComponent
+		TalkItemsLineComponent,
+		NavigationItemComponent,
+		NavigationItemListComponent,
+		NavigationComponent,
+		AvatarComponent
 	]
 })
 export class CommonComponentsModule {}

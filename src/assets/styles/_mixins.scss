@@ -1,3 +1,5 @@
+@import "utils";
+
 @mixin wide-screen {
 	height: 100vh;
 	width: 100vw;
@@ -23,4 +25,72 @@
   content: "";
   transition: 0.3s;
   z-index: -1;
+}
+
+@mixin button ($f, $b, $h, $w, $pTB, $pRL, $bW, $bH, $bT, $bL,
+  $aW, $aH, $aB, $aR, $hBW, $hBH, $hBT, $hBL, $hAW, $hAH, $hAB, $hAR
+) {
+  font-size: $f;
+  border: $b solid $lightBlueColor;
+  min-height: $h;
+  min-width: $w;
+  padding: $pTB $pRL;
+
+  &:before {
+    width: $bW;
+    height: $bH;
+    top: $bT;
+    left: $bL;
+    border-bottom: $b solid $lightBlueColor;
+    border-left: $b solid $lightBlueColor;
+  }
+
+  &:after {
+    width: $aW;
+    height: $aH;
+    bottom: $aB;
+    right: $aR;
+    border-top: $b solid $lightBlueColor;
+    border-right: $b solid $lightBlueColor;
+  }
+
+  &:hover:before {
+    width: $hBW;
+    height: $hBH;
+    top: $hBT;
+    left: $hBL;
+  }
+
+  &:hover:after {
+    width: $hAW;
+    height: $hAH;
+    bottom: $hAB;
+    right: $hAR;
+  }
+}
+
+@mixin button-adaptivity( $h, $w, $fs, $bT, $bL, $aB, $aR, $hBT, $hBL, $hAB, $hAR) {
+  min-height: $h;
+  min-width: $w;
+  font-size: $fs;
+
+  &:before {
+    top: $bT;
+    left: $bL;
+  }
+
+  &:after {
+    bottom: $aB;
+    right: $aR;
+  }
+
+  &:hover:before {
+    top: $hBT;
+    left: $hBL;
+  }
+
+  &:hover:after {
+    bottom: $hAB;
+    right: $hAR;
+  }
 }
