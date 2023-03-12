@@ -11,7 +11,7 @@ import {
 import { filter, fromEvent, skip, Subscription } from "rxjs";
 
 @Directive({
-	selector: "[clickOutside]"
+	selector: "[jsmuClickOutside]"
 })
 export class ClickOutsideDirective implements AfterViewInit, OnDestroy {
 	@Output() clickOutside = new EventEmitter<void>();
