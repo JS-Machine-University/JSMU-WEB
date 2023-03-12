@@ -1,13 +1,11 @@
-<div class="dialog" (clickOutside)="closeDialog()">
-	<div class="dialog__content">
-		<div class="dialog__header">
-			<ng-container *ngTemplateOutlet="dialogTitle"></ng-container>
-			<i class="dialog__close fa-solid fa-xmark" (click)="closeDialog()"></i>
-		</div>
-		<hr class="dialog__separator" />
-		<ng-container *ngTemplateOutlet="dialogMessage"></ng-container>
-		<ng-container *ngTemplateOutlet="dialogButtons"></ng-container>
+<div class="dialog" (jsmuClickOutside)="closeDialog()">
+	<div class="dialog__header">
+		<ng-container *ngTemplateOutlet="dialogTitle"></ng-container>
+		<i class="dialog__close fa-solid fa-xmark" (click)="closeDialog()"></i>
 	</div>
+	<hr class="dialog__separator" />
+	<ng-container *ngTemplateOutlet="dialogMessage"></ng-container>
+	<ng-container *ngTemplateOutlet="dialogButtons"></ng-container>
 </div>
 
 <ng-template #dialogTitle [ngSwitch]="dialogType">
