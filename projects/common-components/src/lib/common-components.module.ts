@@ -7,7 +7,7 @@ import { TalkItemComponent } from "./talks/talk-item/talk-item.component";
 import { TalkItemsLineComponent } from "./talks/talk-items-line/talk-items-line.component";
 import { SortPipe } from "@jsmu/shared";
 import { DialogComponent } from "./dialog/dialog.component";
-import { ClickOutsideDirective } from "./directives/clickOutside.directive";
+import { ClickOutsideDirective } from "../../../shared/src/lib/directives/clickOutside.directive";
 
 @NgModule({
 	declarations: [
