@@ -12,7 +12,7 @@ import { NavigationItemComponent } from "./navigation/navigation-item/navigation
 import { AvatarComponent } from "./avatar/avatar.component";
 import { RouterModule } from "@angular/router";
 import { DialogComponent } from "./dialog/dialog.component";
-import { ClickOutsideDirective } from "./directives/clickOutside.directive";
+import { ClickOutsideDirective } from "../../../shared/src/lib/directives/clickOutside.directive";
 
 @NgModule({
 	declarations: [
