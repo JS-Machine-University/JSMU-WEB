@@ -6,6 +6,7 @@ import { Subject, takeUntil } from "rxjs";
 import { Routes } from "../../models/routes";
 import { Roles } from "../../models/roles";
 import { UsersDataService } from "../../../services/users.data.service";
+import { UserStoreFacade } from "../../../Store/users/user.store.facade";
 
 @Component({
 	selector: "jsmu-sign-in",
@@ -23,7 +24,8 @@ export class SignInComponent implements OnDestroy {
 	constructor(
 		private authService: AuthService,
 		private router: Router,
-		private userServise: UsersDataService
+		private userServise: UsersDataService,
+		private userFacade: UserStoreFacade
 	) {}
 
 	public login(): void {
@@ -47,13 +49,17 @@ export class SignInComponent implements OnDestroy {
 	}
 
 	private userCheck(uid: string): void {
-		this.userServise.getUserById(uid).subscribe((user) => {
-			if (!user) {
-				this.router.navigate([Routes.ROLE_SELECT]);
-			} else {
-				this.routerRedirect(user);
-			}
-		});
+		this.userFacade.loadUser(uid);
+		this.userFacade
+			.getUser()
+			.pipe(takeUntil(this.destroy$))
+			.subscribe((user) => {
+				if (!user) {
+					this.router.navigate([Routes.ROLE_SELECT]);
+				} else {
+					this.routerRedirect(user);
+				}
+			});
 	}
 
 	private routerRedirect(user: User): void {

@@ -11,11 +11,13 @@ import { UsersDataService } from "./services/users.data.service";
 import { MenteePageComponent } from "./components/mentee-page/mentee-page.component";
 import { LessonComponent } from "../../../common-components/src/lib/lesson/lesson.component";
 import { BrowserModule } from "@angular/platform-browser";
-import { metaReducers, reducers } from "./Store/reducers";
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 import { environment } from "../../../../src/environments/environment";
 import { EffectsModule } from "@ngrx/effects";
 import { StoreRouterConnectingModule } from "@ngrx/router-store";
+import { userReducer } from "./Store/users/user.reducer";
+import { UserStoreFacade } from "./Store/users/user.store.facade";
+import { UserEffects } from "./Store/users/user.effects";
 
 @NgModule({
 	imports: [
@@ -25,18 +27,12 @@ import { StoreRouterConnectingModule } from "@ngrx/router-store";
 		HttpClientModule,
 		AuthorizationModule,
 		BrowserModule,
-		StoreModule.forRoot(reducers, {
-			metaReducers,
-			runtimeChecks: {
-				strictStateImmutability: true,
-				strictActionImmutability: true
-			}
-		}),
+		StoreModule.forFeature("users", userReducer, {}),
 		StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
-		EffectsModule.forRoot([]),
+		EffectsModule.forFeature([UserEffects]),
 		StoreRouterConnectingModule.forRoot()
 	],
-	providers: [DataBaseService, UsersDataService, LessonsDataService],
+	providers: [DataBaseService, UsersDataService, LessonsDataService, UserStoreFacade],
 	declarations: [CoreComponent, MenteePageComponent, LessonComponent],
 	exports: [CoreComponent]
 })
