@@ -12,6 +12,7 @@ import { MenteePageComponent } from "./components/mentee-page/mentee-page.compon
 import { LessonComponent } from "../../../common-components/src/lib/lesson/lesson.component";
 import { BrowserModule } from "@angular/platform-browser";
 import { HomePageComponent } from "./components/home-page/home-page.component";
+import { DialogService } from "./services/dialog.service";
 
 @NgModule({
 	imports: [
@@ -23,7 +24,7 @@ import { HomePageComponent } from "./components/home-page/home-page.component";
 		BrowserModule
 		// StoreModule.forFeature()
 	],
-	providers: [DataBaseService, UsersDataService, LessonsDataService],
+	providers: [DataBaseService, UsersDataService, LessonsDataService, DialogService],
 	declarations: [CoreComponent, MenteePageComponent, LessonComponent, HomePageComponent],
 	exports: [CoreComponent]
 })
