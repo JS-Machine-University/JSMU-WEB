@@ -38,6 +38,11 @@ import { UserEffects } from "./Store/users/user.effects";
 		StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
 		EffectsModule.forFeature([UserEffects]),
 		StoreRouterConnectingModule.forRoot()
+		BrowserModule,
+		StoreModule.forFeature("users", userReducer, {}),
+		StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+		EffectsModule.forFeature([UserEffects]),
+		StoreRouterConnectingModule.forRoot()
 		RouterModule
 		RouterModule,
 		SharedModule
