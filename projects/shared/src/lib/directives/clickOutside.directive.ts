@@ -18,7 +18,7 @@ export class ClickOutsideDirective implements AfterViewInit, OnDestroy {
 	public documentClickSubscription!: Subscription;
 
 	constructor(private element: ElementRef, @Inject(DOCUMENT) private document: Document) {}
-	ngAfterViewInit(): void {
+	public ngAfterViewInit(): void {
 		this.documentClickSubscription = fromEvent(this.document, "click")
 			.pipe(
 				filter((event) => {
@@ -31,11 +31,11 @@ export class ClickOutsideDirective implements AfterViewInit, OnDestroy {
 			});
 	}
 
-	ngOnDestroy(): void {
+	public ngOnDestroy(): void {
 		this.documentClickSubscription?.unsubscribe();
 	}
 
-	isInside(elementToCheck: HTMLElement): boolean {
+	private isInside(elementToCheck: HTMLElement): boolean {
 		return (
 			elementToCheck === this.element.nativeElement ||
 			this.element.nativeElement.contains(elementToCheck)

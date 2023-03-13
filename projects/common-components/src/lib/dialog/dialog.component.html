@@ -1,11 +1,13 @@
 <div class="dialog" (jsmuClickOutside)="closeDialog()">
-	<div class="dialog__header">
-		<ng-container *ngTemplateOutlet="dialogTitle"></ng-container>
-		<i class="dialog__close fa-solid fa-xmark" (click)="closeDialog()"></i>
+	<div class="dialog__content">
+		<div class="dialog__header">
+			<ng-container *ngTemplateOutlet="dialogTitle"></ng-container>
+			<i class="dialog__close fa-solid fa-xmark" (click)="closeDialog()"></i>
+		</div>
+		<hr class="dialog__separator" />
+		<ng-container *ngTemplateOutlet="dialogMessage"></ng-container>
+		<ng-container *ngTemplateOutlet="dialogButtons"></ng-container>
 	</div>
-	<hr class="dialog__separator" />
-	<ng-container *ngTemplateOutlet="dialogMessage"></ng-container>
-	<ng-container *ngTemplateOutlet="dialogButtons"></ng-container>
 </div>
 
 <ng-template #dialogTitle [ngSwitch]="dialogType">
@@ -19,12 +21,12 @@
 	<p class="dialog__message" *ngSwitchCase="DialogType.ERROR">Error Message...</p>
 </ng-template>
 <ng-template #dialogButtons [ngSwitch]="dialogType">
-	<div class="dialog__buttons" *ngSwitchCase="DialogType.CONFIRMATION">
-		<button class="dialog__button_yes" (click)="closeDialog()">Ok</button>
-		<button class="dialog__button_no" (click)="closeDialog()">Cancel</button>
+	<div class="button" *ngSwitchCase="DialogType.CONFIRMATION">
+		<button class="button_yes" (click)="closeDialog()">Ok</button>
+		<button class="button_no" (click)="closeDialog()">Cancel</button>
 	</div>
-	<div class="dialog__buttons" *ngSwitchCase="DialogType.WARNING">
-		<button class="dialog__yes-button" (click)="closeDialog()">Accept</button>
-		<button class="dialog__no-button" (click)="closeDialog()">Cancel</button>
+	<div class="button" *ngSwitchCase="DialogType.WARNING">
+		<button class="button_yes" (click)="closeDialog()">Accept</button>
+		<button class="button_no" (click)="closeDialog()">Cancel</button>
 	</div>
 </ng-template>
