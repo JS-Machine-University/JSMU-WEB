@@ -6,6 +6,7 @@ import { RoleInfo } from "../../models/role-info";
 import { Router } from "@angular/router";
 import { Observable, Subject, takeUntil } from "rxjs";
 import { UsersDataService } from "../../../services/users.data.service";
+import { UserStoreFacade } from "../../../Store/users/user.store.facade";
 
 @Component({
 	selector: "jsmu-role-select",
@@ -51,7 +52,8 @@ export class RoleSelectComponent implements OnInit, OnDestroy {
 	constructor(
 		private authService: AuthService,
 		private userService: UsersDataService,
-		private router: Router
+		private router: Router,
+		private userFacade: UserStoreFacade
 	) {}
 
 	ngOnInit() {
@@ -78,26 +80,17 @@ export class RoleSelectComponent implements OnInit, OnDestroy {
 	}
 
 	private roleMentee(): void {
-		this.userService
-			.saveUser(this.getUser(Roles.MENTEE))
-			.pipe(takeUntil(this.destroy$))
-			.subscribe();
+		this.userFacade.saveUser(this.getUser(Roles.MENTEE));
 		//toDo redirect to Mentee page.
 	}
 
 	private roleExpert(): void {
-		this.userService
-			.saveUser(this.getUser(Roles.EXPERT))
-			.pipe(takeUntil(this.destroy$))
-			.subscribe();
+		this.userFacade.saveUser(this.getUser(Roles.EXPERT));
 		//toDO redirect to Expert page
 	}
 
 	private roleRM(): void {
-		this.userService
-			.saveUser(this.getUser(Roles.RM))
-			.pipe(takeUntil(this.destroy$))
-			.subscribe();
+		this.userFacade.saveUser(this.getUser(Roles.RM));
 		//toDo redirect to RM page
 	}
 

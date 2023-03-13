@@ -18,6 +18,13 @@ import { HomePageComponent } from "./components/home-page/home-page.component";
 import { InfoPanelComponent } from "./components/info-panel/info-panel.component";
 import { DialogService } from "./services/dialog.service";
 import { SharedModule } from "@jsmu/shared";
+import { StoreDevtoolsModule } from "@ngrx/store-devtools";
+import { environment } from "../../../../src/environments/environment";
+import { EffectsModule } from "@ngrx/effects";
+import { StoreRouterConnectingModule } from "@ngrx/router-store";
+import { userReducer } from "./Store/users/user.reducer";
+import { UserStoreFacade } from "./Store/users/user.store.facade";
+import { UserEffects } from "./Store/users/user.effects";
 
 @NgModule({
 	imports: [
@@ -27,6 +34,11 @@ import { SharedModule } from "@jsmu/shared";
 		HttpClientModule,
 		AuthorizationModule,
 		BrowserModule,
+		StoreModule.forFeature("users", userReducer, {}),
+		StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+		EffectsModule.forFeature([UserEffects]),
+		StoreRouterConnectingModule.forRoot()
+		RouterModule
 		RouterModule,
 		SharedModule
 		// StoreModule.forFeature()
@@ -42,5 +54,8 @@ import { SharedModule } from "@jsmu/shared";
 	],
 	exports: [CoreComponent, HeaderComponent, FooterComponent, InfoPanelComponent],
 	providers: [DataBaseService, UsersDataService, LessonsDataService, DialogService]
+	providers: [DataBaseService, UsersDataService, LessonsDataService, UserStoreFacade],
+	declarations: [CoreComponent, MenteePageComponent, LessonComponent],
+	exports: [CoreComponent]
 })
 export class CoreModule {}

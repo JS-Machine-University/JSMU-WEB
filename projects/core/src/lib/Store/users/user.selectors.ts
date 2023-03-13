@@ -1,9 +1,9 @@
 import { createFeatureSelector, createSelector } from "@ngrx/store";
-import { userNode } from "./user.reducer";
+import { users } from "./user.reducer";
 import { User } from "../../authorization/models/user";
 import { Roles } from "../../authorization/models/roles";
 
-export const selectUserFeature = createFeatureSelector<User>(userNode);
+export const selectUserFeature = createFeatureSelector<User>(users);
 
 export const selectUid = createSelector(
 	selectUserFeature,

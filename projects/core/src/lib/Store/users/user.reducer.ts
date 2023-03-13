@@ -1,7 +1,8 @@
 import { User } from "../../authorization/models/user";
-import { UserActions, userActionsType } from "./user.actions";
+import { createReducer, on } from "@ngrx/store";
+import * as userActions from "./user.actions";
 
-export const userNode = "user";
+export const users = "users";
 
 const initialState: User = {
 	uid: undefined,
@@ -12,41 +13,18 @@ const initialState: User = {
 	photoURL: undefined
 };
 
-export const userReducer = (state = initialState, action: UserActions) => {
-	switch (action.type) {
-		case userActionsType.setUser:
-			return action.payload.user;
-		case userActionsType.setUid:
-			return {
-				...state,
-				uid: action.payload.uid
-			};
-		case userActionsType.setName:
-			return {
-				...state,
-				name: action.payload.name
-			};
-		case userActionsType.setPhoto:
-			return {
-				...state,
-				photoURL: action.payload.photoUrl
-			};
-		case userActionsType.setMail:
-			return {
-				...state,
-				email: action.payload.email
-			};
-		case userActionsType.setRole:
-			return {
-				...state,
-				role: action.payload.role
-			};
-		case userActionsType.setVerified:
-			return {
-				...state,
-				isVerified: action.payload.isVerified
-			};
-		default:
-			return state;
-	}
-};
+export const userReducer = createReducer(
+	initialState,
+	on(userActions.setUser, (state, { user }) => {
+		return user;
+	}),
+	on(userActions.setUid, (state, { uid }) => ({ ...state, uid: uid })),
+	on(userActions.setName, (state, { name }) => ({ ...state, name: name })),
+	on(userActions.setMail, (state, { email }) => ({ ...state, email: email })),
+	on(userActions.setVerified, (state, { isVerified }) => ({ ...state, isVerified: isVerified })),
+	on(userActions.setRole, (state, { role }) => ({ ...state, role: role })),
+	on(userActions.setPhoto, (state, { photoUrl }) => ({ ...state, photoURL: photoUrl })),
+	on(userActions.loadUserSuccess, (state, { user }) => {
+		return user;
+	})
+);

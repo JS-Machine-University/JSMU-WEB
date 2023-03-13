@@ -11,19 +11,11 @@ import {
 	selectVerified
 } from "./user.selectors";
 import { Roles } from "../../authorization/models/roles";
-import {
-	UserSetMailAction,
-	UserSetNameAction,
-	UserSetPhotoAction,
-	UserSetRoleAction,
-	UserSetUidAction,
-	UserSetUserAction,
-	UserSetVerifiedAction
-} from "./user.actions";
 import { Observable } from "rxjs";
+import * as userActions from "./user.actions";
 
 @Injectable()
-export class UserStoreService {
+export class UserStoreFacade {
 	constructor(private store$: Store) {}
 
 	public getUser(): Observable<User> {
@@ -55,30 +47,38 @@ export class UserStoreService {
 	}
 
 	public setUser(user: User): void {
-		this.store$.dispatch(new UserSetUserAction({ user: user }));
+		this.store$.dispatch(userActions.setUser({ user: user }));
 	}
 
 	public setUid(uid: string): void {
-		this.store$.dispatch(new UserSetUidAction({ uid: uid }));
+		this.store$.dispatch(userActions.setUid({ uid: uid }));
 	}
 
 	public setName(name: string): void {
-		this.store$.dispatch(new UserSetNameAction({ name: name }));
+		this.store$.dispatch(userActions.setName({ name: name }));
 	}
 
 	public setMail(mail: string): void {
-		this.store$.dispatch(new UserSetMailAction({ email: mail }));
+		this.store$.dispatch(userActions.setMail({ email: mail }));
 	}
 
 	public setVerified(isVerified: boolean): void {
-		this.store$.dispatch(new UserSetVerifiedAction({ isVerified: isVerified }));
+		this.store$.dispatch(userActions.setVerified({ isVerified: isVerified }));
 	}
 
 	public setRole(role: Roles): void {
-		this.store$.dispatch(new UserSetRoleAction({ role: role }));
+		this.store$.dispatch(userActions.setRole({ role: role }));
 	}
 
 	public setPhoto(photo: string): void {
-		this.store$.dispatch(new UserSetPhotoAction({ photoUrl: photo }));
+		this.store$.dispatch(userActions.setPhoto({ photoUrl: photo }));
+	}
+
+	public loadUser(uid: string): void {
+		this.store$.dispatch(userActions.loadUser({ uid: uid }));
+	}
+
+	public saveUser(user: User): void {
+		this.store$.dispatch(userActions.saveUser({ user: user }));
 	}
 }
