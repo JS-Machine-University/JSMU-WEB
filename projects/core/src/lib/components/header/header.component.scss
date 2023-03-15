@@ -11,17 +11,17 @@
 
   &__list-item {
     list-style: none;
-    border-right: 3px rgba(6, 6, 18, 0.89) dotted;
+    border-right: 2px rgba(6, 6, 18, 0.89) dotted;
     padding-right: 1vw;
 
     :hover {
       color: $lightBlueColor;
     }
-  }
 
-  &__list-item:last-child {
-    border-right: none;
-    padding-right: 0;
+    &:last-child {
+      border-right: none;
+      padding-right: 0;
+    }
   }
 
   &__link {
@@ -29,7 +29,7 @@
     text-decoration: none;
   }
 
-  &__navigation {
+  &__wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -55,10 +55,6 @@
     width: 12vw;
   }
 
-  &__login-item, &__logout-item {
-    list-style: none;
-  }
-
   &__active-link {
     color: $whiteColor;
   }
@@ -76,7 +72,6 @@
     &__list-item {
       border-right: none;
       padding-right: 0;
-
     }
 
     &__burger-menu {
@@ -92,7 +87,7 @@
       @include width-height(25px, 28px);
     }
 
-    &__span {
+    &__burger-menu-item {
       display: block;
       @include width-height(28px, 2px);
       background-color: $lightBlueColor;
@@ -130,11 +125,11 @@
 
     &__authorization {
       position: absolute;
-      bottom: 25%;
+      bottom: 30%;
     }
 
     .active {
-      .jsmu-header__span {
+      .jsmu-header__burger-menu-item {
         transition: all .4s;
 
         &:first-child {

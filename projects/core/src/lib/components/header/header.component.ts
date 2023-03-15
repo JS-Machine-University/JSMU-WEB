@@ -10,7 +10,8 @@ import { menuItems } from "../../../../../../src/assets/objects/header.objects";
 export class HeaderComponent implements OnInit {
 	public isLoggedIn!: boolean;
 	public menuItems = menuItems;
-	public sideBar = false;
+	public isSideBarOpen = false;
+	public spans = [1, 2, 3];
 	public avatarPath = "/assets/images/cat.jpg";
 
 	constructor(private usersDataServ: UsersDataService) {}
@@ -22,5 +23,9 @@ export class HeaderComponent implements OnInit {
 		this.usersDataServ.isUserLogin().subscribe((user) => {
 			this.isLoggedIn = !!user;
 		});
+	}
+
+	public toggleSideBar() {
+		this.isSideBarOpen = !this.isSideBarOpen;
 	}
 }

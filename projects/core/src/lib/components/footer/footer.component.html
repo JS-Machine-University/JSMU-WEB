@@ -3,7 +3,9 @@
 		<div class="jsmu-footer__date">
 			<h3>{{date | date}}</h3>
 		</div>
-		<jsmu-navigation></jsmu-navigation>
+		<jsmu-navigation>
+			<jsmu-navigation-item-list></jsmu-navigation-item-list>
+		</jsmu-navigation>
 		<ul class="jsmu-footer__item-list">
 			<li class="jsmu-footer__icon-item" *ngFor="let socialClassName of socialClassnames">
 				<a>

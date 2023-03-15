@@ -1,45 +1,41 @@
-<header class="jsmu-header" [ngClass]="{mobile: sideBar}">
-	<nav class="jsmu-header__navigation">
+<header class="jsmu-header" [ngClass]="{mobile: isSideBarOpen}">
+	<div class="jsmu-header__wrapper">
 		<jsmu-avatar [avatarPath]="avatarPath"></jsmu-avatar>
 
-		<div class="jsmu-header__menu-wrapper">
-			<menu class="jsmu-header__menu">
-				<li
-					class="jsmu-header__menu-item jsmu-header__list-item"
-					*ngFor="let menuItem of menuItems"
-				>
-					<a
-						class="jsmu-header__menu-link jsmu-header__link"
-						[routerLink]="menuItem.routerLink"
-						[routerLinkActiveOptions]="{exact:true}"
-						routerLinkActive="jsmu-header__active-link"
+		<jsmu-navigation class="jsmu-header__navigation">
+			<div class="jsmu-header__menu-wrapper">
+				<menu class="jsmu-header__menu">
+					<li
+						class="jsmu-header__menu-item jsmu-header__list-item"
+						*ngFor="let menuItem of menuItems"
 					>
-						{{menuItem.itemName}}
-					</a>
-				</li>
-			</menu>
-
-			<ul class="jsmu-header__authorization">
-				<li class="jsmu-header__logout-item" *ngIf="isLoggedIn; else loggedOut">
-					<jsmu-sign-out></jsmu-sign-out>
-				</li>
-
-				<ng-template #loggedOut>
-					<li class="jsmu-header__login-item">
-						<jsmu-sign-in></jsmu-sign-in>
+						<a
+							class="jsmu-header__menu-link jsmu-header__link"
+							[routerLink]="menuItem.routerLink"
+							[routerLinkActiveOptions]="{exact:true}"
+							routerLinkActive="jsmu-header__active-link"
+						>
+							{{menuItem.itemName}}
+						</a>
 					</li>
-				</ng-template>
-			</ul>
-		</div>
+				</menu>
 
-		<div
-			class="jsmu-header__burger-menu"
-			[ngClass]="{active: sideBar}"
-			(click)="sideBar=!sideBar"
-		>
-			<span class="jsmu-header__span"></span>
-			<span class="jsmu-header__span"></span>
-			<span class="jsmu-header__span"></span>
-		</div>
-	</nav>
+				<div class="jsmu-header__authorization">
+					<jsmu-sign-out *ngIf="isLoggedIn; else loggedOut"></jsmu-sign-out>
+
+					<ng-template #loggedOut>
+						<jsmu-sign-in></jsmu-sign-in>
+					</ng-template>
+				</div>
+			</div>
+
+			<div
+				class="jsmu-header__burger-menu"
+				[ngClass]="{active: isSideBarOpen}"
+				(click)="toggleSideBar()"
+			>
+				<span class="jsmu-header__burger-menu-item" *ngFor="let span of spans"></span>
+			</div>
+		</jsmu-navigation>
+	</div>
 </header>
