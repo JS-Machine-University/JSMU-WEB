@@ -13,6 +13,12 @@ import { UsersDataService } from "../../../services/users.data.service";
 import { DataBaseService } from "../../../services/database.service";
 import { UserStoreFacade } from "../../../Store/users/user.store.facade";
 import { provideMockStore } from "@ngrx/store/testing";
+import { RouterTestingModule } from "@angular/router/testing";
+import { RoleSelectComponent } from "../role-select/role-select.component";
+import { HomePageComponent } from "../../../components/home-page/home-page.component";
+import { AuthGuard } from "../../guards/auth/auth.guard";
+import { TalksListComponent } from "@jsmu/common-components";
+import { MenteePageComponent } from "../../../components/mentee-page/mentee-page.component";
 
 describe("SignInComponent", () => {
 	let component: SignInComponent;
@@ -36,7 +42,13 @@ describe("SignInComponent", () => {
 			imports: [
 				AngularFireModule.initializeApp(environment.firebaseConfig),
 				AngularFireDatabaseModule,
-				HttpClientTestingModule
+				HttpClientTestingModule,
+				RouterTestingModule.withRoutes([
+					{
+						path: "role-select",
+						component: RoleSelectComponent
+					}
+				])
 			],
 			schemas: [CUSTOM_ELEMENTS_SCHEMA]
 		}).compileComponents();
