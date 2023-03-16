@@ -11,12 +11,15 @@ import { Roles } from "../../models/roles";
 import { HttpClientTestingModule } from "@angular/common/http/testing";
 import { UsersDataService } from "../../../services/users.data.service";
 import { DataBaseService } from "../../../services/database.service";
+import { UserStoreFacade } from "../../../Store/users/user.store.facade";
+import { provideMockStore } from "@ngrx/store/testing";
 
 describe("RoleSelectComponent", () => {
 	let component: RoleSelectComponent;
 	let fixture: ComponentFixture<RoleSelectComponent>;
 	let authService: AuthService;
 	let dataService: UsersDataService;
+	let userFacade: UserStoreFacade;
 	const testUser: User = {
 		uid: undefined,
 		name: undefined,
@@ -29,7 +32,7 @@ describe("RoleSelectComponent", () => {
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
 			declarations: [RoleSelectComponent],
-			providers: [UsersDataService, DataBaseService],
+			providers: [UsersDataService, DataBaseService, UserStoreFacade, provideMockStore({})],
 			imports: [
 				AngularFireModule.initializeApp(environment.firebaseConfig),
 				AngularFireDatabaseModule,
@@ -42,6 +45,7 @@ describe("RoleSelectComponent", () => {
 		component = fixture.componentInstance;
 		authService = TestBed.inject(AuthService);
 		dataService = TestBed.inject(UsersDataService);
+		userFacade = TestBed.inject(UserStoreFacade);
 		fixture.detectChanges();
 
 		spyOn(authService, "getUser").and.returnValue(
@@ -55,6 +59,8 @@ describe("RoleSelectComponent", () => {
 				subscriber.next(testUser);
 			})
 		);
+
+		spyOn(userFacade, "saveUser");
 	});
 
 	it("should create", () => {
@@ -64,12 +70,12 @@ describe("RoleSelectComponent", () => {
 	describe("switchRole", () => {
 		it("should be called with Mentee", () => {
 			component.switchRole(Roles.MENTEE);
-			expect(dataService.saveUser).toHaveBeenCalledWith(testUser);
+			expect(userFacade.saveUser).toHaveBeenCalledWith(testUser);
 		});
 
 		it("should be called with Expert", () => {
 			component.switchRole(Roles.EXPERT);
-			expect(dataService.saveUser).toHaveBeenCalledWith({
+			expect(userFacade.saveUser).toHaveBeenCalledWith({
 				uid: undefined,
 				name: undefined,
 				email: undefined,
@@ -81,7 +87,7 @@ describe("RoleSelectComponent", () => {
 
 		it("should be called with RM", () => {
 			component.switchRole(Roles.RM);
-			expect(dataService.saveUser).toHaveBeenCalledWith({
+			expect(userFacade.saveUser).toHaveBeenCalledWith({
 				uid: undefined,
 				name: undefined,
 				email: undefined,

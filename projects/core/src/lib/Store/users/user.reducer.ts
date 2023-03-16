@@ -15,7 +15,7 @@ const initialState: User = {
 
 export const userReducer = createReducer(
 	initialState,
-	on(userActions.loadUserSuccess, (state, { user }) => {
+	on(userActions.loadUserSuccess, (state, { user }): User => {
 		return user;
 	})
 );

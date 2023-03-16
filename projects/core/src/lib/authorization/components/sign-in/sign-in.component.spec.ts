@@ -11,12 +11,15 @@ import { User } from "../../models/user";
 import { Router } from "@angular/router";
 import { UsersDataService } from "../../../services/users.data.service";
 import { DataBaseService } from "../../../services/database.service";
+import { UserStoreFacade } from "../../../Store/users/user.store.facade";
+import { provideMockStore } from "@ngrx/store/testing";
 
 describe("SignInComponent", () => {
 	let component: SignInComponent;
 	let fixture: ComponentFixture<SignInComponent>;
 	let authService: AuthService;
 	let dataService: UsersDataService;
+	let userFacade: UserStoreFacade;
 	const testUser: User = {
 		uid: "123",
 		name: undefined,
@@ -29,7 +32,7 @@ describe("SignInComponent", () => {
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
 			declarations: [SignInComponent],
-			providers: [UsersDataService, DataBaseService],
+			providers: [UsersDataService, DataBaseService, UserStoreFacade, provideMockStore({})],
 			imports: [
 				AngularFireModule.initializeApp(environment.firebaseConfig),
 				AngularFireDatabaseModule,
@@ -42,6 +45,7 @@ describe("SignInComponent", () => {
 		component = fixture.componentInstance;
 		authService = TestBed.inject(AuthService);
 		dataService = TestBed.inject(UsersDataService);
+		userFacade = TestBed.inject(UserStoreFacade);
 		fixture.detectChanges();
 
 		spyOn(authService, "gitHubAuth").and.returnValue(new Promise<void>(() => {}));
@@ -55,6 +59,12 @@ describe("SignInComponent", () => {
 		spyOn(authService, "getUser").and.returnValue(
 			new Observable<User>((subscriber) => {
 				subscriber.next(testUser);
+			})
+		);
+
+		spyOn(userFacade, "getUser").and.returnValue(
+			new Observable<User | null>((subscriber) => {
+				subscriber.next(null);
 			})
 		);
 	});
@@ -80,11 +90,6 @@ describe("SignInComponent", () => {
 		});
 
 		it("should navigate to role-select", inject([Router], (mockRouter: Router) => {
-			spyOn(dataService, "getUserById").and.returnValue(
-				new Observable<User | null>((subscriber) => {
-					subscriber.next(null);
-				})
-			);
 			const spy = spyOn(mockRouter, "navigate").and.stub();
 			component.login();
 			expect(spy.calls.first().args[0]).toContain("role-select");

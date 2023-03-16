@@ -9,7 +9,7 @@ import * as userActions from "./user.actions";
 export class UserStoreFacade {
 	constructor(private store: Store) {}
 
-	public getUser(): Observable<User> {
+	public getUser(): Observable<User | null> {
 		return this.store.select(selectUserFeature);
 	}
 
