@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
-
 import { NavigationItemListComponent } from "./navigation-item-list.component";
+import { CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 
 describe("NavigationItemListComponent", () => {
 	let component: NavigationItemListComponent;
@@ -8,7 +8,8 @@ describe("NavigationItemListComponent", () => {
 
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
-			declarations: [NavigationItemListComponent]
+			declarations: [NavigationItemListComponent],
+			schemas: [CUSTOM_ELEMENTS_SCHEMA]
 		}).compileComponents();
 
 		fixture = TestBed.createComponent(NavigationItemListComponent);
