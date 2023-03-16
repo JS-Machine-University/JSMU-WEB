@@ -13,9 +13,6 @@ describe("NavigationItemComponent", () => {
 
 		fixture = TestBed.createComponent(NavigationItemComponent);
 		component = fixture.componentInstance;
-		component.footerItem = {
-			itemName: "item"
-		};
 		fixture.detectChanges();
 	});
 
