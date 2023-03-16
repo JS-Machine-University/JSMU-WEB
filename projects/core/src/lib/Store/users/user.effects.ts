@@ -8,8 +8,8 @@ import { catchError, exhaustMap, map, of } from "rxjs";
 export class UserEffects {
 	constructor(private actions$: Actions, private userService: UsersDataService) {}
 
-	loadUser$ = createEffect(() =>
-		this.actions$.pipe(
+	loadUser$ = createEffect(() => {
+		return this.actions$.pipe(
 			ofType(userActions.loadUser),
 			exhaustMap((action) =>
 				this.userService.getUserById(action.uid).pipe(
@@ -17,11 +17,11 @@ export class UserEffects {
 					catchError(() => of(userActions.loadUserFailure()))
 				)
 			)
-		)
-	);
+		);
+	});
 
-	saveUser$ = createEffect(() =>
-		this.actions$.pipe(
+	saveUser$ = createEffect(() => {
+		return this.actions$.pipe(
 			ofType(userActions.saveUser),
 			exhaustMap((action) =>
 				this.userService.saveUser(action.user).pipe(
@@ -29,6 +29,6 @@ export class UserEffects {
 					catchError(() => of(userActions.saveUserFailure))
 				)
 			)
-		)
-	);
+		);
+	});
 }

@@ -25,6 +25,7 @@ import { StoreRouterConnectingModule } from "@ngrx/router-store";
 import { userReducer } from "./Store/users/user.reducer";
 import { UserStoreFacade } from "./Store/users/user.store.facade";
 import { UserEffects } from "./Store/users/user.effects";
+import { HomePageComponent } from "./components/home-page/home-page.component";
 
 @NgModule({
 	imports: [
@@ -60,7 +61,7 @@ import { UserEffects } from "./Store/users/user.effects";
 	exports: [CoreComponent, HeaderComponent, FooterComponent, InfoPanelComponent],
 	providers: [DataBaseService, UsersDataService, LessonsDataService, DialogService]
 	providers: [DataBaseService, UsersDataService, LessonsDataService, UserStoreFacade],
-	declarations: [CoreComponent, MenteePageComponent, LessonComponent],
+	declarations: [CoreComponent, MenteePageComponent, LessonComponent, HomePageComponent],
 	exports: [CoreComponent]
 })
 export class CoreModule {}
