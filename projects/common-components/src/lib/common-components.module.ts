@@ -10,6 +10,7 @@ import { NavigationComponent } from "./navigation/navigation/navigation.componen
 import { NavigationItemListComponent } from "./navigation/navigation-item-list/navigation-item-list.component";
 import { NavigationItemComponent } from "./navigation/navigation-item/navigation-item.component";
 import { AvatarComponent } from "./avatar/avatar.component";
+import { RouterModule } from "@angular/router";
 
 @NgModule({
 	declarations: [
@@ -24,7 +25,7 @@ import { AvatarComponent } from "./avatar/avatar.component";
 		NavigationItemComponent,
 		AvatarComponent
 	],
-	imports: [BrowserModule],
+	imports: [BrowserModule, RouterModule],
 	exports: [
 		CommonComponentsComponent,
 		ButtonComponent,

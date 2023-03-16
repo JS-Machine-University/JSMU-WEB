@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from "@angular/core";
+import { ChangeDetectionStrategy, Component, Input } from "@angular/core";
 
 @Component({
 	selector: "jsmu-navigation",
@@ -6,4 +6,6 @@ import { ChangeDetectionStrategy, Component } from "@angular/core";
 	styleUrls: ["./navigation.component.scss"],
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class NavigationComponent {}
+export class NavigationComponent {
+	@Input() navigationItems!: any[];
+}

@@ -2,8 +2,8 @@
 	<div class="jsmu-header__wrapper">
 		<jsmu-avatar [avatarPath]="avatarPath"></jsmu-avatar>
 
-		<jsmu-navigation class="jsmu-header__navigation">
-			<div class="jsmu-header__menu-wrapper">
+		<div class="jsmu-header__menu-wrapper">
+			<nav class="jsmu-header__navigation">
 				<menu class="jsmu-header__menu">
 					<li
 						class="jsmu-header__menu-item jsmu-header__list-item"
@@ -19,23 +19,20 @@
 						</a>
 					</li>
 				</menu>
+			</nav>
 
-				<div class="jsmu-header__authorization">
-					<jsmu-sign-out *ngIf="isLoggedIn; else loggedOut"></jsmu-sign-out>
-
-					<ng-template #loggedOut>
-						<jsmu-sign-in></jsmu-sign-in>
-					</ng-template>
-				</div>
+			<div class="jsmu-header__authorization">
+				<jsmu-sign-in class="jsmu-header__sign-in"></jsmu-sign-in>
+				<jsmu-sign-out class="jsmu-header__sign-out"></jsmu-sign-out>
 			</div>
+		</div>
 
-			<div
-				class="jsmu-header__burger-menu"
-				[ngClass]="{active: isSideBarOpen}"
-				(click)="toggleSideBar()"
-			>
-				<span class="jsmu-header__burger-menu-item" *ngFor="let span of spans"></span>
-			</div>
-		</jsmu-navigation>
+		<div
+			class="jsmu-header__burger-menu"
+			[ngClass]="{active: isSideBarOpen}"
+			(click)="toggleSideBar()"
+		>
+			<span class="jsmu-header__burger-menu-item" *ngFor="let span of spans"></span>
+		</div>
 	</div>
 </header>

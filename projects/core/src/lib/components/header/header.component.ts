@@ -1,11 +1,12 @@
-import { Component, OnInit } from "@angular/core";
+import { ChangeDetectionStrategy, Component, OnInit } from "@angular/core";
 import { UsersDataService } from "../../services/users.data.service";
 import { menuItems } from "../../../../../../src/assets/objects/header.objects";
 
 @Component({
 	selector: "jsmu-header",
 	templateUrl: "./header.component.html",
-	styleUrls: ["./header.component.scss"]
+	styleUrls: ["./header.component.scss"],
+	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HeaderComponent implements OnInit {
 	public isLoggedIn!: boolean;

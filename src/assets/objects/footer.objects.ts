@@ -2,18 +2,23 @@ import { FooterItem } from "@jsmu/core";
 
 export const footerItems: FooterItem[] = [
 	{
-		itemName: "Home"
+		itemName: "Home",
+		routerLink: "/home-page"
 	},
 	{
-		itemName: "Information"
+		itemName: "Information",
+		routerLink: "/"
 	},
 	{
-		itemName: "About"
+		itemName: "About",
+		routerLink: "/"
 	},
 	{
-		itemName: "Blog"
+		itemName: "Blog",
+		routerLink: "/"
 	},
 	{
-		itemName: "Contact"
+		itemName: "Contact",
+		routerLink: "/"
 	}
 ];

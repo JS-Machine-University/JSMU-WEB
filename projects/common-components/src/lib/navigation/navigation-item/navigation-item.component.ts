@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component, Input } from "@angular/core";
-import { FooterItem } from "@jsmu/core";
 
 @Component({
 	selector: "jsmu-navigation-item",
@@ -8,5 +7,5 @@ import { FooterItem } from "@jsmu/core";
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NavigationItemComponent {
-	@Input() footerItem!: FooterItem;
+	@Input() itemObj!: any;
 }
