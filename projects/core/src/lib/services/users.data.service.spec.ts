@@ -21,7 +21,6 @@ describe("UsersDataService", () => {
 		{ uid: "1", email: "", name: "", photoURL: "", isVerified: false, role: {} }
 	] as User[];
 	beforeEach(() => {
-		// TestBed.overrideComponent(UsersDataService, {set: {providers: []}})
 		TestBed.configureTestingModule({
 			providers: [
 				UsersDataService,

@@ -6,5 +6,5 @@ export * from "./lib/models/resource";
 export * from "./lib/models/talk";
 export * from "./lib/models/result";
 export * from "./lib/models/menu.item";
-export * from "./lib/models/footer.item";
+export * from "./lib/models/navigation.item";
 export * from "./lib/models/social.classname";

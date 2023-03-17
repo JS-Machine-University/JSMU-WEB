@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from "@angular/core";
+import { NavigationItem } from "@jsmu/core";
 
 @Component({
 	selector: "jsmu-navigation-item-list",
@@ -7,5 +8,5 @@ import { ChangeDetectionStrategy, Component, Input } from "@angular/core";
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NavigationItemListComponent {
-	@Input() navigationItems!: any[];
+	@Input() navigationItems!: NavigationItem[];
 }

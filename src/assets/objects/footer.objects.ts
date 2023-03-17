@@ -1,6 +1,6 @@
-import { FooterItem } from "@jsmu/core";
+import { MenuItem } from "@jsmu/core";
 
-export const footerItems: FooterItem[] = [
+export const footerItems: MenuItem[] = [
 	{
 		itemName: "Home",
 		routerLink: "/home-page"

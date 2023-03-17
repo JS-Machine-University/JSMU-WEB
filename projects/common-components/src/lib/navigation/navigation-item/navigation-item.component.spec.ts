@@ -14,7 +14,7 @@ describe("NavigationItemComponent", () => {
 
 		fixture = TestBed.createComponent(NavigationItemComponent);
 		component = fixture.componentInstance;
-		component.itemObj = { any: "any" };
+		component.itemObj = { itemName: "name", routerLink: "/link" };
 		fixture.detectChanges();
 	});
 
