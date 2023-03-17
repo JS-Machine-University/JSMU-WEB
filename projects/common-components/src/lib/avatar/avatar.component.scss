@@ -1,8 +1,14 @@
 @import "../../../../../src/assets/styles/mixins";
-@import "avatar.mixins";
 
 .jsmu-avatar {
-  @include margin-size(3px, 60px, 60px);
+	@mixin margin-size($mt, $width, $height) {
+		&__item {
+			margin-top: $mt;
+			@include width-height($width, $height);
+		}
+	}
+
+	@include margin-size(3px, 60px, 60px);
 
 	&__img {
 		@include width-height(100%, 100%);
@@ -14,12 +20,10 @@
 	}
 
 	@media screen and (max-width: $widthMd) {
-    @include margin-size(10px, 50px, 50px)
+		@include margin-size(10px, 50px, 50px);
 	}
 
 	@media screen and (max-width: $widthSm) {
-    @include margin-size(3px, 40px, 40px)
+		@include margin-size(3px, 40px, 40px);
 	}
 }
-
-

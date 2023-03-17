@@ -1,8 +1,0 @@
-@import "../../../../../src/assets/styles/mixins";
-
-@mixin margin-size($mt, $width, $height) {
-  &__item {
-    margin-top: $mt;
-    @include width-height($width, $height);
-  }
-}
