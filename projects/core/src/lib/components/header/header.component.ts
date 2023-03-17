@@ -26,7 +26,7 @@ export class HeaderComponent implements OnInit {
 		});
 	}
 
-	public toggleSideBar() {
+	public toggleSideBar(): void {
 		this.isSideBarOpen = !this.isSideBarOpen;
 	}
 }
