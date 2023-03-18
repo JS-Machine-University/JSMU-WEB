@@ -4,7 +4,7 @@ import { Roles } from "../../models/roles";
 import { User } from "../../models/user";
 import { RoleInfo } from "../../models/role-info";
 import { Router } from "@angular/router";
-import { Subject, takeUntil } from "rxjs";
+import { Observable, Subject, takeUntil } from "rxjs";
 import { UsersDataService } from "../../../services/users.data.service";
 
 @Component({

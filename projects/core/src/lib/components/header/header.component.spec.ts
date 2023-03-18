@@ -47,12 +47,6 @@ describe("HeaderComponent", () => {
 		expect(component.isUserLogin).toHaveBeenCalledTimes(1);
 	});
 
-	it("should define to isLoggedIn true", () => {
-		spyOn(usersDataServ, "isUserLogin").and.returnValue(of(expectedUser));
-		component.isUserLogin();
-		expect(component.isLoggedIn).toEqual(true);
-	});
-
 	it("should toggle sideBarOpen", () => {
 		component.isSideBarOpen = false;
 		component.toggleSideBar();

@@ -37,7 +37,7 @@
 	}
 
 	&__menu-wrapper {
-		width: 66vw;
+		width: 60vw;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
@@ -52,7 +52,7 @@
 	&__authorization {
 		display: flex;
 		justify-content: space-around;
-		width: 19vw;
+		width: 12vw;
 	}
 
 	&__active-link {
@@ -61,16 +61,6 @@
 
 	&__burger-menu {
 		display: none;
-	}
-
-	@media screen and (max-width: $widthMd) {
-		&__sign-in {
-			margin-right: 5px;
-		}
-
-		&__sign-out {
-			margin-left: 5px;
-		}
 	}
 
 	@media screen and (max-width: $widthSm) {
@@ -140,14 +130,6 @@
 			align-items: center;
 			position: absolute;
 			bottom: 25%;
-		}
-
-		&__sign-in {
-			margin: 10px 0;
-		}
-
-		&__sign-out {
-			margin: 10px 0 0;
 		}
 
 		.active {
