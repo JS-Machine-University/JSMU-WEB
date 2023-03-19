@@ -11,6 +11,9 @@ import { UsersDataService } from "./services/users.data.service";
 import { MenteePageComponent } from "./components/mentee-page/mentee-page.component";
 import { LessonComponent } from "../../../common-components/src/lib/lesson/lesson.component";
 import { BrowserModule } from "@angular/platform-browser";
+import { HeaderComponent } from "./components/header/header.component";
+import { RouterModule } from "@angular/router";
+import { FooterComponent } from "./components/footer/footer.component";
 import { HomePageComponent } from "./components/home-page/home-page.component";
 
 @NgModule({
@@ -20,11 +23,19 @@ import { HomePageComponent } from "./components/home-page/home-page.component";
 		AuthorizationModule,
 		HttpClientModule,
 		AuthorizationModule,
-		BrowserModule
+		BrowserModule,
+		RouterModule
 		// StoreModule.forFeature()
 	],
 	providers: [DataBaseService, UsersDataService, LessonsDataService],
-	declarations: [CoreComponent, MenteePageComponent, LessonComponent, HomePageComponent],
-	exports: [CoreComponent]
+	declarations: [
+		CoreComponent,
+		MenteePageComponent,
+		LessonComponent,
+		HeaderComponent,
+		FooterComponent,
+		HomePageComponent
+	],
+	exports: [CoreComponent, HeaderComponent, FooterComponent]
 })
 export class CoreModule {}

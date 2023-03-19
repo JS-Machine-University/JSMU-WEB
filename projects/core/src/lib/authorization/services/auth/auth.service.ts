@@ -81,7 +81,7 @@ export class AuthService {
 	public signOut(): Promise<void> {
 		return this.afAuth.signOut().then(() => {
 			localStorage.removeItem("user");
-			this.router.navigate([Routes.SIGN_IN]);
+			this.router.navigate([Routes.HOME]);
 		});
 	}
 }

@@ -1,0 +1,14 @@
+@import "../../../../../../src/assets/styles/utils";
+.jsmu-navigation-item {
+	&__link {
+		color: rgba(203, 203, 197, 0.85);
+		text-decoration: none;
+	}
+
+	&__list-item {
+		list-style: none;
+		:hover {
+			color: $lightBlueColor;
+		}
+	}
+}

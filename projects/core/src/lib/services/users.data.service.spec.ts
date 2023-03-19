@@ -6,17 +6,27 @@ import { HttpResponse } from "@angular/common/http";
 import { environment } from "src/environments/environment";
 import { UsersDataService } from "./users.data.service";
 import { User } from "../authorization/models/user";
+import { AuthService } from "../authorization/services/auth/auth.service";
+import { of } from "rxjs";
+import { user } from "@angular/fire/auth";
+import { fakeUser } from "../../../../../src/assets/tests/userMock";
 
 describe("UsersDataService", () => {
 	let udb: UsersDataService;
 	let httpTestingController: HttpTestingController;
+	let fakeAuthServiceObj = jasmine.createSpyObj(["getUser"]);
+
 	const expectedUsers = [
 		{ uid: "0", email: "", name: "", photoURL: "", isVerified: false, role: {} },
 		{ uid: "1", email: "", name: "", photoURL: "", isVerified: false, role: {} }
 	] as User[];
 	beforeEach(() => {
 		TestBed.configureTestingModule({
-			providers: [UsersDataService, DataBaseService],
+			providers: [
+				UsersDataService,
+				DataBaseService,
+				{ provide: AuthService, useValue: fakeAuthServiceObj }
+			],
 			imports: [HttpClientTestingModule]
 		});
 		udb = TestBed.inject(UsersDataService);
@@ -62,5 +72,12 @@ describe("UsersDataService", () => {
 			body: newUser
 		});
 		req.event(expectedResponse);
+	});
+
+	it("should be equal to object fakeUser", function () {
+		spyOn(udb, "isUserLogin").and.returnValue(of(fakeUser));
+		udb.isUserLogin().subscribe((user) => {
+			expect(user).toEqual(fakeUser);
+		});
 	});
 });

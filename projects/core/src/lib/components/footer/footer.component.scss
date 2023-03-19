@@ -1,0 +1,52 @@
+@import "../../../../../../src/assets/styles/mixins";
+@import "../../../../../../src/assets/styles/utils";
+
+.jsmu-footer {
+	background-color: rgb(38 39 52);
+	@include width-height(100%, 140px);
+	padding: 3px 15px;
+	font-size: 1.1vw;
+	border-top: 1px rgba(54, 55, 51, 0.8) solid;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	&__date {
+		margin-bottom: 1vh;
+	}
+
+	&__content {
+		width: 30%;
+	}
+
+  &__item-list {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1vw;
+    font-size: 25px;
+  }
+
+  &__icon-item {
+    display: inline-block;
+    margin: 0 1vh;
+    @include width-height(40px, 40px);
+    background-color: rgba(76, 76, 76, 0.87);
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    transition: all 0.3s;
+    cursor: pointer;
+
+    &:hover {
+      color: rgba(0, 0, 0, 0.87);
+      background-color: rgba(255, 255, 249, 0.91);
+    }
+  }
+
+	&__text {
+		font-size: 0.8vw;
+		color: rgba(203, 203, 197, 0.85);
+	}
+}

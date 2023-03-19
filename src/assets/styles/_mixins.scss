@@ -1,26 +1,101 @@
+@import "utils";
+
 @mixin wide-screen {
-	height: 100vh;
-	width: 100vw;
+  height: 100vh;
+  width: 100vw;
 }
 
 @mixin width-height($w, $h) {
-	width: $w;
-	height: $h;
+  width: $w;
+  height: $h;
 }
 
 @mixin top-left($t, $l) {
-	top: $t;
-	left: $l;
+  top: $t;
+  left: $l;
 }
 
 @mixin bottom-right($b, $r) {
-	bottom: $b;
-	right: $r;
+  bottom: $b;
+  right: $r;
 }
 
-@mixin custom-but-opt{
+@mixin custom-but-opt {
   position: absolute;
   content: "";
   transition: 0.3s;
   z-index: -1;
+}
+
+@mixin button($f, $b, $h, $w, $pTB, $pRL, $bW, $bH, $bT, $bL,
+  $aW, $aH, $aB, $aR, $hBW, $hBH, $hBT, $hBL, $hAW, $hAH, $hAB, $hAR
+) {
+  .button {
+    font-size: $f;
+    border: $b solid $lightBlueColor;
+    min-height: $h;
+    min-width: $w;
+    padding: $pTB $pRL;
+
+    &:before {
+      width: $bW;
+      height: $bH;
+      top: $bT;
+      left: $bL;
+      border-bottom: $b solid $lightBlueColor;
+      border-left: $b solid $lightBlueColor;
+    }
+
+    &:after {
+      width: $aW;
+      height: $aH;
+      bottom: $aB;
+      right: $aR;
+      border-top: $b solid $lightBlueColor;
+      border-right: $b solid $lightBlueColor;
+    }
+
+    &:hover:before {
+      width: $hBW;
+      height: $hBH;
+      top: $hBT;
+      left: $hBL;
+    }
+
+    &:hover:after {
+      width: $hAW;
+      height: $hAH;
+      bottom: $hAB;
+      right: $hAR;
+    }
+  }
+}
+
+@mixin button-adaptivity( $h, $w, $fs, $bT, $bL, $aB, $aR, $hBT, $hBL, $hAB, $hAR) {
+  .button {
+    min-height: $h;
+    min-width: $w;
+    font-size: $fs;
+
+    &:before {
+      top: $bT;
+      left: $bL;
+    }
+
+    &:after {
+      bottom: $aB;
+      right: $aR;
+    }
+
+    &:hover:before {
+      top: $hBT;
+      left: $hBL;
+    }
+
+    &:hover:after {
+      bottom: $hAB;
+      right: $hAR;
+    }
+  }
+
 }

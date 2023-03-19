@@ -2,78 +2,76 @@
 @import "../../../../../src/assets/styles/mixins";
 
 .button {
-	text-transform: uppercase;
-	color: $whiteColor;
-	font-size: 50px;
-	background-color: $darkBlueColor;
-	border: 4px solid $lightBlueColor;
-	transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-	transition: 0.3s;
-	min-height: 90px;
-	min-width: 200px;
-	outline: none;
+  text-transform: uppercase;
+  color: $whiteColor;
+  font-size: 50px;
+  background-color: $darkBlueColor;
+  border: 4px solid $lightBlueColor;
+  transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  transition: 0.3s;
+  min-height: 90px;
+  min-width: 200px;
+  outline: none;
   cursor: pointer;
 
-	&:active {
-		background-color: $lightBlueColor;
-	}
+  &:active {
+    background-color: $lightBlueColor;
+  }
 
-	&:before {
-		@include width-height(25%, 55%);
-		@include top-left(60%, -6%);
-		@include custom-but-opt;
-		border-bottom: 4px solid $lightBlueColor;
-		border-left: 4px solid $lightBlueColor;
-	}
+  &:before {
+    @include width-height(25%, 55%);
+    @include top-left(60%, -6%);
+    @include custom-but-opt;
+    border-bottom: 4px solid $lightBlueColor;
+    border-left: 4px solid $lightBlueColor;
+  }
 
-	&:after {
-		@include width-height(25%, 55%);
-		@include bottom-right(59%, -6%);
-		@include custom-but-opt;
-		border-top: 4px solid $lightBlueColor;
-		border-right: 4px solid $lightBlueColor;
-	}
+  &:after {
+    @include width-height(25%, 55%);
+    @include bottom-right(59%, -6%);
+    @include custom-but-opt;
+    border-top: 4px solid $lightBlueColor;
+    border-right: 4px solid $lightBlueColor;
+  }
 
-	&:hover:before {
-		@include width-height(35%, 65%);
-		@include top-left(57%, -10%);
-	}
-	&:hover:after {
-		@include width-height(35%, 65%);
-		@include bottom-right(57%, -10%);
-	}
-}
+  &:hover:before {
+    @include width-height(35%, 65%);
+    @include top-left(57%, -10%);
+  }
 
-:host.submit{
-  .button {
-    font-size: 20px;
-    border: 3px solid $lightBlueColor;
-    min-height: 50px;
-    min-width: 100px;
-    padding: 3px;
-
-    &:before {
-      @include width-height(20%, 45%);
-      @include top-left(70%, -10%);
-      border-bottom: 3px solid $lightBlueColor;
-      border-left: 3px solid $lightBlueColor;
-    }
-
-    &:after {
-      @include width-height(20%, 45%);
-      @include bottom-right(70%, -10%);
-      border-top: 3px solid $lightBlueColor;
-      border-right: 3px solid $lightBlueColor;
-    }
-
-    &:hover:before {
-      @include width-height(35%, 65%);
-      @include top-left(57%, -14%);
-    }
-
-    &:hover:after {
-      @include width-height(35%, 65%);
-      @include bottom-right(57%, -14%);
-    }
+  &:hover:after {
+    @include width-height(35%, 65%);
+    @include bottom-right(57%, -10%);
   }
 }
+
+:host.submit {
+  @include button(20px, 3px, 50px, 100px, 3px, 3px, 20%, 45%, 70%, -10%,
+    20%, 45%, 70%, -10%, 35%, 65%, 57%, -14%, 35%, 65%, 57%, -14%
+  )
+}
+
+:host.authorization {
+  @include button(
+      1.2vw, 3px, 40px, 6vw, 0.2vh, .8vw, 20%, 45%, 72%, -9%, 20%,
+      45%, 72%, -9%, 32%, 62%, 62%, -14%, 32%, 62%, 62%, -14%
+  );
+
+  @media (max-width: $widthLg) {
+    @include button-adaptivity(35px, 40px, 14px, 72%, -12%, 72%, -12%, 57%, -15%, 57%, -15%)
+  }
+
+
+  @media (max-width: $widthMd) {
+    @include button-adaptivity(30px, 30px, 13px, 72%, -12%, 72%, -12%, 63%, -15%, 63%, -15%)
+  }
+
+  @media (max-width: $widthSm) {
+    @include button-adaptivity(30px, 40px, 15px, 73%, -10%, 73%, -10%, 61%, -14%, 61%, -14%)
+  }
+
+  @media (max-width: $widthXSm) {
+    @include button-adaptivity(30px, 38px, 14px, 74%, -13%, 75%, -12%, 62%, -15%, 62%, -15%)
+  }
+}
+
