@@ -8,5 +8,5 @@ import { NavigationItem } from "@jsmu/core";
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NavigationItemComponent {
-	@Input() itemObj!: NavigationItem;
+	@Input() item!: NavigationItem;
 }

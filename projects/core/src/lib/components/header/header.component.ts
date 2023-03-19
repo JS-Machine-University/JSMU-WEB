@@ -14,7 +14,7 @@ export class HeaderComponent implements OnInit {
 	public isLoggedIn!: Observable<User | null>;
 	public menuItems = menuItems;
 	public isSideBarOpen = false;
-	public spans = [1, 2, 3];
+	public burgerLines = [1, 2, 3];
 	public avatarPath = "/assets/images/cat.jpg";
 
 	constructor(private usersDataServ: UsersDataService) {}

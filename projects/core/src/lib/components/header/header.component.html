@@ -35,7 +35,10 @@
 			[ngClass]="{active: isSideBarOpen}"
 			(click)="toggleSideBar()"
 		>
-			<span class="jsmu-header__burger-menu-item" *ngFor="let span of spans"></span>
+			<span
+				class="jsmu-header__burger-menu-item"
+				*ngFor="let burgerLine of burgerLines"
+			></span>
 		</div>
 	</div>
 </header>
