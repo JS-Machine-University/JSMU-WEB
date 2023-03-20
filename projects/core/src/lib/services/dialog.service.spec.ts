@@ -1,5 +1,5 @@
 import { TestBed } from "@angular/core/testing";
-import { BehaviorSubject } from "rxjs";
+import { toArray } from "rxjs";
 import { DialogType } from "../models/dialogType";
 import { DialogService } from "./dialog.service";
 
@@ -16,33 +16,29 @@ describe("DialogService", () => {
 	});
 	describe("OpenDialog method", () => {
 		it("should change value of OpenDialog variable to true", () => {
-			let $isOpen: BehaviorSubject<boolean> = dialogService.$isOpen;
 			dialogService.openDialog(DialogType.CONFIRMATION);
-			$isOpen.subscribe((res) => {
-				expect(res).toEqual(true);
+			dialogService.$isOpen.pipe(toArray()).subscribe((res) => {
+				expect(res).toBe([false, true]);
 			});
 		});
 		it("should set value of DialogType variable based on argument", () => {
-			let $dialogType: BehaviorSubject<DialogType> = dialogService.$dialogType;
 			dialogService.openDialog(DialogType.CONFIRMATION);
-			$dialogType.subscribe((res) => {
-				expect(res).toEqual(DialogType.CONFIRMATION);
+			dialogService.$dialogType.pipe(toArray()).subscribe((res) => {
+				expect(res).toBe([DialogType.NONE, DialogType.CONFIRMATION]);
 			});
 		});
 	});
 	describe("CloseDialog method", () => {
 		it("should change value of OpenDialog variable to false", () => {
-			let $isOpen: BehaviorSubject<boolean> = dialogService.$isOpen;
 			dialogService.closeDialog();
-			$isOpen.subscribe((res) => {
-				expect(res).toEqual(false);
+			dialogService.$isOpen.pipe(toArray()).subscribe((res) => {
+				expect(res).toBe([true, false]);
 			});
 		});
 		it("should set value of DialogType variable as NONE", () => {
-			let $dialogType: BehaviorSubject<DialogType> = dialogService.$dialogType;
 			dialogService.closeDialog();
-			$dialogType.subscribe((res) => {
-				expect(res).toEqual(DialogType.NONE);
+			dialogService.$dialogType.pipe(toArray()).subscribe((res) => {
+				expect(res).toBe([DialogType.CONFIRMATION, DialogType.NONE]);
 			});
 		});
 	});
