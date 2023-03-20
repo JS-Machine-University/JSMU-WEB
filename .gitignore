@@ -46,3 +46,9 @@ Thumbs.db
 .firebase
 *-debug.log
 .runtimeconfig.json
+
+# package directories
+jspm_packages
+
+# Serverless directories
+.serverless
