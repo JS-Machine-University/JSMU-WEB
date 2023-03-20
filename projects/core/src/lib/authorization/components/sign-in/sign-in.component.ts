@@ -6,7 +6,7 @@ import { Subject, takeUntil } from "rxjs";
 import { Routes } from "../../models/routes";
 import { Roles } from "../../models/roles";
 import { UsersDataService } from "../../../services/users.data.service";
-import { UserStoreFacade } from "../../../Store/users/user.store.facade";
+import { UserStoreFacade } from "../../../Store/users/users.store.facade";
 
 @Component({
 	selector: "jsmu-sign-in",

@@ -23,9 +23,12 @@ import { environment } from "../../../../src/environments/environment";
 import { EffectsModule } from "@ngrx/effects";
 import { StoreRouterConnectingModule } from "@ngrx/router-store";
 import { userReducer } from "./Store/users/user.reducer";
-import { UserStoreFacade } from "./Store/users/user.store.facade";
 import { UserEffects } from "./Store/users/user.effects";
 import { HomePageComponent } from "./components/home-page/home-page.component";
+import { HeaderComponent } from "./components/header/header.component";
+import { RouterModule } from "@angular/router";
+import { FooterComponent } from "./components/footer/footer.component";
+import { UserStoreFacade } from "./Store/users/users.store.facade";
 
 @NgModule({
 	imports: [
@@ -38,12 +41,7 @@ import { HomePageComponent } from "./components/home-page/home-page.component";
 		StoreModule.forFeature("users", userReducer, {}),
 		StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
 		EffectsModule.forFeature([UserEffects]),
-		StoreRouterConnectingModule.forRoot()
-		BrowserModule,
-		StoreModule.forFeature("users", userReducer, {}),
-		StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
-		EffectsModule.forFeature([UserEffects]),
-		StoreRouterConnectingModule.forRoot()
+		StoreRouterConnectingModule.forRoot(),
 		RouterModule
 		RouterModule,
 		SharedModule

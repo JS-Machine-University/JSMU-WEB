@@ -4,9 +4,9 @@ import { Roles } from "../../models/roles";
 import { User } from "../../models/user";
 import { RoleInfo } from "../../models/role-info";
 import { Router } from "@angular/router";
-import { Observable, Subject, takeUntil } from "rxjs";
+import { Subject, takeUntil } from "rxjs";
 import { UsersDataService } from "../../../services/users.data.service";
-import { UserStoreFacade } from "../../../Store/users/user.store.facade";
+import { UserStoreFacade } from "../../../Store/users/users.store.facade";
 
 @Component({
 	selector: "jsmu-role-select",
