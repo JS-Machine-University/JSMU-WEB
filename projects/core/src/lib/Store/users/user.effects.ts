@@ -24,7 +24,7 @@ export class UserEffects {
 		return this.actions$.pipe(
 			ofType(userActions.saveUser),
 			exhaustMap((action) =>
-				this.userService.saveUser(action.user).pipe(
+				this.userService.saveUserById(action.user).pipe(
 					map(() => userActions.saveUserSuccess()),
 					catchError(() => of(userActions.saveUserFailure))
 				)

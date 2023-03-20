@@ -2,8 +2,8 @@ import * as userActions from "./user.actions";
 import createSpyObj = jasmine.createSpyObj;
 import { User } from "../../authorization/models/user";
 import { Store } from "@ngrx/store";
-import { UserStoreFacade } from "./user.store.facade";
 import { Roles } from "../../authorization/models/roles";
+import { UserStoreFacade } from "./users.store.facade";
 
 describe("UserStoreFacade", () => {
 	const initialState: User = {
