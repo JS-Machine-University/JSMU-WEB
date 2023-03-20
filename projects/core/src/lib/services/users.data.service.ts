@@ -46,7 +46,6 @@ export class UsersDataService {
 		return this.getUserById(user.uid!).pipe(
 			map((data) => {
 				if (!data) {
-					console.log("saved");
 					return this.saveUser(user).subscribe();
 				} else return null;
 			})

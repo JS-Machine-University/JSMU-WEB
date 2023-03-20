@@ -12,7 +12,7 @@ import { UserStoreFacade } from "../../../Store/users/users.store.facade";
 	selector: "jsmu-role-select",
 	templateUrl: "./role-select.component.html",
 	styleUrls: ["./role-select.component.scss"],
-	changeDetection: ChangeDetectionStrategy.OnPush
+	changeDetection: ChangeDetectionStrategy.Default
 })
 export class RoleSelectComponent implements OnInit, OnDestroy {
 	private user!: User;

@@ -4,6 +4,7 @@ import { menuItems } from "../../../../../../src/assets/objects/header.objects";
 import { Observable } from "rxjs";
 import { User } from "../../authorization/models/user";
 import { InfoModalService } from "../../services/info-modal.service";
+import { AuthService } from "../../authorization/services/auth/auth.service";
 
 @Component({
 	selector: "jsmu-header",
@@ -12,23 +13,25 @@ import { InfoModalService } from "../../services/info-modal.service";
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HeaderComponent implements OnInit {
-	public isLoggedIn!: Observable<User | null>;
+	public isLoggedIn!: Observable<boolean>;
 	public menuItems = menuItems;
 	public isSideBarOpen = false;
 	public burgerLines = [1, 2, 3];
 	public avatarPath = "/assets/images/cat.jpg";
 
+	constructor(private usersDataServ: UsersDataService, private userAuth: AuthService) {}
 	constructor(
 		private usersDataServ: UsersDataService,
 		private infoModalService: InfoModalService
 	) {}
 	ngOnInit(): void {
-		this.isUserLogin();
+		//this.isUserLogin();
+		this.isLoggedIn = this.userAuth.isLoggedIn;
 	}
 
-	public isUserLogin(): void {
-		this.isLoggedIn = this.usersDataServ.isUserLogin();
-	}
+	// public isUserLogin(): void {
+	// 	this.isLoggedIn = this.usersDataServ.isUserLogin();
+	// }
 
 	public toggleSideBar(): void {
 		this.isSideBarOpen = !this.isSideBarOpen;

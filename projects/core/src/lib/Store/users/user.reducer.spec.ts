@@ -1,14 +1,15 @@
-import { userReducer } from "./user.reducer";
+import { userReducer, UserState } from "./user.reducer";
 import { User } from "../../authorization/models/user";
 import * as userActions from "./user.actions";
 
 describe("UserReducer", () => {
-	const initialState: User = {
+	const initialState: UserState = {
 		uid: null,
 		role: null,
 		name: null,
 		email: null,
-		isVerified: false,
+		isUserAuth: false,
+		isUserPresentDB: false,
 		photoURL: null
 	};
 
@@ -26,7 +27,8 @@ describe("UserReducer", () => {
 				role: null,
 				name: "testName",
 				email: null,
-				isVerified: false,
+				isUserAuth: false,
+				isUserPresentDB: false,
 				photoURL: null
 			}
 		});
