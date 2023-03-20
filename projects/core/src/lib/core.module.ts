@@ -36,7 +36,7 @@ import { DialogService } from "./services/dialog.service";
 		FooterComponent,
 		HomePageComponent
 	],
-	exports: [CoreComponent, HeaderComponent, FooterComponent]
-	providers: [DataBaseService, UsersDataService, LessonsDataService, DialogService],
+	exports: [CoreComponent, HeaderComponent, FooterComponent],
+	providers: [DataBaseService, UsersDataService, LessonsDataService, DialogService]
 })
 export class CoreModule {}

@@ -25,7 +25,7 @@ import { ClickOutsideDirective } from "../../../shared/src/lib/directives/clickO
 		NavigationComponent,
 		NavigationItemListComponent,
 		NavigationItemComponent,
-		AvatarComponent
+		AvatarComponent,
 		DialogComponent,
 		ClickOutsideDirective
 	],
@@ -39,7 +39,7 @@ import { ClickOutsideDirective } from "../../../shared/src/lib/directives/clickO
 		NavigationItemComponent,
 		NavigationItemListComponent,
 		NavigationComponent,
-		AvatarComponent
+		AvatarComponent,
 		DialogComponent
 	]
 })
