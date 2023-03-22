@@ -18,8 +18,4 @@ export class AppComponent implements OnInit {
 		this.$dialogType = this.dialogService.$dialogType;
 		this.$isOpen = this.dialogService.$isOpen;
 	}
-
-	// public openDialog(): void {
-	// 	this.dialogService.openDialog(DialogType.CONFIRMATION);
-	// }
 }
