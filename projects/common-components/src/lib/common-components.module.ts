@@ -5,7 +5,7 @@ import { ButtonComponent } from "./button/button.component";
 import { TalksListComponent } from "./talks/talks-list/talks-list.component";
 import { TalkItemComponent } from "./talks/talk-item/talk-item.component";
 import { TalkItemsLineComponent } from "./talks/talk-items-line/talk-items-line.component";
-import { SortPipe } from "@jsmu/shared";
+import { SharedModule, SortPipe } from "@jsmu/shared";
 import { NavigationComponent } from "./navigation/navigation/navigation.component";
 import { NavigationItemListComponent } from "./navigation/navigation-item-list/navigation-item-list.component";
 import { NavigationItemComponent } from "./navigation/navigation-item/navigation-item.component";
@@ -29,7 +29,7 @@ import { ClickOutsideDirective } from "../../../shared/src/lib/directives/clickO
 		DialogComponent,
 		ClickOutsideDirective
 	],
-	imports: [BrowserModule, RouterModule],
+	imports: [BrowserModule, RouterModule, SharedModule],
 	exports: [
 		CommonComponentsComponent,
 		ButtonComponent,

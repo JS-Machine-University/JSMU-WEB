@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
 		this.$isOpen = this.dialogService.$isOpen;
 	}
 
-	public openDialog(): void {
-		this.dialogService.openDialog(DialogType.CONFIRMATION);
-	}
+	// public openDialog(): void {
+	// 	this.dialogService.openDialog(DialogType.CONFIRMATION);
+	// }
 }
