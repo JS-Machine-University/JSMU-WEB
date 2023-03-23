@@ -5,14 +5,15 @@ import { fromEvent, take } from "rxjs";
 	selector: "[jsmuClickOutside]"
 })
 export class ClickOutsideDirective implements OnInit {
-	@Output() clickOutside = new EventEmitter();
+	@Output()
+	private clickOutside = new EventEmitter();
 
-	captured = false;
+	private captured = false;
 
 	constructor(private elRef: ElementRef) {}
 
 	@HostListener("document:click", ["$event.target"])
-	onClick(target: any) {
+	onClick(target: EventTarget): void {
 		if (!this.captured) {
 			return;
 		}
@@ -22,7 +23,7 @@ export class ClickOutsideDirective implements OnInit {
 		}
 	}
 
-	ngOnInit() {
+	public ngOnInit(): void {
 		fromEvent(document, "click", { capture: true })
 			.pipe(take(1))
 			.subscribe(() => (this.captured = true));
