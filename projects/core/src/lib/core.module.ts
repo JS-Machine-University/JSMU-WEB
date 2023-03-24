@@ -15,6 +15,7 @@ import { HeaderComponent } from "./components/header/header.component";
 import { RouterModule } from "@angular/router";
 import { FooterComponent } from "./components/footer/footer.component";
 import { HomePageComponent } from "./components/home-page/home-page.component";
+import { DialogService } from "./services/dialog.service";
 
 @NgModule({
 	imports: [
@@ -27,7 +28,6 @@ import { HomePageComponent } from "./components/home-page/home-page.component";
 		RouterModule
 		// StoreModule.forFeature()
 	],
-	providers: [DataBaseService, UsersDataService, LessonsDataService],
 	declarations: [
 		CoreComponent,
 		MenteePageComponent,
@@ -36,6 +36,7 @@ import { HomePageComponent } from "./components/home-page/home-page.component";
 		FooterComponent,
 		HomePageComponent
 	],
-	exports: [CoreComponent, HeaderComponent, FooterComponent]
+	exports: [CoreComponent, HeaderComponent, FooterComponent],
+	providers: [DataBaseService, UsersDataService, LessonsDataService, DialogService]
 })
 export class CoreModule {}

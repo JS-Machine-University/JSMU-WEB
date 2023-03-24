@@ -1,3 +1,4 @@
 <jsmu-header></jsmu-header>
 <router-outlet></router-outlet>
+<jsmu-dialog [dialogType]="$dialogType | async" *ngIf="$isOpen | async"></jsmu-dialog>
 <jsmu-footer></jsmu-footer>
