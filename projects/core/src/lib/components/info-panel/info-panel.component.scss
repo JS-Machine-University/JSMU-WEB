@@ -1,0 +1,70 @@
+@import "../../../../../../src/assets/styles/utils";
+
+.jsmu-info-panel {
+	&__modal {
+		text-align: left;
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		right: 0;
+		left: 0;
+		z-index: 100;
+		padding: 60px 35px;
+		background-color: rgb(33 34 53);
+		margin: 80px auto;
+		width: 450px;
+		border-radius: 5%;
+		font-size: 21px;
+	}
+
+	&__title {
+		text-align: center;
+		color: #fff;
+		text-shadow: 0 0 20px $lightBlueColor, 0 0 40px $lightBlueColor, 0 0 60px $lightBlueColor,
+			0 0 80px $lightBlueColor;
+	}
+
+	&__content {
+		margin-top: 40px;
+	}
+
+	&__version {
+		margin-top: 20px;
+	}
+
+	&__github {
+		margin-top: 20px;
+	}
+
+	&__link {
+		color: #fff;
+
+		&:hover {
+			color: rgba(223, 223, 217, 0.82);
+		}
+	}
+
+	&__footer {
+		position: absolute;
+		bottom: 15px;
+		font-size: 11px;
+		left: 43%;
+		transform: translateX(-40%);
+	}
+
+	&__background {
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		right: 0;
+		left: 0;
+		background-color: #000;
+		opacity: 0.65;
+		z-index: 99;
+	}
+}
+
+body.jsmu-info-panel__open {
+	overflow: hidden;
+	margin-right: 17px;
+}

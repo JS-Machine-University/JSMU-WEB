@@ -15,6 +15,7 @@ import { HeaderComponent } from "./components/header/header.component";
 import { RouterModule } from "@angular/router";
 import { FooterComponent } from "./components/footer/footer.component";
 import { HomePageComponent } from "./components/home-page/home-page.component";
+import { InfoPanelComponent } from "./components/info-panel/info-panel.component";
 
 @NgModule({
 	imports: [
@@ -34,7 +35,8 @@ import { HomePageComponent } from "./components/home-page/home-page.component";
 		LessonComponent,
 		HeaderComponent,
 		FooterComponent,
-		HomePageComponent
+		HomePageComponent,
+		InfoPanelComponent
 	],
 	exports: [CoreComponent, HeaderComponent, FooterComponent]
 })

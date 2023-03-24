@@ -1,0 +1,26 @@
+<div class="jsmu-info-panel">
+	<div class="jsmu-info-panel__modal">
+		<div class="jsmu-info-panel__body">
+			<h2 class="jsmu-info-panel__title">JS Machine University</h2>
+			<div class="jsmu-info-panel__content">
+				<p class="jsmu-info-panel__version">-Package json version: 0.0.0</p>
+				<p class="jsmu-info-panel__version">-Ngrx version: 14.0.2</p>
+				<p class="jsmu-info-panel__version">-Pre-processor: Scss</p>
+				<div class="jsmu-info-panel__github">
+					-Our github profile
+					<a
+						class="jsmu-info-panel__link"
+						target="_blank"
+						href="https://github.com/JS-Machine-University/JSMU-WEB"
+					>
+						<i class="fa-brands fa-github"></i>
+					</a>
+				</div>
+			</div>
+			<p class="jsmu-info-panel__footer">
+				©{{date | date : 'YYYY'}} EPAM Systems, Inc. All Rights Reserved.
+			</p>
+		</div>
+	</div>
+	<div class="jsmu-info-panel__background" (click)="closeModal()"></div>
+</div>

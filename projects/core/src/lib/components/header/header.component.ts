@@ -16,6 +16,7 @@ export class HeaderComponent implements OnInit {
 	public isSideBarOpen = false;
 	public burgerLines = [1, 2, 3];
 	public avatarPath = "/assets/images/cat.jpg";
+	public isModalOpen!: boolean;
 
 	constructor(private usersDataServ: UsersDataService) {}
 	ngOnInit(): void {
@@ -28,5 +29,14 @@ export class HeaderComponent implements OnInit {
 
 	public toggleSideBar(): void {
 		this.isSideBarOpen = !this.isSideBarOpen;
+	}
+
+	public closeModal(): void {
+		this.isModalOpen = false;
+		document.body.classList.remove("jsmu-info-panel__open");
+	}
+
+	public openModal(): void {
+		this.isModalOpen = true;
 	}
 }
