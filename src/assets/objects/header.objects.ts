@@ -13,10 +13,6 @@ export const menuItems: NavigationItem[] = [
 		itemName: "Contact us",
 		routerLink: "/ "
 	},
-	// {
-	// 	itemName: "Info",
-	// 	routerLink: "/ "
-	// },
 	{
 		itemName: "Talks list",
 		routerLink: "/talks"
