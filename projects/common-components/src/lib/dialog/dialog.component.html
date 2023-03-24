@@ -1,0 +1,34 @@
+<div class="jsmu-dialog" jsmuClickOutside (clickOutside)="closeDialog()">
+	<div class="jsmu-dialog__content">
+		<div class="jsmu-dialog__header">
+			<ng-container *ngTemplateOutlet="dialogTitle"></ng-container>
+			<i class="jsmu-dialog__close fa-solid fa-xmark" (click)="closeDialog()"></i>
+		</div>
+		<hr class="jsmu-dialog__separator" />
+		<ng-container *ngTemplateOutlet="dialogMessage"></ng-container>
+		<ng-container *ngTemplateOutlet="dialogButtons"></ng-container>
+	</div>
+</div>
+
+<ng-template #dialogTitle [ngSwitch]="dialogType">
+	<p class="jsmu-dialog__title" *ngSwitchCase="DialogType.CONFIRMATION">Confirmation</p>
+	<p class="jsmu-dialog__title" *ngSwitchCase="DialogType.WARNING">Warning</p>
+	<p class="jsmu-dialog__title" *ngSwitchCase="DialogType.ERROR">Error</p>
+</ng-template>
+<ng-template #dialogMessage [ngSwitch]="dialogType">
+	<p class="jsmu-dialog__message" *ngSwitchCase="DialogType.CONFIRMATION">
+		Confirmation Message...
+	</p>
+	<p class="jsmu-dialog__message" *ngSwitchCase="DialogType.WARNING">Warning Message...</p>
+	<p class="jsmu-dialog__message" *ngSwitchCase="DialogType.ERROR">Error Message...</p>
+</ng-template>
+<ng-template #dialogButtons [ngSwitch]="dialogType">
+	<div class="jsmu-button" *ngSwitchCase="DialogType.CONFIRMATION">
+		<button class="jsmu-button_yes" (click)="closeDialog()">Ok</button>
+		<button class="jsmu-button_no" (click)="closeDialog()">Cancel</button>
+	</div>
+	<div class="jsmu-button" *ngSwitchCase="DialogType.WARNING">
+		<button class="jsmu-button_yes" (click)="closeDialog()">Accept</button>
+		<button class="jsmu-button_no" (click)="closeDialog()">Cancel</button>
+	</div>
+</ng-template>

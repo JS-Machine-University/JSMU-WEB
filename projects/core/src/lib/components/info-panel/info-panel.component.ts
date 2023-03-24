@@ -15,8 +15,9 @@ import {
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class InfoPanelComponent implements OnInit {
-	@Output() isModalOpen = new EventEmitter<boolean>();
+	@Output() isModalOpen = new EventEmitter();
 	public date: Date = new Date();
+
 	ngOnInit(): void {
 		document.body.classList.add("jsmu-info-panel__open");
 	}

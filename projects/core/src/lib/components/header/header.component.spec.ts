@@ -52,4 +52,16 @@ describe("HeaderComponent", () => {
 		component.toggleSideBar();
 		expect(component.isSideBarOpen).toBeTruthy();
 	});
+
+	it("should change isModalOpen to false", () => {
+		component.isModalOpen = true;
+		component.closeModal();
+		expect(component.isModalOpen).toBeFalsy();
+	});
+
+	it("should change isModalOpen to true", function () {
+		component.isModalOpen = false;
+		component.openModal();
+		expect(component.isModalOpen).toBeTruthy();
+	});
 });
