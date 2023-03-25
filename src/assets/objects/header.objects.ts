@@ -3,7 +3,7 @@ import { NavigationItem } from "@jsmu/core";
 export const menuItems: NavigationItem[] = [
 	{
 		itemName: "Home",
-		routerLink: "/home-page"
+		routerLink: "/home"
 	},
 	{
 		itemName: "Themes",
@@ -23,6 +23,10 @@ export const menuItems: NavigationItem[] = [
 	},
 	{
 		itemName: "Mentee page",
-		routerLink: "/mentee-page"
+		routerLink: "/mentee"
+	},
+	{
+		itemName: "Expert page",
+		routerLink: "/expert"
 	}
 ];

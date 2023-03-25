@@ -6,15 +6,17 @@ import { RoleSelectComponent } from "../../projects/core/src/lib/authorization/c
 import { TalksListComponent } from "@jsmu/common-components";
 import { MenteePageComponent } from "projects/core/src/lib/components/mentee-page/mentee-page.component";
 import { HomePageComponent } from "projects/core/src/lib/components/home-page/home-page.component";
+import { ExpertPageComponent } from "projects/core/src/lib/components/expert-page/expert-page.component";
 // route guards
 
 const routes: Routes = [
-	{ path: "", redirectTo: "/home-page", pathMatch: "full" },
-	{ path: "home-page", component: HomePageComponent },
+	{ path: "", redirectTo: "/home", pathMatch: "full" },
+	{ path: "home", component: HomePageComponent },
 	{ path: "sign-in", component: SignInComponent },
 	{ path: "role-select", component: RoleSelectComponent, canActivate: [AuthGuard] },
 	{ path: "talks", component: TalksListComponent },
-	{ path: "mentee-page", component: MenteePageComponent, canActivate: [AuthGuard] }
+	{ path: "mentee", component: MenteePageComponent, canActivate: [AuthGuard] },
+	{ path: "expert", component: ExpertPageComponent }
 ];
 @NgModule({
 	imports: [RouterModule.forRoot(routes)],

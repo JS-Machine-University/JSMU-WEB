@@ -16,6 +16,7 @@ import { RouterModule } from "@angular/router";
 import { FooterComponent } from "./components/footer/footer.component";
 import { HomePageComponent } from "./components/home-page/home-page.component";
 import { DialogService } from "./services/dialog.service";
+import { ExpertPageComponent } from "./components/expert-page/expert-page.component";
 
 @NgModule({
 	imports: [
@@ -34,7 +35,8 @@ import { DialogService } from "./services/dialog.service";
 		LessonComponent,
 		HeaderComponent,
 		FooterComponent,
-		HomePageComponent
+		HomePageComponent,
+		ExpertPageComponent
 	],
 	exports: [CoreComponent, HeaderComponent, FooterComponent],
 	providers: [DataBaseService, UsersDataService, LessonsDataService, DialogService]
