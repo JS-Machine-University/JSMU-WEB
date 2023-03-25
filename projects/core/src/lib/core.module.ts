@@ -17,6 +17,7 @@ import { FooterComponent } from "./components/footer/footer.component";
 import { HomePageComponent } from "./components/home-page/home-page.component";
 import { InfoPanelComponent } from "./components/info-panel/info-panel.component";
 import { DialogService } from "./services/dialog.service";
+import { ExpertPageComponent } from "./components/expert-page/expert-page.component";
 import { SharedModule } from "@jsmu/shared";
 
 @NgModule({
@@ -38,6 +39,7 @@ import { SharedModule } from "@jsmu/shared";
 		HeaderComponent,
 		FooterComponent,
 		HomePageComponent,
+		ExpertPageComponent
 		InfoPanelComponent
 	],
 	exports: [CoreComponent, HeaderComponent, FooterComponent, InfoPanelComponent],
