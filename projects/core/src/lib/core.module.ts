@@ -24,10 +24,6 @@ import { EffectsModule } from "@ngrx/effects";
 import { StoreRouterConnectingModule } from "@ngrx/router-store";
 import { userReducer } from "./Store/users/user.reducer";
 import { UserEffects } from "./Store/users/user.effects";
-import { HomePageComponent } from "./components/home-page/home-page.component";
-import { HeaderComponent } from "./components/header/header.component";
-import { RouterModule } from "@angular/router";
-import { FooterComponent } from "./components/footer/footer.component";
 import { UserStoreFacade } from "./Store/users/users.store.facade";
 
 @NgModule({
