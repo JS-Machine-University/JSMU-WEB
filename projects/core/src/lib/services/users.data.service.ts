@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { map, Observable, Subscription, switchMap } from "rxjs";
+import { map, Observable, of, Subscription, switchMap } from "rxjs";
 import { User } from "../authorization/models/user";
 import { ListType } from "../models/list-type";
 import { DataBaseService } from "./database.service";
@@ -42,12 +42,13 @@ export class UsersDataService {
 		);
 	}
 
-	public saveUserById(user: User): Observable<Subscription | null> {
+	public saveUserWithCheck(user: User): Observable<boolean> {
 		return this.getUserById(user.uid!).pipe(
 			map((data) => {
 				if (!data) {
-					return this.saveUser(user).subscribe();
-				} else return null;
+					this.saveUser(user).subscribe();
+					return true;
+				} else return false;
 			})
 		);
 	}
