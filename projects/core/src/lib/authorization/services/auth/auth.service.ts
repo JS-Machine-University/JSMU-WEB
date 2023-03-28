@@ -6,6 +6,7 @@ import { AngularFirestore, AngularFirestoreDocument } from "@angular/fire/compat
 import { Router } from "@angular/router";
 import { map, Observable } from "rxjs";
 import { Routes } from "../../models/routes";
+import { UserStoreFacade } from "../../../Store/users/users.store.facade";
 
 @Injectable({
 	providedIn: "root"
@@ -14,7 +15,8 @@ export class AuthService {
 	constructor(
 		private afs: AngularFirestore,
 		private afAuth: AngularFireAuth,
-		private router: Router
+		private router: Router,
+		private userFacade: UserStoreFacade
 	) {
 		this.checkAuthState();
 	}
@@ -45,7 +47,9 @@ export class AuthService {
 					email: user?.email,
 					name: user?.displayName,
 					photoURL: user?.photoURL,
-					isVerified: user?.emailVerified
+					isUserAuth: true,
+					isUserPresentDB: false,
+					checkBase: false
 				};
 			})
 		);
@@ -56,6 +60,7 @@ export class AuthService {
 			.signInWithPopup(provider)
 			.then((result) => {
 				if (result.user !== null) {
+					this.userFacade.authUser();
 					this.setUserData(result.user);
 				}
 			})
@@ -71,7 +76,9 @@ export class AuthService {
 			email: user.email,
 			name: user.displayName,
 			photoURL: user.photoURL,
-			isVerified: user.emailVerified
+			isUserPresentDB: false,
+			checkBase: false,
+			isUserAuth: true
 		};
 		return userRef.set(userData, {
 			merge: true

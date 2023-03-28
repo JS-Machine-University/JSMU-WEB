@@ -26,7 +26,6 @@ describe("SignInComponent", () => {
 		uid: "123",
 		name: undefined,
 		email: undefined,
-		isVerified: undefined,
 		photoURL: undefined,
 		role: undefined
 	};
@@ -86,21 +85,5 @@ describe("SignInComponent", () => {
 			component.login();
 			expect(authService.gitHubAuth).toHaveBeenCalled();
 		});
-
-		it("should check isLogged", () => {
-			component.login();
-			expect(component.isLogged).toBe(true);
-		});
-
-		it("should get user", () => {
-			component.login();
-			expect(component.user).toEqual(testUser);
-		});
-
-		it("should navigate to role-select", inject([Router], (mockRouter: Router) => {
-			const spy = spyOn(mockRouter, "navigate").and.stub();
-			component.login();
-			expect(spy.calls.first().args[0]).toContain("role-select");
-		}));
 	});
 });

@@ -5,6 +5,8 @@ export interface User {
 	email: string | null | undefined;
 	name: string | null | undefined;
 	photoURL: string | null | undefined;
-	isVerified: boolean | undefined;
 	role?: Roles | null;
+	isUserAuth?: boolean;
+	isUserPresentDB?: boolean;
+	checkBase?: boolean;
 }

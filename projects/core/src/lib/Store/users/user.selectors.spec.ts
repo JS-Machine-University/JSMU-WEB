@@ -8,8 +8,7 @@ describe("UserSelectors", () => {
 		name: "testName",
 		email: "testMail",
 		role: Roles.MENTEE,
-		photoURL: "testUrl",
-		isVerified: true
+		photoURL: "testUrl"
 	};
 
 	it("Should get user", () => {

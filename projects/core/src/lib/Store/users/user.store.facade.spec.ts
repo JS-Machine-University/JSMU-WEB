@@ -11,8 +11,7 @@ describe("UserStoreFacade", () => {
 		name: "testName",
 		email: "testMail",
 		role: Roles.MENTEE,
-		photoURL: "testUrl",
-		isVerified: true
+		photoURL: "testUrl"
 	};
 	let userFacade: UserStoreFacade;
 	let store: Store;

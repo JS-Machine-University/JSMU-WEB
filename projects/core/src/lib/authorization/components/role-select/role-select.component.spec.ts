@@ -24,9 +24,11 @@ describe("RoleSelectComponent", () => {
 		uid: undefined,
 		name: undefined,
 		email: undefined,
-		isVerified: undefined,
 		photoURL: undefined,
-		role: Roles.MENTEE
+		role: Roles.MENTEE,
+		isUserAuth: true,
+		isUserPresentDB: true,
+		checkBase: true
 	};
 
 	beforeEach(async () => {
@@ -48,7 +50,7 @@ describe("RoleSelectComponent", () => {
 		userFacade = TestBed.inject(UserStoreFacade);
 		fixture.detectChanges();
 
-		spyOn(authService, "getUser").and.returnValue(
+		spyOn(userFacade, "getUser").and.returnValue(
 			new Observable<User>((subscriber) => {
 				subscriber.next(testUser);
 			})
@@ -79,8 +81,10 @@ describe("RoleSelectComponent", () => {
 				uid: undefined,
 				name: undefined,
 				email: undefined,
-				isVerified: undefined,
 				photoURL: undefined,
+				isUserAuth: true,
+				isUserPresentDB: true,
+				checkBase: true,
 				role: Roles.EXPERT
 			});
 		});
@@ -91,15 +95,17 @@ describe("RoleSelectComponent", () => {
 				uid: undefined,
 				name: undefined,
 				email: undefined,
-				isVerified: undefined,
 				photoURL: undefined,
-				role: Roles.RM
+				role: Roles.RM,
+				isUserAuth: true,
+				isUserPresentDB: true,
+				checkBase: true
 			});
 		});
 	});
 
 	it("should call getUser when ngOnInit", () => {
 		component.ngOnInit();
-		expect(authService.getUser).toHaveBeenCalled();
+		expect(userFacade.getUser).toHaveBeenCalled();
 	});
 });

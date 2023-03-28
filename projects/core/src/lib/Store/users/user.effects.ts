@@ -3,30 +3,17 @@ import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { UsersDataService } from "../../services/users.data.service";
 import * as userActions from "./user.actions";
 import { catchError, exhaustMap, map, of } from "rxjs";
-import { UserState } from "./user.reducer";
 import { AuthService } from "../../authorization/services/auth/auth.service";
 import { UserStoreFacade } from "./users.store.facade";
 
 @Injectable()
 export class UserEffects {
-	public isAuth!: boolean;
-	public isPresentDB!: boolean;
-	public checkBase!: boolean;
-
 	constructor(
 		private actions$: Actions,
 		private userService: UsersDataService,
 		private userAuth: AuthService,
 		private userFacade: UserStoreFacade
-	) {
-		userAuth.isLoggedIn.subscribe((state) => {
-			this.isAuth = state;
-		});
-		userFacade.getUser().subscribe((userState) => {
-			this.isPresentDB = userState?.isUserPresentDB!;
-			this.checkBase = userState?.checkBase!;
-		});
-	}
+	) {}
 
 	loadUser$ = createEffect(() => {
 		return this.actions$.pipe(
@@ -34,22 +21,10 @@ export class UserEffects {
 			exhaustMap((action) =>
 				this.userService.getUserById(action.uid).pipe(
 					map((user) => {
-						let userData: UserState | null = null;
-						if (user) {
-							userData = {
-								uid: user?.uid!,
-								email: user?.email!,
-								name: user?.name!,
-								role: user?.role!,
-								checkBase: true,
-								photoURL: user?.photoURL!,
-								isUserPresentDB: true,
-								isUserAuth: this.isAuth
-							};
-						} else {
+						if (!user) {
 							this.userFacade.setCheckBase();
 						}
-						return userActions.loadUserSuccess({ user: userData! });
+						return userActions.loadUserSuccess({ user: user! });
 					}),
 					catchError(() => of(userActions.loadUserFailure()))
 				)
@@ -75,17 +50,7 @@ export class UserEffects {
 			exhaustMap(() =>
 				this.userAuth.getUser().pipe(
 					map((user) => {
-						let userData: UserState;
-						userData = {
-							uid: user?.uid!,
-							email: user?.email!,
-							name: user?.name!,
-							role: user?.role!,
-							photoURL: user?.photoURL!,
-							isUserPresentDB: this.isPresentDB,
-							isUserAuth: this.isAuth
-						};
-						return userActions.authUserSuccess({ user: userData! });
+						return userActions.authUserSuccess({ user: user! });
 					}),
 					catchError(() => of(userActions.authUserFailure))
 				)

@@ -1,18 +1,16 @@
 import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from "@angular/core";
-import { AuthService } from "../../services/auth/auth.service";
 import { Roles } from "../../models/roles";
 import { User } from "../../models/user";
 import { RoleInfo } from "../../models/role-info";
 import { Router } from "@angular/router";
 import { Subject, takeUntil } from "rxjs";
-import { UsersDataService } from "../../../services/users.data.service";
 import { UserStoreFacade } from "../../../Store/users/users.store.facade";
 
 @Component({
 	selector: "jsmu-role-select",
 	templateUrl: "./role-select.component.html",
 	styleUrls: ["./role-select.component.scss"],
-	changeDetection: ChangeDetectionStrategy.Default
+	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class RoleSelectComponent implements OnInit, OnDestroy {
 	private user!: User;
@@ -49,19 +47,14 @@ export class RoleSelectComponent implements OnInit, OnDestroy {
 		}
 	];
 
-	constructor(
-		private authService: AuthService,
-		private userService: UsersDataService,
-		private router: Router,
-		private userFacade: UserStoreFacade
-	) {}
+	constructor(private router: Router, private userFacade: UserStoreFacade) {}
 
 	ngOnInit() {
-		this.authService
+		this.userFacade
 			.getUser()
 			.pipe(takeUntil(this.destroy$))
 			.subscribe((sUser) => {
-				this.user = sUser;
+				this.user = sUser!;
 			});
 	}
 
@@ -99,9 +92,11 @@ export class RoleSelectComponent implements OnInit, OnDestroy {
 			uid: this.user?.uid,
 			name: this.user?.name,
 			email: this.user?.email,
-			isVerified: this.user?.isVerified,
 			photoURL: this.user?.photoURL,
-			role: userRole
+			role: userRole,
+			isUserAuth: true,
+			isUserPresentDB: true,
+			checkBase: true
 		};
 	}
 

@@ -1,21 +1,10 @@
 import { createReducer, on } from "@ngrx/store";
 import * as userActions from "./user.actions";
-import { Roles } from "../../authorization/models/roles";
+import { User } from "../../authorization/models/user";
 
 export const users = "users";
 
-export interface UserState {
-	uid: string | null;
-	role: Roles | null;
-	name: string | null;
-	email: string | null;
-	isUserAuth: boolean;
-	isUserPresentDB: boolean;
-	checkBase?: boolean;
-	photoURL: string | null;
-}
-
-const initialState: UserState = {
+const initialState: User = {
 	uid: null,
 	role: null,
 	name: null,
@@ -28,19 +17,19 @@ const initialState: UserState = {
 
 export const userReducer = createReducer(
 	initialState,
-	on(userActions.loadUserSuccess, (state, { user }): UserState => {
+	on(userActions.loadUserSuccess, (state, { user }): User => {
 		return user ? user : state;
 	}),
-	on(userActions.authUserSuccess, (state, { user }): UserState => {
+	on(userActions.authUserSuccess, (state, { user }): User => {
 		return user ? user : state;
 	}),
-	on(userActions.saveUserSuccess, (state, { isUserPresentDB }): UserState => {
+	on(userActions.saveUserSuccess, (state, { isUserPresentDB }): User => {
 		return { ...state, isUserPresentDB: isUserPresentDB };
 	}),
-	on(userActions.setCheckBase, (state): UserState => {
+	on(userActions.setCheckBase, (state): User => {
 		return { ...state, checkBase: true };
 	}),
-	on(userActions.signOut, (): UserState => {
+	on(userActions.signOut, (): User => {
 		return initialState;
 	})
 );

@@ -8,6 +8,8 @@ import { AngularFireModule } from "@angular/fire/compat";
 import { AngularFireDatabaseModule } from "@angular/fire/compat/database";
 import { environment } from "../../../../../../src/environments/environment";
 import { HttpClientTestingModule } from "@angular/common/http/testing";
+import { UserStoreFacade } from "../../Store/users/users.store.facade";
+import { provideMockStore } from "@ngrx/store/testing";
 
 describe("HeaderComponent", () => {
 	let component: HeaderComponent;
@@ -17,7 +19,7 @@ describe("HeaderComponent", () => {
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
 			declarations: [HeaderComponent],
-			providers: [UsersDataService, DataBaseService],
+			providers: [UsersDataService, DataBaseService, UserStoreFacade, provideMockStore({})],
 			imports: [
 				RouterTestingModule,
 				AngularFireModule.initializeApp(environment.firebaseConfig),
@@ -35,12 +37,6 @@ describe("HeaderComponent", () => {
 
 	it("should create", () => {
 		expect(component).toBeTruthy();
-	});
-
-	it("should call method isUserLogIn 1 time", () => {
-		spyOn(component, "isUserLogin").and.callThrough();
-		component.isUserLogin();
-		expect(component.isUserLogin).toHaveBeenCalledTimes(1);
 	});
 
 	it("should toggle sideBarOpen", () => {

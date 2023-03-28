@@ -1,6 +1,5 @@
 import { createAction, props } from "@ngrx/store";
 import { User } from "../../authorization/models/user";
-import { UserState } from "./user.reducer";
 
 export enum userActionsType {
 	loadUser = "[USER] loadUser",
@@ -20,7 +19,7 @@ export const loadUser = createAction(userActionsType.loadUser, props<{ uid: stri
 
 export const loadUserSuccess = createAction(
 	userActionsType.loadUserSuccess,
-	props<{ user: UserState }>()
+	props<{ user: User }>()
 );
 
 export const loadUserFailure = createAction(userActionsType.LoadUserFailure);
@@ -38,7 +37,7 @@ export const authUser = createAction(userActionsType.authUser);
 
 export const authUserSuccess = createAction(
 	userActionsType.authUserSuccess,
-	props<{ user: UserState }>()
+	props<{ user: User }>()
 );
 
 export const authUserFailure = createAction(userActionsType.authUserFailure);

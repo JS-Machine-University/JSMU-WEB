@@ -1,16 +1,17 @@
-import { userReducer, UserState } from "./user.reducer";
+import { userReducer } from "./user.reducer";
 import { User } from "../../authorization/models/user";
 import * as userActions from "./user.actions";
 
 describe("UserReducer", () => {
-	const initialState: UserState = {
+	const initialState: User = {
 		uid: null,
 		role: null,
 		name: null,
 		email: null,
+		photoURL: null,
 		isUserAuth: false,
 		isUserPresentDB: false,
-		photoURL: null
+		checkBase: false
 	};
 
 	it("should return the default state", () => {
@@ -27,9 +28,10 @@ describe("UserReducer", () => {
 				role: null,
 				name: "testName",
 				email: null,
+				photoURL: null,
 				isUserAuth: false,
 				isUserPresentDB: false,
-				photoURL: null
+				checkBase: false
 			}
 		});
 		const result = userReducer(initialState, action);

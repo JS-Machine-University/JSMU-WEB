@@ -25,14 +25,8 @@ export class HeaderComponent implements OnInit {
 		private infoModalService: InfoModalService
 	) {}
 	ngOnInit(): void {
-		//this.isUserLogin();
 		this.isLoggedIn = this.userAuth.isLoggedIn;
 	}
-
-	// public isUserLogin(): void {
-	// 	this.isLoggedIn = this.usersDataServ.isUserLogin();
-	// }
-
 	public toggleSideBar(): void {
 		this.isSideBarOpen = !this.isSideBarOpen;
 	}
