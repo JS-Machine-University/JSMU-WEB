@@ -5,9 +5,9 @@ import { Subject } from "rxjs";
 	providedIn: "root"
 })
 export class InfoModalService {
-	public isModalOpen: Subject<boolean> = new Subject<boolean>();
+	public serviceSubjectProperty$: Subject<boolean> = new Subject<boolean>();
 
-	public subjectEmitter(data: boolean): void {
-		this.isModalOpen.next(data);
+	public callNextOnSubject(isModalOpen: boolean): void {
+		this.serviceSubjectProperty$.next(isModalOpen);
 	}
 }

@@ -35,6 +35,6 @@ export class HeaderComponent implements OnInit {
 	}
 
 	public openModal(): void {
-		this.infoModalService.subjectEmitter(true);
+		this.infoModalService.callNextOnSubject(true);
 	}
 }

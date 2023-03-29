@@ -13,6 +13,6 @@ export class InfoPanelComponent {
 	constructor(private infoModalService: InfoModalService) {}
 
 	public closeModal(): void {
-		this.infoModalService.subjectEmitter(false);
+		this.infoModalService.callNextOnSubject(false);
 	}
 }
