@@ -38,9 +38,9 @@ import { SharedModule } from "@jsmu/shared";
 		LessonComponent,
 		HeaderComponent,
 		FooterComponent,
+		InfoPanelComponent
 		HomePageComponent,
 		ExpertPageComponent
-		InfoPanelComponent
 	],
 	exports: [CoreComponent, HeaderComponent, FooterComponent, InfoPanelComponent],
 	providers: [DataBaseService, UsersDataService, LessonsDataService, DialogService]

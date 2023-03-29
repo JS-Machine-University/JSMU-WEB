@@ -18,7 +18,7 @@ import { CommonModule } from "@angular/common";
 		NavigationItemListComponent,
 		NavigationItemComponent,
 		AvatarComponent,
-		DialogComponent
+		DialogComponent,
 	],
 	imports: [CommonModule, RouterModule, SharedModule],
 	exports: [
