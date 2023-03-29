@@ -1,28 +1,18 @@
-import {
-	ChangeDetectionStrategy,
-	Component,
-	EventEmitter,
-	OnInit,
-	Output,
-	ViewEncapsulation
-} from "@angular/core";
+import { ChangeDetectionStrategy, Component } from "@angular/core";
+import { InfoModalService } from "../../services/info-modal.service";
 
 @Component({
 	selector: "jsmu-info-panel",
 	templateUrl: "./info-panel.component.html",
 	styleUrls: ["./info-panel.component.scss"],
-	encapsulation: ViewEncapsulation.None,
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class InfoPanelComponent implements OnInit {
-	@Output() isModalOpen = new EventEmitter();
+export class InfoPanelComponent {
 	public date: Date = new Date();
 
-	ngOnInit(): void {
-		document.body.classList.add("jsmu-info-panel__open");
-	}
+	constructor(private infoModalService: InfoModalService) {}
 
 	public closeModal(): void {
-		this.isModalOpen.emit();
+		this.infoModalService.subjectEmitter(false);
 	}
 }

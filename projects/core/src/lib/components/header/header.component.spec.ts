@@ -8,15 +8,11 @@ import { AngularFireModule } from "@angular/fire/compat";
 import { AngularFireDatabaseModule } from "@angular/fire/compat/database";
 import { environment } from "../../../../../../src/environments/environment";
 import { HttpClientTestingModule } from "@angular/common/http/testing";
-import { of } from "rxjs";
-import { User } from "../../authorization/models/user";
-import { fakeUser } from "../../../../../../src/assets/tests/userMock";
 
 describe("HeaderComponent", () => {
 	let component: HeaderComponent;
 	let fixture: ComponentFixture<HeaderComponent>;
 	let usersDataServ: UsersDataService;
-	let expectedUser: User = fakeUser;
 
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
@@ -51,17 +47,5 @@ describe("HeaderComponent", () => {
 		component.isSideBarOpen = false;
 		component.toggleSideBar();
 		expect(component.isSideBarOpen).toBeTruthy();
-	});
-
-	it("should change isModalOpen to false", () => {
-		component.isModalOpen = true;
-		component.closeModal();
-		expect(component.isModalOpen).toBeFalsy();
-	});
-
-	it("should change isModalOpen to true", function () {
-		component.isModalOpen = false;
-		component.openModal();
-		expect(component.isModalOpen).toBeTruthy();
 	});
 });

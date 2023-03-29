@@ -17,6 +17,7 @@ import { FooterComponent } from "./components/footer/footer.component";
 import { HomePageComponent } from "./components/home-page/home-page.component";
 import { InfoPanelComponent } from "./components/info-panel/info-panel.component";
 import { DialogService } from "./services/dialog.service";
+import { SharedModule } from "@jsmu/shared";
 
 @NgModule({
 	imports: [
@@ -26,7 +27,8 @@ import { DialogService } from "./services/dialog.service";
 		HttpClientModule,
 		AuthorizationModule,
 		BrowserModule,
-		RouterModule
+		RouterModule,
+		SharedModule
 		// StoreModule.forFeature()
 	],
 	declarations: [
@@ -38,7 +40,7 @@ import { DialogService } from "./services/dialog.service";
 		HomePageComponent,
 		InfoPanelComponent
 	],
-	exports: [CoreComponent, HeaderComponent, FooterComponent],
+	exports: [CoreComponent, HeaderComponent, FooterComponent, InfoPanelComponent],
 	providers: [DataBaseService, UsersDataService, LessonsDataService, DialogService]
 })
 export class CoreModule {}
