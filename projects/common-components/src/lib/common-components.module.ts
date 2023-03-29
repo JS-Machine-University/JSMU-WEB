@@ -8,6 +8,7 @@ import { NavigationItemComponent } from "./navigation/navigation-item/navigation
 import { AvatarComponent } from "./avatar/avatar.component";
 import { RouterModule } from "@angular/router";
 import { DialogComponent } from "./dialog/dialog.component";
+import { CommonModule } from "@angular/common";
 
 @NgModule({
 	declarations: [
