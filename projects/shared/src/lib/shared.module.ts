@@ -1,8 +1,9 @@
 import { NgModule } from "@angular/core";
 import { SharedComponent } from "./shared.component";
+import { ClickOutsideDirective } from "./directives/clickOutside.directive";
 
 @NgModule({
-	declarations: [SharedComponent],
-	exports: [SharedComponent]
+	declarations: [SharedComponent, ClickOutsideDirective],
+	exports: [SharedComponent, ClickOutsideDirective]
 })
 export class SharedModule {}

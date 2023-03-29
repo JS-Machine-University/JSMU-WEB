@@ -8,15 +8,11 @@ import { AngularFireModule } from "@angular/fire/compat";
 import { AngularFireDatabaseModule } from "@angular/fire/compat/database";
 import { environment } from "../../../../../../src/environments/environment";
 import { HttpClientTestingModule } from "@angular/common/http/testing";
-import { of } from "rxjs";
-import { User } from "../../authorization/models/user";
-import { fakeUser } from "../../../../../../src/assets/tests/userMock";
 
 describe("HeaderComponent", () => {
 	let component: HeaderComponent;
 	let fixture: ComponentFixture<HeaderComponent>;
 	let usersDataServ: UsersDataService;
-	let expectedUser: User = fakeUser;
 
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({

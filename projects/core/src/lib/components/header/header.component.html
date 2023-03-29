@@ -1,4 +1,9 @@
-<header class="jsmu-header" [ngClass]="{mobile: isSideBarOpen}">
+<header
+	class="jsmu-header"
+	[ngClass]="{mobile: isSideBarOpen}"
+	jsmuClickOutside
+	(clickOutside)="toggleSideBar()"
+>
 	<div class="jsmu-header__wrapper">
 		<jsmu-avatar [avatarPath]="avatarPath"></jsmu-avatar>
 
@@ -20,13 +25,18 @@
 					</li>
 				</menu>
 			</nav>
+			<div class="jsmu-header__references">
+				<div class="jsmu-header__info">
+					<a class="jsmu-header__info-link" (click)="openInfoModal()">Info</a>
+				</div>
 
-			<div class="jsmu-header__authorization">
-				<jsmu-sign-out *ngIf="isLoggedIn | async; else loggedOut"></jsmu-sign-out>
+				<div class="jsmu-header__authorization">
+					<jsmu-sign-out *ngIf="isLoggedIn | async; else loggedOut"></jsmu-sign-out>
 
-				<ng-template #loggedOut>
-					<jsmu-sign-in></jsmu-sign-in>
-				</ng-template>
+					<ng-template #loggedOut>
+						<jsmu-sign-in></jsmu-sign-in>
+					</ng-template>
+				</div>
 			</div>
 		</div>
 

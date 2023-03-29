@@ -12,7 +12,6 @@ import { NavigationItemComponent } from "./navigation/navigation-item/navigation
 import { AvatarComponent } from "./avatar/avatar.component";
 import { RouterModule } from "@angular/router";
 import { DialogComponent } from "./dialog/dialog.component";
-import { ClickOutsideDirective } from "../../../shared/src/lib/directives/clickOutside.directive";
 
 @NgModule({
 	declarations: [
@@ -26,8 +25,7 @@ import { ClickOutsideDirective } from "../../../shared/src/lib/directives/clickO
 		NavigationItemListComponent,
 		NavigationItemComponent,
 		AvatarComponent,
-		DialogComponent,
-		ClickOutsideDirective
+		DialogComponent
 	],
 	imports: [BrowserModule, RouterModule, SharedModule],
 	exports: [
