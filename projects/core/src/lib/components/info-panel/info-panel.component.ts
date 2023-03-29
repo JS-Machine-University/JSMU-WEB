@@ -12,7 +12,7 @@ export class InfoPanelComponent {
 
 	constructor(private infoModalService: InfoModalService) {}
 
-	public setVisibleValue(): void {
-		this.infoModalService.callNextOnSubject(false);
+	public closeInfoModal(): void {
+		this.infoModalService.setVisibleValue(false);
 	}
 }

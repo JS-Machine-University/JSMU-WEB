@@ -19,6 +19,6 @@ export class AppComponent implements OnInit {
 	ngOnInit(): void {
 		this.dialogType$ = this.dialogService.$dialogType;
 		this.isOpen$ = this.dialogService.$isOpen;
-		this.isModalOpen$ = this.infoModalService.serviceSubjectProperty$;
+		this.isModalOpen$ = this.infoModalService.visibilityProperty$;
 	}
 }

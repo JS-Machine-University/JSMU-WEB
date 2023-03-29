@@ -14,9 +14,9 @@ describe("InfoModalService", () => {
 	});
 
 	it("subjectEmitter should emit data to isModalOpen", () => {
-		service.serviceSubjectProperty$.subscribe((message) => {
+		service.visibilityProperty$.subscribe((message) => {
 			expect(message).toBe(true);
 		});
-		service.callNextOnSubject(true);
+		service.setVisibleValue(true);
 	});
 });
