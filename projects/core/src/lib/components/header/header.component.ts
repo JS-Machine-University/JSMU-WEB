@@ -34,7 +34,7 @@ export class HeaderComponent implements OnInit {
 		this.isSideBarOpen = !this.isSideBarOpen;
 	}
 
-	public openModal(): void {
+	public setVisibleValue(): void {
 		this.infoModalService.callNextOnSubject(true);
 	}
 }

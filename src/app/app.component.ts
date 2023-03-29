@@ -11,14 +11,14 @@ import { InfoModalService } from "../../projects/core/src/lib/services/info-moda
 })
 export class AppComponent implements OnInit {
 	public dialogType!: DialogType;
-	public $isOpen!: BehaviorSubject<boolean>;
-	public $dialogType!: BehaviorSubject<DialogType>;
+	public isOpen$!: BehaviorSubject<boolean>;
+	public dialogType$!: BehaviorSubject<DialogType>;
 	public isModalOpen$!: Subject<boolean>;
 
 	constructor(private dialogService: DialogService, private infoModalService: InfoModalService) {}
 	ngOnInit(): void {
-		this.$dialogType = this.dialogService.$dialogType;
-		this.$isOpen = this.dialogService.$isOpen;
+		this.dialogType$ = this.dialogService.$dialogType;
+		this.isOpen$ = this.dialogService.$isOpen;
 		this.isModalOpen$ = this.infoModalService.serviceSubjectProperty$;
 	}
 }
