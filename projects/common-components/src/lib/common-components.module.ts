@@ -8,9 +8,8 @@ import { NavigationItemComponent } from "./navigation/navigation-item/navigation
 import { AvatarComponent } from "./avatar/avatar.component";
 import { RouterModule } from "@angular/router";
 import { DialogComponent } from "./dialog/dialog.component";
-import { ClickOutsideDirective } from "../../../shared/src/lib/directives/clickOutside.directive";
-import { ExpertPageComponent } from "projects/core/src/lib/components/expert-page/expert-page.component";
 import { CommonModule } from "@angular/common";
+import { ClickOutsideDirective } from "../../../shared/src/lib/directives/clickOutside.directive";
 
 @NgModule({
 	declarations: [
@@ -20,9 +19,8 @@ import { CommonModule } from "@angular/common";
 		NavigationItemListComponent,
 		NavigationItemComponent,
 		AvatarComponent,
-		DialogComponent,
 		ClickOutsideDirective,
-		ExpertPageComponent
+		DialogComponent,
 	],
 	imports: [CommonModule, RouterModule, SharedModule],
 	exports: [

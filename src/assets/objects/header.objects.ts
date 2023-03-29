@@ -14,10 +14,6 @@ export const menuItems: NavigationItem[] = [
 		routerLink: "/ "
 	},
 	{
-		itemName: "Info",
-		routerLink: "/ "
-	},
-	{
 		itemName: "Talks list",
 		routerLink: "/talks"
 	},
