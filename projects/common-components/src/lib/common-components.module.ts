@@ -23,9 +23,6 @@ import { ExpertPageComponent } from "projects/core/src/lib/components/expert-pag
 		ClickOutsideDirective,
 		DialogComponent,
 		ExpertPageComponent
-=======
-		DialogComponent
->>>>>>> feat/show info about project (#46)
 	],
 	imports: [CommonModule, RouterModule, SharedModule],
 	exports: [
