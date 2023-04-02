@@ -21,7 +21,6 @@ import { TalksListComponent } from "./talks/talks-list/talks-list.component";
 		NavigationItemListComponent,
 		NavigationItemComponent,
 		AvatarComponent,
-		ClickOutsideDirective,
 		DialogComponent,
 		TalkItemComponent,
 		TalkItemsLineComponent,
@@ -36,7 +35,10 @@ import { TalksListComponent } from "./talks/talks-list/talks-list.component";
 		NavigationItemListComponent,
 		NavigationComponent,
 		AvatarComponent,
-		DialogComponent
+		DialogComponent,
+		TalkItemComponent,
+		TalkItemsLineComponent,
+		TalksListComponent
 	]
 })
 export class CommonComponentsModule {}
