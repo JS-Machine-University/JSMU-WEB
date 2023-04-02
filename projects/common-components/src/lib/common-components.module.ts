@@ -10,6 +10,7 @@ import { RouterModule } from "@angular/router";
 import { DialogComponent } from "./dialog/dialog.component";
 import { CommonModule } from "@angular/common";
 import { ClickOutsideDirective } from "../../../shared/src/lib/directives/clickOutside.directive";
+import { ExpertPageComponent } from "projects/core/src/lib/components/expert-page/expert-page.component";
 
 @NgModule({
 	declarations: [
@@ -21,6 +22,7 @@ import { ClickOutsideDirective } from "../../../shared/src/lib/directives/clickO
 		AvatarComponent,
 		ClickOutsideDirective,
 		DialogComponent,
+		ExpertPageComponent
 	],
 	imports: [CommonModule, RouterModule, SharedModule],
 	exports: [
