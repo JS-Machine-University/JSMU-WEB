@@ -21,6 +21,7 @@ import { TalksListComponent } from "./talks/talks-list/talks-list.component";
 		NavigationItemListComponent,
 		NavigationItemComponent,
 		AvatarComponent,
+		ClickOutsideDirective,
 		DialogComponent,
 		TalkItemComponent,
 		TalkItemsLineComponent,
