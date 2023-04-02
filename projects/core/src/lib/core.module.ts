@@ -16,7 +16,6 @@ import { RouterModule } from "@angular/router";
 import { FooterComponent } from "./components/footer/footer.component";
 import { HomePageComponent } from "./components/home-page/home-page.component";
 import { DialogService } from "./services/dialog.service";
-import { ExpertPageComponent } from "./components/expert-page/expert-page.component";
 
 @NgModule({
 	imports: [
@@ -25,7 +24,6 @@ import { ExpertPageComponent } from "./components/expert-page/expert-page.compon
 		AuthorizationModule,
 		HttpClientModule,
 		AuthorizationModule,
-		BrowserModule,
 		RouterModule
 		// StoreModule.forFeature()
 	],
@@ -35,8 +33,7 @@ import { ExpertPageComponent } from "./components/expert-page/expert-page.compon
 		LessonComponent,
 		HeaderComponent,
 		FooterComponent,
-		HomePageComponent,
-		ExpertPageComponent
+		HomePageComponent
 	],
 	exports: [CoreComponent, HeaderComponent, FooterComponent],
 	providers: [DataBaseService, UsersDataService, LessonsDataService, DialogService]
