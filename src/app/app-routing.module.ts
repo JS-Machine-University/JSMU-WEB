@@ -18,11 +18,16 @@ const routes: Routes = [
 	{ path: "mentee", component: MenteePageComponent, canActivate: [AuthGuard] },
 	{
 		path: "expert",
-		component: ExpertPageComponent,
-		loadChildren: () =>
-			import("../../projects/common-components/src/lib/talks/talks-list.module").then(
-				(m) => m.TalksListModule
-			)
+		children: [
+			{
+				path: "",
+				component: ExpertPageComponent
+			},
+			{
+				path: "talks",
+				component: TalksListComponent
+			}
+		]
 	}
 ];
 @NgModule({

@@ -19,7 +19,6 @@ import { InfoPanelComponent } from "./components/info-panel/info-panel.component
 import { DialogService } from "./services/dialog.service";
 import { ExpertPageComponent } from "./components/expert-page/expert-page.component";
 import { SharedModule } from "@jsmu/shared";
-import { ExpertPageComponent } from "./components/expert-page/expert-page.component";
 
 @NgModule({
 	imports: [
@@ -39,7 +38,7 @@ import { ExpertPageComponent } from "./components/expert-page/expert-page.compon
 		LessonComponent,
 		HeaderComponent,
 		FooterComponent,
-		InfoPanelComponent
+		InfoPanelComponent,
 		HomePageComponent,
 		ExpertPageComponent
 	],
