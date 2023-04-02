@@ -3,7 +3,7 @@ import { NavigationItem } from "@jsmu/core";
 export const footerItems: NavigationItem[] = [
 	{
 		itemName: "Home",
-		routerLink: "/home-page"
+		routerLink: "/home"
 	},
 	{
 		itemName: "Information",

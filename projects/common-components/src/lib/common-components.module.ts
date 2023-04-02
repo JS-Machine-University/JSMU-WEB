@@ -1,11 +1,7 @@
 import { NgModule } from "@angular/core";
-import { BrowserModule } from "@angular/platform-browser";
 import { CommonComponentsComponent } from "./common-components.component";
 import { ButtonComponent } from "./button/button.component";
-import { TalksListComponent } from "./talks/talks-list/talks-list.component";
-import { TalkItemComponent } from "./talks/talk-item/talk-item.component";
-import { TalkItemsLineComponent } from "./talks/talk-items-line/talk-items-line.component";
-import { SharedModule, SortPipe } from "@jsmu/shared";
+import { SharedModule } from "@jsmu/shared";
 import { NavigationComponent } from "./navigation/navigation/navigation.component";
 import { NavigationItemListComponent } from "./navigation/navigation-item-list/navigation-item-list.component";
 import { NavigationItemComponent } from "./navigation/navigation-item/navigation-item.component";
@@ -17,23 +13,16 @@ import { DialogComponent } from "./dialog/dialog.component";
 	declarations: [
 		CommonComponentsComponent,
 		ButtonComponent,
-		TalksListComponent,
-		TalkItemComponent,
-		TalkItemsLineComponent,
-		SortPipe,
 		NavigationComponent,
 		NavigationItemListComponent,
 		NavigationItemComponent,
 		AvatarComponent,
 		DialogComponent
 	],
-	imports: [BrowserModule, RouterModule, SharedModule],
+	imports: [CommonModule, RouterModule, SharedModule],
 	exports: [
 		CommonComponentsComponent,
 		ButtonComponent,
-		TalksListComponent,
-		TalkItemComponent,
-		TalkItemsLineComponent,
 		NavigationItemComponent,
 		NavigationItemListComponent,
 		NavigationComponent,
