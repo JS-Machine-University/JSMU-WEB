@@ -2,7 +2,6 @@ import { ChangeDetectionStrategy, Component, OnInit } from "@angular/core";
 import { UsersDataService } from "../../services/users.data.service";
 import { menuItems } from "../../../../../../src/assets/objects/header.objects";
 import { Observable } from "rxjs";
-import { User } from "../../authorization/models/user";
 import { InfoModalService } from "../../services/info-modal.service";
 import { AuthService } from "../../authorization/services/auth/auth.service";
 
@@ -19,9 +18,9 @@ export class HeaderComponent implements OnInit {
 	public burgerLines = [1, 2, 3];
 	public avatarPath = "/assets/images/cat.jpg";
 
-	constructor(private usersDataServ: UsersDataService, private userAuth: AuthService) {}
 	constructor(
 		private usersDataServ: UsersDataService,
+		private userAuth: AuthService,
 		private infoModalService: InfoModalService
 	) {}
 	ngOnInit(): void {

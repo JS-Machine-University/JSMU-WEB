@@ -38,7 +38,6 @@ import { UserStoreFacade } from "./Store/users/users.store.facade";
 		StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
 		EffectsModule.forFeature([UserEffects]),
 		StoreRouterConnectingModule.forRoot(),
-		RouterModule
 		RouterModule,
 		SharedModule
 		// StoreModule.forFeature()
@@ -53,9 +52,12 @@ import { UserStoreFacade } from "./Store/users/users.store.facade";
 		InfoPanelComponent
 	],
 	exports: [CoreComponent, HeaderComponent, FooterComponent, InfoPanelComponent],
-	providers: [DataBaseService, UsersDataService, LessonsDataService, DialogService]
-	providers: [DataBaseService, UsersDataService, LessonsDataService, UserStoreFacade],
-	declarations: [CoreComponent, MenteePageComponent, LessonComponent, HomePageComponent],
-	exports: [CoreComponent]
+	providers: [
+		DataBaseService,
+		UsersDataService,
+		LessonsDataService,
+		DialogService,
+		UserStoreFacade
+	]
 })
 export class CoreModule {}
