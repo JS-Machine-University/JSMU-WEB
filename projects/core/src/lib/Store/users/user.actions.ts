@@ -40,7 +40,7 @@ export const authUserSuccess = createAction(
 	props<{ user: User }>()
 );
 
-export const authUserFailure = createAction(userActionsType.authUserFailure);
+export const authUserFailure = createAction(userActionsType.authUserFailure, props<{ error: any }>());
 
 export const setCheckBase = createAction(userActionsType.setCheckBase);
 

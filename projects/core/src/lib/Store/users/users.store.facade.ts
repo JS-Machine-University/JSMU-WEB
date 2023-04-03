@@ -4,12 +4,13 @@ import { User } from "../../authorization/models/user";
 import { selectUserFeature } from "./user.selectors";
 import { Observable } from "rxjs";
 import * as userActions from "./user.actions";
+import { UserState } from "./models/UserState";
 
 @Injectable()
 export class UserStoreFacade {
 	constructor(private store: Store) {}
 
-	public getUser(): Observable<User | null> {
+	public getUser(): Observable<UserState | null> {
 		return this.store.select(selectUserFeature);
 	}
 

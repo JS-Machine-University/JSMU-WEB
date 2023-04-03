@@ -13,6 +13,8 @@ import { UsersDataService } from "../../../services/users.data.service";
 import { DataBaseService } from "../../../services/database.service";
 import { provideMockStore } from "@ngrx/store/testing";
 import { UserStoreFacade } from "../../../Store/users/users.store.facade";
+import { UserState } from "../../../Store/users/models/UserState";
+import { EntityStatus } from "../../../Store/users/models/EntityStatus";
 
 describe("RoleSelectComponent", () => {
 	let component: RoleSelectComponent;
@@ -20,6 +22,7 @@ describe("RoleSelectComponent", () => {
 	let authService: AuthService;
 	let dataService: UsersDataService;
 	let userFacade: UserStoreFacade;
+
 	const testUser: User = {
 		uid: undefined,
 		name: undefined,
@@ -29,6 +32,12 @@ describe("RoleSelectComponent", () => {
 		isUserAuth: true,
 		isUserPresentDB: true,
 		checkBase: true
+	};
+
+	const testUserState: UserState = {
+		status: EntityStatus.INIT,
+		value: testUser,
+		error: null
 	};
 
 	beforeEach(async () => {
@@ -51,14 +60,8 @@ describe("RoleSelectComponent", () => {
 		fixture.detectChanges();
 
 		spyOn(userFacade, "getUser").and.returnValue(
-			new Observable<User>((subscriber) => {
-				subscriber.next(testUser);
-			})
-		);
-
-		spyOn(dataService, "saveUser").and.returnValue(
-			new Observable<User>((subscriber) => {
-				subscriber.next(testUser);
+			new Observable<UserState>((subscriber) => {
+				subscriber.next(testUserState);
 			})
 		);
 

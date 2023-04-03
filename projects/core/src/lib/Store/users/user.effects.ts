@@ -52,7 +52,7 @@ export class UserEffects {
 					map((user) => {
 						return userActions.authUserSuccess({ user: user! });
 					}),
-					catchError(() => of(userActions.authUserFailure))
+					catchError((error) => of(userActions.authUserFailure({ error: error })))
 				)
 			)
 		);

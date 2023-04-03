@@ -1,5 +1,5 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
-import { ComponentFixture, inject, TestBed } from "@angular/core/testing";
+import { ComponentFixture, TestBed } from "@angular/core/testing";
 import { AngularFireModule } from "@angular/fire/compat";
 import { AngularFireDatabaseModule } from "@angular/fire/compat/database";
 import { environment } from "src/environments/environment";
@@ -8,13 +8,14 @@ import { AuthService } from "../../services/auth/auth.service";
 import { HttpClientTestingModule } from "@angular/common/http/testing";
 import { Observable } from "rxjs";
 import { User } from "../../models/user";
-import { Router } from "@angular/router";
 import { UsersDataService } from "../../../services/users.data.service";
 import { DataBaseService } from "../../../services/database.service";
 import { provideMockStore } from "@ngrx/store/testing";
 import { RouterTestingModule } from "@angular/router/testing";
 import { RoleSelectComponent } from "../role-select/role-select.component";
 import { UserStoreFacade } from "../../../Store/users/users.store.facade";
+import { UserState } from "../../../Store/users/models/UserState";
+import { EntityStatus } from "../../../Store/users/models/EntityStatus";
 
 describe("SignInComponent", () => {
 	let component: SignInComponent;
@@ -22,12 +23,19 @@ describe("SignInComponent", () => {
 	let authService: AuthService;
 	let dataService: UsersDataService;
 	let userFacade: UserStoreFacade;
+
 	const testUser: User = {
 		uid: "123",
 		name: undefined,
 		email: undefined,
 		photoURL: undefined,
 		role: undefined
+	};
+
+	const testUserState: UserState = {
+		status: EntityStatus.INIT,
+		value: testUser,
+		error: null
 	};
 
 	beforeEach(async () => {
@@ -70,8 +78,8 @@ describe("SignInComponent", () => {
 		);
 
 		spyOn(userFacade, "getUser").and.returnValue(
-			new Observable<User | null>((subscriber) => {
-				subscriber.next(null);
+			new Observable<UserState | null>((subscriber) => {
+				subscriber.next(testUserState);
 			})
 		);
 	});

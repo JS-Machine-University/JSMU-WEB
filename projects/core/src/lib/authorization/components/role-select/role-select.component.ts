@@ -54,7 +54,7 @@ export class RoleSelectComponent implements OnInit, OnDestroy {
 			.getUser()
 			.pipe(takeUntil(this.destroy$))
 			.subscribe((sUser) => {
-				this.user = sUser!;
+				this.user = sUser?.value!;
 			});
 	}
 
