@@ -1,22 +1,24 @@
 import { userReducer } from "./user.reducer";
 import * as userActions from "./user.actions";
-import { UserState } from "./models/UserState";
 import { EntityStatus } from "./models/EntityStatus";
+import { UserState } from "./models/UserState";
 
 describe("UserReducer", () => {
 	const initialState: UserState = {
-		status: EntityStatus.INIT,
-		value: {
-			uid: null,
-			role: null,
-			name: null,
-			email: null,
-			photoURL: null,
-			isUserAuth: false,
-			isUserPresentDB: false,
-			checkBase: false
-		},
-		error: null
+		user: {
+			status: EntityStatus.INIT,
+			value: {
+				uid: null,
+				role: null,
+				name: null,
+				email: null,
+				photoURL: null,
+				isUserAuth: false,
+				isUserPresentDB: false,
+				checkBase: false
+			},
+			error: null
+		}
 	};
 
 	it("should return the default state", () => {
@@ -32,7 +34,10 @@ describe("UserReducer", () => {
 
 		expect(result).toEqual({
 			...initialState,
-			status: EntityStatus.PENDING
+			user: {
+				...initialState.user,
+				status: EntityStatus.PENDING
+			}
 		});
 	});
 
@@ -52,9 +57,11 @@ describe("UserReducer", () => {
 		const result = userReducer(initialState, action);
 
 		expect(result).toEqual({
-			status: EntityStatus.SUCCESS,
-			value: { ...initialState.value, name: "testName" },
-			error: null
+			user: {
+				status: EntityStatus.SUCCESS,
+				value: { ...initialState.user.value, name: "testName" },
+				error: null
+			}
 		});
 	});
 
@@ -64,7 +71,10 @@ describe("UserReducer", () => {
 
 		expect(result).toEqual({
 			...initialState,
-			status: EntityStatus.PENDING
+			user: {
+				...initialState.user,
+				status: EntityStatus.PENDING
+			}
 		});
 	});
 
@@ -84,9 +94,12 @@ describe("UserReducer", () => {
 		const result = userReducer(initialState, action);
 
 		expect(result).toEqual({
-			status: EntityStatus.SUCCESS,
-			value: { ...initialState.value, name: "testName" },
-			error: null
+			...initialState,
+			user: {
+				status: EntityStatus.SUCCESS,
+				value: { ...initialState.user.value, name: "testName" },
+				error: null
+			}
 		});
 	});
 });

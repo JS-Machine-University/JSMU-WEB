@@ -13,8 +13,8 @@ import { UsersDataService } from "../../../services/users.data.service";
 import { DataBaseService } from "../../../services/database.service";
 import { provideMockStore } from "@ngrx/store/testing";
 import { UserStoreFacade } from "../../../Store/users/users.store.facade";
-import { UserState } from "../../../Store/users/models/UserState";
 import { EntityStatus } from "../../../Store/users/models/EntityStatus";
+import { UserState } from "../../../Store/users/models/UserState";
 
 describe("RoleSelectComponent", () => {
 	let component: RoleSelectComponent;
@@ -35,9 +35,11 @@ describe("RoleSelectComponent", () => {
 	};
 
 	const testUserState: UserState = {
-		status: EntityStatus.INIT,
-		value: testUser,
-		error: null
+		user: {
+			status: EntityStatus.INIT,
+			value: testUser,
+			error: null
+		}
 	};
 
 	beforeEach(async () => {

@@ -14,8 +14,8 @@ import { provideMockStore } from "@ngrx/store/testing";
 import { RouterTestingModule } from "@angular/router/testing";
 import { RoleSelectComponent } from "../role-select/role-select.component";
 import { UserStoreFacade } from "../../../Store/users/users.store.facade";
-import { UserState } from "../../../Store/users/models/UserState";
 import { EntityStatus } from "../../../Store/users/models/EntityStatus";
+import { UserState } from "../../../Store/users/models/UserState";
 
 describe("SignInComponent", () => {
 	let component: SignInComponent;
@@ -33,9 +33,11 @@ describe("SignInComponent", () => {
 	};
 
 	const testUserState: UserState = {
-		status: EntityStatus.INIT,
-		value: testUser,
-		error: null
+		user: {
+			status: EntityStatus.INIT,
+			value: testUser,
+			error: null
+		}
 	};
 
 	beforeEach(async () => {

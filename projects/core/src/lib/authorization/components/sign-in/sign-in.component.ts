@@ -26,13 +26,16 @@ export class SignInComponent implements OnDestroy {
 	public login(): void {
 		this.authService.gitHubAuth();
 		this.userFacade.getUser().subscribe((userState) => {
-			if (!userState?.value.checkBase && userState?.status == EntityStatus.SUCCESS) {
-				this.userFacade.loadUser(userState?.value.uid!);
+			if (
+				!userState?.user.value.checkBase &&
+				userState?.user.status == EntityStatus.SUCCESS
+			) {
+				this.userFacade.loadUser(userState?.user.value.uid!);
 			}
 			if (
-				userState?.value.checkBase &&
-				!userState.value.isUserPresentDB &&
-				userState?.status == EntityStatus.SUCCESS
+				userState?.user.value.checkBase &&
+				!userState.user.value.isUserPresentDB &&
+				userState?.user.status == EntityStatus.SUCCESS
 			) {
 				this.router.navigate(["role-select"]);
 			}
