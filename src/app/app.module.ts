@@ -12,6 +12,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { EffectsModule } from "@ngrx/effects";
 import { StoreModule } from "@ngrx/store";
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
+import { StoreRouterConnectingModule } from "@ngrx/router-store";
 
 @NgModule({
 	declarations: [AppComponent],
@@ -24,9 +25,10 @@ import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 		CoreModule,
 		CommonComponentsModule,
 		HttpClientModule,
+		StoreModule.forRoot({}, {}),
 		StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
 		EffectsModule.forRoot([]),
-		StoreModule.forRoot({}, {})
+		StoreRouterConnectingModule.forRoot()
 	],
 	providers: [],
 	bootstrap: [AppComponent]

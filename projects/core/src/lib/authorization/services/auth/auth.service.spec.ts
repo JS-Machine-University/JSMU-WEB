@@ -4,6 +4,8 @@ import { AngularFireDatabaseModule } from "@angular/fire/compat/database";
 import { environment } from "src/environments/environment";
 
 import { AuthService } from "./auth.service";
+import { UserStoreFacade } from "../../../Store/users/users.store.facade";
+import { provideMockStore } from "@ngrx/store/testing";
 
 describe("AuthService", () => {
 	let service: AuthService;
@@ -13,7 +15,8 @@ describe("AuthService", () => {
 			imports: [
 				AngularFireModule.initializeApp(environment.firebaseConfig),
 				AngularFireDatabaseModule
-			]
+			],
+			providers: [UserStoreFacade, provideMockStore({})]
 		});
 		service = TestBed.inject(AuthService);
 	});
