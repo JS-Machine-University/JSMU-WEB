@@ -1,7 +1,7 @@
 import { userReducer } from "./user.reducer";
 import * as userActions from "./user.actions";
-import { EntityStatus } from "./models/EntityStatus";
-import { UserState } from "./models/UserState";
+import { EntityStatus } from "./models/entityStatus";
+import { UserState } from "./models/userState";
 
 describe("UserReducer", () => {
 	const initialState: UserState = {

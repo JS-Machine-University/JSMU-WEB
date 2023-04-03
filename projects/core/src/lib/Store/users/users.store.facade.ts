@@ -4,7 +4,7 @@ import { User } from "../../authorization/models/user";
 import { selectUserFeature } from "./user.selectors";
 import { Observable } from "rxjs";
 import * as userActions from "./user.actions";
-import { UserState } from "./models/UserState";
+import { UserState } from "./models/userState";
 
 @Injectable()
 export class UserStoreFacade {

@@ -13,8 +13,8 @@ import { UsersDataService } from "../../../services/users.data.service";
 import { DataBaseService } from "../../../services/database.service";
 import { provideMockStore } from "@ngrx/store/testing";
 import { UserStoreFacade } from "../../../Store/users/users.store.facade";
-import { EntityStatus } from "../../../Store/users/models/EntityStatus";
-import { UserState } from "../../../Store/users/models/UserState";
+import { EntityStatus } from "../../../Store/users/models/entityStatus";
+import { UserState } from "../../../Store/users/models/userState";
 
 describe("RoleSelectComponent", () => {
 	let component: RoleSelectComponent;

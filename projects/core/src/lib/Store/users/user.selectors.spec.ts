@@ -1,7 +1,7 @@
 import { Roles } from "../../authorization/models/roles";
 import * as userSelectors from "./user.selectors";
-import { EntityStatus } from "./models/EntityStatus";
-import { UserState } from "./models/UserState";
+import { EntityStatus } from "./models/entityStatus";
+import { UserState } from "./models/userState";
 
 describe("UserSelectors", () => {
 	const initialState: UserState = {

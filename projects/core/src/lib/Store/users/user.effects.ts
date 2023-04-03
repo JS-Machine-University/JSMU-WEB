@@ -36,7 +36,7 @@ export class UserEffects {
 		return this.actions$.pipe(
 			ofType(userActions.saveUser),
 			exhaustMap((action) =>
-				this.userService.saveUserWithCheck(action.user).pipe(
+				this.userService.saveUser(action.user).pipe(
 					map((state) => userActions.saveUserSuccess({ isUserPresentDB: true })),
 					catchError(() => of(userActions.saveUserFailure))
 				)

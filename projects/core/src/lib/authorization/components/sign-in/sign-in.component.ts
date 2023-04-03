@@ -4,7 +4,7 @@ import { Router } from "@angular/router";
 import { Observable, Subject } from "rxjs";
 import { UserStoreFacade } from "../../../Store/users/users.store.facade";
 import { User } from "../../models/user";
-import { EntityStatus } from "../../../Store/users/models/EntityStatus";
+import { EntityStatus } from "../../../Store/users/models/entityStatus";
 
 @Component({
 	selector: "jsmu-sign-in",

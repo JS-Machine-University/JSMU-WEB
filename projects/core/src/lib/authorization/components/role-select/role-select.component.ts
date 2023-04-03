@@ -74,16 +74,19 @@ export class RoleSelectComponent implements OnInit, OnDestroy {
 
 	private roleMentee(): void {
 		this.userFacade.saveUser(this.getUser(Roles.MENTEE));
+		this.router.navigate(["home-page"]);
 		//toDo redirect to Mentee page.
 	}
 
 	private roleExpert(): void {
 		this.userFacade.saveUser(this.getUser(Roles.EXPERT));
+		this.router.navigate(["home-page"]);
 		//toDO redirect to Expert page
 	}
 
 	private roleRM(): void {
 		this.userFacade.saveUser(this.getUser(Roles.RM));
+		this.router.navigate(["home-page"]);
 		//toDo redirect to RM page
 	}
 

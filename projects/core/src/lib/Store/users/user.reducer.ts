@@ -1,7 +1,7 @@
 import { createReducer, on } from "@ngrx/store";
 import * as userActions from "./user.actions";
-import { EntityStatus } from "./models/EntityStatus";
-import { UserState } from "./models/UserState";
+import { EntityStatus } from "./models/entityStatus";
+import { UserState } from "./models/userState";
 
 export const users = "users";
 
