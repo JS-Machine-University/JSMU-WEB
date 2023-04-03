@@ -1,11 +1,10 @@
 import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from "@angular/core";
-import { AuthService } from "../../services/auth/auth.service";
 import { Roles } from "../../models/roles";
 import { User } from "../../models/user";
 import { RoleInfo } from "../../models/role-info";
 import { Router } from "@angular/router";
-import { Observable, Subject, takeUntil } from "rxjs";
-import { UsersDataService } from "../../../services/users.data.service";
+import { Subject, takeUntil } from "rxjs";
+import { UserStoreFacade } from "../../../Store/users/users.store.facade";
 
 @Component({
 	selector: "jsmu-role-select",
@@ -48,18 +47,14 @@ export class RoleSelectComponent implements OnInit, OnDestroy {
 		}
 	];
 
-	constructor(
-		private authService: AuthService,
-		private userService: UsersDataService,
-		private router: Router
-	) {}
+	constructor(private router: Router, private userFacade: UserStoreFacade) {}
 
 	ngOnInit() {
-		this.authService
+		this.userFacade
 			.getUser()
 			.pipe(takeUntil(this.destroy$))
 			.subscribe((sUser) => {
-				this.user = sUser;
+				this.user = sUser?.value!;
 			});
 	}
 
@@ -78,26 +73,17 @@ export class RoleSelectComponent implements OnInit, OnDestroy {
 	}
 
 	private roleMentee(): void {
-		this.userService
-			.saveUser(this.getUser(Roles.MENTEE))
-			.pipe(takeUntil(this.destroy$))
-			.subscribe();
+		this.userFacade.saveUser(this.getUser(Roles.MENTEE));
 		//toDo redirect to Mentee page.
 	}
 
 	private roleExpert(): void {
-		this.userService
-			.saveUser(this.getUser(Roles.EXPERT))
-			.pipe(takeUntil(this.destroy$))
-			.subscribe();
+		this.userFacade.saveUser(this.getUser(Roles.EXPERT));
 		//toDO redirect to Expert page
 	}
 
 	private roleRM(): void {
-		this.userService
-			.saveUser(this.getUser(Roles.RM))
-			.pipe(takeUntil(this.destroy$))
-			.subscribe();
+		this.userFacade.saveUser(this.getUser(Roles.RM));
 		//toDo redirect to RM page
 	}
 
@@ -106,9 +92,11 @@ export class RoleSelectComponent implements OnInit, OnDestroy {
 			uid: this.user?.uid,
 			name: this.user?.name,
 			email: this.user?.email,
-			isVerified: this.user?.isVerified,
 			photoURL: this.user?.photoURL,
-			role: userRole
+			role: userRole,
+			isUserAuth: true,
+			isUserPresentDB: true,
+			checkBase: true
 		};
 	}
 

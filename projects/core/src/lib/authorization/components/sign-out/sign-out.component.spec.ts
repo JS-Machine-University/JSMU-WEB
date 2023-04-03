@@ -2,6 +2,8 @@ import { ComponentFixture, TestBed } from "@angular/core/testing";
 import { SignOutComponent } from "./sign-out.component";
 import { AuthService } from "../../services/auth/auth.service";
 import { CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
+import { UserStoreFacade } from "../../../Store/users/users.store.facade";
+import { provideMockStore } from "@ngrx/store/testing";
 
 describe("SignOutComponent", () => {
 	let component: SignOutComponent;
@@ -15,7 +17,9 @@ describe("SignOutComponent", () => {
 				{
 					provide: AuthService,
 					useValue: fakeAuthService
-				}
+				},
+				UserStoreFacade,
+				provideMockStore({})
 			],
 			schemas: [CUSTOM_ELEMENTS_SCHEMA]
 		}).compileComponents();

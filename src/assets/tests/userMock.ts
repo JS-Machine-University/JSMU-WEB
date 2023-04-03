@@ -6,6 +6,5 @@ export const fakeUser: User = {
 	email: "",
 	name: "",
 	photoURL: "",
-	isVerified: false,
 	role: Roles.MENTEE
 };

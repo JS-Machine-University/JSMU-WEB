@@ -2,8 +2,8 @@ import { ChangeDetectionStrategy, Component, OnInit } from "@angular/core";
 import { UsersDataService } from "../../services/users.data.service";
 import { menuItems } from "../../../../../../src/assets/objects/header.objects";
 import { Observable } from "rxjs";
-import { User } from "../../authorization/models/user";
 import { InfoModalService } from "../../services/info-modal.service";
+import { AuthService } from "../../authorization/services/auth/auth.service";
 
 @Component({
 	selector: "jsmu-header",
@@ -12,7 +12,7 @@ import { InfoModalService } from "../../services/info-modal.service";
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HeaderComponent implements OnInit {
-	public isLoggedIn!: Observable<User | null>;
+	public isLoggedIn!: Observable<boolean>;
 	public menuItems = menuItems;
 	public isSideBarOpen = false;
 	public burgerLines = [1, 2, 3];
@@ -20,16 +20,12 @@ export class HeaderComponent implements OnInit {
 
 	constructor(
 		private usersDataServ: UsersDataService,
+		private userAuth: AuthService,
 		private infoModalService: InfoModalService
 	) {}
 	ngOnInit(): void {
-		this.isUserLogin();
+		this.isLoggedIn = this.userAuth.isLoggedIn;
 	}
-
-	public isUserLogin(): void {
-		this.isLoggedIn = this.usersDataServ.isUserLogin();
-	}
-
 	public toggleSideBar(): void {
 		this.isSideBarOpen = !this.isSideBarOpen;
 	}
