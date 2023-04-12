@@ -13,9 +13,10 @@ import { EffectsModule } from "@ngrx/effects";
 import { StoreModule } from "@ngrx/store";
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 import { StoreRouterConnectingModule } from "@ngrx/router-store";
+import { MenteeComponent } from './projects/core/src/lib/components/mentee/mentee.component';
 
 @NgModule({
-	declarations: [AppComponent],
+	declarations: [AppComponent, MenteeComponent],
 	imports: [
 		BrowserModule,
 		AngularFireModule.initializeApp(environment.firebaseConfig),

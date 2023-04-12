@@ -44,6 +44,7 @@
     "@commitlint/cli": "^17.4.2",
     "@commitlint/config-angular": "^17.4.2",
     "@ngrx/eslint-plugin": "^14.0.2",
+    "@schematics/angular": "^15.2.6",
     "@types/jasmine": "~4.0.0",
     "@typescript-eslint/eslint-plugin": "5.43.0",
     "@typescript-eslint/parser": "5.43.0",
