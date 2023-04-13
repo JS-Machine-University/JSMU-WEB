@@ -16,15 +16,25 @@
 				<div class="jsmu-talk-item__date">
 					{{talk.resultDate | date: 'MM/dd/yy, h:mm a'}}
 				</div>
+				<div *ngIf="talk.status !== 'None'" class="jsmu-talk-item__status">
+					<p>Status:</p>
+					&nbsp;
+					<p>{{talk.status}}</p>
+				</div>
 			</div>
 			<div class="jsmu-talk-item__body">
 				<p>Dear Middle Developer Growth Expert</p>
-				<div class="jsmu-talk-item__experts">Experts names...</div>
+				<div class="jsmu-talk-item__experts">
+					Experts names:
+					<ng-container *ngFor="let expert of talk.experts">
+						{{expert}}&nbsp;
+					</ng-container>
+				</div>
 				<div class="jsmu-talk-item__mentee">
 					Please handle new talk request for
 					<a class="jsmu-talk-item__mentee-link" href="#">{{talk.menteeId}}</a>
 				</div>
-				<div>Selected topic is: ...</div>
+				<div>Selected topic is: {{talk.lessonId}}</div>
 			</div>
 		</div>
 	</div>

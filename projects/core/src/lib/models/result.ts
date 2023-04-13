@@ -1,6 +1,5 @@
 export const enum Result {
-	Success,
-	Gaps,
-	Failed,
-	Comment
+	None = "None",
+	Taken = "Taken",
+	Complete = "Complete"
 }

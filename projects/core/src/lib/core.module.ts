@@ -1,6 +1,6 @@
 import { StoreModule } from "@ngrx/store";
 import { CommonModule } from "@angular/common";
-import { CommonComponentsModule } from "@jsmu/common-components";
+import { ButtonComponent, CommonComponentsModule } from "@jsmu/common-components";
 import { NgModule } from "@angular/core";
 import { CoreComponent } from "./core.component";
 import { HttpClientModule } from "@angular/common/http";
@@ -40,7 +40,6 @@ import { UserStoreFacade } from "./Store/users/users.store.facade";
 		StoreRouterConnectingModule.forRoot(),
 		RouterModule,
 		SharedModule
-		// StoreModule.forFeature()
 	],
 	declarations: [
 		CoreComponent,
@@ -51,7 +50,7 @@ import { UserStoreFacade } from "./Store/users/users.store.facade";
 		HomePageComponent,
 		InfoPanelComponent
 	],
-	exports: [CoreComponent, HeaderComponent, FooterComponent, InfoPanelComponent],
+	exports: [CoreComponent, HeaderComponent, FooterComponent, InfoPanelComponent, ButtonComponent],
 	providers: [
 		DataBaseService,
 		UsersDataService,

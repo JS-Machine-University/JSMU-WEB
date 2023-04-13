@@ -13,7 +13,13 @@ const routes: Routes = [
 	{ path: "home-page", component: HomePageComponent },
 	{ path: "sign-in", component: SignInComponent },
 	{ path: "role-select", component: RoleSelectComponent, canActivate: [AuthGuard] },
-	{ path: "talks", component: TalksListComponent },
+	{
+		path: "talks",
+		loadChildren: () =>
+			import("../../projects/common-components/src/lib/talks/talks.module").then(
+				(m) => m.TalksModule
+			)
+	},
 	{ path: "mentee-page", component: MenteePageComponent, canActivate: [AuthGuard] }
 ];
 @NgModule({
