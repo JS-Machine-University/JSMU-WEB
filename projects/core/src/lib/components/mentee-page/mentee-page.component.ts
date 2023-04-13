@@ -28,6 +28,7 @@ export class MenteePageComponent implements OnInit, OnDestroy {
 
 	ngOnInit(): void {
 		this.getLessons();
+		
 	}
 
 	ngOnDestroy(): void {
