@@ -9,7 +9,30 @@ export class MenteeComponent implements OnInit {
 
   constructor() { }
 
+ 
+
   ngOnInit(): void {
+    this.getTalks();
+    this.takeTalk();
+   
+
   }
 
+  public getTalks(): void {
+    this.getTalks
+		
+		
+  };
+
+  public takeTalk(): void {
+    this.takeTalk()
+		
+		
+  };
 }
+
+
+
+
+
+
