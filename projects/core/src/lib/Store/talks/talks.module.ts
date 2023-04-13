@@ -2,14 +2,8 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { StoreModule } from "@ngrx/store";
 import { talks, TalksEffects, talksReducer } from "@jsmu/core";
-import {
-	CommonComponentsModule,
-	TalkItemComponent,
-	TalkItemsLineComponent,
-	TalksListComponent
-} from "@jsmu/common-components";
+import { CommonComponentsModule, TalksListComponent } from "@jsmu/common-components";
 import { RouterModule, Routes } from "@angular/router";
-import { SortPipe } from "@jsmu/shared";
 import { EffectsModule } from "@ngrx/effects";
 
 export const routes: Routes = [
@@ -20,7 +14,7 @@ export const routes: Routes = [
 ];
 
 @NgModule({
-	declarations: [TalksListComponent, TalkItemComponent, TalkItemsLineComponent, SortPipe],
+	declarations: [],
 	imports: [
 		CommonModule,
 		CommonComponentsModule,
@@ -28,6 +22,6 @@ export const routes: Routes = [
 		StoreModule.forFeature(talks, talksReducer),
 		EffectsModule.forFeature([TalksEffects])
 	],
-	exports: [TalksListComponent, TalkItemComponent, TalkItemsLineComponent]
+	exports: []
 })
 export class TalksModule {}
