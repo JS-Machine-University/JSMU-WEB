@@ -1,4 +1,5 @@
 import { Result } from "./result";
+import { Status } from "./status";
 
 export interface Talk {
 	lessonId: string;
@@ -8,4 +9,6 @@ export interface Talk {
 	menteeId: string;
 	submitDate: Date;
 	resultDate: Date;
+	status: Status;
+	name: string;
 }

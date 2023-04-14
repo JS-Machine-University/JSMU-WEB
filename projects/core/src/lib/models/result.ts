@@ -2,5 +2,8 @@ export const enum Result {
 	Success,
 	Gaps,
 	Failed,
-	Comment
+	Comment,
+	NeedRmAttention,
+	minorGaps,
+	wellDone
 }
