@@ -14,9 +14,18 @@ import { RoleComponent } from "./components/role/role.component";
 import { RouterModule } from "@angular/router";
 import { UsersDataService } from "../services/users.data.service";
 import { SignOutComponent } from "./components/sign-out/sign-out.component";
+import { AuthComponent } from "./components/auth/auth.component";
+import { RegisterComponent } from "./components/register/register.component";
 
 @NgModule({
-	declarations: [SignInComponent, RoleSelectComponent, RoleComponent, SignOutComponent],
+	declarations: [
+		SignInComponent,
+		RoleSelectComponent,
+		RoleComponent,
+		SignOutComponent,
+		AuthComponent,
+		RegisterComponent
+	],
 	imports: [
 		CommonModule,
 		CommonComponentsModule,
@@ -27,7 +36,14 @@ import { SignOutComponent } from "./components/sign-out/sign-out.component";
 		AngularFireDatabaseModule,
 		RouterModule
 	],
-	exports: [SignInComponent, RoleSelectComponent, RoleComponent, SignOutComponent],
+	exports: [
+		SignInComponent,
+		RoleSelectComponent,
+		RoleComponent,
+		SignOutComponent,
+		AuthComponent,
+		RegisterComponent
+	],
 	providers: [AuthService, UsersDataService]
 })
 export class AuthorizationModule {}

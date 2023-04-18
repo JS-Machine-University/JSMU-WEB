@@ -25,6 +25,8 @@ import { StoreRouterConnectingModule } from "@ngrx/router-store";
 import { userReducer } from "./Store/users/user.reducer";
 import { UserEffects } from "./Store/users/user.effects";
 import { UserStoreFacade } from "./Store/users/users.store.facade";
+import { AuthComponent } from "./authorization/components/auth/auth.component";
+import { RegisterComponent } from "./authorization/components/register/register.component";
 
 @NgModule({
 	imports: [
@@ -50,7 +52,14 @@ import { UserStoreFacade } from "./Store/users/users.store.facade";
 		HomePageComponent,
 		InfoPanelComponent
 	],
-	exports: [CoreComponent, HeaderComponent, FooterComponent, InfoPanelComponent],
+	exports: [
+		CoreComponent,
+		HeaderComponent,
+		FooterComponent,
+		InfoPanelComponent,
+		AuthComponent,
+		RegisterComponent
+	],
 	providers: [
 		DataBaseService,
 		UsersDataService,
