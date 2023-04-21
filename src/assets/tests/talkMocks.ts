@@ -28,8 +28,8 @@ export const talksMock: Talk[] = [
 		comment: "Some comment"
 	},
 	{
-		lessonId: 2,
-		menteeId: 2,
+		lessonId: 1,
+		menteeId: 1,
 		experts: [1, 2, 3],
 		status: Status.Taken,
 		result: Result.WellDone,
@@ -55,8 +55,8 @@ export const expectedTalksMock: Talk[] = [
 		comment: "Some comment"
 	},
 	{
-		lessonId: 2,
-		menteeId: 2,
+		lessonId: 1,
+		menteeId: 1,
 		experts: [1, 2, 3],
 		status: Status.Taken,
 		result: Result.WellDone,

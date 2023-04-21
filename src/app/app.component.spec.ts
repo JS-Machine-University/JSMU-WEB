@@ -7,6 +7,7 @@ import { DialogService } from "projects/core/src/lib/services/dialog.service";
 import { environment } from "src/environments/environment";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
+import { CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 
 describe("AppComponent", () => {
 	beforeEach(async () => {
@@ -19,7 +20,8 @@ describe("AppComponent", () => {
 				HttpClientModule
 			],
 			declarations: [AppComponent],
-			providers: [AngularFireDatabase, DialogService]
+			providers: [AngularFireDatabase, DialogService],
+			schemas: [CUSTOM_ELEMENTS_SCHEMA]
 		}).compileComponents();
 	});
 
