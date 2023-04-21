@@ -13,10 +13,10 @@ const routes: Routes = [
 	{ path: "sign-in", component: SignInComponent },
 	{ path: "role-select", component: RoleSelectComponent, canActivate: [AuthGuard] },
 	{
-		path: "talks",
+		path: "talks-page",
 		loadChildren: () =>
-			import("../../projects/core/src/lib/Store/talks/talks.module").then(
-				(m) => m.TalksModule
+			import("../../projects/core/src/lib/components/talks-page/talks-page.module").then(
+				(m) => m.TalksPageModule
 			)
 	},
 	{ path: "mentee-page", component: MenteePageComponent, canActivate: [AuthGuard] }

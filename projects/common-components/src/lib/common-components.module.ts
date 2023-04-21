@@ -36,7 +36,8 @@ import { TalkItemsLineComponent } from "./talks/talk-items-line/talk-items-line.
 		NavigationComponent,
 		AvatarComponent,
 		DialogComponent,
-		ButtonComponent
+		ButtonComponent,
+		TalksListComponent
 	]
 })
 export class CommonComponentsModule {}
