@@ -29,12 +29,13 @@ export class RegisterGuard implements CanActivate {
 				})
 			)
 			.subscribe((user) => {
-				console.log(user);
-				if (!user) {
+				if (user === null) {
 					this.router.navigate([Routes.ROLE_SELECT]);
+				} else if (user === undefined) {
 				} else {
 					this.userFacade.loadUser(user.uid!);
-					//toDo redirect to MenteePage
+					//toDo redirect to MenteeDashBoard
+					this.router.navigate(["mentee-page"]);
 				}
 			});
 		return true;

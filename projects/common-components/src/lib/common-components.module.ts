@@ -12,6 +12,8 @@ import { CommonModule } from "@angular/common";
 import { TalksListComponent } from "./talks/talks-list/talks-list.component";
 import { TalkItemComponent } from "./talks/talk-item/talk-item.component";
 import { TalkItemsLineComponent } from "./talks/talk-items-line/talk-items-line.component";
+import { MenteeFormComponent } from "./mentee-form/mentee-form.component";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
 	declarations: [
@@ -21,7 +23,14 @@ import { TalkItemsLineComponent } from "./talks/talk-items-line/talk-items-line.
 		NavigationItemComponent,
 		AvatarComponent,
 		DialogComponent,
+		DialogComponent,
+		MenteeFormComponent
+	],
+	imports: [BrowserModule, RouterModule, SharedModule, FormsModule, ReactiveFormsModule],
+	exports: [
+		CommonComponentsComponent,
 		ButtonComponent,
+		MenteeFormComponent,
 		TalksListComponent,
 		TalkItemComponent,
 		TalkItemsLineComponent,

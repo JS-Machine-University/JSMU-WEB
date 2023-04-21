@@ -5,6 +5,8 @@ import { RoleInfo } from "../../models/role-info";
 import { Router } from "@angular/router";
 import { Subject, takeUntil } from "rxjs";
 import { UserStoreFacade } from "../../../Store/users/users.store.facade";
+import { Lesson } from "@jsmu/core";
+import { LessonsDataService } from "../../../services/lessons.data.service";
 
 @Component({
 	selector: "jsmu-role-select",
@@ -14,6 +16,8 @@ import { UserStoreFacade } from "../../../Store/users/users.store.facade";
 })
 export class RoleSelectComponent implements OnInit, OnDestroy {
 	private user!: User;
+	public lessonList!: Lesson[];
+	public isMenteeFormVisible = false;
 	private destroy$: Subject<void> = new Subject<void>();
 
 	public rolesInfo: RoleInfo[] = [
@@ -47,7 +51,11 @@ export class RoleSelectComponent implements OnInit, OnDestroy {
 		}
 	];
 
-	constructor(private router: Router, private userFacade: UserStoreFacade) {}
+	constructor(
+		private router: Router,
+		private userFacade: UserStoreFacade,
+		private lessonService: LessonsDataService
+	) {}
 
 	ngOnInit() {
 		this.userFacade
@@ -55,6 +63,12 @@ export class RoleSelectComponent implements OnInit, OnDestroy {
 			.pipe(takeUntil(this.destroy$))
 			.subscribe((sUser) => {
 				this.user = sUser?.user.value!;
+			});
+		this.lessonService
+			.getLesson()
+			.pipe(takeUntil(this.destroy$))
+			.subscribe((lessons) => {
+				this.lessonList = lessons as Lesson[];
 			});
 	}
 
@@ -73,8 +87,9 @@ export class RoleSelectComponent implements OnInit, OnDestroy {
 	}
 
 	private roleMentee(): void {
-		this.userFacade.saveUser(this.getUser(Roles.MENTEE));
-		this.router.navigate(["home-page"]);
+		this.isMenteeFormVisible = true;
+		//this.userFacade.saveUser(this.getUser(Roles.MENTEE));
+		//this.router.navigate(["home-page"]);
 		//toDo redirect to Mentee page.
 	}
 
@@ -101,6 +116,10 @@ export class RoleSelectComponent implements OnInit, OnDestroy {
 			isUserPresentDB: true,
 			checkBase: true
 		};
+	}
+
+	public cancelMenteeForm(): void {
+		this.isMenteeFormVisible = false;
 	}
 
 	ngOnDestroy(): void {
