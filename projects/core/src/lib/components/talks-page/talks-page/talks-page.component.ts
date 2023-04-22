@@ -9,7 +9,7 @@ import { Observable } from "rxjs";
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TalksPageComponent implements OnInit {
-	public talks!: Observable<Talk[]>;
+	public talks$!: Observable<Talk[]>;
 
 	constructor(private talksFacade: TalksFacadeService) {}
 
@@ -19,6 +19,6 @@ export class TalksPageComponent implements OnInit {
 	}
 
 	public getTalks(): void {
-		this.talks = this.talksFacade.getTalks();
+		this.talks$ = this.talksFacade.getTalks();
 	}
 }

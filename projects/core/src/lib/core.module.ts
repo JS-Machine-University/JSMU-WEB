@@ -1,6 +1,6 @@
 import { StoreModule } from "@ngrx/store";
 import { CommonModule } from "@angular/common";
-import { ButtonComponent, CommonComponentsModule } from "@jsmu/common-components";
+import { CommonComponentsModule } from "@jsmu/common-components";
 import { NgModule } from "@angular/core";
 import { CoreComponent } from "./core.component";
 import { HttpClientModule } from "@angular/common/http";
@@ -50,7 +50,7 @@ import { UserStoreFacade } from "./Store/users/users.store.facade";
 		HomePageComponent,
 		InfoPanelComponent
 	],
-	exports: [CoreComponent, HeaderComponent, FooterComponent, InfoPanelComponent, ButtonComponent],
+	exports: [CoreComponent, HeaderComponent, FooterComponent, InfoPanelComponent],
 	providers: [
 		DataBaseService,
 		UsersDataService,

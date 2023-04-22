@@ -1,7 +1,7 @@
 <div class="jsmu-talks-page">
 	<jsmu-talk-item
-		*ngFor="let talk of talks | sort; let i = index"
-		[isShowLine]="isShowLine(talks | sort, i)"
+		*ngFor="let talk of talks; let i = index"
+		[isShowLine]="isShowLine(talks, i)"
 		[talk]="talk"
 	></jsmu-talk-item>
 </div>
