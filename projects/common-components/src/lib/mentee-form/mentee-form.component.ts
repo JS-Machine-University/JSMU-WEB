@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from "@angular/core";
 import { Lesson } from "@jsmu/core";
-import { AbstractControl, FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
 @Component({
 	selector: "jsmu-mentee-form",
@@ -9,6 +9,7 @@ import { AbstractControl, FormBuilder, FormGroup, Validators } from "@angular/fo
 })
 export class MenteeFormComponent {
 	@Output() cancelEvent: EventEmitter<void> = new EventEmitter<void>();
+	@Output() submitEvent: EventEmitter<void> = new EventEmitter<void>();
 	@Input() lessonsList!: Lesson[];
 	public menteeRegistrationForm: FormGroup = this.formBuilder.group({
 		name: [null, Validators.required],
@@ -39,6 +40,7 @@ export class MenteeFormComponent {
 		if (this.menteeRegistrationForm.valid && this.checkBoxValidator()) {
 			//toDo Save Data to DataBase
 		}
+		this.submitEvent.emit();
 	}
 
 	private checkBoxValidator(): boolean {
