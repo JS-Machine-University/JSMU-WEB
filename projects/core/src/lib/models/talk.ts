@@ -1,11 +1,15 @@
 import { Result } from "./result";
+import { Status } from "./status";
 
 export interface Talk {
-	lessonId: string;
+	lessonId: number;
+	status: Status;
 	result: Result;
-	inProgress: boolean;
-	expertId: string;
-	menteeId: string;
-	submitDate: Date;
-	resultDate: Date;
+	comment?: string;
+	experts: number[];
+	menteeId: number;
+	conductedExpert: number;
+	resultDate: number;
+	requestDate: number;
+	takeDate: number;
 }

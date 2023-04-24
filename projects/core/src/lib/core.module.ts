@@ -40,7 +40,6 @@ import { UserStoreFacade } from "./Store/users/users.store.facade";
 		StoreRouterConnectingModule.forRoot(),
 		RouterModule,
 		SharedModule
-		// StoreModule.forFeature()
 	],
 	declarations: [
 		CoreComponent,

@@ -1,4 +1,5 @@
 export enum ListType {
 	USERS = "users",
-	LESSONS = "lessons"
+	LESSONS = "lessons",
+	TALKS = "talks"
 }

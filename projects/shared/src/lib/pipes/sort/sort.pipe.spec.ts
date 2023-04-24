@@ -23,8 +23,8 @@ describe("SortPipe", () => {
 
 	it("should sort array if resultDates are different", () => {
 		let res = spyOn(pipe, "transform").and.callThrough();
-		pipe.transform(talks);
+		let sortedTalk = pipe.transform(talks);
 		expect(res).toHaveBeenCalledWith(talks);
-		expect(talks[0]).toEqual(expectedTalks[0]);
+		expect(sortedTalk[0].resultDate).toEqual(expectedTalks[0].resultDate);
 	});
 });

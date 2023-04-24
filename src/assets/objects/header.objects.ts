@@ -15,7 +15,7 @@ export const menuItems: NavigationItem[] = [
 	},
 	{
 		itemName: "Talks list",
-		routerLink: "/talks"
+		routerLink: "/talks-page"
 	},
 	{
 		itemName: "Mentee page",

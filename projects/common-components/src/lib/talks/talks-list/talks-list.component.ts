@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component } from "@angular/core";
-import { Result, Talk } from "@jsmu/core";
+import { ChangeDetectionStrategy, Component, Input, OnChanges } from "@angular/core";
+import { Talk } from "@jsmu/core";
+import { SortPipe } from "@jsmu/shared";
 
 @Component({
 	selector: "jsmu-talks-list",
@@ -7,104 +8,18 @@ import { Result, Talk } from "@jsmu/core";
 	styleUrls: ["./talks-list.component.scss"],
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class TalksListComponent {
-	public talks: Talk[] = [
-		{
-			lessonId: "2332",
-			result: Result.Success,
-			inProgress: true,
-			expertId: "Maksim",
-			menteeId: "Irada",
-			resultDate: new Date(new Date().getTime()),
-			submitDate: new Date()
-		},
-		{
-			lessonId: "3443",
-			result: Result.Comment,
-			inProgress: true,
-			expertId: "Maksim",
-			menteeId: "Anar",
-			resultDate: new Date(new Date().getTime()),
-			submitDate: new Date()
-		},
-		{
-			lessonId: "3443",
-			result: Result.Comment,
-			inProgress: true,
-			expertId: "Maksim",
-			menteeId: "Kanan",
-			resultDate: new Date(new Date().getTime() - 186800000),
-			submitDate: new Date()
-		},
-		{
-			lessonId: "3443",
-			result: Result.Comment,
-			inProgress: true,
-			expertId: "Maksim",
-			menteeId: "Najaf",
-			resultDate: new Date(new Date().getTime() - 186400000),
-			submitDate: new Date()
-		},
-		{
-			lessonId: "3443",
-			result: Result.Comment,
-			inProgress: true,
-			expertId: "Maksim",
-			menteeId: "Yelizaveta",
-			resultDate: new Date(new Date().getTime() - 186400000),
-			submitDate: new Date()
-		},
-		{
-			lessonId: "3443",
-			result: Result.Comment,
-			inProgress: true,
-			expertId: "Maksim",
-			menteeId: "Leyla",
-			resultDate: new Date(new Date().getTime() - 286400000),
-			submitDate: new Date()
-		},
-		{
-			lessonId: "3443",
-			result: Result.Comment,
-			inProgress: true,
-			expertId: "Maksim",
-			menteeId: "Vaxtanq",
-			resultDate: new Date(new Date().getTime() - 3212121212),
-			submitDate: new Date()
-		},
-		{
-			lessonId: "3443",
-			result: Result.Success,
-			inProgress: true,
-			expertId: "Maksim",
-			menteeId: "anybody",
-			resultDate: new Date(new Date().getTime()),
-			submitDate: new Date()
-		},
-		{
-			lessonId: "3443",
-			result: Result.Comment,
-			inProgress: true,
-			expertId: "Maksim",
-			menteeId: "somebody",
-			resultDate: new Date(new Date().getTime() - 123453434334321),
-			submitDate: new Date()
-		},
-		{
-			lessonId: "3443",
-			result: Result.Comment,
-			inProgress: true,
-			expertId: "Maksim",
-			menteeId: "those guy",
-			resultDate: new Date(new Date().getTime() - 23332233232),
-			submitDate: new Date()
-		}
-	];
+export class TalksListComponent implements OnChanges {
+	@Input() talks: Talk[] = [];
+	public sortPipe = new SortPipe();
 
-	public isShowLine(index: number): boolean {
+	ngOnChanges(): void {
+		this.talks = this.sortPipe.transform(this.talks);
+	}
+
+	public isShowLine(talks: Talk[], index: number): boolean {
 		return (
-			this.talks[index]?.resultDate.toLocaleDateString() !==
-			this.talks[index - 1]?.resultDate.toLocaleDateString()
+			new Date(talks[index]?.resultDate).toLocaleDateString() !==
+			new Date(talks[index - 1]?.resultDate).toLocaleDateString()
 		);
 	}
 }
