@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { subscribeOn } from 'rxjs';
+import { MenteeService } from '../../services/mentee.service';
 
 @Component({
   selector: 'jsmu-mentee',
@@ -7,29 +9,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenteeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private menteeService: MenteeService) {
+    
+
+   }
 
  
 
   ngOnInit(): void {
-    this.getTalks();
-    this.takeTalk();
-   
-
+ 
   }
 
-  public getTalks(): void {
-    this.getTalks
-		
+ 
+    
+   
 		
   };
 
-  public takeTalk(): void {
-    this.takeTalk()
-		
-		
-  };
-}
+ 
+
 
 
 

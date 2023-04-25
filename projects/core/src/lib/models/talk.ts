@@ -9,6 +9,4 @@ export interface Talk {
 	menteeId: string;
 	submitDate: Date;
 	resultDate: Date;
-	status: Status;
-	name: string;
 }

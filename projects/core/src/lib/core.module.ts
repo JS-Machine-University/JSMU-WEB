@@ -25,6 +25,10 @@ import { StoreRouterConnectingModule } from "@ngrx/router-store";
 import { userReducer } from "./Store/users/user.reducer";
 import { UserEffects } from "./Store/users/user.effects";
 import { UserStoreFacade } from "./Store/users/users.store.facade";
+import { MenteeComponent } from "./components/mentee/mentee.component";
+import { ExpertComponent } from './components/expert/expert.component';
+import { TalksComponent } from './components/expert/talks/talks.component';
+import { TalkslistComponent } from './components/expert/talks/talkslist/talkslist.component';
 
 @NgModule({
 	imports: [
@@ -49,7 +53,11 @@ import { UserStoreFacade } from "./Store/users/users.store.facade";
 		HeaderComponent,
 		FooterComponent,
 		HomePageComponent,
-		InfoPanelComponent
+		InfoPanelComponent,
+		MenteeComponent,
+  ExpertComponent,
+  TalksComponent,
+  TalkslistComponent
 	],
 	exports: [CoreComponent, HeaderComponent, FooterComponent, InfoPanelComponent],
 	providers: [
