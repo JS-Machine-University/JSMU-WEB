@@ -39,6 +39,8 @@
 		</div>
 	</div>
 	<div class="jsmu-talk-item__btn">
-		<jsmu-button class="submit">Submit</jsmu-button>
+		<jsmu-button class="submit" *ngIf="talk.status !=='Submitted'" (click)="updateStatus()">
+			Submit
+		</jsmu-button>
 	</div>
 </div>

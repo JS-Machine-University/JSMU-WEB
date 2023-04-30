@@ -1,9 +1,9 @@
 import { HttpClientTestingModule } from "@angular/common/http/testing";
 import { ComponentFixture, TestBed } from "@angular/core/testing";
 import { Observable, of } from "rxjs";
-import { Lesson } from "../../models/lesson";
-import { DataBaseService } from "../../services/database.service";
-import { LessonsDataService } from "../../services/lessons.data.service";
+import { Lesson } from "../../../models/lesson";
+import { DataBaseService } from "../../../services/database.service";
+import { LessonsDataService } from "../../../services/lessons-data-service/lessons.data.service";
 import { MenteePageComponent } from "./mentee-page.component";
 
 describe("MenteePageComponent", () => {

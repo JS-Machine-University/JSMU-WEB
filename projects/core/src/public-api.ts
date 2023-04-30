@@ -15,3 +15,4 @@ export * from "./lib/Store/talks/talks.selectors";
 export * from "./lib/Store/talks/talks.actions";
 export * from "./lib/Store/talks/talks.effects";
 export * from "./lib/Store/talks/talks-facade.service";
+export * from "./lib/Store/mentee-talks/mentee-talks-facade.service";

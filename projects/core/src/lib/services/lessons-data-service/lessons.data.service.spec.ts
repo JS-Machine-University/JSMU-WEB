@@ -1,9 +1,9 @@
 import { TestBed } from "@angular/core/testing";
 import { HttpTestingController, HttpClientTestingModule } from "@angular/common/http/testing";
-import { DataBaseService } from "./database.service";
+import { DataBaseService } from "../database.service";
 import { LessonsDataService } from "./lessons.data.service";
-import { Lesson } from "../models/lesson";
-import { ListType } from "../models/list-type";
+import { Lesson } from "../../models/lesson";
+import { ListType } from "../../models/list-type";
 import { HttpResponse } from "@angular/common/http";
 import { environment } from "src/environments/environment";
 

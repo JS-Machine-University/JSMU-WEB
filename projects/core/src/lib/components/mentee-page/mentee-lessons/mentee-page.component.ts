@@ -1,14 +1,14 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
 import { Observable, Subject, takeUntil } from "rxjs";
-import { Lesson } from "../../models/lesson";
-import { LessonsDataService } from "../../services/lessons.data.service";
+import { Lesson } from "../../../models/lesson";
+import { LessonsDataService } from "../../../services/lessons-data-service/lessons.data.service";
 
 @Component({
-	selector: "jsmu-mentee-page",
-	templateUrl: "./mentee-page.component.html",
-	styleUrls: ["./mentee-page.component.scss"]
+	selector: "jsmu-mentee-lessons",
+	templateUrl: "./mentee-lessons.component.html",
+	styleUrls: ["./mentee-lessons.component.scss"]
 })
-export class MenteePageComponent implements OnInit, OnDestroy {
+export class MenteeLessonsComponent implements OnInit, OnDestroy {
 	public lessons: Lesson[] = [];
 	private destroy$: Subject<void> = new Subject<void>();
 

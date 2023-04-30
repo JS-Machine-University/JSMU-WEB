@@ -19,6 +19,6 @@ export const menuItems: NavigationItem[] = [
 	},
 	{
 		itemName: "Mentee page",
-		routerLink: "/mentee-page"
+		routerLink: "/mentee-page/talks"
 	}
 ];
