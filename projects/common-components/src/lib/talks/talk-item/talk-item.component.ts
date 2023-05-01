@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from "@angular/core";
-import { Talk } from "@jsmu/core";
+import { MenteeTalksFacadeService, Talk } from "@jsmu/core";
+import { Status } from "projects/core/src/lib/models/status";
 
 @Component({
 	selector: "jsmu-talk-item",
@@ -10,4 +11,12 @@ import { Talk } from "@jsmu/core";
 export class TalkItemComponent {
 	@Input() public talk!: Talk;
 	@Input() public isShowLine!: boolean;
+
+	constructor(private menteeTalksFacade: MenteeTalksFacadeService) {}
+
+	public updateStatus(): void {
+		let updatedTalk = JSON.parse(JSON.stringify(this.talk));
+		updatedTalk.status = Status.Submitted;
+		this.menteeTalksFacade.dispatchMenteeTalksUpdating(this.talk.id, updatedTalk);
+	}
 }

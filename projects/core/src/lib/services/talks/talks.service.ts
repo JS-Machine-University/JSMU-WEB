@@ -13,4 +13,8 @@ export class TalksService {
 	getTalksFromDb<Talk>(): Observable<Talk> {
 		return this.dbService.getData<Talk>(ListType.TALKS);
 	}
+
+	updateTalks<Talk>(id: number, updatedTalk: Talk): Observable<Talk> {
+		return this.dbService.updateData<Talk>(ListType.TALKS, id, updatedTalk);
+	}
 }

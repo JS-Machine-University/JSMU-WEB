@@ -4,13 +4,11 @@ import { CommonComponentsModule } from "@jsmu/common-components";
 import { NgModule } from "@angular/core";
 import { CoreComponent } from "./core.component";
 import { HttpClientModule } from "@angular/common/http";
-import { LessonsDataService } from "./services/lessons.data.service";
+import { LessonsDataService } from "./services/lessons-data-service/lessons.data.service";
 import { AuthorizationModule } from "./authorization/authorization.module";
 import { DataBaseService } from "./services/database.service";
 import { UsersDataService } from "./services/users.data.service";
-import { MenteePageComponent } from "./components/mentee-page/mentee-page.component";
 import { LessonComponent } from "../../../common-components/src/lib/lesson/lesson.component";
-import { BrowserModule } from "@angular/platform-browser";
 import { HeaderComponent } from "./components/header/header.component";
 import { RouterModule } from "@angular/router";
 import { FooterComponent } from "./components/footer/footer.component";
@@ -33,7 +31,6 @@ import { UserStoreFacade } from "./Store/users/users.store.facade";
 		AuthorizationModule,
 		HttpClientModule,
 		AuthorizationModule,
-		BrowserModule,
 		StoreModule.forFeature("users", userReducer, {}),
 		StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
 		EffectsModule.forFeature([UserEffects]),
@@ -43,14 +40,13 @@ import { UserStoreFacade } from "./Store/users/users.store.facade";
 	],
 	declarations: [
 		CoreComponent,
-		MenteePageComponent,
 		LessonComponent,
 		HeaderComponent,
 		FooterComponent,
 		HomePageComponent,
 		InfoPanelComponent
 	],
-	exports: [CoreComponent, HeaderComponent, FooterComponent, InfoPanelComponent],
+	exports: [CoreComponent, HeaderComponent, FooterComponent, InfoPanelComponent, LessonComponent],
 	providers: [
 		DataBaseService,
 		UsersDataService,
