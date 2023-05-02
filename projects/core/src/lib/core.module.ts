@@ -25,8 +25,9 @@ import { StoreRouterConnectingModule } from "@ngrx/router-store";
 import { userReducer } from "./Store/users/user.reducer";
 import { UserEffects } from "./Store/users/user.effects";
 import { UserStoreFacade } from "./Store/users/users.store.facade";
-import { AuthComponent } from "./authorization/components/auth/auth.component";
+import { RootComponent } from "./authorization/components/root/root.component";
 import { RegisterComponent } from "./authorization/components/register/register.component";
+import { MenteeDataService } from "./services/mentee.data.service";
 
 @NgModule({
 	imports: [
@@ -57,7 +58,7 @@ import { RegisterComponent } from "./authorization/components/register/register.
 		HeaderComponent,
 		FooterComponent,
 		InfoPanelComponent,
-		AuthComponent,
+		RootComponent,
 		RegisterComponent
 	],
 	providers: [
@@ -65,7 +66,8 @@ import { RegisterComponent } from "./authorization/components/register/register.
 		UsersDataService,
 		LessonsDataService,
 		DialogService,
-		UserStoreFacade
+		UserStoreFacade,
+		MenteeDataService
 	]
 })
 export class CoreModule {}

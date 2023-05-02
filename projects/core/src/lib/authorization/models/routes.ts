@@ -3,5 +3,6 @@ export enum Routes {
 	SIGN_IN = "sign-in",
 	HOME = "home-page",
 	REGISTRATION = "registration",
-	AUTH = ""
+	AUTH = "",
+	MENTEE_PAGE = "mentee-page"
 }

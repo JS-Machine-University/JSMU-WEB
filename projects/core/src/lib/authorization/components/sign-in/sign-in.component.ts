@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnDestroy } from "@angular/core";
 import { AuthService } from "projects/core/src/lib/authorization/services/auth/auth.service";
 import { Router } from "@angular/router";
-import { Observable, Subject } from "rxjs";
+import { Observable, Subject, takeUntil } from "rxjs";
 import { User } from "../../models/user";
 import { Routes } from "../../models/routes";
 
@@ -20,7 +20,11 @@ export class SignInComponent implements OnDestroy {
 
 	public login(): void {
 		this.authService.gitHubAuth();
-		this.router.navigate([Routes.AUTH]);
+		this.authService.isLoggedIn.pipe(takeUntil(this.destroy$)).subscribe((state) => {
+			if (state) {
+				this.router.navigate([Routes.AUTH]);
+			}
+		});
 	}
 
 	ngOnDestroy() {

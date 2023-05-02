@@ -14,8 +14,9 @@ import { RoleComponent } from "./components/role/role.component";
 import { RouterModule } from "@angular/router";
 import { UsersDataService } from "../services/users.data.service";
 import { SignOutComponent } from "./components/sign-out/sign-out.component";
-import { AuthComponent } from "./components/auth/auth.component";
+import { RootComponent } from "./components/root/root.component";
 import { RegisterComponent } from "./components/register/register.component";
+import { MenteeFormService } from "./services/forms/mentee.form.service";
 
 @NgModule({
 	declarations: [
@@ -23,7 +24,7 @@ import { RegisterComponent } from "./components/register/register.component";
 		RoleSelectComponent,
 		RoleComponent,
 		SignOutComponent,
-		AuthComponent,
+		RootComponent,
 		RegisterComponent
 	],
 	imports: [
@@ -41,9 +42,9 @@ import { RegisterComponent } from "./components/register/register.component";
 		RoleSelectComponent,
 		RoleComponent,
 		SignOutComponent,
-		AuthComponent,
+		RootComponent,
 		RegisterComponent
 	],
-	providers: [AuthService, UsersDataService]
+	providers: [AuthService, UsersDataService, MenteeFormService]
 })
 export class AuthorizationModule {}

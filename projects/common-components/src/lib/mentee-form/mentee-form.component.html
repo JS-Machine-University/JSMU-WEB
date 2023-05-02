@@ -3,7 +3,7 @@
 		<div class="mentee-form__components">
 			<div class="mentee-form__component">
 				<label class="mentee-form__label">Enter the name:</label>
-				<input class="mentee-form__input" formControlName="name" required />
+				<input class="mentee-form__input" formControlName="name" />
 				<div
 					class="mentee-form__errors"
 					*ngIf="_name?.invalid && (_name?.touched || _name?.dirty)"
@@ -15,7 +15,7 @@
 			</div>
 			<div class="mentee-form__component">
 				<label class="mentee-form__label">Enter the e-mail:</label>
-				<input class="mentee-form__input" formControlName="mail" required />
+				<input class="mentee-form__input" formControlName="mail" />
 				<div
 					class="mentee-form__errors"
 					*ngIf="_mail?.invalid && (_mail?.touched || _mail?.dirty)"
@@ -30,7 +30,7 @@
 			</div>
 			<div class="mentee-form__component">
 				<label class="mentee-form__label">Enter the Rm's e-mail:</label>
-				<input class="mentee-form__input" formControlName="rmMail" required />
+				<input class="mentee-form__input" formControlName="rmMail" />
 				<div
 					class="mentee-form__errors"
 					*ngIf="_rmMail?.invalid && (_rmMail?.touched || _rmMail?.dirty)"
@@ -57,7 +57,9 @@
 		</div>
 	</form>
 	<div class="mentee-form__buttons">
-		<jsmu-button (click)="checkAndSubmit()">Submit</jsmu-button>
+		<jsmu-button (click)="checkAndSubmit()" *ngIf="menteeRegistrationForm.valid">
+			Submit
+		</jsmu-button>
 		<jsmu-button (click)="cancelEmit()">Cancel</jsmu-button>
 	</div>
 </div>

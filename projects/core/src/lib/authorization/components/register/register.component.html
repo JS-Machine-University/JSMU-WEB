@@ -1,1 +1,10 @@
-<p>register works!</p>
+<div class="register">
+	<jsmu-role-select (isMenteeFormVisible)="activateMenteeForm($event)"></jsmu-role-select>
+	<div class="role-select__mentee-form" *ngIf="isMenteeFormVisible">
+		<jsmu-mentee-form
+			(cancelEvent)="cancelMenteeForm()"
+			(submitEvent)="submitMenteeForm($event)"
+			[lessonsList]="lessonList"
+		></jsmu-mentee-form>
+	</div>
+</div>

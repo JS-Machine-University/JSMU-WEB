@@ -8,12 +8,5 @@
 				(roleEvent)="switchRole($event)"
 			></jsmu-role>
 		</div>
-		<div class="role-select__mentee-form" *ngIf="isMenteeFormVisible">
-			<jsmu-mentee-form
-				(cancelEvent)="cancelMenteeForm()"
-				(submitEvent)="submitMenteeForm()"
-				[lessonsList]="lessonList"
-			></jsmu-mentee-form>
-		</div>
 	</div>
 </div>

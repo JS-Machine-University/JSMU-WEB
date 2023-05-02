@@ -5,14 +5,12 @@ import { AuthGuard } from "projects/core/src/lib/authorization/guards/auth/auth.
 import { RoleSelectComponent } from "../../projects/core/src/lib/authorization/components/role-select/role-select.component";
 import { MenteePageComponent } from "projects/core/src/lib/components/mentee-page/mentee-page.component";
 import { HomePageComponent } from "projects/core/src/lib/components/home-page/home-page.component";
-import { AuthComponent } from "../../projects/core/src/lib/authorization/components/auth/auth.component";
+import { RootComponent } from "../../projects/core/src/lib/authorization/components/root/root.component";
 import { RegisterComponent } from "../../projects/core/src/lib/authorization/components/register/register.component";
-import { RegisterGuard } from "../../projects/core/src/lib/authorization/guards/register/register.guard";
 // route guards
 
 const routes: Routes = [
 	{ path: "home-page", component: HomePageComponent },
-	{ path: "sign-in", component: SignInComponent },
 	{ path: "role-select", component: RoleSelectComponent },
 	{ path: "talks", component: TalksListComponent },
 	{ path: "mentee-page", component: MenteePageComponent },
@@ -29,9 +27,9 @@ const routes: Routes = [
 ];
 
 const appRoutes: Routes = [
-	{ path: "", redirectTo: "/home-page", pathMatch: "full" },
-	{ path: "", component: AuthComponent, canActivate: [AuthGuard] },
-	{ path: "", component: AuthComponent, children: routes, canActivate: [AuthGuard] }
+	{ path: "", component: RootComponent, canActivate: [AuthGuard] },
+	{ path: "", component: RootComponent, children: routes, canActivate: [AuthGuard] },
+	{ path: "sign-in", component: SignInComponent }
 ];
 @NgModule({
 	imports: [RouterModule.forRoot(appRoutes)],
