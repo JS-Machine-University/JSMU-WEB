@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from "@angular/core";
-import { Lesson } from "@jsmu/core";
+import { Lesson, TalksService } from "@jsmu/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { checkBoxValidator } from "../validators/check-box-validator";
 
@@ -12,19 +12,24 @@ export class MenteeFormComponent {
 	@Output() cancelEvent: EventEmitter<void> = new EventEmitter<void>();
 	@Output() submitEvent: EventEmitter<FormGroup> = new EventEmitter<FormGroup>();
 	@Input() lessonsList!: Lesson[];
-	public menteeRegistrationForm: FormGroup = this.formBuilder.group({
-		name: [null, Validators.required],
-		mail: [null, [Validators.required, Validators.email]],
-		rmMail: [null, [Validators.required, Validators.email]],
-		modules: this.formBuilder.array(
-			[false, false, false, false, false, false, false, false],
-			[Validators.required, checkBoxValidator()]
-		)
-	});
+	public menteeRegistrationForm!: FormGroup;
 
-	constructor(private formBuilder: FormBuilder) {}
+	constructor(private formBuilder: FormBuilder, private talksService: TalksService) {
+		this.menteeRegistrationForm = this.formBuilder.group({
+			name: [null, Validators.required],
+			mail: [null, [Validators.required, Validators.email]],
+			rmMail: [null, [Validators.required, Validators.email]],
+			modules: this.formBuilder.array(
+				[false, false, false, false, false, false, false, false],
+				[Validators.required, checkBoxValidator()]
+			)
+		});
+	}
 
 	public cancelEmit(): void {
+		this.talksService.getTalksFromDb().subscribe((talk) => {
+			console.log(talk);
+		});
 		this.cancelEvent.emit();
 	}
 

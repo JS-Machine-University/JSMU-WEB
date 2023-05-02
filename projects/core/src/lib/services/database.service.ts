@@ -13,7 +13,6 @@ export class DataBaseService<T> {
 	}
 
 	public saveData<T>(listType: ListType, newData: T): Observable<T> {
-		console.log("saveData");
 		return this.http.post<T>(
 			`${environment.firebaseConfig.databaseURL}/${listType}.json`,
 			newData

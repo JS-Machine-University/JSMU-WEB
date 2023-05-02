@@ -7,6 +7,7 @@ import { MenteePageComponent } from "projects/core/src/lib/components/mentee-pag
 import { HomePageComponent } from "projects/core/src/lib/components/home-page/home-page.component";
 import { RootComponent } from "../../projects/core/src/lib/authorization/components/root/root.component";
 import { RegisterComponent } from "../../projects/core/src/lib/authorization/components/register/register.component";
+import { TalksListComponent } from "@jsmu/common-components";
 // route guards
 
 const routes: Routes = [
@@ -14,16 +15,14 @@ const routes: Routes = [
 	{ path: "role-select", component: RoleSelectComponent },
 	{ path: "talks", component: TalksListComponent },
 	{ path: "mentee-page", component: MenteePageComponent },
-	{ path: "registration", component: RegisterComponent, canActivate: [RegisterGuard] }
-	{ path: "role-select", component: RoleSelectComponent, canActivate: [AuthGuard] },
+	{ path: "registration", component: RegisterComponent },
 	{
 		path: "talks-page",
 		loadChildren: () =>
 			import("../../projects/core/src/lib/components/talks-page/talks-page.module").then(
 				(m) => m.TalksPageModule
 			)
-	},
-	{ path: "mentee-page", component: MenteePageComponent, canActivate: [AuthGuard] }
+	}
 ];
 
 const appRoutes: Routes = [

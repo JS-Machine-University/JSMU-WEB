@@ -13,7 +13,6 @@ export class MenteeDataService {
 	}
 
 	public saveMentee(newData: Mentee): Observable<Mentee> {
-		console.log("saveMentee");
 		return this.db.saveData<Mentee>(ListType.MENTEES, newData);
 	}
 }
