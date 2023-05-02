@@ -6,7 +6,7 @@ export interface Talk {
 	status: Status | null | "null";
 	result: Result | null | "null";
 	comment?: string;
-	experts: any[];
+	experts: number[] | "null";
 	menteeId: string | null | undefined;
 	conductedExpert: number | null | "null";
 	resultDate: number | null | "null";

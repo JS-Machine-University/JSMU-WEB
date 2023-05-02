@@ -26,7 +26,7 @@
 				<p>Dear Middle Developer Growth Expert</p>
 				<div class="jsmu-talk-item__experts">
 					Experts names:
-					<ng-container *ngFor="let expert of talk?.experts">
+					<ng-container *ngFor="let expert of (talk.experts | iterableNullCheck)">
 						{{expert}}&nbsp;
 					</ng-container>
 				</div>

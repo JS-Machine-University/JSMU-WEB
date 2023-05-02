@@ -50,7 +50,7 @@ export class MenteeFormService {
 	private talkBuilder(lessonId: number, menteeId: string | null | undefined): Talk {
 		return {
 			menteeId: menteeId,
-			experts: ["null"],
+			experts: "null",
 			conductedExpert: "null",
 			lessonId: lessonId,
 			result: "null",
