@@ -13,10 +13,10 @@
 		<div class="jsmu-talk-item__content">
 			<div class="jsmu-talk-item__header">
 				<div class="jsmu-talk-item__expert">Maksim Samuilionak</div>
-				<div class="jsmu-talk-item__date">
+				<div class="jsmu-talk-item__date" *ngIf="talk.resultDate!=='null'">
 					{{talk.resultDate | date: 'dd/MM/yy, h:mm a'}}
 				</div>
-				<div *ngIf="talk.status !== 'None'" class="jsmu-talk-item__status">
+				<div *ngIf="talk.status !== 'null'" class="jsmu-talk-item__status">
 					<p>Status:</p>
 					&nbsp;
 					<p>{{talk.status}}</p>
@@ -26,8 +26,10 @@
 				<p>Dear Middle Developer Growth Expert</p>
 				<div class="jsmu-talk-item__experts">
 					Experts names:
-					<ng-container *ngFor="let expert of talk.experts">
-						{{expert}}&nbsp;
+					<ng-container *ngIf="talk.experts!=='null'">
+						<ng-container *ngFor="let expert of talk.experts">
+							{{expert}}&nbsp;
+						</ng-container>
 					</ng-container>
 				</div>
 				<div class="jsmu-talk-item__mentee">

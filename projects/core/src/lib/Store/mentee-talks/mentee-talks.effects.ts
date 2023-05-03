@@ -10,7 +10,7 @@ export class MenteeTalksEffects {
 		return this.actions$.pipe(
 			ofType(menteeTalksActions.loadMenteeTalks),
 			exhaustMap(() => {
-				return this.talksService.getTalksFromDb<Talk[]>().pipe(
+				return this.talksService.getTalksFromDb<Talk>().pipe(
 					map((talks: Talk[]) => {
 						return menteeTalksActions.loadMenteeTalksSuccess({ talks });
 					})

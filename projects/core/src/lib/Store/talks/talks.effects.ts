@@ -10,9 +10,11 @@ export class TalksEffects {
 		return this.actions$.pipe(
 			ofType(talksActions.loadTalks),
 			mergeMap(() =>
-				this.talksService
-					.getTalksFromDb<Talk[]>()
-					.pipe(map((talks: Talk[]) => talksActions.loadTalksSuccess({ talks })))
+				this.talksService.getTalksFromDb<Talk>().pipe(
+					map((talks: Talk[]) => {
+						return talksActions.loadTalksSuccess({ talks });
+					})
+				)
 			),
 			catchError((error: string) => of(talksActions.loadTalksFailure({ error })))
 		);

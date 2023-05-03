@@ -19,7 +19,7 @@ export class MenteeTalksFacadeService {
 		return this.store.select(selectMenteeTalks);
 	}
 
-	public dispatchMenteeTalksUpdating(id: number, talk: Talk): void {
+	public dispatchMenteeTalksUpdating(id: string, talk: Talk): void {
 		return this.store.dispatch(updateMenteeTalks({ talkId: id, updatedTalk: talk }));
 	}
 }

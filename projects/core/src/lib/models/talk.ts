@@ -2,15 +2,15 @@ import { Result } from "./result";
 import { Status } from "./status";
 
 export interface Talk {
-	status: Status;
-	result: Result;
+	status: Status | "null";
+	result: Result | "null";
 	comment?: string;
-	experts: number[];
-	id: number;
+	experts: number[] | "null";
+	id?: string | "null";
 	lessonId: number;
-	menteeId: string;
-	conductedExpert: number;
-	resultDate: number;
-	requestDate: number;
-	takeDate: number;
+	menteeId: number;
+	conductedExpert: number | "null";
+	resultDate: number | "null";
+	requestDate: number | "null";
+	takeDate: number | "null";
 }

@@ -11,12 +11,15 @@ import { Status } from "projects/core/src/lib/models/status";
 export class TalkItemComponent {
 	@Input() public talk!: Talk;
 	@Input() public isShowLine!: boolean;
+	@Input() public submitPermission!: boolean;
 
 	constructor(private menteeTalksFacade: MenteeTalksFacadeService) {}
 
 	public updateStatus(): void {
-		let updatedTalk = JSON.parse(JSON.stringify(this.talk));
-		updatedTalk.status = Status.Submitted;
-		this.menteeTalksFacade.dispatchMenteeTalksUpdating(this.talk.id, updatedTalk);
+		if (this.talk.id !== "null" && this.talk.status === "null" && this.submitPermission) {
+			let updatedTalk = JSON.parse(JSON.stringify(this.talk));
+			updatedTalk.status = Status.Submitted;
+			this.menteeTalksFacade.dispatchMenteeTalksUpdating(this.talk.id!, updatedTalk);
+		}
 	}
 }

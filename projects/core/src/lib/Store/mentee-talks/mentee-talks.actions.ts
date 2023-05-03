@@ -22,7 +22,7 @@ export const loadMenteeTalksFailure = createAction(
 
 export const updateMenteeTalks = createAction(
 	MenteeTalksActions.MENTEE_TALKS_UPDATE,
-	props<{ talkId: number; updatedTalk: Talk }>()
+	props<{ talkId: string; updatedTalk: Talk }>()
 );
 export const updateMenteeTalksSuccess = createAction(
 	MenteeTalksActions.MENTEE_TALKS_UPDATE_SUCCESS,

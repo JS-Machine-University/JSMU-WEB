@@ -1,7 +1,9 @@
 import { ChangeDetectionStrategy, Component, OnInit } from "@angular/core";
-import { MenteeTalksFacadeService, Talk } from "@jsmu/core";
+import { ListType, MenteeTalksFacadeService, Result, Talk } from "@jsmu/core";
 import { map } from "rxjs/operators";
 import { Observable } from "rxjs";
+import { Status } from "../../../models/status";
+import { DataBaseService } from "../../../services/database.service";
 
 @Component({
 	selector: "jsmu-mentee-talks",
@@ -10,7 +12,9 @@ import { Observable } from "rxjs";
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MenteeTalksComponent implements OnInit {
-	public ownTalks$!: Observable<Talk[]>;
+	public submitPermission: boolean = true;
+	public talks$!: Observable<Talk[]>;
+	public menteeId: number = 14; //Hardcore menteeId
 	constructor(private menteeTalksFacade: MenteeTalksFacadeService) {}
 
 	ngOnInit(): void {
@@ -19,10 +23,10 @@ export class MenteeTalksComponent implements OnInit {
 	}
 
 	private talksDefining(): void {
-		this.ownTalks$ = this.menteeTalksFacade.selectMenteeTalks().pipe(
+		this.talks$ = this.menteeTalksFacade.selectMenteeTalks().pipe(
 			map((data: Talk[]) => {
 				return data.filter((talk: Talk) => {
-					return talk.menteeId === JSON.parse(localStorage.getItem("user")!).uid;
+					return talk.menteeId === this.menteeId;
 				});
 			})
 		);
