@@ -1,10 +1,7 @@
-import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from "@angular/core";
+import { ChangeDetectionStrategy, Component, EventEmitter, Output } from "@angular/core";
 import { Roles } from "../../models/roles";
-import { User } from "../../models/user";
 import { RoleInfo } from "../../models/role-info";
 import { Router } from "@angular/router";
-import { Subject, takeUntil } from "rxjs";
-import { UserStoreFacade } from "../../../Store/users/users.store.facade";
 
 @Component({
 	selector: "jsmu-role-select",
@@ -12,9 +9,9 @@ import { UserStoreFacade } from "../../../Store/users/users.store.facade";
 	styleUrls: ["./role-select.component.scss"],
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class RoleSelectComponent implements OnInit, OnDestroy {
-	private user!: User;
-	private destroy$: Subject<void> = new Subject<void>();
+export class RoleSelectComponent {
+	@Output()
+	public isMenteeFormVisible: EventEmitter<boolean> = new EventEmitter<boolean>();
 
 	public rolesInfo: RoleInfo[] = [
 		{
@@ -47,16 +44,7 @@ export class RoleSelectComponent implements OnInit, OnDestroy {
 		}
 	];
 
-	constructor(private router: Router, private userFacade: UserStoreFacade) {}
-
-	ngOnInit() {
-		this.userFacade
-			.getUser()
-			.pipe(takeUntil(this.destroy$))
-			.subscribe((sUser) => {
-				this.user = sUser?.user.value!;
-			});
-	}
+	constructor(private router: Router) {}
 
 	public switchRole(role: Roles): void {
 		switch (role) {
@@ -73,38 +61,15 @@ export class RoleSelectComponent implements OnInit, OnDestroy {
 	}
 
 	private roleMentee(): void {
-		this.userFacade.saveUser(this.getUser(Roles.MENTEE));
-		this.router.navigate(["home-page"]);
+		this.isMenteeFormVisible.emit(true);
 		//toDo redirect to Mentee page.
 	}
 
 	private roleExpert(): void {
-		this.userFacade.saveUser(this.getUser(Roles.EXPERT));
-		this.router.navigate(["home-page"]);
 		//toDO redirect to Expert page
 	}
 
 	private roleRM(): void {
-		this.userFacade.saveUser(this.getUser(Roles.RM));
-		this.router.navigate(["home-page"]);
 		//toDo redirect to RM page
-	}
-
-	private getUser(userRole: Roles): User {
-		return {
-			uid: this.user?.uid,
-			name: this.user?.name,
-			email: this.user?.email,
-			photoURL: this.user?.photoURL,
-			role: userRole,
-			isUserAuth: true,
-			isUserPresentDB: true,
-			checkBase: true
-		};
-	}
-
-	ngOnDestroy(): void {
-		this.destroy$.next();
-		this.destroy$.unsubscribe();
 	}
 }

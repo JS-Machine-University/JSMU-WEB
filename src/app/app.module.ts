@@ -13,11 +13,15 @@ import { EffectsModule } from "@ngrx/effects";
 import { StoreModule } from "@ngrx/store";
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 import { StoreRouterConnectingModule } from "@ngrx/router-store";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { CommonModule } from "@angular/common";
 
 @NgModule({
 	declarations: [AppComponent],
 	imports: [
+		CommonModule,
 		BrowserModule,
+		BrowserAnimationsModule,
 		AngularFireModule.initializeApp(environment.firebaseConfig),
 		AngularFireDatabaseModule,
 		AppRoutingModule,

@@ -1,0 +1,65 @@
+<div class="mentee-form">
+	<form [formGroup]="menteeRegistrationForm">
+		<div class="mentee-form__components">
+			<div class="mentee-form__component">
+				<label class="mentee-form__label">Enter the name:</label>
+				<input class="mentee-form__input" formControlName="name" />
+				<div
+					class="mentee-form__errors"
+					*ngIf="_name?.invalid && (_name?.touched || _name?.dirty)"
+				>
+					<span class="mentee-form__error" *ngIf="_name?.errors?.['required']">
+						The field is required
+					</span>
+				</div>
+			</div>
+			<div class="mentee-form__component">
+				<label class="mentee-form__label">Enter the e-mail:</label>
+				<input class="mentee-form__input" formControlName="mail" />
+				<div
+					class="mentee-form__errors"
+					*ngIf="_mail?.invalid && (_mail?.touched || _mail?.dirty)"
+				>
+					<span class="mentee-form__error" *ngIf="_mail?.errors?.['required']">
+						The field is required
+					</span>
+					<span class="mentee-form__error" *ngIf="_mail?.errors?.['email']">
+						Enter the valid e-mail
+					</span>
+				</div>
+			</div>
+			<div class="mentee-form__component">
+				<label class="mentee-form__label">Enter the Rm's e-mail:</label>
+				<input class="mentee-form__input" formControlName="rmMail" />
+				<div
+					class="mentee-form__errors"
+					*ngIf="_rmMail?.invalid && (_rmMail?.touched || _rmMail?.dirty)"
+				>
+					<span class="mentee-form__error" *ngIf="_rmMail?.errors?.['required']">
+						The field is required
+					</span>
+					<span class="mentee-form__error" *ngIf="_rmMail?.errors?.['email']">
+						Enter the valid e-mail
+					</span>
+				</div>
+			</div>
+		</div>
+		<div class="mentee-form__modules">
+			<div class="modules__text">Plese Select at least five modules to learn:</div>
+			<div
+				class="mentee-form__module"
+				formArrayName="modules"
+				*ngFor="let x of lessonsList; let i = index"
+			>
+				<input type="checkbox" class="mentee-form__checkbox" [formControlName]="i" />
+				{{x.title}}
+			</div>
+		</div>
+	</form>
+	<div class="mentee-form__buttons">
+		<jsmu-button (click)="checkAndSubmit()" *ngIf="menteeRegistrationForm.valid">
+			Submit
+		</jsmu-button>
+		<jsmu-button (click)="cancelEmit()">Cancel</jsmu-button>
+	</div>
+</div>

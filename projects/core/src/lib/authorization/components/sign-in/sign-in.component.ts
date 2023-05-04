@@ -1,10 +1,9 @@
 import { ChangeDetectionStrategy, Component, OnDestroy } from "@angular/core";
 import { AuthService } from "projects/core/src/lib/authorization/services/auth/auth.service";
 import { Router } from "@angular/router";
-import { Observable, Subject } from "rxjs";
-import { UserStoreFacade } from "../../../Store/users/users.store.facade";
+import { Observable, Subject, takeUntil } from "rxjs";
 import { User } from "../../models/user";
-import { EntityStatus } from "../../../Store/users/models/entityStatus";
+import { Routes } from "../../models/routes";
 
 @Component({
 	selector: "jsmu-sign-in",
@@ -17,27 +16,13 @@ export class SignInComponent implements OnDestroy {
 
 	private destroy$: Subject<void> = new Subject<void>();
 
-	constructor(
-		private authService: AuthService,
-		private router: Router,
-		private userFacade: UserStoreFacade
-	) {}
+	constructor(private authService: AuthService, private router: Router) {}
 
 	public login(): void {
 		this.authService.gitHubAuth();
-		this.userFacade.getUser().subscribe((userState) => {
-			if (
-				!userState?.user.value.checkBase &&
-				userState?.user.status == EntityStatus.SUCCESS
-			) {
-				this.userFacade.loadUser(userState?.user.value.uid!);
-			}
-			if (
-				userState?.user.value.checkBase &&
-				!userState.user.value.isUserPresentDB &&
-				userState?.user.status == EntityStatus.SUCCESS
-			) {
-				this.router.navigate(["role-select"]);
+		this.authService.isLoggedIn.pipe(takeUntil(this.destroy$)).subscribe((state) => {
+			if (state) {
+				this.router.navigate([Routes.AUTH]);
 			}
 		});
 	}

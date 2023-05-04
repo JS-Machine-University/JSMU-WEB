@@ -3,14 +3,12 @@ import { CommonModule } from "@angular/common";
 import { CommonComponentsModule } from "@jsmu/common-components";
 import { NgModule } from "@angular/core";
 import { CoreComponent } from "./core.component";
-import { HttpClientModule } from "@angular/common/http";
 import { LessonsDataService } from "./services/lessons.data.service";
 import { AuthorizationModule } from "./authorization/authorization.module";
 import { DataBaseService } from "./services/database.service";
 import { UsersDataService } from "./services/users.data.service";
 import { MenteePageComponent } from "./components/mentee-page/mentee-page.component";
 import { LessonComponent } from "../../../common-components/src/lib/lesson/lesson.component";
-import { BrowserModule } from "@angular/platform-browser";
 import { HeaderComponent } from "./components/header/header.component";
 import { RouterModule } from "@angular/router";
 import { FooterComponent } from "./components/footer/footer.component";
@@ -25,21 +23,22 @@ import { StoreRouterConnectingModule } from "@ngrx/router-store";
 import { userReducer } from "./Store/users/user.reducer";
 import { UserEffects } from "./Store/users/user.effects";
 import { UserStoreFacade } from "./Store/users/users.store.facade";
+import { RootComponent } from "./components/root/root.component";
+import { MenteeDataService } from "./services/mentee.data.service";
+import { TalksPageModule } from "./components/talks-page/talks-page.module";
 
 @NgModule({
 	imports: [
 		CommonModule,
 		CommonComponentsModule,
 		AuthorizationModule,
-		HttpClientModule,
-		AuthorizationModule,
-		BrowserModule,
 		StoreModule.forFeature("users", userReducer, {}),
 		StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
 		EffectsModule.forFeature([UserEffects]),
 		StoreRouterConnectingModule.forRoot(),
 		RouterModule,
-		SharedModule
+		SharedModule,
+		TalksPageModule
 	],
 	declarations: [
 		CoreComponent,
@@ -48,15 +47,17 @@ import { UserStoreFacade } from "./Store/users/users.store.facade";
 		HeaderComponent,
 		FooterComponent,
 		HomePageComponent,
-		InfoPanelComponent
+		InfoPanelComponent,
+		RootComponent
 	],
-	exports: [CoreComponent, HeaderComponent, FooterComponent, InfoPanelComponent],
+	exports: [CoreComponent, HeaderComponent, FooterComponent, InfoPanelComponent, RootComponent],
 	providers: [
 		DataBaseService,
 		UsersDataService,
 		LessonsDataService,
 		DialogService,
-		UserStoreFacade
+		UserStoreFacade,
+		MenteeDataService
 	]
 })
 export class CoreModule {}

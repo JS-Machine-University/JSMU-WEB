@@ -6,6 +6,6 @@ import { Talk } from "@jsmu/core";
 })
 export class SortPipe implements PipeTransform {
 	public transform(talks: Talk[]): Talk[] {
-		return [...talks].sort((a, b) => (a.resultDate > b.resultDate ? 1 : -1));
+		return [...talks].sort((a, b) => (a.resultDate! > b.resultDate! ? 1 : -1));
 	}
 }

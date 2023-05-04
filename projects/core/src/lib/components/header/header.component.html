@@ -31,11 +31,7 @@
 				</div>
 
 				<div class="jsmu-header__authorization">
-					<jsmu-sign-out *ngIf="isLoggedIn | async; else loggedOut"></jsmu-sign-out>
-
-					<ng-template #loggedOut>
-						<jsmu-sign-in></jsmu-sign-in>
-					</ng-template>
+					<jsmu-sign-out *ngIf="isLoggedIn | async;"></jsmu-sign-out>
 				</div>
 			</div>
 		</div>

@@ -13,4 +13,8 @@ export class TalksService {
 	getTalksFromDb<Talk>(): Observable<Talk> {
 		return this.dbService.getData<Talk>(ListType.TALKS);
 	}
+
+	public saveTalk(newData: Talk): Observable<Talk> {
+		return this.dbService.saveData<Talk>(ListType.TALKS, newData);
+	}
 }

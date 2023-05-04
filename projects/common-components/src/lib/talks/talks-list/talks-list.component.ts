@@ -18,8 +18,8 @@ export class TalksListComponent implements OnChanges {
 
 	public isShowLine(talks: Talk[], index: number): boolean {
 		return (
-			new Date(talks[index]?.resultDate).toLocaleDateString() !==
-			new Date(talks[index - 1]?.resultDate).toLocaleDateString()
+			new Date(talks[index]?.resultDate!).toLocaleDateString() !==
+			new Date(talks[index - 1]?.resultDate!).toLocaleDateString()
 		);
 	}
 }

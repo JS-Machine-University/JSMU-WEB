@@ -3,13 +3,13 @@ import { Status } from "./status";
 
 export interface Talk {
 	lessonId: number;
-	status: Status;
-	result: Result;
+	status: Status | "null";
+	result: Result | "null";
 	comment?: string;
-	experts: number[];
-	menteeId: number;
-	conductedExpert: number;
-	resultDate: number;
-	requestDate: number;
-	takeDate: number;
+	experts: number[] | "null";
+	menteeId: string | undefined;
+	conductedExpert: number | "null";
+	resultDate: number | "null";
+	requestDate: number | "null";
+	takeDate: number | "null";
 }

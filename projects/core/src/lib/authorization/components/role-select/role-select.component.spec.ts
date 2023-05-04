@@ -73,44 +73,4 @@ describe("RoleSelectComponent", () => {
 	it("should create", () => {
 		expect(component).toBeTruthy();
 	});
-
-	describe("switchRole", () => {
-		it("should be called with Mentee", () => {
-			component.switchRole(Roles.MENTEE);
-			expect(userFacade.saveUser).toHaveBeenCalledWith(testUser);
-		});
-
-		it("should be called with Expert", () => {
-			component.switchRole(Roles.EXPERT);
-			expect(userFacade.saveUser).toHaveBeenCalledWith({
-				uid: undefined,
-				name: undefined,
-				email: undefined,
-				photoURL: undefined,
-				isUserAuth: true,
-				isUserPresentDB: true,
-				checkBase: true,
-				role: Roles.EXPERT
-			});
-		});
-
-		it("should be called with RM", () => {
-			component.switchRole(Roles.RM);
-			expect(userFacade.saveUser).toHaveBeenCalledWith({
-				uid: undefined,
-				name: undefined,
-				email: undefined,
-				photoURL: undefined,
-				role: Roles.RM,
-				isUserAuth: true,
-				isUserPresentDB: true,
-				checkBase: true
-			});
-		});
-	});
-
-	it("should call getUser when ngOnInit", () => {
-		component.ngOnInit();
-		expect(userFacade.getUser).toHaveBeenCalled();
-	});
 });
