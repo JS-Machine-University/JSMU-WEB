@@ -14,7 +14,6 @@ import { TalkItemComponent } from "./talks/talk-item/talk-item.component";
 import { TalkItemsLineComponent } from "./talks/talk-items-line/talk-items-line.component";
 import { MenteeFormComponent } from "./mentee-form/mentee-form.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { BrowserModule } from "@angular/platform-browser";
 
 @NgModule({
 	declarations: [
