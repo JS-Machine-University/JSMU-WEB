@@ -5,6 +5,7 @@ import { LessonsDataService } from "../../../services/lessons.data.service";
 import { Router } from "@angular/router";
 import { FormGroup } from "@angular/forms";
 import { MenteeFormService } from "../../services/forms/mentee.form.service";
+import { Routes } from "../../models/routes";
 
 @Component({
 	selector: "jsmu-register",
@@ -41,7 +42,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
 
 	public submitMenteeForm(menteeForm: FormGroup): void {
 		this.menteeFormService.menteeFormSave(menteeForm);
-		this.router.navigate(["home-page"]);
+		this.router.navigate([Routes.MENTEE_PAGE]);
 	}
 
 	ngOnDestroy(): void {

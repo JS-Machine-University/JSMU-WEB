@@ -5,6 +5,7 @@ import { mergeMap, Observable } from "rxjs";
 import { Routes } from "../../models/routes";
 import { UserStoreFacade } from "../../../Store/users/users.store.facade";
 import { UsersDataService } from "../../../services/users.data.service";
+
 @Injectable({
 	providedIn: "root"
 })
@@ -35,6 +36,7 @@ export class AuthGuard implements CanActivate {
 						if (user === null) {
 							this.router.navigate([Routes.REGISTRATION]);
 						} else if (user === undefined) {
+							this.router.navigate([Routes.SIGN_IN]);
 						} else {
 							this.userFacade.loadUser(user.uid!);
 							//toDo redirect to MenteeDashBoard

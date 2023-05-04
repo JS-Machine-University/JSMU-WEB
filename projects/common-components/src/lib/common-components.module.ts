@@ -31,14 +31,7 @@ import { BrowserModule } from "@angular/platform-browser";
 		TalkItemsLineComponent,
 		TalkItemComponent
 	],
-	imports: [
-		BrowserModule,
-		RouterModule,
-		SharedModule,
-		FormsModule,
-		ReactiveFormsModule,
-		CommonModule
-	],
+	imports: [RouterModule, SharedModule, FormsModule, ReactiveFormsModule, CommonModule],
 	exports: [
 		CommonComponentsComponent,
 		ButtonComponent,

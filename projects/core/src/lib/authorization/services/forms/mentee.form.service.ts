@@ -30,7 +30,7 @@ export class MenteeFormService {
 		this.menteeService.saveMentee(this.menteeBuilder(menteeForm)).subscribe((mentee) => {
 			tempArray.forEach((state) => {
 				if (state) {
-					this.talksService.saveTalk(this.talkBuilder(index, mentee.name)).subscribe();
+					this.talksService.saveTalk(this.talkBuilder(index, mentee.name!)).subscribe();
 				}
 				index++;
 			});
@@ -43,11 +43,11 @@ export class MenteeFormService {
 			name: menteeForm.get("name")?.value,
 			email: menteeForm.get("mail")?.value,
 			rmMail: menteeForm.get("rmMail")?.value,
-			uid: this.user?.user.value.uid
+			uid: this.user?.user.value.uid!
 		};
 	}
 
-	private talkBuilder(lessonId: number, menteeId: string | null | undefined): Talk {
+	private talkBuilder(lessonId: number, menteeId: string | undefined): Talk {
 		return {
 			menteeId: menteeId,
 			experts: "null",

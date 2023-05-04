@@ -7,7 +7,7 @@ import { AuthService } from "../authorization/services/auth/auth.service";
 
 @Injectable()
 export class UsersDataService {
-	constructor(private db: DataBaseService<User>, private authServ: AuthService) {}
+	constructor(private db: DataBaseService<User>) {}
 
 	public getUser(): Observable<User[]> {
 		return this.db.getData<User[]>(ListType.USERS);
@@ -33,14 +33,6 @@ export class UsersDataService {
 					});
 				}
 				return userData;
-			})
-		);
-	}
-
-	public isUserLogin(): Observable<User | null | undefined> {
-		return this.authServ.getUser().pipe(
-			switchMap((sUser) => {
-				return this.getUserById(sUser.uid!);
 			})
 		);
 	}

@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Output } from "@angular/core";
 import { Roles } from "../../models/roles";
-
 import { RoleInfo } from "../../models/role-info";
 import { Router } from "@angular/router";
 

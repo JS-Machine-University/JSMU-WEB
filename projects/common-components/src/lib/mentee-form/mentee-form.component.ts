@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from "@angular/core";
+import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 import { Lesson, TalksService } from "@jsmu/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { checkBoxValidator } from "../validators/check-box-validator";
@@ -8,13 +8,15 @@ import { checkBoxValidator } from "../validators/check-box-validator";
 	templateUrl: "./mentee-form.component.html",
 	styleUrls: ["./mentee-form.component.scss"]
 })
-export class MenteeFormComponent {
+export class MenteeFormComponent implements OnInit {
 	@Output() cancelEvent: EventEmitter<void> = new EventEmitter<void>();
 	@Output() submitEvent: EventEmitter<FormGroup> = new EventEmitter<FormGroup>();
 	@Input() lessonsList!: Lesson[];
 	public menteeRegistrationForm!: FormGroup;
 
-	constructor(private formBuilder: FormBuilder, private talksService: TalksService) {
+	constructor(private formBuilder: FormBuilder, private talksService: TalksService) {}
+
+	ngOnInit(): void {
 		this.menteeRegistrationForm = this.formBuilder.group({
 			name: [null, Validators.required],
 			mail: [null, [Validators.required, Validators.email]],
@@ -27,9 +29,6 @@ export class MenteeFormComponent {
 	}
 
 	public cancelEmit(): void {
-		this.talksService.getTalksFromDb().subscribe((talk) => {
-			console.log(talk);
-		});
 		this.cancelEvent.emit();
 	}
 
