@@ -1,0 +1,5 @@
+<jsmu-header></jsmu-header>
+<jsmu-info-panel *ngIf="isModalOpen$ | async"></jsmu-info-panel>
+<router-outlet></router-outlet>
+<jsmu-dialog [dialogType]="dialogType$ | async" *ngIf="isOpen$ | async"></jsmu-dialog>
+<jsmu-footer></jsmu-footer>

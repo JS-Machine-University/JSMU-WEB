@@ -1,13 +1,12 @@
 import { Injectable } from "@angular/core";
-import { map, Observable, switchMap } from "rxjs";
+import { map, Observable, of } from "rxjs";
 import { User } from "../authorization/models/user";
 import { ListType } from "../models/list-type";
 import { DataBaseService } from "./database.service";
-import { AuthService } from "../authorization/services/auth/auth.service";
 
 @Injectable()
 export class UsersDataService {
-	constructor(private db: DataBaseService<User>, private authServ: AuthService) {}
+	constructor(private db: DataBaseService<User>) {}
 
 	public getUser(): Observable<User[]> {
 		return this.db.getData<User[]>(ListType.USERS);
@@ -17,7 +16,10 @@ export class UsersDataService {
 		return this.db.saveData<User>(ListType.USERS, newData);
 	}
 
-	public getUserById(uid: string): Observable<User | null> {
+	public getUserById(uid: string): Observable<User | null | undefined> {
+		if (!uid) {
+			return of(undefined);
+		}
 		const USER_DATA: number = 1;
 		return this.getUser().pipe(
 			map((data) => {
@@ -30,14 +32,6 @@ export class UsersDataService {
 					});
 				}
 				return userData;
-			})
-		);
-	}
-
-	public isUserLogin(): Observable<User | null> {
-		return this.authServ.getUser().pipe(
-			switchMap((sUser) => {
-				return this.getUserById(sUser.uid!);
 			})
 		);
 	}

@@ -26,4 +26,8 @@ export class TalksService {
 	updateTalks<Talk>(id: string, updatedTalk: Talk): Observable<Talk> {
 		return this.dbService.updateData<Talk>(ListType.TALKS, id, updatedTalk);
 	}
+
+	public saveTalk(newData: Talk): Observable<Talk> {
+		return this.dbService.saveData<Talk>(ListType.TALKS, newData);
+	}
 }

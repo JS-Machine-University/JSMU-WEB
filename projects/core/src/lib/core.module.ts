@@ -23,12 +23,13 @@ import { StoreRouterConnectingModule } from "@ngrx/router-store";
 import { userReducer } from "./Store/users/user.reducer";
 import { UserEffects } from "./Store/users/user.effects";
 import { UserStoreFacade } from "./Store/users/users.store.facade";
+import { RootComponent } from "./components/root/root.component";
+import { MenteeDataService } from "./services/mentee.data.service";
 
 @NgModule({
 	imports: [
 		CommonModule,
 		CommonComponentsModule,
-		AuthorizationModule,
 		HttpClientModule,
 		AuthorizationModule,
 		StoreModule.forFeature("users", userReducer, {}),
@@ -44,15 +45,24 @@ import { UserStoreFacade } from "./Store/users/users.store.facade";
 		HeaderComponent,
 		FooterComponent,
 		HomePageComponent,
-		InfoPanelComponent
+		InfoPanelComponent,
+		RootComponent
 	],
-	exports: [CoreComponent, HeaderComponent, FooterComponent, InfoPanelComponent, LessonComponent],
+	exports: [
+		CoreComponent,
+		HeaderComponent,
+		FooterComponent,
+		InfoPanelComponent,
+		LessonComponent,
+		RootComponent
+	],
 	providers: [
 		DataBaseService,
 		UsersDataService,
 		LessonsDataService,
 		DialogService,
-		UserStoreFacade
+		UserStoreFacade,
+		MenteeDataService
 	]
 })
 export class CoreModule {}

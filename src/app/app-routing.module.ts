@@ -2,15 +2,19 @@ import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { SignInComponent } from "../../projects/core/src/lib/authorization/components/sign-in/sign-in.component";
 import { AuthGuard } from "projects/core/src/lib/authorization/guards/auth/auth.guard";
-import { RoleSelectComponent } from "../../projects/core/src/lib/authorization/components/role-select/role-select.component";
 import { HomePageComponent } from "projects/core/src/lib/components/home-page/home-page.component";
+import { RootComponent } from "../../projects/core/src/lib/components/root/root.component";
 // route guards
 
 const routes: Routes = [
-	{ path: "", redirectTo: "/home-page", pathMatch: "full" },
 	{ path: "home-page", component: HomePageComponent },
-	{ path: "sign-in", component: SignInComponent },
-	{ path: "role-select", component: RoleSelectComponent, canActivate: [AuthGuard] },
+	{
+		path: "registration",
+		loadChildren: () =>
+			import(
+				"../../projects/core/src/lib/authorization/components/register/register.module"
+			).then((m) => m.RegisterModule)
+	},
 	{
 		path: "talks-page",
 		loadChildren: () =>
@@ -27,8 +31,13 @@ const routes: Routes = [
 		canActivate: [AuthGuard]
 	}
 ];
+
+const appRoutes: Routes = [
+	{ path: "", component: RootComponent, children: routes, canActivate: [AuthGuard] },
+	{ path: "sign-in", component: SignInComponent }
+];
 @NgModule({
-	imports: [RouterModule.forRoot(routes)],
+	imports: [RouterModule.forRoot(appRoutes)],
 	exports: [RouterModule]
 })
 export class AppRoutingModule {}

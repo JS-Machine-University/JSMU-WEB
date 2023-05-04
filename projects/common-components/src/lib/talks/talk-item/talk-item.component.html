@@ -19,17 +19,15 @@
 				<div *ngIf="talk.status !== 'null'" class="jsmu-talk-item__status">
 					<p>Status:</p>
 					&nbsp;
-					<p>{{talk.status}}</p>
+					<p>{{ talk.status }}</p>
 				</div>
 			</div>
 			<div class="jsmu-talk-item__body">
 				<p>Dear Middle Developer Growth Expert</p>
 				<div class="jsmu-talk-item__experts">
 					Experts names:
-					<ng-container *ngIf="talk.experts!=='null'">
-						<ng-container *ngFor="let expert of talk.experts">
-							{{expert}}&nbsp;
-						</ng-container>
+					<ng-container *ngFor="let expert of (talk.experts | iterableNullCheck)">
+						{{expert}}&nbsp;
 					</ng-container>
 				</div>
 				<div class="jsmu-talk-item__mentee">
