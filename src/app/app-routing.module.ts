@@ -9,7 +9,6 @@ import { RootComponent } from "../../projects/core/src/lib/components/root/root.
 
 const routes: Routes = [
 	{ path: "home-page", component: HomePageComponent },
-	//{ path: "talks", component: TalksListComponent },
 	{ path: "mentee-page", component: MenteePageComponent },
 	{
 		path: "registration",
