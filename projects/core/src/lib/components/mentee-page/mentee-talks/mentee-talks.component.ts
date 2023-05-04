@@ -1,7 +1,9 @@
 import { ChangeDetectionStrategy, Component, OnInit } from "@angular/core";
 import { MenteeTalksFacadeService, Talk } from "@jsmu/core";
 import { map } from "rxjs/operators";
-import { Observable } from "rxjs";
+import { mergeMap, Observable } from "rxjs";
+import { MenteeDataService } from "../../../services/mentee.data.service";
+import { UserStoreFacade } from "../../../Store/users/users.store.facade";
 
 @Component({
 	selector: "jsmu-mentee-talks",
@@ -12,8 +14,11 @@ import { Observable } from "rxjs";
 export class MenteeTalksComponent implements OnInit {
 	public submitPermission: boolean = true;
 	public talks$!: Observable<Talk[]>;
-	public menteeId: number = 14; //Hardcore menteeId
-	constructor(private menteeTalksFacade: MenteeTalksFacadeService) {}
+	constructor(
+		private menteeTalksFacade: MenteeTalksFacadeService,
+		private menteeService: MenteeDataService,
+		private userFacade: UserStoreFacade
+	) {}
 
 	ngOnInit(): void {
 		this.menteeTalksFacade.dispatchMenteeTalksLoading();
@@ -21,11 +26,19 @@ export class MenteeTalksComponent implements OnInit {
 	}
 
 	private talksDefining(): void {
-		this.talks$ = this.menteeTalksFacade.selectMenteeTalks().pipe(
-			map((data: Talk[]) => {
-				return data.filter((talk: Talk) => {
-					return talk.menteeId === this.menteeId;
-				});
+		this.talks$ = this.userFacade.getUser().pipe(
+			mergeMap((user) => {
+				return this.menteeService.getMenteeIdByUid(user?.user.value.uid!).pipe(
+					mergeMap((menteeId) => {
+						return this.menteeTalksFacade.selectMenteeTalks().pipe(
+							map((data) => {
+								return data.filter((talk) => {
+									return talk.menteeId === menteeId;
+								});
+							})
+						);
+					})
+				);
 			})
 		);
 	}

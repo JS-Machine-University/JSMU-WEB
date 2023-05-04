@@ -19,7 +19,9 @@ export class TalkItemComponent {
 		if (this.talk.id !== "null" && this.talk.status === "null" && this.submitPermission) {
 			let updatedTalk: Talk = JSON.parse(JSON.stringify(this.talk));
 			updatedTalk.status = Status.Submitted;
+			delete updatedTalk["id"];
 			this.menteeTalksFacade.dispatchMenteeTalksUpdating(this.talk.id!, updatedTalk);
+			this.talk = updatedTalk;
 		}
 	}
 }
