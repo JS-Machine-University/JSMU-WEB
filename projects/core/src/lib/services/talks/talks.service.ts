@@ -14,11 +14,11 @@ export class TalksService {
 	getTalksFromDb<Talk>(): Observable<Talk[]> {
 		return this.dbService.getData<Talk[]>(ListType.TALKS).pipe(
 			map((talks) => {
-				let talksArray: Talk[] = [];
-				for (let key in talks) {
-					talksArray.push({ ...talks[key], id: key });
+				let talksById: Talk[] = [];
+				for (const key in talks) {
+					talksById.push({ ...talks[key], id: key });
 				}
-				return talksArray;
+				return talksById;
 			})
 		);
 	}

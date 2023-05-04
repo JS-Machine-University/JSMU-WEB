@@ -1,9 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from "@angular/core";
-import { ListType, MenteeTalksFacadeService, Result, Talk } from "@jsmu/core";
+import { MenteeTalksFacadeService, Talk } from "@jsmu/core";
 import { map } from "rxjs/operators";
 import { Observable } from "rxjs";
-import { Status } from "../../../models/status";
-import { DataBaseService } from "../../../services/database.service";
 
 @Component({
 	selector: "jsmu-mentee-talks",
