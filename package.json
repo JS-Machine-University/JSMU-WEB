@@ -11,7 +11,18 @@
     "lint": "ng lint",
     "prepare": "husky install",
     "test-ci": "ng test --karma-config=karma-ci.conf.js --no-progress --code-coverage",
-    "quality-check": "npm run build-prod && npm run lint && npm run test-ci"
+    "quality-check": "npm run build-prod && npm run lint && npm run test-ci",
+    "client:deploy": "sls client deploy --no-config-change --no-policy-change --no-cors-change",
+		"client:deploy:nc": "npm run client:deploy -- --no-confirm",
+		"client:build:deploy": "npm run build-prod && npm run client:deploy",
+		"client:build:deploy:nc": "npm run build-prod && npm run client:deploy:nc",
+		"cloudfront:setup": "sls deploy",
+		"cloudfront:domainInfo": "sls domainInfo",
+		"cloudfront:invalidateCache": "sls invalidateCloudFrontCache",
+		"cloudfront:build:deploy": "npm run client:build:deploy && npm run cloudfront:invalidateCache",
+		"cloudfront:build:deploy:nc": "npm run client:build:deploy:nc && npm run cloudfront:invalidateCache",
+		"cloudfront:update:build:deploy": "npm run cloudfront:setup && npm run cloudfront:build:deploy",
+		"cloudfront:update:build:deploy:nc": "npm run cloudfront:setup && npm run cloudfront:build:deploy:nc"
   },
   "private": true,
   "dependencies": {
@@ -30,7 +41,10 @@
     "@ngrx/store-devtools": "^14.0.2",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
-    "zone.js": "~0.11.4"
+    "zone.js": "~0.11.4",
+    "serverless": "^3.27.0",
+    "serverless-finch": "^4.0.0",
+    "serverless-single-page-app-plugin": "file:./serverless-single-page-app-plugin"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^14.2.6",
