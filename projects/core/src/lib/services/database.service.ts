@@ -18,4 +18,11 @@ export class DataBaseService<T> {
 			newData
 		);
 	}
+
+	public updateData<T>(listType: ListType, id: string, newData: T): Observable<T> {
+		return this.http.patch<T>(
+			`${environment.firebaseConfig.databaseURL}/${listType}/${id}.json`,
+			newData
+		);
+	}
 }

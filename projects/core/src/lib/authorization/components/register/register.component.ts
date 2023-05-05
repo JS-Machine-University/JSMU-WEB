@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
 import { Lesson } from "@jsmu/core";
 import { Subject, takeUntil } from "rxjs";
-import { LessonsDataService } from "../../../services/lessons.data.service";
+import { LessonsDataService } from "../../../services/lessons-data-service/lessons.data.service";
 import { Router } from "@angular/router";
 import { FormGroup } from "@angular/forms";
 import { MenteeFormService } from "../../services/forms/mentee.form.service";

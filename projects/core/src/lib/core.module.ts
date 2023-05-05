@@ -3,11 +3,11 @@ import { CommonModule } from "@angular/common";
 import { CommonComponentsModule } from "@jsmu/common-components";
 import { NgModule } from "@angular/core";
 import { CoreComponent } from "./core.component";
-import { LessonsDataService } from "./services/lessons.data.service";
+import { HttpClientModule } from "@angular/common/http";
+import { LessonsDataService } from "./services/lessons-data-service/lessons.data.service";
 import { AuthorizationModule } from "./authorization/authorization.module";
 import { DataBaseService } from "./services/database.service";
 import { UsersDataService } from "./services/users.data.service";
-import { MenteePageComponent } from "./components/mentee-page/mentee-page.component";
 import { LessonComponent } from "../../../common-components/src/lib/lesson/lesson.component";
 import { HeaderComponent } from "./components/header/header.component";
 import { RouterModule } from "@angular/router";
@@ -25,24 +25,22 @@ import { UserEffects } from "./Store/users/user.effects";
 import { UserStoreFacade } from "./Store/users/users.store.facade";
 import { RootComponent } from "./components/root/root.component";
 import { MenteeDataService } from "./services/mentee.data.service";
-import { TalksPageModule } from "./components/talks-page/talks-page.module";
 
 @NgModule({
 	imports: [
 		CommonModule,
 		CommonComponentsModule,
+		HttpClientModule,
 		AuthorizationModule,
 		StoreModule.forFeature("users", userReducer, {}),
 		StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
 		EffectsModule.forFeature([UserEffects]),
 		StoreRouterConnectingModule.forRoot(),
 		RouterModule,
-		SharedModule,
-		TalksPageModule
+		SharedModule
 	],
 	declarations: [
 		CoreComponent,
-		MenteePageComponent,
 		LessonComponent,
 		HeaderComponent,
 		FooterComponent,
@@ -50,7 +48,14 @@ import { TalksPageModule } from "./components/talks-page/talks-page.module";
 		InfoPanelComponent,
 		RootComponent
 	],
-	exports: [CoreComponent, HeaderComponent, FooterComponent, InfoPanelComponent, RootComponent],
+	exports: [
+		CoreComponent,
+		HeaderComponent,
+		FooterComponent,
+		InfoPanelComponent,
+		LessonComponent,
+		RootComponent
+	],
 	providers: [
 		DataBaseService,
 		UsersDataService,

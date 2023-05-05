@@ -7,9 +7,9 @@ import { EffectsModule } from "@ngrx/effects";
 @NgModule({
 	declarations: [],
 	imports: [
-		CommonModule
-		//StoreModule.forFeature(talks, talksReducer, { initialState: initialState }),
-		//EffectsModule.forFeature([TalksEffects])
+		CommonModule,
+		StoreModule.forFeature(talks, talksReducer, { initialState: initialState }),
+		EffectsModule.forFeature([TalksEffects])
 	],
 	exports: []
 })

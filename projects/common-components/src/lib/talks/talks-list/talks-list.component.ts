@@ -10,6 +10,7 @@ import { SortPipe } from "@jsmu/shared";
 })
 export class TalksListComponent implements OnChanges {
 	@Input() talks: Talk[] = [];
+	@Input() submitPermission!: boolean;
 	public sortPipe = new SortPipe();
 
 	ngOnChanges(): void {

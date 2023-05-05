@@ -1,7 +1,7 @@
 import { NgModule } from "@angular/core";
 import { CommonComponentsComponent } from "./common-components.component";
 import { ButtonComponent } from "./button/button.component";
-import { SharedModule, SortPipe } from "@jsmu/shared";
+import { SharedModule } from "@jsmu/shared";
 import { NavigationComponent } from "./navigation/navigation/navigation.component";
 import { NavigationItemListComponent } from "./navigation/navigation-item-list/navigation-item-list.component";
 import { NavigationItemComponent } from "./navigation/navigation-item/navigation-item.component";
@@ -23,7 +23,6 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 		NavigationItemComponent,
 		AvatarComponent,
 		DialogComponent,
-		DialogComponent,
 		MenteeFormComponent,
 		ButtonComponent,
 		TalksListComponent,
@@ -39,7 +38,6 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 		NavigationComponent,
 		AvatarComponent,
 		DialogComponent,
-		ButtonComponent,
 		TalksListComponent,
 		MenteeFormComponent,
 		TalkItemComponent,

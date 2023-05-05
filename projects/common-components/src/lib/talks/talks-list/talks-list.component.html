@@ -3,5 +3,6 @@
 		*ngFor="let talk of talks; let i = index"
 		[isShowLine]="isShowLine(talks, i)"
 		[talk]="talk"
+		[submitPermission]="submitPermission"
 	></jsmu-talk-item>
 </div>

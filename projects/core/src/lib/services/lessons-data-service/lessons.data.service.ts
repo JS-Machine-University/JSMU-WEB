@@ -1,8 +1,8 @@
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-import { DataBaseService } from "./database.service";
-import { Lesson } from "../models/lesson";
-import { ListType } from "../models/list-type";
+import { DataBaseService } from "../database.service";
+import { Lesson } from "../../models/lesson";
+import { ListType } from "../../models/list-type";
 
 @Injectable()
 export class LessonsDataService {

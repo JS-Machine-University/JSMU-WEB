@@ -13,13 +13,13 @@
 		<div class="jsmu-talk-item__content">
 			<div class="jsmu-talk-item__header">
 				<div class="jsmu-talk-item__expert">Maksim Samuilionak</div>
-				<div class="jsmu-talk-item__date">
+				<div class="jsmu-talk-item__date" *ngIf="talk.resultDate!=='null'">
 					{{talk.resultDate | date: 'dd/MM/yy, h:mm a'}}
 				</div>
-				<div *ngIf="talk.status !== 'None'" class="jsmu-talk-item__status">
+				<div *ngIf="talk.status !== 'null'" class="jsmu-talk-item__status">
 					<p>Status:</p>
 					&nbsp;
-					<p>{{talk.status}}</p>
+					<p>{{ talk.status }}</p>
 				</div>
 			</div>
 			<div class="jsmu-talk-item__body">
@@ -39,6 +39,8 @@
 		</div>
 	</div>
 	<div class="jsmu-talk-item__btn">
-		<jsmu-button class="submit">Submit</jsmu-button>
+		<jsmu-button class="submit" *ngIf="talk.status !== 'Submitted' " (click)="updateStatus()">
+			Submit
+		</jsmu-button>
 	</div>
 </div>

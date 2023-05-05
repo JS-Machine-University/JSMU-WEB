@@ -2,14 +2,12 @@ import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { SignInComponent } from "../../projects/core/src/lib/authorization/components/sign-in/sign-in.component";
 import { AuthGuard } from "projects/core/src/lib/authorization/guards/auth/auth.guard";
-import { MenteePageComponent } from "projects/core/src/lib/components/mentee-page/mentee-page.component";
 import { HomePageComponent } from "projects/core/src/lib/components/home-page/home-page.component";
 import { RootComponent } from "../../projects/core/src/lib/components/root/root.component";
 // route guards
 
 const routes: Routes = [
 	{ path: "home-page", component: HomePageComponent },
-	{ path: "mentee-page", component: MenteePageComponent },
 	{
 		path: "registration",
 		loadChildren: () =>
@@ -22,6 +20,13 @@ const routes: Routes = [
 		loadChildren: () =>
 			import("../../projects/core/src/lib/components/talks-page/talks-page.module").then(
 				(m) => m.TalksPageModule
+			)
+	},
+	{
+		path: "mentee-page",
+		loadChildren: () =>
+			import("../../projects/core/src/lib/components/mentee-page/mentee-page.module").then(
+				(m) => m.MenteePageModule
 			)
 	}
 ];

@@ -1,9 +1,8 @@
 import { Injectable } from "@angular/core";
-import { map, Observable, of, switchMap } from "rxjs";
+import { map, Observable, of } from "rxjs";
 import { User } from "../authorization/models/user";
 import { ListType } from "../models/list-type";
 import { DataBaseService } from "./database.service";
-import { AuthService } from "../authorization/services/auth/auth.service";
 
 @Injectable()
 export class UsersDataService {
