@@ -27,8 +27,7 @@ const routes: Routes = [
 		loadChildren: () =>
 			import("../../projects/core/src/lib/components/mentee-page/mentee-page.module").then(
 				(m) => m.MenteePageModule
-			),
-		canActivate: [AuthGuard]
+			)
 	}
 ];
 
