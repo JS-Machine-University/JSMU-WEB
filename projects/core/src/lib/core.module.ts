@@ -25,6 +25,7 @@ import { UserEffects } from "./Store/users/user.effects";
 import { UserStoreFacade } from "./Store/users/users.store.facade";
 import { RootComponent } from "./components/root/root.component";
 import { MenteeDataService } from "./services/mentee.data.service";
+import { ExpertModule } from "./components/expert/expert.module";
 
 @NgModule({
 	imports: [
@@ -37,7 +38,8 @@ import { MenteeDataService } from "./services/mentee.data.service";
 		EffectsModule.forFeature([UserEffects]),
 		StoreRouterConnectingModule.forRoot(),
 		RouterModule,
-		SharedModule
+		SharedModule,
+		ExpertModule
 	],
 	declarations: [
 		CoreComponent,
