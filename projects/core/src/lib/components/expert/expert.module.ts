@@ -1,8 +1,11 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { ExpertComponent } from "./expert.component";
-import { CommonComponentsComponent, TalksListComponent } from "@jsmu/common-components";
+import { CommonComponentsComponent, CommonComponentsModule, TalksListComponent } from "@jsmu/common-components";
 import { RouterModule, Routes } from "@angular/router";
+import { CoreModule } from "../../core.module";
+
+
 
 export const routes: Routes = [
 	{
@@ -15,7 +18,7 @@ export const routes: Routes = [
 
 @NgModule({
 	declarations: [ExpertComponent],
-	imports: [CommonModule,CommonComponentsComponent,ExpertModule,RouterModule.forChild(routes)],
+	imports: [CommonModule,CoreModule, CommonComponentsModule, RouterModule.forChild(routes)],
   exports:[ExpertComponent]
 })
 export class ExpertModule {}

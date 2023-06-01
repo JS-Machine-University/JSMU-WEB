@@ -15,10 +15,10 @@ import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 import { StoreRouterConnectingModule } from "@ngrx/router-store";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { CommonModule } from "@angular/common";
-import { ExpertComponent } from "./expert/expert.component";
+
 
 @NgModule({
-	declarations: [AppComponent, ExpertComponent],
+	declarations: [AppComponent],
 	imports: [
 		CommonModule,
 		BrowserModule,

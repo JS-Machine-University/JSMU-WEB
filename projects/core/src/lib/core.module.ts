@@ -39,7 +39,7 @@ import { ExpertModule } from "./components/expert/expert.module";
 		StoreRouterConnectingModule.forRoot(),
 		RouterModule,
 		SharedModule,
-		ExpertModule
+		
 	],
 	declarations: [
 		CoreComponent,
